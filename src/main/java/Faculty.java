@@ -15,4 +15,9 @@ public class Faculty{
         this.facultyEmail = facultyEmail;
     }
 
+    @Override
+    public String toString() {
+        return "Код факультету: " +  facultyCode + ", назва факультету: " + facultyName + ", скорочена назва факультету: " + shortFacultyName + ", номер телефону факультету: " + facultyPhoneNumber + ", електронна пошта факультету: " + facultyEmail;
+    }
+
 }
