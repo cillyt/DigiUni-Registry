@@ -14,12 +14,8 @@ public class Teacher extends Person{
         this.rate = rate;
     }
 
-    public String getTeacherPosition() {
-        return teacherPosition;
-    }
-    public void setTeacherPosition(String teacherPosition) {
-        this.teacherPosition = teacherPosition;
-    }
+    public String getTeacherPosition() {return teacherPosition;}
+    public void setTeacherPosition(String teacherPosition) {this.teacherPosition = teacherPosition;}
     public String getAcademicDegree() {
         return academicDegree;
     }
