@@ -7,11 +7,13 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Operations.addingDepartment();
-        Operations.addingFaculty();
-        Operations.addingStudent();
-        Operations.addingTeacher();
-        Operations.addingUniversity();
+        Menu.mainMenu();
+
+        //Operations.addingDepartment();
+        //Operations.addingFaculty();
+        //Operations.addingStudent();
+        //Operations.addingTeacher();
+        //Operations.addingUniversity();
 
 
         //BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

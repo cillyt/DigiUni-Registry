@@ -1,5 +1,4 @@
 public class Student extends Person {
-    int studentID;
     int courseNumber; //+ перевірка чи в межах 1-6
     int groupNumber;
     int yearOfEntry;
@@ -8,13 +7,47 @@ public class Student extends Person {
 
     Student(int personID, String personSurname, String personName, String middleName, String birthDate, String personEmail, long personPhone, int courseNumber, int groupNumber, int yearOfEntry, boolean studyForm, String studentStatus) {
         super(personID, personSurname, personName, middleName, birthDate, personEmail, personPhone);
-        this.studentID = personID;
         this.courseNumber = courseNumber;
         this.groupNumber = groupNumber;
         this.yearOfEntry = yearOfEntry;
         this.studyForm = studyForm;
         this.studentStatus = studentStatus;
     }
+
+    public int getCourseNumber() {
+        return courseNumber;
+    }
+    public void setCourseNumber(int courseNumber) {
+        this.courseNumber = courseNumber;
+    }
+    public int getGroupNumber() {
+        return groupNumber;
+    }
+    public void setGroupNumber(int groupNumber) {
+        this.groupNumber = groupNumber;
+    }
+    public int getYearOfEntry() {
+        return yearOfEntry;
+    }
+    public void setYearOfEntry(int yearOfEntry) {
+        this.yearOfEntry = yearOfEntry;
+    }
+    public boolean isStudyForm() {
+        return studyForm;
+    }
+    public void setStudyForm(boolean studyForm) {
+        this.studyForm = studyForm;
+    }
+    public String getStudentStatus() {
+        return studentStatus;
+    }
+    public void setStudentStatus(String studentStatus) {
+        this.studentStatus = studentStatus;
+    }
+
+
+
+
 
     @Override
     public String toString() {
