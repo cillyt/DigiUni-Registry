@@ -3,6 +3,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Operations {
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -529,4 +530,158 @@ public class Operations {
         Menu.teacherMenu();
     }
 
+
+
+
+
+
+
+
+
+    public static void findingStudent() throws IOException {
+        int studentFindingQuestion = Menu.studentFindingQuestion();
+        switch(studentFindingQuestion){
+            case 0:
+                Menu.mainMenu();
+            case 1:
+                System.out.println("Введіть ПІБ для пошуку: ");
+                String findBySNM = reader.readLine();
+                Student student = getUserOrDefaultSNM(findBySNM);
+                if (student != null) {
+                    System.out.println("Знайдено студента: " + student);
+                    findingStudent();
+                }
+                else findingStudent();
+                break;
+            case 2:
+                System.out.println("Введіть курс для пошуку: ");
+                int findByYear = Integer.parseInt((reader.readLine()));
+                Student student1 = getUserOrDefaultYear(findByYear);
+                if (student1 != null) {
+                    System.out.println("Знайдено студента: " + student1);
+                    findingStudent();
+                }
+                else findingStudent();
+                break;
+            case 3:
+                System.out.println("Введіть групу для пошуку: ");
+                int findByGroup = Integer.parseInt((reader.readLine()));
+                Student student2 = getUserOrDefaultGroup(findByGroup);
+                if (student2 != null) {
+                    System.out.println("Знайдено студента: " + student2);
+                    findingStudent();
+                }
+                else findingStudent();
+                break;
+        }
+    }
+
+
+    public static void findingTeacher() throws IOException {
+        int teacherFindingQuestion = Menu.teacherFindingQuestion();
+        switch(teacherFindingQuestion){
+            case 0:
+                Menu.mainMenu();
+            case 1:
+                System.out.println("Введіть ПІБ для пошуку: ");
+                String findBySNM = reader.readLine();
+                Teacher teacher = getUserOrDefaultSNMt(findBySNM);
+                if (teacher != null) {
+                    System.out.println("Знайдено викладача: " + teacher);
+                    findingTeacher();
+                }
+                else findingTeacher();
+                break;
+
+        }
+    }
+
+
+
+    public static Teacher getUserOrDefaultSNMt(String snm) throws IOException {
+        return findBySNMt(snm)
+                .orElseGet(
+                        () -> {System.out.println("Викладача не знайдено");
+                            return null;
+                        });
+    }
+
+    public static Optional<Teacher> findBySNMt(String snm) throws IOException {
+
+        for (Teacher teacher : Department.teachers) {
+
+            String  SNM = teacher.getPersonSurname() + " " + teacher.getPersonName() + " " + teacher.getMiddleName();
+            if (teacher != null && snm.equalsIgnoreCase(SNM)) {
+                return Optional.of(teacher);
+            }
+
+        }
+        return Optional.empty();
+    }
+
+
+
+    public static Student getUserOrDefaultSNM(String snm) throws IOException {
+        return findBySNM(snm)
+                .orElseGet(
+                        () -> {System.out.println("Студента не знайдено");
+                            return null;
+                        });
+    }
+
+    public static Optional<Student> findBySNM(String snm) throws IOException {
+
+        for (Student student : Department.students) {
+
+            String  SNM = student.getPersonSurname() + " " + student.getPersonName() + " " + student.getMiddleName();
+            if (student != null && snm.equalsIgnoreCase(SNM)) {
+                return Optional.of(student);
+            }
+
+        }
+        return Optional.empty();
+    }
+
+
+
+
+
+
+    public static Student getUserOrDefaultYear(int year) throws IOException {
+        return findByYear(year)
+                .orElseGet(
+                        () -> {System.out.println("Студента не знайдено");
+                            return null;
+                        });
+    }
+
+    public static Optional<Student> findByYear(int year) throws IOException {
+        for (Student student : Department.students) {
+            if (student != null && year == student.getCourseNumber() ) {
+                return Optional.of(student);
+            }
+        }
+        return Optional.empty();
+    }
+
+
+
+
+
+    public static Student getUserOrDefaultGroup(int group) throws IOException {
+        return findByGroup(group)
+                .orElseGet(
+                        () -> {System.out.println("Студента не знайдено");
+                            return null;
+                        });
+    }
+
+    public static Optional<Student> findByGroup(int group) throws IOException {
+        for (Student student : Department.students) {
+            if (student != null && group == student.getGroupNumber()) {
+                return Optional.of(student);
+            }
+        }
+        return Optional.empty();
+    }
 }

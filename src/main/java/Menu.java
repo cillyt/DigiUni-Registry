@@ -126,6 +126,7 @@ public class Menu {
         System.out.println("1. Додати студента");
         System.out.println("2. Редагувати дані студента");
         System.out.println("3. Вилучити студента");
+        System.out.println("4. Знайти студента");
         System.out.println("Введіть номер дії: ");
         int operation = Integer.parseInt(reader.readLine());
 
@@ -141,6 +142,10 @@ public class Menu {
                 break;
             case 3:
                 Operations.deletingStudent();
+                break;
+            case 4:
+                Operations.findingStudent();
+                break;
 
         }
     }
@@ -151,6 +156,7 @@ public class Menu {
         System.out.println("1. Додати викладача");
         System.out.println("2. Редагувати дані викладача");
         System.out.println("3. Вилучити викладача");
+        System.out.println("4. Знайти викладача");
 
 
         System.out.println("Введіть номер дії: ");
@@ -168,6 +174,10 @@ public class Menu {
                 break;
             case 3:
                 Operations.deletingTeacher();
+                break;
+            case 4:
+                Operations.findingTeacher();
+                break;
 
         }
     }
@@ -240,7 +250,7 @@ public class Menu {
 
 
     public static int universityParameterQuestion() throws IOException {
-        System.out.println("Оберіть параметр, що ви хочете змінити: ");
+        System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Назва університету");
         System.out.println("2. Скорочена назва університету");
@@ -254,7 +264,7 @@ public class Menu {
     }
 
     public static int facultyParameterQuestion() throws IOException {
-        System.out.println("Оберіть параметр, що ви хочете змінити: ");
+        System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Код факультету");
         System.out.println("2. Назва факультету");
@@ -269,7 +279,7 @@ public class Menu {
     }
 
     public static int departmentParameterQuestion() throws IOException {
-        System.out.println("Оберіть параметр, що ви хочете змінити: ");
+        System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Код кафедри");
         System.out.println("2. Назва кафедри");
@@ -282,7 +292,7 @@ public class Menu {
     }
 
     public static int studentParameterQuestion() throws IOException {
-        System.out.println("Оберіть параметр, що ви хочете змінити: ");
+        System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Унікальний ідентифікатор");
         System.out.println("2. Прізвище");
@@ -306,7 +316,7 @@ public class Menu {
     }
 
     public static int teacherParameterQuestion() throws IOException {
-        System.out.println("Оберіть параметр, що ви хочете змінити: ");
+        System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Унікальний ідентифікатор");
         System.out.println("2. Прізвище");
@@ -327,6 +337,33 @@ public class Menu {
         return parameter;
 
 
+    }
+
+
+    public static int studentFindingQuestion() throws IOException {
+        System.out.println("Оберіть за чим ви хочете знайти студента: ");
+        System.out.println("0. Завершити зміни");
+        System.out.println("1. ПІБ");
+        System.out.println("2. Курс");
+        System.out.println("3. Група");
+
+        System.out.print("Введіть номер параметра: ");
+        int parameterf = Integer.parseInt(reader.readLine());
+
+        return parameterf;
+
+
+    }
+
+    public static int teacherFindingQuestion() throws IOException {
+        System.out.println("Оберіть за чим ви хочете знайти викладача: ");
+        System.out.println("0. Завершити зміни");
+        System.out.println("1. ПІБ");
+
+        System.out.print("Введіть номер параметра: ");
+        int parametert = Integer.parseInt(reader.readLine());
+
+        return parametert;
     }
 
 }
