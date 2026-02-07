@@ -57,9 +57,9 @@ public class Menu {
             case 1:
                 Operations.addingUniversity();
                 break;
-            //case 2:
-              //  Operations.editingUniversity();
-                //break;
+            case 2:
+                Operations.editingUniversity();
+                break;
             case 3:
                 Operations.deletingUniversity();
 
@@ -83,9 +83,9 @@ public class Menu {
             case 1:
                 Operations.addingFaculty();
                 break;
-            //case 2:
-              //  Operations.editingUniversity();
-                //break;
+            case 2:
+                Operations.editingFaculty();
+                break;
             case 3:
                 Operations.deletingFaculty();
 
@@ -110,9 +110,9 @@ public class Menu {
             case 1:
                 Operations.addingDepartment();
                 break;
-            //case 2:
-              //  Operations.editingUniversity();
-                //break;
+            case 2:
+                Operations.editingDepartment();
+                break;
             case 3:
                 Operations.deletingDepartment();
 
@@ -136,9 +136,9 @@ public class Menu {
             case 1:
                 Operations.addingStudent();
                 break;
-            //case 2:
-              //  Operations.editingUniversity();
-                //break;
+            case 2:
+                Operations.editingStudent();
+                break;
             case 3:
                 Operations.deletingStudent();
 
@@ -163,9 +163,9 @@ public class Menu {
             case 1:
                 Operations.addingTeacher();
                 break;
-            //case 2:
-              //  Operations.editingUniversity();
-                //break;
+            case 2:
+                Operations.editingTeacher();
+                break;
             case 3:
                 Operations.deletingTeacher();
 
@@ -236,6 +236,97 @@ public class Menu {
         int teach = Integer.parseInt(reader.readLine());
         teach--;
         return teach;
+    }
+
+
+    public static int universityParameterQuestion() throws IOException {
+        System.out.println("Оберіть параметр, що ви хочете змінити: ");
+        System.out.println("0. Завершити зміни");
+        System.out.println("1. Назва університету");
+        System.out.println("2. Скорочена назва університету");
+        System.out.println("3. Місто");
+        System.out.println("4. Адреса");
+
+        System.out.print("Введіть номер параметра: ");
+        int parameter = Integer.parseInt(reader.readLine());
+
+        return parameter;
+    }
+
+    public static int facultyParameterQuestion() throws IOException {
+        System.out.println("Оберіть параметр, що ви хочете змінити: ");
+        System.out.println("0. Завершити зміни");
+        System.out.println("1. Код факультету");
+        System.out.println("2. Назва факультету");
+        System.out.println("3. Скорочена назва факультету");
+        System.out.println("4. Номер телефону");
+        System.out.println("5. Пошта факультету");
+
+        System.out.print("Введіть номер параметра: ");
+        int parameter = Integer.parseInt(reader.readLine());
+
+        return parameter;
+    }
+
+    public static int departmentParameterQuestion() throws IOException {
+        System.out.println("Оберіть параметр, що ви хочете змінити: ");
+        System.out.println("0. Завершити зміни");
+        System.out.println("1. Код кафедри");
+        System.out.println("2. Назва кафедри");
+        System.out.println("3. Кабінет");
+
+        System.out.print("Введіть номер параметра: ");
+        int parameter = Integer.parseInt(reader.readLine());
+
+        return parameter;
+    }
+
+    public static int studentParameterQuestion() throws IOException {
+        System.out.println("Оберіть параметр, що ви хочете змінити: ");
+        System.out.println("0. Завершити зміни");
+        System.out.println("1. Унікальний ідентифікатор");
+        System.out.println("2. Прізвище");
+        System.out.println("3. Ім'я");
+        System.out.println("4. По-батькові");
+        System.out.println("5. Дата народження");
+        System.out.println("6. Електронна пошта");
+        System.out.println("7. Номер телефону");
+        System.out.println("8. Курс");
+        System.out.println("9. Група");
+        System.out.println("10. Рік вступу");
+        System.out.println("11. Форма навчання");
+        System.out.println("12. Статус");
+
+        System.out.print("Введіть номер параметра: ");
+        int parameter = Integer.parseInt(reader.readLine());
+
+        return parameter;
+
+
+    }
+
+    public static int teacherParameterQuestion() throws IOException {
+        System.out.println("Оберіть параметр, що ви хочете змінити: ");
+        System.out.println("0. Завершити зміни");
+        System.out.println("1. Унікальний ідентифікатор");
+        System.out.println("2. Прізвище");
+        System.out.println("3. Ім'я");
+        System.out.println("4. По-батькові");
+        System.out.println("5. Дата народження");
+        System.out.println("6. Електронна пошта");
+        System.out.println("7. Номер телефону");
+        System.out.println("8. Посада");
+        System.out.println("9. Науковий ступінь");
+        System.out.println("10. Вчене звання");
+        System.out.println("11. Рік прийняття на роботу");
+        System.out.println("12. Ставка");
+
+        System.out.print("Введіть номер параметра: ");
+        int parameter = Integer.parseInt(reader.readLine());
+
+        return parameter;
+
+
     }
 
 }

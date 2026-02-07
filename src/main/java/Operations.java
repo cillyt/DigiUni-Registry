@@ -8,10 +8,7 @@ public class Operations {
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     static List<University> universities = new ArrayList<>();  //масиви об'єктів, які можна додати
-    //static List<Faculty> faculties = new ArrayList<>();
-    //static List<Department> departments = new ArrayList<>();
-    //static List<Student> students = new ArrayList<>();
-    //static List<Teacher> teachers = new ArrayList<>();
+
 
     public static void addingUniversity() throws IOException {
         System.out.print("Назва університету: ");  //ввід даних користувачем
@@ -29,7 +26,7 @@ public class Operations {
         }
 
         System.out.println("Університет було додано!");
-        Menu.mainMenu();
+        Menu.universityMenu();
     }
 
    public static void addingFaculty() throws IOException {
@@ -53,7 +50,7 @@ public class Operations {
        }
 
         System.out.println("Факультет було додано!");
-        Menu.mainMenu();
+        Menu.facultyMenu();
     }
 
     public static void addingDepartment() throws IOException {
@@ -74,7 +71,7 @@ public class Operations {
         }
 
         System.out.println("Кафедру було додано!");
-        Menu.mainMenu();
+        Menu.departmentMenu();
     }
 
     public static void addingTeacher() throws IOException {
@@ -115,7 +112,7 @@ public class Operations {
         }
 
         System.out.println("Вчитель був успішно доданий!");
-        Menu.mainMenu();
+        Menu.teacherMenu();
     }
 
     public static void addingStudent() throws IOException {
@@ -145,7 +142,7 @@ public class Operations {
         System.out.print("Рік вступу: ");
         int yearOfEntry = Integer.parseInt(reader.readLine());
         System.out.print("Форма навчання: ");
-        boolean studyForm = Boolean.parseBoolean(reader.readLine());
+        String studyForm = reader.readLine();
         System.out.print("Статус: ");
         String studentStatus = reader.readLine();
 
@@ -156,7 +153,7 @@ public class Operations {
         }
 
         System.out.println("Студент був успішно доданий!");
-        Menu.mainMenu();
+        Menu.studentMenu();
     }
 
 
@@ -168,7 +165,7 @@ public class Operations {
             System.out.print(u + "\n");
         }
         System.out.println("Університет був успішно видалений!");
-        Menu.mainMenu();
+        Menu.universityMenu();
     }
 
     public static void deletingFaculty() throws IOException {
@@ -180,7 +177,7 @@ public class Operations {
             System.out.print(f + "\n");
         }
         System.out.println("Факультет був успішно видалений!");
-        Menu.mainMenu();
+        Menu.facultyMenu();
 
     }
 
@@ -194,7 +191,7 @@ public class Operations {
             System.out.print(d + "\n");
         }
         System.out.println("Кафедра була успішно видалена!");
-        Menu.mainMenu();
+        Menu.departmentMenu();
 
     }
 
@@ -209,7 +206,7 @@ public class Operations {
             System.out.print(s + "\n");
         }
         System.out.println("Студент був успішно вилучений!");
-        Menu.mainMenu();
+        Menu.studentMenu();
 
     }
 
@@ -224,80 +221,136 @@ public class Operations {
             System.out.print(t + "\n");
         }
         System.out.println("Викладач був успішно вилучений!");
-        Menu.mainMenu();
+        Menu.teacherMenu();
 
     }
 
 
-    /*public static void editingUniversity() throws IOException {
+    public static void editingUniversity() throws IOException {
         int uni = Menu.universityQuestion();
-        switch (editingUniversityQuestion){
-            case 1:
-                universities.get(uni).setFullUniversityName(newUniFullName);
-            case 2:
-                universities.get(uni).setShortUniversityName(newUniShortName);
-            case 3:
-                universities.get(uni).setCity(newUniCity);
-            case 4:
-                universities.get(uni).setAddress(newUniAddress);
+        boolean changed = false;
+
+        while(!changed) {
+            int changingParameter = Menu.universityParameterQuestion();
+
+            switch (changingParameter) {
+                case 0:
+                    changed = true;
+                    break;
+                case 1:
+                    System.out.print("Введіть нове повне ім'я університету: ");
+                    String newUniFullName = reader.readLine();
+                    universities.get(uni).setFullUniversityName(newUniFullName);
+                    break;
+                case 2:
+                    System.out.print("Введіть нове скорочене ім'я університету: ");
+                    String newUniShortName = reader.readLine();
+                    universities.get(uni).setShortUniversityName(newUniShortName);
+                    break;
+                case 3:
+                    System.out.print("Введіть нове місто: ");
+                    String newUniCity = reader.readLine();
+                    universities.get(uni).setCity(newUniCity);
+                    break;
+                case 4:
+                    System.out.print("Введіть нову адресу університету: ");
+                    String newUniAddress = reader.readLine();
+                    universities.get(uni).setAddress(newUniAddress);
+
+
+            }
         }
 
         for(University u : universities) {
             System.out.print(u + "\n");
         }
         System.out.println("Університет був успішно змінений!");
-        Menu.mainMenu();
+        Menu.universityMenu();
     }
+
+
 
     public static void editingFaculty() throws IOException {
         int uni = Menu.universityQuestion();
         int faculty = Menu.facultyQuestion(uni);
-        switch (editingFacultyQuestion){
-            case 1:
-                Operations.universities.get(uni).faculties.get(faculty).setFacultyCode(newFacultyCode);
-            case 2:
-                Operations.universities.get(uni).faculties.get(faculty).setFacultyName(newFacultyName);
-            case 3:
-                Operations.universities.get(uni).faculties.get(faculty).setShortFacultyName(newFacultyShortName);
-            //case 4:
-              //  Operations.universities.get(uni).faculties.get(faculty).setFacultyEmail(newFacultyEmail);
-            case 5:
-                Operations.universities.get(uni).faculties.get(faculty).setFacultyPhoneNumber(newFacultyNumber);
-            case 6:
-                Operations.universities.get(uni).faculties.get(faculty).setFacultyEmail(newFacultyEmail);
 
+        boolean changed = false;
+
+        while (!changed) {
+            int changingParameter = Menu.facultyParameterQuestion();
+            switch (changingParameter) {
+                case 0:
+                    changed = true;
+                    break;
+                case 1:
+                    System.out.print("Введіть новий код факультету: ");
+                    String newFacultyCode = reader.readLine();
+                    Operations.universities.get(uni).faculties.get(faculty).setFacultyCode(newFacultyCode);
+                    break;
+                case 2:
+                    System.out.print("Введіть нове повне ім'я факультету: ");
+                    String newFacultyName = reader.readLine();
+                    Operations.universities.get(uni).faculties.get(faculty).setFacultyName(newFacultyName);
+                    break;
+                case 3:
+                    System.out.print("Введіть нове скорочене ім'я факультету: ");
+                    String newFacultyShortName = reader.readLine();
+                    Operations.universities.get(uni).faculties.get(faculty).setShortFacultyName(newFacultyShortName);
+                    break;
+                case 4:
+                    System.out.print("Введіть новий номер телефону факультету: ");
+                    long newFacultyNumber = Long.parseLong(reader.readLine());
+                    Operations.universities.get(uni).faculties.get(faculty).setFacultyPhoneNumber(newFacultyNumber);
+                    break;
+                case 5:
+                    System.out.print("Введіть нову пошту факультету: ");
+                    String newFacultyEmail = reader.readLine();
+                    Operations.universities.get(uni).faculties.get(faculty).setFacultyEmail(newFacultyEmail);
+
+            }
         }
 
         for(Faculty f : Operations.universities.get(uni).faculties) {
             System.out.print(f + "\n");
         }
         System.out.println("Факультет був успішно змінений!");
-        Menu.mainMenu();
+        Menu.facultyMenu();
     }
 
     public static void editingDepartment() throws IOException {
         int uni = Menu.universityQuestion();
         int faculty = Menu.facultyQuestion(uni);
         int depart = Menu.departmentQuestion(uni, faculty);
-        switch (editingDepartQuestion){
-            case 1:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).setDepartmentCode(newDepartmentCode);
-            case 2:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).setDepartmentName(newDepartmentName);
-            //case 3:
-              //  universities.get(uni).faculties.get(faculty).departments.get(depart).s(newFacultyShortName);
-           // case 4:
-             //   universities.get(uni).faculties.get(faculty).departments.get(depart).setFacultyPhoneNumber(newFacultyNumber);
-            case 5:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).setCabinetNumber(newCabinetNumber);
+        boolean changed = false;
+        while(!changed) {
+            int changingParameter = Menu.departmentParameterQuestion();
+            switch (changingParameter) {
+                case 0:
+                    changed = true;
+                    break;
+                case 1:
+                    System.out.print("Введіть новий код кафедри: ");
+                    String newDepartmentCode = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).setDepartmentCode(newDepartmentCode);
+                    break;
+                case 2:
+                    System.out.print("Введіть нове ім'я кафедри: ");
+                    String newDepartmentName = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).setDepartmentName(newDepartmentName);
+                    break;
+                case 3:
+                    System.out.print("Введіть новий кабінет кафедри: ");
+                    int newCabinetNumber = Integer.parseInt(reader.readLine());
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).setCabinetNumber(newCabinetNumber);
 
+            }
         }
 
         for(Department d : universities.get(uni).faculties.get(faculty).departments) {
             System.out.print(d + "\n");
         }
         System.out.println("Кафедра була успішно змінена!");
-        Menu.mainMenu();
+        Menu.departmentMenu();
     }
 
     public static void editingStudent() throws IOException {
@@ -306,40 +359,87 @@ public class Operations {
         int depart = Menu.departmentQuestion(uni, faculty);
         int stud = Menu.studentQuestion(uni, faculty, depart);
 
-        switch (editingStudentQuestion){
-            case 1:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonID(meni lenki sori);
-            case 2:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonSurname();
-            case 3:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonName();
-            case 4:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setMiddleName();
-            case 5:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setBirthDate();
-            case 6:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonEmail();
-            case 7:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonPhone();
+        boolean changed = false;
 
-            case 8:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setCourseNumber();
-            case 9:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setGroupNumber();
-            case 10:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setYearOfEntry();
-            case 11:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setStudyForm();
-            case 12:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setStudentStatus();
+        while(!changed) {
 
+            int changingParameter = Menu.studentParameterQuestion();
+
+            switch (changingParameter) {
+                case 0:
+                    changed = true;
+                    break;
+                case 1:
+                    System.out.print("Введіть новий унікальний ідентифікатор: ");
+                    int newPersonID = Integer.parseInt(reader.readLine());
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonID(newPersonID);
+                    break;
+                case 2:
+                    System.out.print("Введіть нове прізвище: ");
+                    String newPersonSurname = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonSurname(newPersonSurname);
+                    break;
+                case 3:
+                    System.out.print("Введіть нове ім'я: ");
+                    String newPersonName = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonName(newPersonName);
+                    break;
+                case 4:
+                    System.out.print("Введіть нове по-батькові: ");
+                    String newMiddleName = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setMiddleName(newMiddleName);
+                    break;
+                case 5:
+                    System.out.print("Введіть новий день народження: ");
+                    String newBirthDate = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setBirthDate(newBirthDate);
+                    break;
+                case 6:
+                    System.out.print("Введіть нову електронну пошту: ");
+                    String newPersonEmail = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonEmail(newPersonEmail);
+                    break;
+                case 7:
+                    System.out.print("Введіть новий номер телефону: ");
+                    long newPersonPhone = Long.parseLong(reader.readLine());
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonPhone(newPersonPhone);
+                    break;
+
+                case 8:
+                    System.out.print("Введіть новий курс: ");
+                    int newCourseNumber = Integer.parseInt(reader.readLine());
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setCourseNumber(newCourseNumber);
+                    break;
+                case 9:
+                    System.out.print("Введіть новий номер групи: ");
+                    int newGroupNumber = Integer.parseInt(reader.readLine());
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setGroupNumber(newGroupNumber);
+                    break;
+                case 10:
+                    System.out.print("Введіть новий рік вступу: ");
+                    int newYearOfEntry = Integer.parseInt(reader.readLine());
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setYearOfEntry(newYearOfEntry);
+                    break;
+                case 11:
+                    System.out.print("Введіть нову форму навчання: ");
+                    String newStudyForm = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setStudyForm(newStudyForm);
+                    break;
+                case 12:
+                    System.out.print("Введіть новий статус студента: ");
+                    String newStudentStatus = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setStudentStatus(newStudentStatus);
+
+            }
         }
+
+
 
         for(Student s : universities.get(uni).faculties.get(faculty).departments.get(depart).students){
             System.out.print(s + "\n");
         }
         System.out.println("Студент був успішно змінений!");
-        Menu.mainMenu();
+        Menu.studentMenu();
     }
 
 
@@ -349,40 +449,84 @@ public class Operations {
         int depart = Menu.departmentQuestion(uni, faculty);
         int teach = Menu.teacherQuestion(uni, faculty, depart);
 
-        switch (editingTeacherQuestion){
-            case 1:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonID(meni lenki sori);
-            case 2:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonSurname();
-            case 3:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonName();
-            case 4:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setMiddleName();
-            case 5:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setBirthDate();
-            case 6:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonEmail();
-            case 7:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonPhone();
+        boolean changed = false;
 
-            case 8:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setTeacherPosition();
-            case 9:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setAcademicDegree();
-            case 10:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setAcademicTitle();
-            case 11:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setYearOfEntry();
-            case 12:
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setRate();
+        while(!changed) {
 
+            int changingParameter = Menu.teacherParameterQuestion();
+
+            switch (changingParameter) {
+                case 0:
+                    changed = true;
+                    break;
+                case 1:
+                    System.out.print("Введіть новий унікальний ідентифікатор: ");
+                    int newPersonID = Integer.parseInt(reader.readLine());
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonID(newPersonID);
+                    break;
+                case 2:
+                    System.out.print("Введіть нове прізвище: ");
+                    String newPersonSurname = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonSurname(newPersonSurname);
+                    break;
+                case 3:
+                    System.out.print("Введіть нове ім'я: ");
+                    String newPersonName = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonName(newPersonName);
+                    break;
+                case 4:
+                    System.out.print("Введіть нове по-батькові: ");
+                    String newMiddleName = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setMiddleName(newMiddleName);
+                    break;
+                case 5:
+                    System.out.print("Введіть новий день народження: ");
+                    String newBirthDate = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setBirthDate(newBirthDate);
+                    break;
+                case 6:
+                    System.out.print("Введіть нову електронну пошту: ");
+                    String newPersonEmail = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonEmail(newPersonEmail);
+                    break;
+                case 7:
+                    System.out.print("Введіть новий номер телефону: ");
+                    long newPersonPhone = Long.parseLong(reader.readLine());
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonPhone(newPersonPhone);
+                    break;
+                case 8:
+                    System.out.print("Введіть нову посаду: ");
+                    String newTeacherPosition = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setTeacherPosition(newTeacherPosition);
+                    break;
+                case 9:
+                    System.out.print("Введіть новий науковий ступінь: ");
+                    String newAcademicDegree = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setAcademicDegree(newAcademicDegree);
+                    break;
+                case 10:
+                    System.out.print("Введіть нове вчене звання: ");
+                    String newAcademicTitle = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setAcademicTitle(newAcademicTitle);
+                    break;
+                case 11:
+                    System.out.print("Введіть новий рік прийняття на роботу: ");
+                    int newYearOfEntry = Integer.parseInt(reader.readLine());
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setYearOfEntry(newYearOfEntry);
+                    break;
+                case 12:
+                    System.out.print("Введіть нову ставку: ");
+                    String newRate = reader.readLine();
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setRate(newRate);
+
+            }
         }
 
         for(Teacher t : universities.get(uni).faculties.get(faculty).departments.get(depart).teachers){
             System.out.print(t + "\n");
         }
         System.out.println("Викладач був успішно змінений!");
-        Menu.mainMenu();
-    }*/
+        Menu.teacherMenu();
+    }
 
 }

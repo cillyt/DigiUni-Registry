@@ -2,10 +2,10 @@ public class Student extends Person {
     int courseNumber; //+ перевірка чи в межах 1-6
     int groupNumber;
     int yearOfEntry;
-    boolean studyForm; //ТІЛЬКИ бюджет чи контракт
+    String studyForm; //ТІЛЬКИ бюджет чи контракт
     String studentStatus; // навчається/ академвідпустка/ відрахований
 
-    Student(int personID, String personSurname, String personName, String middleName, String birthDate, String personEmail, long personPhone, int courseNumber, int groupNumber, int yearOfEntry, boolean studyForm, String studentStatus) {
+    Student(int personID, String personSurname, String personName, String middleName, String birthDate, String personEmail, long personPhone, int courseNumber, int groupNumber, int yearOfEntry, String studyForm, String studentStatus) {
         super(personID, personSurname, personName, middleName, birthDate, personEmail, personPhone);
         this.courseNumber = courseNumber;
         this.groupNumber = groupNumber;
@@ -32,10 +32,10 @@ public class Student extends Person {
     public void setYearOfEntry(int yearOfEntry) {
         this.yearOfEntry = yearOfEntry;
     }
-    public boolean isStudyForm() {
+    public String isStudyForm() {
         return studyForm;
     }
-    public void setStudyForm(boolean studyForm) {
+    public void setStudyForm(String studyForm) {
         this.studyForm = studyForm;
     }
     public String getStudentStatus() {
