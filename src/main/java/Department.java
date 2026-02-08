@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Department{
-    static List<Student> students = new ArrayList<>();
-    static List<Teacher> teachers = new ArrayList<>();
+    List<Student> students = new ArrayList<>();
+    List<Teacher> teachers = new ArrayList<>();
     String departmentCode;
     String departmentName;
     //+ факультет посилання

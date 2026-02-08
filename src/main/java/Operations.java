@@ -9,9 +9,10 @@ public class Operations {
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     static List<University> universities = new ArrayList<>();  //масиви об'єктів, які можна додати
+    static Menu menu = new Menu();
 
 
-    public static void addingUniversity() throws IOException {
+    public void addingUniversity() throws IOException {
         System.out.print("Назва університету: ");  //ввід даних користувачем
         String fullUniversityName = reader.readLine();
         System.out.print("Скорочена: ");
@@ -27,11 +28,12 @@ public class Operations {
         }
 
         System.out.println("Університет було додано!");
-        Menu.universityMenu();
+
+
     }
 
-   public static void addingFaculty() throws IOException {
-        int uni = Menu.universityQuestion();
+   public void addingFaculty() throws IOException {
+        int uni = menu.universityQuestion();
 
         System.out.print("Код факультету: ");  //ввід даних користувачем
         String facultyCode = reader.readLine();
@@ -44,19 +46,19 @@ public class Operations {
         System.out.print("Пошта факультету: ");
         String facultyEmail = reader.readLine();
 
-        universities.get(uni).faculties.add(new Faculty(facultyCode, facultyName, shortFacultyName, facultyPhoneNumber, facultyEmail));//створення об'єкту класу з введеним даними
+       universities.get(uni).faculties.add(new Faculty(facultyCode, facultyName, shortFacultyName, facultyPhoneNumber, facultyEmail));//створення об'єкту класу з введеним даними
 
-       for(Faculty f : Operations.universities.get(uni).faculties) {
+       for(Faculty f : (universities.get(uni)).faculties) {
            System.out.print(f + "\n");
        }
 
         System.out.println("Факультет було додано!");
-        Menu.facultyMenu();
+        menu.facultyMenu();
     }
 
-    public static void addingDepartment() throws IOException {
-        int uni = Menu.universityQuestion();
-        int faculty = Menu.facultyQuestion(uni);
+    public void addingDepartment() throws IOException {
+        int uni = menu.universityQuestion();
+        int faculty = menu.facultyQuestion(uni);
 
         System.out.print("Код кафедри: ");  //ввід даних користувачем
         String departmentCode = reader.readLine();
@@ -72,13 +74,13 @@ public class Operations {
         }
 
         System.out.println("Кафедру було додано!");
-        Menu.departmentMenu();
+        menu.departmentMenu();
     }
 
-    public static void addingTeacher() throws IOException {
-        int uni = Menu.universityQuestion();
-        int faculty = Menu.facultyQuestion(uni);
-        int depart = Menu.departmentQuestion(uni, faculty);
+    public void addingTeacher() throws IOException {
+        int uni = menu.universityQuestion();
+        int faculty = menu.facultyQuestion(uni);
+        int depart = menu.departmentQuestion(uni, faculty);
 
         System.out.print("Унікальний ідентифікатор: ");
         int personID = Integer.parseInt(reader.readLine());
@@ -113,13 +115,13 @@ public class Operations {
         }
 
         System.out.println("Вчитель був успішно доданий!");
-        Menu.teacherMenu();
+        menu.teacherMenu();
     }
 
-    public static void addingStudent() throws IOException {
-        int uni = Menu.universityQuestion();
-        int faculty = Menu.facultyQuestion(uni);
-        int depart = Menu.departmentQuestion(uni, faculty);
+    public void addingStudent() throws IOException {
+        int uni = menu.universityQuestion();
+        int faculty = menu.facultyQuestion(uni);
+        int depart = menu.departmentQuestion(uni, faculty);
 
         System.out.print("Унікальний ідентифікатор: ");
         int studentID = Integer.parseInt(reader.readLine());
@@ -154,85 +156,85 @@ public class Operations {
         }
 
         System.out.println("Студент був успішно доданий!");
-        Menu.studentMenu();
+        menu.studentMenu();
     }
 
 
-    public static void deletingUniversity() throws IOException {
-        int uni = Menu.universityQuestion();
+    public void deletingUniversity() throws IOException {
+        int uni = menu.universityQuestion();
         universities.remove(uni);
 
         for(University u : universities) {
             System.out.print(u + "\n");
         }
         System.out.println("Університет був успішно видалений!");
-        Menu.universityMenu();
+        menu.universityMenu();
     }
 
-    public static void deletingFaculty() throws IOException {
-        int uni = Menu.universityQuestion();
-        int faculty = Menu.facultyQuestion(uni);
+    public void deletingFaculty() throws IOException {
+        int uni = menu.universityQuestion();
+        int faculty = menu.facultyQuestion(uni);
         Operations.universities.get(uni).faculties.remove(faculty);
 
         for(Faculty f : Operations.universities.get(uni).faculties) {
             System.out.print(f + "\n");
         }
         System.out.println("Факультет був успішно видалений!");
-        Menu.facultyMenu();
+        menu.facultyMenu();
 
     }
 
-    public static void deletingDepartment() throws IOException {
-        int uni = Menu.universityQuestion();
-        int faculty = Menu.facultyQuestion(uni);
-        int depart = Menu.departmentQuestion(uni, faculty);
+    public void deletingDepartment() throws IOException {
+        int uni = menu.universityQuestion();
+        int faculty = menu.facultyQuestion(uni);
+        int depart = menu.departmentQuestion(uni, faculty);
         universities.get(uni).faculties.get(faculty).departments.remove(depart);
 
         for(Department d : universities.get(uni).faculties.get(faculty).departments) {
             System.out.print(d + "\n");
         }
         System.out.println("Кафедра була успішно видалена!");
-        Menu.departmentMenu();
+        menu.departmentMenu();
 
     }
 
-    public static void deletingStudent() throws IOException {
-        int uni = Menu.universityQuestion();
-        int faculty = Menu.facultyQuestion(uni);
-        int depart = Menu.departmentQuestion(uni, faculty);
-        int stud = Menu.studentQuestion(uni, faculty, depart);
+    public void deletingStudent() throws IOException {
+        int uni = menu.universityQuestion();
+        int faculty = menu.facultyQuestion(uni);
+        int depart = menu.departmentQuestion(uni, faculty);
+        int stud = menu.studentQuestion(uni, faculty, depart);
         universities.get(uni).faculties.get(faculty).departments.get(depart).students.remove(stud);
 
         for(Student s : universities.get(uni).faculties.get(faculty).departments.get(depart).students){
             System.out.print(s + "\n");
         }
         System.out.println("Студент був успішно вилучений!");
-        Menu.studentMenu();
+        menu.studentMenu();
 
     }
 
-    public static void deletingTeacher() throws IOException {
-        int uni = Menu.universityQuestion();
-        int faculty = Menu.facultyQuestion(uni);
-        int depart = Menu.departmentQuestion(uni, faculty);
-        int teach = Menu.teacherQuestion(uni, faculty, depart);
+    public void deletingTeacher() throws IOException {
+        int uni = menu.universityQuestion();
+        int faculty = menu.facultyQuestion(uni);
+        int depart = menu.departmentQuestion(uni, faculty);
+        int teach = menu.teacherQuestion(uni, faculty, depart);
         universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.remove(teach);
 
         for(Teacher t : universities.get(uni).faculties.get(faculty).departments.get(depart).teachers){
             System.out.print(t + "\n");
         }
         System.out.println("Викладач був успішно вилучений!");
-        Menu.teacherMenu();
+        menu.teacherMenu();
 
     }
 
 
-    public static void editingUniversity() throws IOException {
-        int uni = Menu.universityQuestion();
+    public void editingUniversity() throws IOException {
+        int uni = menu.universityQuestion();
         boolean changed = false;
 
         while(!changed) {
-            int changingParameter = Menu.universityParameterQuestion();
+            int changingParameter = menu.universityParameterQuestion();
 
             switch (changingParameter) {
                 case 0:
@@ -266,19 +268,19 @@ public class Operations {
             System.out.print(u + "\n");
         }
         System.out.println("Університет був успішно змінений!");
-        Menu.universityMenu();
+        menu.universityMenu();
     }
 
 
 
-    public static void editingFaculty() throws IOException {
-        int uni = Menu.universityQuestion();
-        int faculty = Menu.facultyQuestion(uni);
+    public void editingFaculty() throws IOException {
+        int uni = menu.universityQuestion();
+        int faculty = menu.facultyQuestion(uni);
 
         boolean changed = false;
 
         while (!changed) {
-            int changingParameter = Menu.facultyParameterQuestion();
+            int changingParameter = menu.facultyParameterQuestion();
             switch (changingParameter) {
                 case 0:
                     changed = true;
@@ -315,16 +317,16 @@ public class Operations {
             System.out.print(f + "\n");
         }
         System.out.println("Факультет був успішно змінений!");
-        Menu.facultyMenu();
+        menu.facultyMenu();
     }
 
-    public static void editingDepartment() throws IOException {
-        int uni = Menu.universityQuestion();
-        int faculty = Menu.facultyQuestion(uni);
-        int depart = Menu.departmentQuestion(uni, faculty);
+    public void editingDepartment() throws IOException {
+        int uni = menu.universityQuestion();
+        int faculty = menu.facultyQuestion(uni);
+        int depart = menu.departmentQuestion(uni, faculty);
         boolean changed = false;
         while(!changed) {
-            int changingParameter = Menu.departmentParameterQuestion();
+            int changingParameter = menu.departmentParameterQuestion();
             switch (changingParameter) {
                 case 0:
                     changed = true;
@@ -351,20 +353,20 @@ public class Operations {
             System.out.print(d + "\n");
         }
         System.out.println("Кафедра була успішно змінена!");
-        Menu.departmentMenu();
+        menu.departmentMenu();
     }
 
-    public static void editingStudent() throws IOException {
-        int uni = Menu.universityQuestion();
-        int faculty = Menu.facultyQuestion(uni);
-        int depart = Menu.departmentQuestion(uni, faculty);
-        int stud = Menu.studentQuestion(uni, faculty, depart);
+    public  void editingStudent() throws IOException {
+        int uni = menu.universityQuestion();
+        int faculty = menu.facultyQuestion(uni);
+        int depart = menu.departmentQuestion(uni, faculty);
+        int stud = menu.studentQuestion(uni, faculty, depart);
 
         boolean changed = false;
 
         while(!changed) {
 
-            int changingParameter = Menu.studentParameterQuestion();
+            int changingParameter = menu.studentParameterQuestion();
 
             switch (changingParameter) {
                 case 0:
@@ -440,21 +442,21 @@ public class Operations {
             System.out.print(s + "\n");
         }
         System.out.println("Студент був успішно змінений!");
-        Menu.studentMenu();
+        menu.studentMenu();
     }
 
 
-    public static void editingTeacher() throws IOException {
-        int uni = Menu.universityQuestion();
-        int faculty = Menu.facultyQuestion(uni);
-        int depart = Menu.departmentQuestion(uni, faculty);
-        int teach = Menu.teacherQuestion(uni, faculty, depart);
+    public void editingTeacher() throws IOException {
+        int uni = menu.universityQuestion();
+        int faculty = menu.facultyQuestion(uni);
+        int depart = menu.departmentQuestion(uni, faculty);
+        int teach = menu.teacherQuestion(uni, faculty, depart);
 
         boolean changed = false;
 
         while(!changed) {
 
-            int changingParameter = Menu.teacherParameterQuestion();
+            int changingParameter = menu.teacherParameterQuestion();
 
             switch (changingParameter) {
                 case 0:
@@ -527,7 +529,7 @@ public class Operations {
             System.out.print(t + "\n");
         }
         System.out.println("Викладач був успішно змінений!");
-        Menu.teacherMenu();
+        menu.teacherMenu();
     }
 
 
@@ -538,11 +540,11 @@ public class Operations {
 
 
 
-    public static void findingStudent() throws IOException {
-        int studentFindingQuestion = Menu.studentFindingQuestion();
+    public void findingStudent() throws IOException {
+        int studentFindingQuestion = menu.studentFindingQuestion();
         switch(studentFindingQuestion){
             case 0:
-                Menu.mainMenu();
+                menu.mainMenu();
             case 1:
                 System.out.println("Введіть ПІБ для пошуку: ");
                 String findBySNM = reader.readLine();
@@ -577,11 +579,11 @@ public class Operations {
     }
 
 
-    public static void findingTeacher() throws IOException {
-        int teacherFindingQuestion = Menu.teacherFindingQuestion();
+    public void findingTeacher() throws IOException {
+        int teacherFindingQuestion = menu.teacherFindingQuestion();
         switch(teacherFindingQuestion){
             case 0:
-                Menu.mainMenu();
+                menu.mainMenu();
             case 1:
                 System.out.println("Введіть ПІБ для пошуку: ");
                 String findBySNM = reader.readLine();
@@ -598,7 +600,7 @@ public class Operations {
 
 
 
-    public static Teacher getUserOrDefaultSNMt(String snm) throws IOException {
+    public Teacher getUserOrDefaultSNMt(String snm) throws IOException {
         return findBySNMt(snm)
                 .orElseGet(
                         () -> {System.out.println("Викладача не знайдено");
@@ -606,7 +608,8 @@ public class Operations {
                         });
     }
 
-    public static Optional<Teacher> findBySNMt(String snm) throws IOException {
+
+    public Optional<Teacher> findBySNMt(String snm) throws IOException {
 
         for (Teacher teacher : Department.teachers) {
 
@@ -621,7 +624,7 @@ public class Operations {
 
 
 
-    public static Student getUserOrDefaultSNM(String snm) throws IOException {
+    public Student getUserOrDefaultSNM(String snm) throws IOException {
         return findBySNM(snm)
                 .orElseGet(
                         () -> {System.out.println("Студента не знайдено");
@@ -629,7 +632,7 @@ public class Operations {
                         });
     }
 
-    public static Optional<Student> findBySNM(String snm) throws IOException {
+    public Optional<Student> findBySNM(String snm) throws IOException {
 
         for (Student student : Department.students) {
 
@@ -647,7 +650,7 @@ public class Operations {
 
 
 
-    public static Student getUserOrDefaultYear(int year) throws IOException {
+    public Student getUserOrDefaultYear(int year) throws IOException {
         return findByYear(year)
                 .orElseGet(
                         () -> {System.out.println("Студента не знайдено");
@@ -655,7 +658,7 @@ public class Operations {
                         });
     }
 
-    public static Optional<Student> findByYear(int year) throws IOException {
+    public Optional<Student> findByYear(int year) throws IOException {
         for (Student student : Department.students) {
             if (student != null && year == student.getCourseNumber() ) {
                 return Optional.of(student);
@@ -668,7 +671,7 @@ public class Operations {
 
 
 
-    public static Student getUserOrDefaultGroup(int group) throws IOException {
+    public Student getUserOrDefaultGroup(int group) throws IOException {
         return findByGroup(group)
                 .orElseGet(
                         () -> {System.out.println("Студента не знайдено");
@@ -676,7 +679,7 @@ public class Operations {
                         });
     }
 
-    public static Optional<Student> findByGroup(int group) throws IOException {
+    public Optional<Student> findByGroup(int group) throws IOException {
         for (Student student : Department.students) {
             if (student != null && group == student.getGroupNumber()) {
                 return Optional.of(student);
@@ -684,4 +687,5 @@ public class Operations {
         }
         return Optional.empty();
     }
+
 }

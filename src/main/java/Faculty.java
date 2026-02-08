@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Faculty{
-    static List<Department> departments = new ArrayList<>();
+    List<Department> departments = new ArrayList<>();
     String facultyCode;
     String facultyName;
     String shortFacultyName;

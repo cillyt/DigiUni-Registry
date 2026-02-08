@@ -6,7 +6,7 @@ public class University {
     String shortUniversityName;
     String city;
     String address;
-    static List<Faculty> faculties = new ArrayList<>();
+    List<Faculty> faculties = new ArrayList<>();
 
     University(String fullUniversityName, String shortUniversityName, String city, String address) {
         this.fullUniversityName = fullUniversityName;

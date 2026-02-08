@@ -4,8 +4,9 @@ import java.io.InputStreamReader;
 
 public class Menu {
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    Operations operations = new Operations();
 
-    public static void mainMenu() throws IOException {
+    public void mainMenu() throws IOException {
             System.out.println("=== Оберіть об'єкт з яким хочете працювати ===");
             System.out.println("1. Університет");
             System.out.println("2. Факультет");
@@ -39,7 +40,7 @@ public class Menu {
             }
     }
 
-    public static void universityMenu() throws IOException {
+    public void universityMenu() throws IOException {
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
         System.out.println("1. Створити університет");
@@ -55,18 +56,18 @@ public class Menu {
                 mainMenu();
                 break;
             case 1:
-                Operations.addingUniversity();
+                operations.addingUniversity();
                 break;
             case 2:
-                Operations.editingUniversity();
+                operations.editingUniversity();
                 break;
             case 3:
-                Operations.deletingUniversity();
+                operations.deletingUniversity();
 
         }
     }
 
-    public static void facultyMenu() throws IOException {
+    public void facultyMenu() throws IOException {
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
         System.out.println("1. Створити факультет");
@@ -81,19 +82,19 @@ public class Menu {
                 mainMenu();
                 break;
             case 1:
-                Operations.addingFaculty();
+                operations.addingFaculty();
                 break;
             case 2:
-                Operations.editingFaculty();
+                operations.editingFaculty();
                 break;
             case 3:
-                Operations.deletingFaculty();
+                operations.deletingFaculty();
 
         }
 
     }
 
-    public static void departmentMenu() throws IOException {
+    public void departmentMenu() throws IOException {
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
         System.out.println("1. Створити кафедру");
@@ -108,19 +109,19 @@ public class Menu {
                 mainMenu();
                 break;
             case 1:
-                Operations.addingDepartment();
+                operations.addingDepartment();
                 break;
             case 2:
-                Operations.editingDepartment();
+                operations.editingDepartment();
                 break;
             case 3:
-                Operations.deletingDepartment();
+                operations.deletingDepartment();
 
         }
 
     }
 
-    public static void studentMenu() throws IOException {
+    public void studentMenu() throws IOException {
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
         System.out.println("1. Додати студента");
@@ -135,22 +136,22 @@ public class Menu {
                 mainMenu();
                 break;
             case 1:
-                Operations.addingStudent();
+                operations.addingStudent();
                 break;
             case 2:
-                Operations.editingStudent();
+                operations.editingStudent();
                 break;
             case 3:
-                Operations.deletingStudent();
+                operations.deletingStudent();
                 break;
             case 4:
-                Operations.findingStudent();
+                operations.findingStudent();
                 break;
 
         }
     }
 
-    public static void teacherMenu() throws IOException {
+    public void teacherMenu() throws IOException {
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
         System.out.println("1. Додати викладача");
@@ -167,25 +168,25 @@ public class Menu {
                 mainMenu();
                 break;
             case 1:
-                Operations.addingTeacher();
+                operations.addingTeacher();
                 break;
             case 2:
-                Operations.editingTeacher();
+                operations.editingTeacher();
                 break;
             case 3:
-                Operations.deletingTeacher();
+                operations.deletingTeacher();
                 break;
             case 4:
-                Operations.findingTeacher();
+                operations.findingTeacher();
                 break;
 
         }
     }
 
-    public static int universityQuestion() throws IOException {
+    public int universityQuestion() throws IOException {
         System.out.println("Оберіть університет: ");
         int i = 0;
-        for (University university : Operations.universities ) {
+        for (University university : operations.universities ) {
             i++;
             System.out.println(i + ". " +university.getFullUniversityName());
         }
@@ -196,10 +197,10 @@ public class Menu {
 
     }
 
-    public static int facultyQuestion(int uni) throws IOException {
+    public int facultyQuestion(int uni) throws IOException {
         System.out.println("Оберіть факультет: ");
         int i = 0;
-        for (Faculty faculty1 : Operations.universities.get(uni).faculties) {
+        for (Faculty faculty1 : operations.universities.get(uni).faculties) {
             i++;
             System.out.println(i + ". " + faculty1.getFacultyName());
         }
@@ -209,10 +210,10 @@ public class Menu {
         return faculty;
     }
 
-    public static int departmentQuestion(int uni, int faculty) throws IOException {
+    public int departmentQuestion(int uni, int faculty) throws IOException {
         System.out.println("Оберіть кафедру: ");
         int i = 0;
-        for (Department department : Operations.universities.get(uni).faculties.get(faculty).departments) {
+        for (Department department : operations.universities.get(uni).faculties.get(faculty).departments) {
             i++;
             System.out.println(i + ". " + department.getDepartmentName());
         }
@@ -222,10 +223,10 @@ public class Menu {
         return departm;
     }
 
-    public static int studentQuestion(int uni, int faculty, int depart) throws IOException {
+    public int studentQuestion(int uni, int faculty, int depart) throws IOException {
         System.out.println("Оберіть студента: ");
         int i = 0;
-        for (Student student : Operations.universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
+        for (Student student : operations.universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
             i++;
             System.out.println(i + ". " + student.getPersonSurname() + " " + student.getPersonName() + " " + student.getMiddleName());
         }
@@ -235,10 +236,10 @@ public class Menu {
         return stud;
     }
 
-    public static int teacherQuestion(int uni, int faculty, int depart) throws IOException {
+    public int teacherQuestion(int uni, int faculty, int depart) throws IOException {
         System.out.println("Оберіть викладача: ");
         int i = 0;
-        for (Teacher teacher : Operations.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
+        for (Teacher teacher : operations.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
             i++;
             System.out.println(i + ". " + teacher.getPersonSurname() + " " + teacher.getPersonName() + " " + teacher.getMiddleName());
         }
@@ -249,7 +250,7 @@ public class Menu {
     }
 
 
-    public static int universityParameterQuestion() throws IOException {
+    public int universityParameterQuestion() throws IOException {
         System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Назва університету");
@@ -263,7 +264,7 @@ public class Menu {
         return parameter;
     }
 
-    public static int facultyParameterQuestion() throws IOException {
+    public int facultyParameterQuestion() throws IOException {
         System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Код факультету");
@@ -278,7 +279,7 @@ public class Menu {
         return parameter;
     }
 
-    public static int departmentParameterQuestion() throws IOException {
+    public int departmentParameterQuestion() throws IOException {
         System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Код кафедри");
@@ -291,7 +292,7 @@ public class Menu {
         return parameter;
     }
 
-    public static int studentParameterQuestion() throws IOException {
+    public int studentParameterQuestion() throws IOException {
         System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Унікальний ідентифікатор");
@@ -315,7 +316,7 @@ public class Menu {
 
     }
 
-    public static int teacherParameterQuestion() throws IOException {
+    public int teacherParameterQuestion() throws IOException {
         System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Унікальний ідентифікатор");
@@ -340,9 +341,9 @@ public class Menu {
     }
 
 
-    public static int studentFindingQuestion() throws IOException {
-        System.out.println("Оберіть за чим ви хочете знайти студента: ");
-        System.out.println("0. Завершити зміни");
+    public int studentFindingQuestion() throws IOException {
+        System.out.println("Оберіть параметр за яким ви хочете знайти студента: ");
+        System.out.println("0. Завершити пошук");
         System.out.println("1. ПІБ");
         System.out.println("2. Курс");
         System.out.println("3. Група");
@@ -355,9 +356,9 @@ public class Menu {
 
     }
 
-    public static int teacherFindingQuestion() throws IOException {
-        System.out.println("Оберіть за чим ви хочете знайти викладача: ");
-        System.out.println("0. Завершити зміни");
+    public int teacherFindingQuestion() throws IOException {
+        System.out.println("Оберіть параметр за яким ви хочете знайти викладача: ");
+        System.out.println("0. Завершити пошук");
         System.out.println("1. ПІБ");
 
         System.out.print("Введіть номер параметра: ");
