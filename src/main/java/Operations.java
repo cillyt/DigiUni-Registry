@@ -28,7 +28,7 @@ public class Operations {
         }
 
         System.out.println("Університет було додано!");
-
+        menu.universityMenu();
 
     }
 
@@ -548,32 +548,49 @@ public class Operations {
             case 1:
                 System.out.println("Введіть ПІБ для пошуку: ");
                 String findBySNM = reader.readLine();
-                Student student = getUserOrDefaultSNM(findBySNM);
-                if (student != null) {
-                    System.out.println("Знайдено студента: " + student);
-                    findingStudent();
+
+                List<Student> results = findBySNM(findBySNM);
+                if (results.isEmpty()) {
+                    System.out.println("Студентів з таким ПІБ не знайдено");
                 }
-                else findingStudent();
+                else {
+                    System.out.println("Знайдено студентів: " + results.size());
+                    for (Student s : results) {
+                        System.out.println("- " + s);
+                    }
+                }
+                menu.studentMenu();
                 break;
             case 2:
                 System.out.println("Введіть курс для пошуку: ");
-                int findByYear = Integer.parseInt((reader.readLine()));
-                Student student1 = getUserOrDefaultYear(findByYear);
-                if (student1 != null) {
-                    System.out.println("Знайдено студента: " + student1);
-                    findingStudent();
+                int findByYear = Integer.parseInt(reader.readLine());
+
+                List<Student> results1 = findByYear(findByYear);
+                if (results1.isEmpty()) {
+                    System.out.println("Студентів такого курсу не знайдено");
                 }
-                else findingStudent();
+                else {
+                    System.out.println("Знайдено студентів: " + results1.size());
+                    for (Student s : results1) {
+                        System.out.println("- " + s);
+                    }
+                }
+                menu.studentMenu();
                 break;
             case 3:
                 System.out.println("Введіть групу для пошуку: ");
-                int findByGroup = Integer.parseInt((reader.readLine()));
-                Student student2 = getUserOrDefaultGroup(findByGroup);
-                if (student2 != null) {
-                    System.out.println("Знайдено студента: " + student2);
-                    findingStudent();
+                int findByGroup = Integer.parseInt(reader.readLine());
+                List<Student> results2 = findByGroup(findByGroup);
+                if (results2.isEmpty()) {
+                    System.out.println("Студентів такої групи не знайдено");
                 }
-                else findingStudent();
+                else {
+                    System.out.println("Знайдено студентів: " + results2.size());
+                    for (Student s : results2) {
+                        System.out.println("- " + s);
+                    }
+                }
+                menu.studentMenu();
                 break;
         }
     }
@@ -586,13 +603,19 @@ public class Operations {
                 menu.mainMenu();
             case 1:
                 System.out.println("Введіть ПІБ для пошуку: ");
-                String findBySNM = reader.readLine();
-                Teacher teacher = getUserOrDefaultSNMt(findBySNM);
-                if (teacher != null) {
-                    System.out.println("Знайдено викладача: " + teacher);
-                    findingTeacher();
+                String findBySNMt = reader.readLine();
+
+                List<Teacher> results = findBySNMt(findBySNMt);
+                if (results.isEmpty()) {
+                    System.out.println("Викладачів з таким ПІБ не знайдено");
                 }
-                else findingTeacher();
+                else {
+                    System.out.println("Знайдено викладачів: " + results.size());
+                    for (Teacher t : results) {
+                        System.out.println("- " + t);
+                    }
+                }
+                menu.teacherMenu();
                 break;
 
         }
@@ -600,92 +623,95 @@ public class Operations {
 
 
 
-    public Teacher getUserOrDefaultSNMt(String snm) throws IOException {
-        return findBySNMt(snm)
-                .orElseGet(
-                        () -> {System.out.println("Викладача не знайдено");
-                            return null;
-                        });
-    }
 
 
-    public Optional<Teacher> findBySNMt(String snm) throws IOException {
+    public List<Teacher> findBySNMt(String snm) throws IOException {
+        List<Teacher> allTeachers = allTeachers();
+        List<Teacher> foundTeachers = new ArrayList<>();
+        if (snm == null || snm.isEmpty()) return foundTeachers;
 
-        for (Teacher teacher : Department.teachers) {
-
-            String  SNM = teacher.getPersonSurname() + " " + teacher.getPersonName() + " " + teacher.getMiddleName();
-            if (teacher != null && snm.equalsIgnoreCase(SNM)) {
-                return Optional.of(teacher);
+        for (Teacher teacher :allTeachers) {
+            if (teacher != null) {
+                String SNM = teacher.getPersonSurname() + " " + teacher.getPersonName() + " " + teacher.getMiddleName();
+                if (snm.equalsIgnoreCase(SNM)) {
+                    foundTeachers.add(teacher);
+                }
             }
-
         }
-        return Optional.empty();
+        return foundTeachers;
     }
 
 
 
-    public Student getUserOrDefaultSNM(String snm) throws IOException {
-        return findBySNM(snm)
-                .orElseGet(
-                        () -> {System.out.println("Студента не знайдено");
-                            return null;
-                        });
-    }
+    public List<Student> findBySNM(String snm) throws IOException {
+        List<Student> allStudents = allStudents();
+        List<Student> foundStudents = new ArrayList<>();
+        if (snm == null || snm.isEmpty()) return foundStudents;
 
-    public Optional<Student> findBySNM(String snm) throws IOException {
-
-        for (Student student : Department.students) {
-
-            String  SNM = student.getPersonSurname() + " " + student.getPersonName() + " " + student.getMiddleName();
-            if (student != null && snm.equalsIgnoreCase(SNM)) {
-                return Optional.of(student);
+        for (Student student :allStudents) {
+            if (student != null) {
+                String SNM = student.getPersonSurname() + " " + student.getPersonName() + " " + student.getMiddleName();
+                if (snm.equalsIgnoreCase(SNM)) {
+                    foundStudents.add(student);
+                }
             }
-
         }
-        return Optional.empty();
+        return foundStudents;
     }
 
+    public List<Student> findByYear(int year) throws IOException {
+        List<Student> allStudents = allStudents();
+        List<Student> foundStudents = new ArrayList<>();
 
-
-
-
-
-    public Student getUserOrDefaultYear(int year) throws IOException {
-        return findByYear(year)
-                .orElseGet(
-                        () -> {System.out.println("Студента не знайдено");
-                            return null;
-                        });
-    }
-
-    public Optional<Student> findByYear(int year) throws IOException {
-        for (Student student : Department.students) {
+        for (Student student :allStudents) {
             if (student != null && year == student.getCourseNumber() ) {
-                return Optional.of(student);
+                    foundStudents.add(student);
             }
         }
-        return Optional.empty();
+        return foundStudents;
     }
 
+    public List<Student> findByGroup(int group) throws IOException {
+        List<Student> allStudents = allStudents();
+        List<Student> foundStudents = new ArrayList<>();
 
-
-
-
-    public Student getUserOrDefaultGroup(int group) throws IOException {
-        return findByGroup(group)
-                .orElseGet(
-                        () -> {System.out.println("Студента не знайдено");
-                            return null;
-                        });
-    }
-
-    public Optional<Student> findByGroup(int group) throws IOException {
-        for (Student student : Department.students) {
-            if (student != null && group == student.getGroupNumber()) {
-                return Optional.of(student);
+        for (Student student :allStudents) {
+            if (student != null && group == student.getGroupNumber() ) {
+                foundStudents.add(student);
             }
         }
-        return Optional.empty();
+        return foundStudents;
     }
 
+
+
+
+
+    public List<Student> allStudents(){
+        ArrayList<Student> allStudents = new ArrayList<>();
+        for(University u : universities){
+            for(Faculty f : u.faculties){
+                for(Department d : f.departments){
+                    for(Student s : d.students){
+                        allStudents.add(s);
+                    }
+                }
+            }
+        }
+        return allStudents;
+    }
+
+    public List<Teacher> allTeachers(){
+        ArrayList<Teacher> allTeachers = new ArrayList<>();
+        for(University u : universities){
+            for(Faculty f : u.faculties){
+                for(Department d : f.departments){
+                    for(Teacher t : d.teachers){
+                        allTeachers.add(t);
+                    }
+                }
+            }
+        }
+        return allTeachers;
+    }
 }
