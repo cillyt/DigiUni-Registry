@@ -132,15 +132,16 @@ public class Operations {
         String personEmail = checkString("Електронна пошта: ","Ви не ввели електронну пошту студента.");
         long personPhone = checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно.");
 
+        check = 0;
 
-        int courseNumber = checkInt("Курс: ","Ви ввели курс неправильно.");
+        int courseNumber = menu.checkOperations(1,6,"Курс: ","Ви ввели курс неправильно.","Ви ввели курс неправильно.");
         int groupNumber = checkInt("Група: ","Ви ввели групу неправильно.");
-        int yearOfEntry = checkInt("Рк вступу: ","Ви ввели рік вступу неправильно: ");
+        int yearOfEntry = checkInt("Рік вступу: ","Ви ввели рік вступу неправильно: ");
 
         check = 0;
         String studyForm = " ";
         while(check == 0){
-            studyForm = checkString("Форма навчання: ", "Ви не ввели форму навчання.");
+            studyForm = checkString("Форма навчання(Бюджет/Контракт): ", "Ви не ввели форму навчання.");
             if (studyForm.equals("Бюджет") || studyForm.equals("Контракт"))
                 check = 1;
             else {
@@ -152,7 +153,7 @@ public class Operations {
         check = 0;
         String studentStatus = " ";
         while(check == 0){
-            studentStatus = checkString("Статус: ", "Ви не ввели статус.");
+            studentStatus = checkString("Статус(Навчається/Відрахований/Академвідпустка): ", "Ви не ввели статус.");
             if (studentStatus.equals("Навчається") || studentStatus.equals("Відрахований") || studentStatus.equals("Академвідпустка"))
                 check = 1;
             else{
@@ -514,6 +515,9 @@ public class Operations {
             int changingParameter = menu.teacherParameterQuestion();
 
             switch (changingParameter) {
+                case 0:
+                    changed = true;
+                    break;
                 case 1:
                     int newPersonID = checkInt("Введіть новий унікальний ідентифікатор: ","Ви ввели новий унікальний ідентифікатор неправильно.");
                     universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonID(newPersonID);
@@ -601,7 +605,6 @@ public class Operations {
                 menu.studentMenu();
                 break;
             case 2:
-                System.out.println("Введіть курс для пошуку: ");
                 int findByYear = checkInt("Введіть курс для пошуку: ","Ви ввели курс неправильно.");
 
                 List<Student> results1 = findByYear(findByYear);
@@ -617,7 +620,6 @@ public class Operations {
                 menu.studentMenu();
                 break;
             case 3:
-                System.out.println("Введіть групу для пошуку: ");
                 int findByGroup = checkInt("Введіть групу для пошуку: ","Ви ввели групу неправильно.");
                 List<Student> results2 = findByGroup(findByGroup);
                 if (results2.isEmpty()) {
@@ -751,6 +753,7 @@ public class Operations {
                 break;
         }
 
+        menu.mainMenu();
     }
 
 
@@ -760,7 +763,7 @@ public class Operations {
         check = 0;
         String parameter = "";
         while(check == 0) {
-            System.out.print(s);
+            System.out.println(s);
             parameter = reader.readLine();
             if (parameter.equals(""))
                 System.out.println(s1);
@@ -785,7 +788,7 @@ public class Operations {
         int parameter = 0;
         while(check == 0) {
             try{
-                System.out.print(s);
+                System.out.println(s);
                 parameter = Integer.parseInt(reader.readLine());
                 check = 1;
             }
@@ -802,7 +805,7 @@ public class Operations {
         long parameter = 0;
         while(check == 0) {
             try{
-                System.out.print(s);
+                System.out.println(s);
                 parameter = Long.parseLong(reader.readLine());
                 check = 1;
             }

@@ -33,7 +33,7 @@ public class Menu {
 
             operations.allStudents = allObjects.allStudents();
             operations.allTeachers  = allObjects.allTeachers();
-            if (operations.allTeachers.size() > 0 || operations.allStudents.size() > 0){
+            if (operations.allStudents.size() > 0){ //or operations.allTeachers.size() > 0(Коли будуть звіти з тічерами)
                 System.out.println("6. Звіти");
                 counter++;
             }
@@ -345,9 +345,11 @@ public class Menu {
         System.out.println("0. Завершити зміни");
         System.out.println("1. Код кафедри");
         System.out.println("2. Назва кафедри");
-        System.out.println("3. Кабінет");
+        System.out.println("3. Завідувач кафедри");
+        System.out.println("4. Кабінет");
 
-        int parameter = checkOperations(0, 3,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
+
+        int parameter = checkOperations(0, 4,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
 
         return parameter;
     }
