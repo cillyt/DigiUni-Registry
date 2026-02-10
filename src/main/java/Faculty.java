@@ -6,7 +6,7 @@ public class Faculty{
     String facultyCode;
     String facultyName;
     String shortFacultyName;
-    //+ декан (посилання на викладача)
+    Teacher facultyDecan;
     long facultyPhoneNumber;
     String facultyEmail;
 
@@ -50,9 +50,20 @@ public class Faculty{
         this.facultyEmail = facultyEmail;
     }
 
+    public Teacher getFacultyDecan() {
+        return facultyDecan;
+    }
+    public void setFacultyDecan(Teacher facultyDecan) {
+        this.facultyDecan = facultyDecan;
+    }
+
     @Override
     public String toString() {
-        return "Код факультету: " +  facultyCode + ", назва факультету: " + facultyName + ", скорочена назва факультету: " + shortFacultyName + ", номер телефону факультету: " + facultyPhoneNumber + ", електронна пошта факультету: " + facultyEmail;
+        String facultyDecanPIB = ", декан факультету: немає";
+        if (this.facultyDecan != null) {
+            facultyDecanPIB = ", декан факультету: " + this.facultyDecan.personSurname + " " + this.facultyDecan.personName + " " + this.facultyDecan.middleName;
+        }
+        return "Код факультету: " +  facultyCode + ", назва факультету: " + facultyName + ", скорочена назва факультету: " + shortFacultyName + facultyDecanPIB + ", номер телефону факультету: " + facultyPhoneNumber + ", електронна пошта факультету: " + facultyEmail;
     }
 
 }

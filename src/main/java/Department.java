@@ -6,8 +6,7 @@ public class Department{
     List<Teacher> teachers = new ArrayList<>();
     String departmentCode;
     String departmentName;
-    //+ факультет посилання
-    //+ завідувач посилання на викладача
+    Teacher headOfDepart;
     int cabinetNumber;
 
     Department(String departmentCode, String departmentName, int cabinetNumber) {
@@ -32,6 +31,12 @@ public class Department{
     }
     public void setCabinetNumber(int cabinetNumber) {
         this.cabinetNumber = cabinetNumber;
+    }
+    public Teacher getHeadOfDepart() {
+        return headOfDepart;
+    }
+    public void setHeadOfDepart(Teacher headOfDepart) {
+        this.headOfDepart = headOfDepart;
     }
 
 
