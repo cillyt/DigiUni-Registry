@@ -1,19 +1,26 @@
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Teacher extends Person{
     String teacherPosition;
     String academicDegree;
     String academicTitle;
     int yearOfEntry;
+    int monthOfEntry;
+    int dayOfEntry;
     String rate;
     boolean decan;
     boolean headOfDepartment;
 
 
-    Teacher(int personID, String personSurname, String personName, String middleName, String birthDate, String personEmail, long personPhone, String teacherPosition, String academicDegree, String academicTitle, int yearOfEntry, String rate, boolean decan, boolean headOfDepartment) {
-        super(personID, personSurname, personName, middleName, birthDate, personEmail, personPhone);
+    Teacher(int personID, String personSurname, String personName, String middleName, int yearOfBirth, int monthOfBirth, int dayOfBirth, String personEmail, long personPhone, String teacherPosition, String academicDegree, String academicTitle, int yearOfEntry, int monthOfEntry, int dayOfEntry, String rate, boolean decan, boolean headOfDepartment) {
+        super(personID, personSurname, personName, middleName, yearOfBirth, monthOfBirth, dayOfBirth, personEmail, personPhone);
         this.teacherPosition = teacherPosition;
         this.academicDegree = academicDegree;
         this.academicTitle = academicTitle;
         this.yearOfEntry = yearOfEntry;
+        this.monthOfEntry = monthOfEntry;
+        this.dayOfEntry = dayOfEntry;
         this.rate = rate;
         this.decan = decan;
         this.headOfDepartment = headOfDepartment;
@@ -39,6 +46,18 @@ public class Teacher extends Person{
     public void setYearOfEntry(int yearOfEntry) {
         this.yearOfEntry = yearOfEntry;
     }
+    public int getMonthOfEntry() {
+        return yearOfEntry;
+    }
+    public void setMonthOfEntry(int yearOfEntry) {
+        this.yearOfEntry = yearOfEntry;
+    }
+    public int getDayOfEntry() {
+        return yearOfEntry;
+    }
+    public void setDayOfEntry(int yearOfEntry) {
+        this.yearOfEntry = yearOfEntry;
+    }
     public String getRate() {
         return rate;
     }
@@ -46,11 +65,21 @@ public class Teacher extends Person{
         this.rate = rate;
     }
 
+    public LocalDate getDateOfEntry(){
+        LocalDate dateOfEntry = LocalDate.of(yearOfEntry, monthOfEntry, dayOfEntry);
+        return dateOfEntry;
+    }
 
+    public String getWorkExperience(){
+        LocalDate dateOfEntry = getDateOfEntry();
+        Period workExperience = Period.between(dateOfEntry, LocalDate.now());
+        return  String.format("%d років, %d місяців та %d днів", workExperience.getYears(), workExperience.getMonths(), workExperience.getDays());
+    }
 
     @Override
     public String toString() {
-        return "Унікальний ідентифікатор: " +  personID + ", прізвище: " + personSurname + ", ім'я: " + personName + ", по-батькові: " + middleName + ", дата народження: " + birthDate + ", електронна пошта: " + personEmail + ", номер телефону: " + personPhone + ", посада: " + teacherPosition + ", науковий ступінь: " + academicDegree + ", вчене звання: " + academicTitle + ", дата прийняття на роботу: " + yearOfEntry + ", ставка: " + rate;
+        getWorkExperience();
+        return "Унікальний ідентифікатор: " +  personID + "\nПрізвище: " + personSurname + "\nІм'я: " + personName + "\nПо-батькові: " + middleName + "\nДата народження: " + getDateOfBirth() +"\nВік: " + getPersonAge() + "\nЕлектронна пошта: " + personEmail + "\nНомер телефону: " + personPhone + "\nПосада: " + teacherPosition + "\nНауковий ступінь: " + academicDegree + "\nВчене звання: " + academicTitle + "\nДата прийняття на роботу: " + getDateOfEntry() + "\nСтавка: " + rate + "\nСтаж: " + getWorkExperience();
     }
 
 }

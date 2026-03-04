@@ -225,19 +225,6 @@ public class Menu {
 
 
 
-        if (Authorization.status == 3) {
-            System.out.println("1. Додати студента");
-            operations.allStudents = allObjects.allStudents();
-        }
-        if (operations.allStudents.size() > 0) {
-            if(Authorization.status == 3)System.out.println("2. Редагувати дані студента");
-            if(Authorization.status == 3)System.out.println("3. Вилучити студента");
-            System.out.println("4. Знайти студента");
-            counter+=3;
-        }
-
-
-
         int operation = checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
 
 

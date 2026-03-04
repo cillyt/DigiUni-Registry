@@ -59,11 +59,11 @@ public class Faculty{
 
     @Override
     public String toString() {
-        String facultyDecanPIB = ", декан факультету: немає";
+        String facultyDecanPIB = "\nДекан факультету: немає";
         if (this.facultyDecan != null) {
-            facultyDecanPIB = ", декан факультету: " + this.facultyDecan.personSurname + " " + this.facultyDecan.personName + " " + this.facultyDecan.middleName;
+            facultyDecanPIB = "\nДекан факультету: " + this.facultyDecan.personSurname + " " + this.facultyDecan.personName + " " + this.facultyDecan.middleName;
         }
-        return "Код факультету: " +  facultyCode + ", назва факультету: " + facultyName + ", скорочена назва факультету: " + shortFacultyName + facultyDecanPIB + ", номер телефону факультету: " + facultyPhoneNumber + ", електронна пошта факультету: " + facultyEmail;
+        return "Код факультету: " +  facultyCode + "\nНазва факультету: " + facultyName + "\nСкорочена назва факультету: " + shortFacultyName + facultyDecanPIB + "\nНомер телефону факультету: " + facultyPhoneNumber + "\nЕлектронна пошта факультету: " + facultyEmail;
     }
 
 }

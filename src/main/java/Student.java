@@ -5,8 +5,8 @@ public class Student extends Person {
     String studyForm; //ТІЛЬКИ бюджет чи контракт
     String studentStatus; // навчається/ академвідпустка/ відрахований
 
-    Student(int personID, String personSurname, String personName, String middleName, String birthDate, String personEmail, long personPhone, int courseNumber, int groupNumber, int yearOfEntry, String studyForm, String studentStatus) {
-        super(personID, personSurname, personName, middleName, birthDate, personEmail, personPhone);
+    Student(int personID, String personSurname, String personName, String middleName, int yearOfBirth, int monthOfBirth, int dayOfBirth, String personEmail, long personPhone, int courseNumber, int groupNumber, int yearOfEntry, String studyForm, String studentStatus) {
+        super(personID, personSurname, personName, middleName, yearOfBirth, monthOfBirth, dayOfBirth, personEmail, personPhone);
         this.courseNumber = courseNumber;
         this.groupNumber = groupNumber;
         this.yearOfEntry = yearOfEntry;
@@ -51,7 +51,7 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return "Унікальний ідентифікатор: " +  personID + ", прізвище: " + personSurname + ", ім'я: " + personName + ", по-батькові: " + middleName + ", дата народження: " + birthDate + ", електронна пошта: " + personEmail + ", номер телефону: " + personPhone + ", курс: " + courseNumber + ", група: " + groupNumber + ", рік вступу: " + yearOfEntry + ", форма навчання: " + studyForm + ", статус: " + studentStatus;
+        return "Унікальний ідентифікатор: " +  personID + "\nПрізвище: " + personSurname + "\nІм'я: " + personName + "\nПо-батькові: " + middleName + "\nДата народження: " + getDateOfBirth() +"\nВік: " + getPersonAge() + "\nЕлектронна пошта: " + personEmail + "\nНомер телефону: " + personPhone + "\nКурс: " + courseNumber + "\nГрупа: " + groupNumber + "\nРік вступу: " + yearOfEntry + "\nФорма навчання: " + studyForm + "\nСтатус: " + studentStatus;
     }
 
 }

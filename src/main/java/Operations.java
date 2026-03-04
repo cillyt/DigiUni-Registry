@@ -1,9 +1,10 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.*;
 
-import static javax.management.Query.and;
+//import static javax.management.Query.and;
 
 public class Operations {
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -84,7 +85,12 @@ public class Operations {
         String personSurname = checkString("Прізвище: ","Ви не ввели прізвище викладача.");
         String personName = checkString("Ім'я: ", "Ви не ввели ім'я викладача.");
         String middleName = checkString("По-батькові: ", "Ви не ввели по-батькові викладача.");
-        String birthDate = checkString("Дата народження: ", "Ви не ввели дату народження викладача.");
+
+        int yearOfBirth = checkInt("Рік народження: ", "Ви не ввели рік народження");
+        int monthOfBirth = checkInt("Місяць народження: ", "Ви не ввели місяць народження");
+        int dayOfBirth = checkInt("День народження: ", "Ви не ввели день народження");
+
+       // String birthDate = checkString("Дата народження: ", "Ви не ввели дату народження викладача.");
         String personEmail = checkString("Електронна пошта: ","Ви не ввели електронну пошту викладача.");
         long personPhone = checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно.");
 
@@ -92,6 +98,8 @@ public class Operations {
         String academicDegree = checkString("Науковий ступінь: ","Ви не ввели науковий ступінь викладача.");
         String academicTitle = checkString("Вчене звання: ","Ви не ввели вчене звання викладача.");
         int yearOfEntry = checkInt("Рік прийняття на роботу: ","Ви ввели рік прийняття на роботу неправильно.");
+        int monthOfEntry = checkInt("Місяць прийняття на роботу (у числовому форматі): ","Ви ввели місяць прийняття на роботу неправильно.");
+        int dayOfEntry = checkInt("День прийняття на роботу (у числовому форматі): ","Ви ввели день прийняття на роботу неправильно.");
         String rate = checkString("Ставка: ","Ви не ввели ставку викладача.");
 
         Boolean newDecan = false;
@@ -102,8 +110,7 @@ public class Operations {
         if (universities.get(uni).faculties.get(faculty).departments.get(depart).headOfDepart == null)
             newHeadOfDepart = menu.headOfDepartmentQuestion();
 
-
-        Teacher newTeacher =  new Teacher(personID, personSurname, personName, middleName, birthDate,personEmail,personPhone,teacherPosition,academicDegree,academicTitle,yearOfEntry,rate, newDecan, newHeadOfDepart);
+        Teacher newTeacher =  new Teacher(personID, personSurname, personName, middleName, yearOfBirth, monthOfBirth, dayOfBirth ,personEmail,personPhone,teacherPosition,academicDegree,academicTitle,yearOfEntry,monthOfEntry,dayOfEntry,rate, newDecan, newHeadOfDepart);
         universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.add(newTeacher);  //створення об'єкта класу з введеним даними
 
         if (newDecan)
@@ -128,7 +135,11 @@ public class Operations {
         String personSurname = checkString("Прізвище: ","Ви не ввели прізвище студента.");
         String personName = checkString("Ім'я: ", "Ви не ввели ім'я студента.");
         String middleName = checkString("По-батькові: ", "Ви не ввели по-батькові студента.");
-        String birthDate = checkString("Дата народження: ", "Ви не ввели дату народження студента.");
+
+        int yearOfBirth = checkInt("Рік народження: ", "Ви не ввели рік народження");
+        int monthOfBirth = checkInt("Місяць народження: ", "Ви не ввели місяць народження");
+        int dayOfBirth = checkInt("День народження: ", "Ви не ввели день народження");
+
         String personEmail = checkString("Електронна пошта: ","Ви не ввели електронну пошту студента.");
         long personPhone = checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно.");
 
@@ -163,7 +174,7 @@ public class Operations {
         }
 
 
-        universities.get(uni).faculties.get(faculty).departments.get(depart).students.add(new Student(studentID, personSurname, personName, middleName, birthDate, personEmail, personPhone, courseNumber, groupNumber, yearOfEntry, studyForm, studentStatus));  //створення об'єкта класу з введеним даними
+        universities.get(uni).faculties.get(faculty).departments.get(depart).students.add(new Student(studentID, personSurname, personName, middleName, yearOfBirth, monthOfBirth, dayOfBirth, personEmail, personPhone, courseNumber, groupNumber, yearOfEntry, studyForm, studentStatus));  //створення об'єкта класу з введеним даними
 
         for(Student s : universities.get(uni).faculties.get(faculty).departments.get(depart).students){
             System.out.print(s + "\n");
@@ -436,8 +447,14 @@ public class Operations {
                     universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setMiddleName(newMiddleName);
                     break;
                 case 5:
-                    String newBirthDate = checkString("Введіть нову дату дня народження: ", "Ви не ввели нову дату дня народження.");
-                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setBirthDate(newBirthDate);
+                    int newBirthYear = checkInt("Введіть новий рік народження: ", "Ви не ввели новий рік народження.");
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setYearOfBirth(newBirthYear);
+
+                    int newBirthMonth = checkInt("Введіть новий місяць народження: ", "Ви не ввели новий місяць народження.");
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setMonthOfBirth(newBirthMonth);
+
+                    int newBirthDay = checkInt("Введіть новий день народження: ", "Ви не ввели новий день народження.");
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setDayOfBirth(newBirthDay);
                     break;
                 case 6:
                     String newPersonEmail = checkString("Введіть нову електронну пошту: ", "Ви не ввели нову електронну пошту.");
@@ -535,8 +552,14 @@ public class Operations {
                     universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setMiddleName(newMiddleName);
                     break;
                 case 5:
-                    String newBirthDate = checkString("Введіть нову дату дня народження: ", "Ви не ввели нову дату дня народження.");
-                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setBirthDate(newBirthDate);
+                    int newBirthYear = checkInt("Введіть новий рік народження: ", "Ви не ввели новий рік народження.");
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setYearOfBirth(newBirthYear);
+
+                    int newBirthMonth = checkInt("Введіть новий місяць народження: ", "Ви не ввели новий місяць народження.");
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setMonthOfBirth(newBirthMonth);
+
+                    int newBirthDay = checkInt("Введіть новий день народження: ", "Ви не ввели новий день народження.");
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setDayOfBirth(newBirthDay);
                     break;
                 case 6:
                     String newPersonEmail = checkString("Введіть нову електронну пошту: ", "Ви не ввели нову електронну пошту.");
