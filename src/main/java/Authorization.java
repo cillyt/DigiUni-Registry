@@ -14,8 +14,9 @@ import java.util.Optional;
 Адміністратор: повний доступ + створення/редагування/блокування користувачів і ролей.*/
 
 public class Authorization {
+    Menu menu = Main.menu;
+    CheckInput checkInput = Main.checkInput;
     public static int status;           //захистити
-    static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     List<User> allUsers = new ArrayList<>();
     List<Manager> allManagers = new ArrayList<>();
     List<Administrator> allAdministrators = new ArrayList<>();
@@ -23,16 +24,12 @@ public class Authorization {
     private Object consumer;
 
 
-    public void authorizationQuestion() throws IOException {
-        System.out.println("=== Увійдіть у свій обліковий запис ===");
-        System.out.println("1. Зареєструватись");
-        if (!allUsersWithRoles.isEmpty()) System.out.println("2. Увійти");
-        int choice = Integer.parseInt(reader.readLine());
-        if(choice == 1|| (choice == 2 && !allUsersWithRoles.isEmpty())){
+    public void authorization() throws IOException {
+        int choice = menu.authorizationQuestion(allUsersWithRoles.isEmpty());
             switch (choice) {
                 case 1:
                     register();
-                    authorizationQuestion();
+                    authorization();
                     break;
                 case 2:
                     consumer = findingConsumer();  //перевіряє чи існує запитаний користувач для входу (optional)
@@ -40,13 +37,7 @@ public class Authorization {
                     System.out.println("current status: " + status);  //видалити після перевірок
                     break;
             }
-        }
 
-        else {
-            if(allUsersWithRoles.isEmpty())System.out.println("Для продовження реєстрації введіть лище 1");
-            else System.out.println("Введіть лише 1 або 2!");
-            authorizationQuestion();
-        }
     }
 
 
@@ -56,8 +47,7 @@ public class Authorization {
 
 
     private void login() throws IOException {
-        System.out.println("=== Вкажіть пароль ===");
-        String password = reader.readLine();
+        String password = checkInput.checkString("=== Вкажіть пароль ===","Ви не ввели пароль.");
 
         if(password!=null && consumer instanceof User){
             String c = ((User) consumer).getPassword();
@@ -98,8 +88,7 @@ public class Authorization {
 
         while (true){
             boolean found=false;
-            System.out.println("=== Вкажіть пошту ===");
-            email = reader.readLine();
+            email = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
             for(Object o : allUsersWithRoles){
                 if((o instanceof User && ((User)o).getEmail().equals(email)) ||
                         (o instanceof Manager && ((Manager)o).getEmail().equals(email)) ||
@@ -113,13 +102,8 @@ public class Authorization {
             else break;
         }
 
-        System.out.println("=== Вкажіть пароль ===");
-        String password = reader.readLine();
-        System.out.println("=== Вкажіть роль ===");
-        System.out.println("1. Користувач");
-        System.out.println("2. Менеджер");
-        System.out.println("3. Адміністратор");
-        int role = Integer.parseInt(reader.readLine());
+        String password = checkInput.checkString("=== Вкажіть пароль ===","Ви не ввели пароль.");
+        int role = menu.roleAuthorizationQuestion();
 
         switch (role) {
             case 1:
@@ -148,9 +132,8 @@ public class Authorization {
 
 
 
-    public static Object findingConsumer() throws IOException {
-        System.out.println("=== Вкажіть пошту ===");
-        String email = reader.readLine();
+    public Object findingConsumer() throws IOException {
+        String email = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
 
         Object consumer = getConsumerOrDefault(email);
         if (consumer != null) {

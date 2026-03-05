@@ -7,7 +7,6 @@ import java.util.*;
 //import static javax.management.Query.and;
 
 public class Operations {
-    static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     Menu menu = Main.menu;
     AllObjects allObjects = Main.allObjects;
     CheckInput checkInput = Main.checkInput;

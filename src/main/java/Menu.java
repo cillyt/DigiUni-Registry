@@ -527,6 +527,31 @@ public class Menu {
         return teachers.get(teach);
     }
 
+    public int authorizationQuestion(boolean haventUsersWithRoles) throws IOException {
+        int a = 1;
+        System.out.println("=== Увійдіть у свій обліковий запис ===");
+        System.out.println("1. Зареєструватись");
+        if (!haventUsersWithRoles){
+            System.out.println("2. Увійти");
+            a = 2;
+        }
+
+        int operation = checkOperations(1, a,"Введіть номер дії: ", "Номер був введений неправильно.", "Немає дії під таким номером.");
+        return operation;
+
+    }
+
+    public int roleAuthorizationQuestion() throws IOException {
+        System.out.println("=== Вкажіть роль ===");
+        System.out.println("1. Користувач");
+        System.out.println("2. Менеджер");
+        System.out.println("3. Адміністратор");
+
+        int role = checkOperations(1, 3,"Введіть номер ролі: ", "Номер був введений неправильно.", "Немає ролі під таким номером.");
+        return role;
+
+    }
+
 
     public int checkOperations(int a, int b, String s, String s1, String s2) throws IOException {
         check = 0;

@@ -7,12 +7,11 @@ public class Main {
     static Reports reports = new Reports();
     static CheckInput checkInput = new CheckInput();
     static Menu menu = new Menu();
+    static Authorization auth = new Authorization();
 
     public static void main(String[] args) throws IOException {
-        while(true){  //якщо користувач захоче вернутись в режим авторизації, добавити тут брейк коли буде виходити з програми
-            Authorization auth = new Authorization();
-            auth.authorizationQuestion();
-            Menu menu = new Menu();
+        while(true){  //якщо користувач захоче вернутись в режим авторизації, додати тут брейк коли буде виходити з програми
+            auth.authorization();
             menu.mainMenu();
         }
     }
