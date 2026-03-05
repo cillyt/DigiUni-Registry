@@ -7,10 +7,14 @@ import java.util.*;
 //import static javax.management.Query.and;
 
 public class Operations {
-    Menu menu = Main.menu;
+
     AllObjects allObjects = Main.allObjects;
     CheckInput checkInput = Main.checkInput;
 
+    public Menu getMenu() {
+        return Main.menu;
+    }
+    
     List<University> universities = Main.universities;  //масиви об'єктів, які можна додати
 
 
@@ -29,12 +33,12 @@ public class Operations {
         }
 
         System.out.println("Університет було додано!");
-        menu.universityMenu();
+        getMenu().universityMenu();
 
     }
 
    public void addingFaculty() throws IOException {
-        int uni = menu.universityQuestion();
+        int uni = getMenu().universityQuestion();
 
          //ввід даних користувачем
         String facultyCode = checkInput.checkString("Код факультету: ", "Ви не ввели код факультету.");
@@ -50,12 +54,12 @@ public class Operations {
        }
 
         System.out.println("Факультет було додано!");
-        menu.facultyMenu();
+        getMenu().facultyMenu();
     }
 
     public void addingDepartment() throws IOException {
-        int uni = menu.universityQuestion();
-        int faculty = menu.facultyQuestion(uni);
+        int uni = getMenu().universityQuestion();
+        int faculty = getMenu().facultyQuestion(uni);
 
           //ввід даних користувачем
         String departmentCode = checkInput.checkString("Код кафедри: ", "Ви не ввели код кафедри.");
@@ -69,13 +73,13 @@ public class Operations {
         }
 
         System.out.println("Кафедру було додано!");
-        menu.departmentMenu();
+        getMenu().departmentMenu();
     }
 
     public void addingTeacher() throws IOException {
-        int uni = menu.universityQuestion();
-        int faculty = menu.facultyQuestion(uni);
-        int depart = menu.departmentQuestion(uni, faculty);
+        int uni = getMenu().universityQuestion();
+        int faculty = getMenu().facultyQuestion(uni);
+        int depart = getMenu().departmentQuestion(uni, faculty);
 
         int personID = checkInput.checkInt("Унікальний ідентифікатор: ","Ви ввели унікальний ідентифікатор неправильно.");
         String personSurname = checkInput.checkString("Прізвище: ","Ви не ввели прізвище викладача.");
@@ -100,11 +104,11 @@ public class Operations {
 
         Boolean newDecan = false;
         if (universities.get(uni).faculties.get(faculty).facultyDecan == null)
-            newDecan = menu.decanQuestion();
+            newDecan = getMenu().decanQuestion();
 
         Boolean newHeadOfDepart = false;
         if (universities.get(uni).faculties.get(faculty).departments.get(depart).headOfDepart == null)
-            newHeadOfDepart = menu.headOfDepartmentQuestion();
+            newHeadOfDepart = getMenu().headOfDepartmentQuestion();
 
         Teacher newTeacher =  new Teacher(personID, personSurname, personName, middleName, yearOfBirth, monthOfBirth, dayOfBirth ,personEmail,personPhone,teacherPosition,academicDegree,academicTitle,yearOfEntry,monthOfEntry,dayOfEntry,rate, newDecan, newHeadOfDepart);
         universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.add(newTeacher);  //створення об'єкта класу з введеним даними
@@ -119,13 +123,13 @@ public class Operations {
         }
 
         System.out.println("Вчитель був успішно доданий!");
-        menu.teacherMenu();
+        getMenu().teacherMenu();
     }
 
     public void addingStudent() throws IOException {
-        int uni = menu.universityQuestion();
-        int faculty = menu.facultyQuestion(uni);
-        int depart = menu.departmentQuestion(uni, faculty);
+        int uni = getMenu().universityQuestion();
+        int faculty = getMenu().facultyQuestion(uni);
+        int depart = getMenu().departmentQuestion(uni, faculty);
 
         int studentID = checkInput.checkInt("Унікальний ідентифікатор: ","Ви ввели унікальний ідентифікатор неправильно.");
         String personSurname = checkInput.checkString("Прізвище: ","Ви не ввели прізвище студента.");
@@ -141,7 +145,7 @@ public class Operations {
 
         check = 0;
 
-        int courseNumber = menu.checkOperations(1,6,"Курс: ","Ви ввели курс неправильно.","Ви ввели курс неправильно.");
+        int courseNumber = getMenu().checkOperations(1,6,"Курс: ","Ви ввели курс неправильно.","Ви ввели курс неправильно.");
         int groupNumber = checkInput.checkInt("Група: ","Ви ввели групу неправильно.");
         int yearOfEntry = checkInput.checkInt("Рік вступу: ","Ви ввели рік вступу неправильно: ");
 
@@ -177,38 +181,38 @@ public class Operations {
         }
 
         System.out.println("Студент був успішно доданий!");
-        menu.studentMenu();
+        getMenu().studentMenu();
     }
 
 
     public void deletingUniversity() throws IOException {
-        int uni = menu.universityQuestion();
+        int uni = getMenu().universityQuestion();
         universities.remove(uni);
 
         for(University u : universities) {
             System.out.print(u + "\n");
         }
         System.out.println("Університет був успішно видалений!");
-        menu.universityMenu();
+        getMenu().universityMenu();
     }
 
     public void deletingFaculty() throws IOException {
-        int uni = menu.universityQuestion();
-        int faculty = menu.facultyQuestion(uni);
+        int uni = getMenu().universityQuestion();
+        int faculty = getMenu().facultyQuestion(uni);
         universities.get(uni).faculties.remove(faculty);
 
         for(Faculty f : universities.get(uni).faculties) {
             System.out.print(f + "\n");
         }
         System.out.println("Факультет був успішно видалений!");
-        menu.facultyMenu();
+        getMenu().facultyMenu();
 
     }
 
     public void deletingDepartment() throws IOException {
-        int uni = menu.universityQuestion();
-        int faculty = menu.facultyQuestion(uni);
-        int depart = menu.departmentQuestion(uni, faculty);
+        int uni = getMenu().universityQuestion();
+        int faculty = getMenu().facultyQuestion(uni);
+        int depart = getMenu().departmentQuestion(uni, faculty);
 
         for(Teacher t : allObjects.allTeachersByFaculty(universities.get(uni).faculties.get(faculty))) {
             if (t.decan)
@@ -221,30 +225,30 @@ public class Operations {
             System.out.print(d + "\n");
         }
         System.out.println("Кафедра була успішно видалена!");
-        menu.departmentMenu();
+        getMenu().departmentMenu();
 
     }
 
     public void deletingStudent() throws IOException {
-        int uni = menu.universityQuestion();
-        int faculty = menu.facultyQuestion(uni);
-        int depart = menu.departmentQuestion(uni, faculty);
-        int stud = menu.studentQuestion(uni, faculty, depart);
+        int uni = getMenu().universityQuestion();
+        int faculty = getMenu().facultyQuestion(uni);
+        int depart = getMenu().departmentQuestion(uni, faculty);
+        int stud = getMenu().studentQuestion(uni, faculty, depart);
         universities.get(uni).faculties.get(faculty).departments.get(depart).students.remove(stud);
 
         for(Student s : universities.get(uni).faculties.get(faculty).departments.get(depart).students){
             System.out.print(s + "\n");
         }
         System.out.println("Студент був успішно вилучений!");
-        menu.studentMenu();
+        getMenu().studentMenu();
 
     }
 
     public void deletingTeacher() throws IOException {
-        int uni = menu.universityQuestion();
-        int faculty = menu.facultyQuestion(uni);
-        int depart = menu.departmentQuestion(uni, faculty);
-        int teach = menu.teacherQuestion(uni, faculty, depart);
+        int uni = getMenu().universityQuestion();
+        int faculty = getMenu().facultyQuestion(uni);
+        int depart = getMenu().departmentQuestion(uni, faculty);
+        int teach = getMenu().teacherQuestion(uni, faculty, depart);
 
         if (universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).decan)
             universities.get(uni).faculties.get(faculty).facultyDecan = null;
@@ -258,17 +262,17 @@ public class Operations {
             System.out.print(t + "\n");
         }
         System.out.println("Викладач був успішно вилучений!");
-        menu.teacherMenu();
+        getMenu().teacherMenu();
 
     }
 
 
     public void editingUniversity() throws IOException {
-        int uni = menu.universityQuestion();
+        int uni = getMenu().universityQuestion();
         boolean changed = false;
 
         while(!changed) {
-            int changingParameter = menu.universityParameterQuestion();
+            int changingParameter = getMenu().universityParameterQuestion();
 
             switch (changingParameter) {
                 case 0:
@@ -297,19 +301,19 @@ public class Operations {
             System.out.print(u + "\n");
         }
         System.out.println("Університет був успішно змінений!");
-        menu.universityMenu();
+        getMenu().universityMenu();
     }
 
 
 
     public void editingFaculty() throws IOException {
-        int uni = menu.universityQuestion();
-        int faculty = menu.facultyQuestion(uni);
+        int uni = getMenu().universityQuestion();
+        int faculty = getMenu().facultyQuestion(uni);
 
         boolean changed = false;
 
         while (!changed) {
-            int changingParameter = menu.facultyParameterQuestion();
+            int changingParameter = getMenu().facultyParameterQuestion();
             switch (changingParameter) {
                 case 0:
                     changed = true;
@@ -328,7 +332,7 @@ public class Operations {
                     break;
                 case 4:
                     if (!allObjects.allTeachersByFaculty(universities.get(uni).faculties.get(faculty)).isEmpty()) {//можливо потрібно додати умову що масив з одного викладача і той декан
-                        Teacher newFacultyDecan = menu.decanEditingQuestion(allObjects.allTeachersByFaculty(universities.get(uni).faculties.get(faculty)));
+                        Teacher newFacultyDecan = getMenu().decanEditingQuestion(allObjects.allTeachersByFaculty(universities.get(uni).faculties.get(faculty)));
                         universities.get(uni).faculties.get(faculty).setFacultyDecan(newFacultyDecan);
                         for (Department d : universities.get(uni).faculties.get(faculty).departments)
                             for (Teacher t : d.teachers) {
@@ -356,16 +360,16 @@ public class Operations {
             System.out.print(f + "\n");
         }
         System.out.println("Факультет був успішно змінений!");
-        menu.facultyMenu();
+        getMenu().facultyMenu();
     }
 
     public void editingDepartment() throws IOException {
-        int uni = menu.universityQuestion();
-        int faculty = menu.facultyQuestion(uni);
-        int depart = menu.departmentQuestion(uni, faculty);
+        int uni = getMenu().universityQuestion();
+        int faculty = getMenu().facultyQuestion(uni);
+        int depart = getMenu().departmentQuestion(uni, faculty);
         boolean changed = false;
         while(!changed) {
-            int changingParameter = menu.departmentParameterQuestion();
+            int changingParameter = getMenu().departmentParameterQuestion();
             switch (changingParameter) {
                 case 0:
                     changed = true;
@@ -380,7 +384,7 @@ public class Operations {
                     break;
                 case 3:
                     if (universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.size() > 0) {//можливо потрібно додати умову що масив з одного викладача і той декан
-                        Teacher newHeadOfDepartment = menu.headOfDepartmentEditingQuestion(universities.get(uni).faculties.get(faculty).departments.get(depart).teachers);
+                        Teacher newHeadOfDepartment = getMenu().headOfDepartmentEditingQuestion(universities.get(uni).faculties.get(faculty).departments.get(depart).teachers);
                         universities.get(uni).faculties.get(faculty).departments.get(depart).setHeadOfDepart(newHeadOfDepartment);
                         for (Department d : universities.get(uni).faculties.get(faculty).departments)
                             for (Teacher t : d.teachers) {
@@ -405,20 +409,20 @@ public class Operations {
             System.out.print(d + "\n");
         }
         System.out.println("Кафедра була успішно змінена!");
-        menu.departmentMenu();
+        getMenu().departmentMenu();
     }
 
     public  void editingStudent() throws IOException {
-        int uni = menu.universityQuestion();
-        int faculty = menu.facultyQuestion(uni);
-        int depart = menu.departmentQuestion(uni, faculty);
-        int stud = menu.studentQuestion(uni, faculty, depart);
+        int uni = getMenu().universityQuestion();
+        int faculty = getMenu().facultyQuestion(uni);
+        int depart = getMenu().departmentQuestion(uni, faculty);
+        int stud = getMenu().studentQuestion(uni, faculty, depart);
 
         boolean changed = false;
 
         while(!changed) {
 
-            int changingParameter = menu.studentParameterQuestion();
+            int changingParameter = getMenu().studentParameterQuestion();
 
             switch (changingParameter) {
                 case 0:
@@ -509,21 +513,21 @@ public class Operations {
             System.out.print(s + "\n");
         }
         System.out.println("Студент був успішно змінений!");
-        menu.studentMenu();
+        getMenu().studentMenu();
     }
 
 
     public void editingTeacher() throws IOException {
-        int uni = menu.universityQuestion();
-        int faculty = menu.facultyQuestion(uni);
-        int depart = menu.departmentQuestion(uni, faculty);
-        int teach = menu.teacherQuestion(uni, faculty, depart);
+        int uni = getMenu().universityQuestion();
+        int faculty = getMenu().facultyQuestion(uni);
+        int depart = getMenu().departmentQuestion(uni, faculty);
+        int teach = getMenu().teacherQuestion(uni, faculty, depart);
 
         boolean changed = false;
 
         while(!changed) {
 
-            int changingParameter = menu.teacherParameterQuestion();
+            int changingParameter = getMenu().teacherParameterQuestion();
 
             switch (changingParameter) {
                 case 0:
@@ -591,7 +595,7 @@ public class Operations {
             System.out.print(t + "\n");
         }
         System.out.println("Викладач був успішно змінений!");
-        menu.teacherMenu();
+        getMenu().teacherMenu();
     }
 
 

@@ -4,15 +4,19 @@ import java.util.List;
 
 public class Search {
     AllObjects allObjects = Main.allObjects;
-    Menu menu = Main.menu;
     CheckInput checkInput = Main.checkInput;
+
+    public Menu getMenu() {
+        return Main.menu;
+    }
+
 
 
     public void findingStudent() throws IOException {
-            int studentFindingQuestion = menu.studentFindingQuestion();
+            int studentFindingQuestion = getMenu().studentFindingQuestion();
             switch (studentFindingQuestion) {
                 case 0:
-                    menu.mainMenu();
+                    getMenu().mainMenu();
                 case 1:
                     String findBySNM = checkInput.checkString("Введіть ПІБ для пошуку: ", "Ви не ввели ПІБ для пошуку.");
                     List<Student> results = findBySNM(findBySNM);
@@ -24,7 +28,7 @@ public class Search {
                             System.out.println("- " + s);
                         }
                     }
-                    menu.studentMenu();
+                    getMenu().studentMenu();
                     break;
                 case 2:
                     int findByYear = checkInput.checkInt("Введіть курс для пошуку: ", "Ви ввели курс неправильно.");
@@ -38,7 +42,7 @@ public class Search {
                             System.out.println("- " + s);
                         }
                     }
-                    menu.studentMenu();
+                    getMenu().studentMenu();
                     break;
                 case 3:
                     int findByGroup = checkInput.checkInt("Введіть групу для пошуку: ", "Ви ввели групу неправильно.");
@@ -51,16 +55,16 @@ public class Search {
                             System.out.println("- " + s);
                         }
                     }
-                    menu.studentMenu();
+                    getMenu().studentMenu();
                     break;
             }
     }
 
     public void findingTeacher() throws IOException {
-        int teacherFindingQuestion = menu.teacherFindingQuestion();
+        int teacherFindingQuestion = getMenu().teacherFindingQuestion();
         switch(teacherFindingQuestion){
             case 0:
-                menu.mainMenu();
+                getMenu().mainMenu();
             case 1:
                 System.out.println("Введіть ПІБ для пошуку: ");
                 String findBySNMt = checkInput.checkString("Введіть ПІБ для пошуку: ", "Ви не ввели ПІБ для пошуку.");
@@ -75,7 +79,7 @@ public class Search {
                         System.out.println("- " + t);
                     }
                 }
-                menu.teacherMenu();
+                getMenu().teacherMenu();
                 break;
 
         }

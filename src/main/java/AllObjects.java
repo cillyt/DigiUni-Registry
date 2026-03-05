@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AllObjects {
-    Operations operations = Main.operations;
-
     public List<Teacher> allTeachers(){
         ArrayList<Teacher> allTeachers = new ArrayList<>();
         for(University u : Main.universities){

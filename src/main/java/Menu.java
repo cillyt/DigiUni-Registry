@@ -6,11 +6,12 @@ import java.util.List;
 public class Menu {
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     int check;
-    Operations operations = Main.operations;
     AllObjects allObjects = Main.allObjects;
-    Search search = Main.search;
-    Reports reports = Main.reports;
     CheckInput checkInput = Main.checkInput;
+
+    Reports reports = new Reports();
+    Operations operations = new Operations();
+    Search search = new Search();
 
 
     public void mainMenu() throws IOException {

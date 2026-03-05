@@ -4,16 +4,18 @@ import java.util.List;
 
 public class Reports {
     AllObjects allObjects = Main.allObjects;
-    Menu menu = Main.menu;
+    public Menu getMenu() {
+        return Main.menu;
+    }
     List<Student> allStudents;
     List<Teacher> allTeachers;
 
     //додати перевірку, коли будуть звіти з викладачами
     public void reports() throws IOException {
-        int rep = menu.reportQuestion();
+        int rep =getMenu().reportQuestion();
         switch(rep){
             case 0:
-                menu.mainMenu();
+               getMenu().mainMenu();
                 break;
             case 1:
                 allStudents = allObjects.allStudents();
@@ -23,9 +25,9 @@ public class Reports {
                 }
                 break;
             case 2:
-                int uni = menu.universityQuestion();
-                int faculty = menu.facultyQuestion(uni);
-                int depart = menu.departmentQuestion(uni, faculty);
+                int uni =getMenu().universityQuestion();
+                int faculty =getMenu().facultyQuestion(uni);
+                int depart =getMenu().departmentQuestion(uni, faculty);
                 Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.sort(Comparator.comparing(Student::getCourseNumber));
                 for(Student s : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students){
                     System.out.print(s + "\n");
@@ -33,7 +35,7 @@ public class Reports {
                 break;
         }
 
-        menu.mainMenu();
+       getMenu().reportsAndSearchMenu();
     }
 
 }

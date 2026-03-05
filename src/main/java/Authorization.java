@@ -14,8 +14,10 @@ import java.util.Optional;
 Адміністратор: повний доступ + створення/редагування/блокування користувачів і ролей.*/
 
 public class Authorization {
-    Menu menu = Main.menu;
+    Menu menu = new Menu();
     CheckInput checkInput = Main.checkInput;
+
+
     public static int status;           //захистити
     List<User> allUsers = new ArrayList<>();
     List<Manager> allManagers = new ArrayList<>();
