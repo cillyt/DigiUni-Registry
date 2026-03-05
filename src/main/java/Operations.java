@@ -11,12 +11,8 @@ public class Operations {
     AllObjects allObjects = Main.allObjects;
     CheckInput checkInput = Main.checkInput;
 
-    static List<University> universities = new ArrayList<>();  //масиви об'єктів, які можна додати
-    List<Faculty> allFaculties;
-    List<Department> allDepartments;
-    List<Student> allStudents;
-    List<Teacher> allTeachers;
-    List<Teacher> allTeachersByFaculty;
+    List<University> universities = Main.universities;  //масиви об'єктів, які можна додати
+
 
     int check;
 
@@ -27,8 +23,8 @@ public class Operations {
         String city = checkInput.checkString("Місто: ", "Ви не ввели місто.");
         String address = checkInput.checkString("Адреса: ", "Ви не ввели адресу університету.");
 
-        universities.add(new University(fullUniversityName, shortUniversityName, city, address));  //створення об'єкта класу з введеним даними
-        for(University u : universities) {
+        Main.universities.add(new University(fullUniversityName, shortUniversityName, city, address));  //створення об'єкта класу з введеним даними
+        for(University u : Main.universities) {
             System.out.print(u + "\n");
         }
 
@@ -199,9 +195,9 @@ public class Operations {
     public void deletingFaculty() throws IOException {
         int uni = menu.universityQuestion();
         int faculty = menu.facultyQuestion(uni);
-        Operations.universities.get(uni).faculties.remove(faculty);
+        universities.get(uni).faculties.remove(faculty);
 
-        for(Faculty f : Operations.universities.get(uni).faculties) {
+        for(Faculty f : universities.get(uni).faculties) {
             System.out.print(f + "\n");
         }
         System.out.println("Факультет був успішно видалений!");
@@ -214,8 +210,7 @@ public class Operations {
         int faculty = menu.facultyQuestion(uni);
         int depart = menu.departmentQuestion(uni, faculty);
 
-        allTeachersByFaculty = allObjects.allTeachersByFaculty(universities.get(uni).faculties.get(faculty));
-        for(Teacher t : allTeachersByFaculty) {
+        for(Teacher t : allObjects.allTeachersByFaculty(universities.get(uni).faculties.get(faculty))) {
             if (t.decan)
                 universities.get(uni).faculties.get(faculty).facultyDecan = null;
         }
@@ -332,9 +327,8 @@ public class Operations {
                     universities.get(uni).faculties.get(faculty).setShortFacultyName(newFacultyShortName);
                     break;
                 case 4:
-                    allTeachersByFaculty = allObjects.allTeachersByFaculty(universities.get(uni).faculties.get(faculty));
-                    if (allTeachersByFaculty.size() > 0) {//можливо потрібно додати умову що масив з одного викладача і той декан
-                        Teacher newFacultyDecan = menu.decanEditingQuestion(allTeachersByFaculty);
+                    if (!allObjects.allTeachersByFaculty(universities.get(uni).faculties.get(faculty)).isEmpty()) {//можливо потрібно додати умову що масив з одного викладача і той декан
+                        Teacher newFacultyDecan = menu.decanEditingQuestion(allObjects.allTeachersByFaculty(universities.get(uni).faculties.get(faculty)));
                         universities.get(uni).faculties.get(faculty).setFacultyDecan(newFacultyDecan);
                         for (Department d : universities.get(uni).faculties.get(faculty).departments)
                             for (Teacher t : d.teachers) {
@@ -358,7 +352,7 @@ public class Operations {
             }
         }
 
-        for(Faculty f : Operations.universities.get(uni).faculties) {
+        for(Faculty f : universities.get(uni).faculties) {
             System.out.print(f + "\n");
         }
         System.out.println("Факультет був успішно змінений!");

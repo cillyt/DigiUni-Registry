@@ -6,7 +6,7 @@ public class AllObjects {
 
     public List<Teacher> allTeachers(){
         ArrayList<Teacher> allTeachers = new ArrayList<>();
-        for(University u : operations.universities){
+        for(University u : Main.universities){
             for(Faculty f : u.faculties){
                 for(Department d : f.departments){
                     for(Teacher t : d.teachers){
@@ -20,7 +20,7 @@ public class AllObjects {
 
     public List<Student> allStudents(){
         ArrayList<Student> allStudents = new ArrayList<>();
-        for(University u : operations.universities){
+        for(University u : Main.universities){
             for(Faculty f : u.faculties){
                 for(Department d : f.departments){
                     for(Student s : d.students){
@@ -34,7 +34,7 @@ public class AllObjects {
 
     public List<Department> allDepartments(){
         ArrayList<Department> allDepartments = new ArrayList<>();
-        for(University u : operations.universities){
+        for(University u : Main.universities){
             for(Faculty f : u.faculties){
                 for(Department d : f.departments){
                     allDepartments.add(d);
@@ -46,7 +46,7 @@ public class AllObjects {
 
     public List<Faculty> allFaculties(){
         ArrayList<Faculty> allFaculties = new ArrayList<>();
-        for(University u : operations.universities){
+        for(University u : Main.universities){
             for(Faculty f : u.faculties){
                 allFaculties.add(f);
             }

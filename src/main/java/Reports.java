@@ -8,6 +8,7 @@ public class Reports {
     List<Student> allStudents;
     List<Teacher> allTeachers;
 
+    //додати перевірку, коли будуть звіти з викладачами
     public void reports() throws IOException {
         int rep = menu.reportQuestion();
         switch(rep){
@@ -25,8 +26,8 @@ public class Reports {
                 int uni = menu.universityQuestion();
                 int faculty = menu.facultyQuestion(uni);
                 int depart = menu.departmentQuestion(uni, faculty);
-                Operations.universities.get(uni).faculties.get(faculty).departments.get(depart).students.sort(Comparator.comparing(Student::getCourseNumber));
-                for(Student s : Operations.universities.get(uni).faculties.get(faculty).departments.get(depart).students){
+                Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.sort(Comparator.comparing(Student::getCourseNumber));
+                for(Student s : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students){
                     System.out.print(s + "\n");
                 }
                 break;

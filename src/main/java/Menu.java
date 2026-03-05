@@ -16,36 +16,30 @@ public class Menu {
     public void mainMenu() throws IOException {
             int counter = 1;
             System.out.println("=== Оберіть об'єкт з яким хочете працювати ===");
-
             System.out.println("0. Вийти на сторінку входу");
+            System.out.println("1. Звіти та пошук");
 
-            if(Authorization.status ==2 || Authorization.status == 3) {
-                System.out.println("1. Університет");
-                if (operations.universities.size() > 0) {
-                    System.out.println("2. Факультет");
+
+
+            if(Authorization.status == 2 || Authorization.status == 3) {
+                System.out.println("2. Університет");
+                counter++;
+
+                if (!Main.universities.isEmpty()) {
+                    System.out.println("3. Факультет");
                     counter++;
                 }
 
-                operations.allFaculties = allObjects.allFaculties();
-                if (operations.allFaculties.size() > 0) {
-                    System.out.println("3. Кафедра");
+                if (!allObjects.allFaculties().isEmpty()) {
+                    System.out.println("4. Кафедра");
                     counter++;
                 }
-            }
 
-                operations.allDepartments = allObjects.allDepartments();
-                if (operations.allDepartments.size() > 0) {
-                    System.out.println("4. Студент");
-                    System.out.println("5. Викладач");
+                if (!allObjects.allDepartments().isEmpty()) {
+                    System.out.println("5. Студент");
+                    System.out.println("6. Викладач");
                     counter += 2;
                 }
-
-
-            operations.allStudents = allObjects.allStudents();
-            operations.allTeachers  = allObjects.allTeachers();
-            if (operations.allStudents.size() > 0 ){ //or operations.allTeachers.size() > 0(Коли будуть звіти з тічерами)
-                System.out.println("6. Звіти");
-                counter++;
             }
 
 
@@ -57,24 +51,78 @@ public class Menu {
             case 0:
                 return;
             case 1:
-                universityMenu();
+                reportsAndSearchMenu();
                 break;
             case 2:
-                facultyMenu();
+                universityMenu();
                 break;
             case 3:
-                departmentMenu();
+                facultyMenu();
                 break;
             case 4:
-                studentMenu();
+                departmentMenu();
                 break;
             case 5:
-                teacherMenu();
+                studentMenu();
                 break;
             case 6:
-                reports.reports();
+                teacherMenu();
                 break;
         }
+    }
+
+    public void reportsAndSearchMenu() throws IOException {
+        System.out.println("=== Оберіть дію ===");
+        System.out.println("0. Повернутись до головного меню.");
+        System.out.println("1. Звіти");
+        System.out.println("2. Пошук");
+
+        int operation = checkOperations(0, 2,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
+
+        switch (operation) {
+            case 0:
+                mainMenu();
+                break;
+            case 1:
+                if(allObjects.allStudents().isEmpty() /*&& allObjects.allTeachers().isEmpty()*/){ //треба додати перевірку в репорти (коли додамо викладачів)
+                    System.out.println("Немає викладачів та студентів, звіт не може бути складений.");
+                    reportsAndSearchMenu();
+                }
+                else{
+                    reports.reports();
+                }
+                break;
+            case 2:
+                check = 0;
+                int who = searchQuestion();
+                switch (who) {
+                    case 0:
+                        reportsAndSearchMenu();
+                        break;
+                    case 1:
+                        if (allObjects.allStudents().isEmpty()){
+                            System.out.println("Немає студентів для пошуку.");
+                            reportsAndSearchMenu();
+                        }
+                        else
+                            search.findingStudent();
+                        break;
+                    case 2:
+                        if (allObjects.allTeachers().isEmpty()){
+                            System.out.println("Немає вчителів для пошуку.");
+                            reportsAndSearchMenu();
+                        }
+                        else
+                            search.findingTeacher();
+                        break;
+                }
+                break;
+
+        }
+
+
+
+
     }
 
     public void universityMenu() throws IOException {
@@ -82,7 +130,7 @@ public class Menu {
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
         System.out.println("1. Створити університет");
-        if (operations.universities.size() > 0){
+        if (!Main.universities.isEmpty()){
             System.out.println("2. Редагувати університет");
             System.out.println("3. Видалити університет");
             counter+=2;
@@ -113,8 +161,7 @@ public class Menu {
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
         System.out.println("1. Створити факультет");
-        operations.allFaculties = allObjects.allFaculties();
-        if (operations.allFaculties.size() > 0) {
+        if (!allObjects.allFaculties().isEmpty()) {
             System.out.println("2. Редагувати факультет");
             System.out.println("3. Видалити факультет");
             counter+=2;
@@ -145,8 +192,7 @@ public class Menu {
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
         System.out.println("1. Створити кафедру");
-        operations.allDepartments = allObjects.allDepartments();
-        if (operations.allDepartments.size() > 0) {
+        if (!allObjects.allDepartments().isEmpty()) {
             System.out.println("2. Редагувати кафедру");
             System.out.println("3. Видалити кафедру");
             counter+=2;
@@ -178,17 +224,19 @@ public class Menu {
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
 
+        System.out.println("1. Знайти студента");
 
         if (Authorization.status == 3) {
-        System.out.println("1. Додати студента");
-        operations.allStudents = allObjects.allStudents();
+            System.out.println("2. Додати студента");
+            counter++;
+
+            if (!allObjects.allStudents().isEmpty()) {
+                System.out.println("3. Редагувати дані студента");
+                System.out.println("4. Вилучити студента");
+                counter += 2;
+            }
         }
-        if (operations.allStudents.size() > 0) {
-            if(Authorization.status == 3)System.out.println("2. Редагувати дані студента");
-            if(Authorization.status == 3)System.out.println("3. Вилучити студента");
-            System.out.println("4. Знайти студента");
-            counter+=3;
-        }
+
 
         int operation = checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
 
@@ -197,17 +245,23 @@ public class Menu {
                 mainMenu();
                 break;
             case 1:
-                operations.addingStudent();
+                if (allObjects.allStudents().isEmpty()){
+                    System.out.println("Немає студентів для пошуку.");
+                    studentMenu();
+                }
+                else search.findingStudent();
+
                 break;
             case 2:
-                operations.editingStudent();
+                operations.addingStudent();
                 break;
             case 3:
-                operations.deletingStudent();
+                operations.editingStudent();
                 break;
             case 4:
-                search.findingStudent();
+                operations.deletingStudent();
                 break;
+
 
         }
     }
@@ -216,17 +270,18 @@ public class Menu {
         int counter = 1;
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
-        if (Authorization.status == 3) {
-            System.out.println("1. Додати викладача");
-            operations.allTeachers = allObjects.allTeachers();
-        }
-        if (operations.allTeachers.size() > 0) {
-            if(Authorization.status == 3)System.out.println("2. Редагувати дані викладача");
-            if(Authorization.status == 3)System.out.println("3. Вилучити викладача");
-            System.out.println("4. Знайти викладача");
-            counter+=3;
-        }
+        System.out.println("1. Знайти викладача");
 
+        if (Authorization.status == 3) {
+            System.out.println("2. Додати викладача");
+            counter++;
+
+            if (!allObjects.allTeachers().isEmpty()) {
+                System.out.println("3. Редагувати дані викладача");
+                System.out.println("4. Вилучити викладача");
+                counter += 2;
+            }
+        }
 
 
         int operation = checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
@@ -237,17 +292,22 @@ public class Menu {
                 mainMenu();
                 break;
             case 1:
-                operations.addingTeacher();
+                if (allObjects.allTeachers().isEmpty()){
+                    System.out.println("Немає вчителів для пошуку.");
+                    teacherMenu();
+                }
+                else search.findingTeacher();
                 break;
             case 2:
-                operations.editingTeacher();
+                operations.addingTeacher();
                 break;
             case 3:
-                operations.deletingTeacher();
+                operations.editingTeacher();
                 break;
             case 4:
-                search.findingTeacher();
+                operations.deletingTeacher();
                 break;
+
 
         }
     }
@@ -256,12 +316,12 @@ public class Menu {
     public int universityQuestion() throws IOException {
         System.out.println("Оберіть університет: ");
         int i = 0;
-        for (University university : operations.universities ) {
+        for (University university : Main.universities ) {
             i++;
             System.out.println(i + ". " +university.getFullUniversityName());
         }
 
-        int uni= checkOperations(1, operations.universities.size(),"Введіть номер університету: ","Номер університету був введений неправильно.", "Університету під таким номером не існує.");
+        int uni= checkOperations(1, Main.universities.size(),"Введіть номер університету: ","Номер університету був введений неправильно.", "Університету під таким номером не існує.");
 
         uni--;
         return uni;
@@ -271,12 +331,12 @@ public class Menu {
     public int facultyQuestion(int uni) throws IOException {
         System.out.println("Оберіть факультет: ");
         int i = 0;
-        for (Faculty faculty1 : operations.universities.get(uni).faculties) {
+        for (Faculty faculty1 : Main.universities.get(uni).faculties) {
             i++;
             System.out.println(i + ". " + faculty1.getFacultyName());
         }
 
-        int faculty= checkOperations(1, operations.universities.get(uni).faculties.size(),"Введіть номер факультету: ","Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
+        int faculty= checkOperations(1, Main.universities.get(uni).faculties.size(),"Введіть номер факультету: ","Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
 
 
         faculty--;
@@ -286,12 +346,12 @@ public class Menu {
     public int departmentQuestion(int uni, int faculty) throws IOException {
         System.out.println("Оберіть кафедру: ");
         int i = 0;
-        for (Department department : operations.universities.get(uni).faculties.get(faculty).departments) {
+        for (Department department : Main.universities.get(uni).faculties.get(faculty).departments) {
             i++;
             System.out.println(i + ". " + department.getDepartmentName());
         }
 
-        int departm = checkOperations(1, operations.universities.get(uni).faculties.get(faculty).departments.size(),"Введіть номер кафедри: ","Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
+        int departm = checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(),"Введіть номер кафедри: ","Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
 
         departm--;
         return departm;
@@ -300,13 +360,13 @@ public class Menu {
     public int studentQuestion(int uni, int faculty, int depart) throws IOException {
         System.out.println("Оберіть студента: ");
         int i = 0;
-        for (Student student : operations.universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
+        for (Student student : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
             i++;
             System.out.println(i + ". " + student.getPersonSurname() + " " + student.getPersonName() + " " + student.getMiddleName());
         }
 
 
-        int stud = checkOperations(1, operations.universities.get(uni).faculties.get(faculty).departments.get(depart).students.size(),"Введіть номер студента: ","Номер студента був введений неправильно.", "Студента під таким номером не існує.");
+        int stud = checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.size(),"Введіть номер студента: ","Номер студента був введений неправильно.", "Студента під таким номером не існує.");
 
 
 
@@ -317,12 +377,12 @@ public class Menu {
     public int teacherQuestion(int uni, int faculty, int depart) throws IOException {
         System.out.println("Оберіть викладача: ");
         int i = 0;
-        for (Teacher teacher : operations.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
+        for (Teacher teacher : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
             i++;
             System.out.println(i + ". " + teacher.getPersonSurname() + " " + teacher.getPersonName() + " " + teacher.getMiddleName());
         }
 
-        int teach = checkOperations(1, operations.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.size(),"Введіть номер викладача: ","Номер викладача був введений неправильно.", "Викладача під таким номером не існує.");
+        int teach = checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.size(),"Введіть номер викладача: ","Номер викладача був введений неправильно.", "Викладача під таким номером не існує.");
 
         teach--;
         return teach;
@@ -418,6 +478,18 @@ public class Menu {
 
         return parameter;
 
+
+    }
+
+    public int searchQuestion() throws IOException {
+        System.out.println("Кого ви хочете знайти?");
+        System.out.println("0. Завершити пошук");
+        System.out.println("1. Студент");
+        System.out.println("2. Викладач");
+
+        int person = checkOperations(0, 2,"Введіть номер особи: ","Номер особи був введений неправильно.", "Особи під таким номером не існує.");
+
+        return person;
 
     }
 
