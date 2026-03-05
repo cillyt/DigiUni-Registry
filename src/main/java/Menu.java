@@ -5,9 +5,13 @@ import java.util.List;
 
 public class Menu {
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    Operations operations = new Operations();
-    AllObjects allObjects = new AllObjects();
     int check;
+    Operations operations = Main.operations;
+    AllObjects allObjects = Main.allObjects;
+    Search search = Main.search;
+    Reports reports = Main.reports;
+    CheckInput checkInput = Main.checkInput;
+
 
     public void mainMenu() throws IOException {
             int counter = 1;
@@ -68,7 +72,7 @@ public class Menu {
                 teacherMenu();
                 break;
             case 6:
-                operations.reports();
+                reports.reports();
                 break;
         }
     }
@@ -202,7 +206,7 @@ public class Menu {
                 operations.deletingStudent();
                 break;
             case 4:
-                operations.findingStudent();
+                search.findingStudent();
                 break;
 
         }
@@ -242,7 +246,7 @@ public class Menu {
                 operations.deletingTeacher();
                 break;
             case 4:
-                operations.findingTeacher();
+                search.findingTeacher();
                 break;
 
         }
@@ -528,7 +532,7 @@ public class Menu {
         check = 0;
         int operation = -1;
         while (check == 0) {
-            operation = operations.checkInt(s,s1);
+            operation = checkInput.checkInt(s,s1);
 
             if (operation <= b && operation >= a)
                 check = 1;

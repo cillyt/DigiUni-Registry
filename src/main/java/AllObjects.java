@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AllObjects {
-    Operations operations = new Operations();
+    Operations operations = Main.operations;
 
     public List<Teacher> allTeachers(){
         ArrayList<Teacher> allTeachers = new ArrayList<>();
