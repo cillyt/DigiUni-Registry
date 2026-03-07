@@ -25,13 +25,16 @@ public class Reports {
                 }
                 break;
             case 2:
-                int uni =getMenu().universityQuestion();
-                int faculty =getMenu().facultyQuestion(uni);
-                int depart =getMenu().departmentQuestion(uni, faculty);
+                int uni =getMenu().universityQuestionWithFaculty();
+                int faculty = -1;
+                while (faculty == -1)
+                    faculty =getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni, 2);
+                int depart =getMenu().departmentQuestionWithStudents(uni, faculty);
                 Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.sort(Comparator.comparing(Student::getCourseNumber));
                 for(Student s : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students){
                     System.out.print(s + "\n");
                 }
+
                 break;
         }
 

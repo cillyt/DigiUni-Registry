@@ -52,15 +52,70 @@ public class AllObjects {
         return allFaculties;
     }
 
-    public List<Teacher> allTeachersByFaculty(Faculty faculty){
+
+    public List<Teacher> allTeachersByUni(University uni){
+        List<Teacher> allTeachersByUni = new ArrayList<>();
+
+        for (Faculty f : uni.faculties)
+            for(Department d : f.departments)
+                for(Teacher t : d.teachers)
+                    allTeachersByUni.add(t);
+
+
+        return allTeachersByUni;
+    }
+
+
+    public List<Teacher> allTeachersByFaculty(Faculty f){
         List<Teacher> allTeachersByFaculty = new ArrayList<>();
-            for(Department d : faculty.departments)
+            for(Department d : f.departments)
                 for(Teacher t : d.teachers)
                     allTeachersByFaculty.add(t);
 
 
         return allTeachersByFaculty;
     }
+
+    public List<Student> allStudentsByUni(University uni){
+        List<Student> allStudentsByUni = new ArrayList<>();
+
+        for (Faculty f : uni.faculties)
+            for(Department d : f.departments)
+                for(Student s : d.students)
+                    allStudentsByUni.add(s);
+
+
+        return allStudentsByUni;
+    }
+
+
+
+    public List<Student> allStudentsByFaculty(Faculty f){
+        List<Student> allStudentsByFaculty = new ArrayList<>();
+        for(Department d : f.departments)
+            for(Student s : d.students)
+                allStudentsByFaculty.add(s);
+
+
+        return allStudentsByFaculty;
+    }
+
+    public List<Department> allDepartmentsByUni(University uni){
+        List<Department> allDepartmentsByUni = new ArrayList<>();
+        for(Faculty f : uni.faculties)
+            for(Department d : f.departments)
+                allDepartmentsByUni.add(d);
+
+
+        return allDepartmentsByUni;
+    }
+
+
+
+
+
+
+
 
 
 }

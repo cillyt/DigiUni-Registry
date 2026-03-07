@@ -20,6 +20,8 @@ public class Main {
     }
 
     private static void startedPack(){
+
+
         universities.add(new University("Києвомогилянська академія", "КМА", "Київ", "Контрактова площа"));
         universities.add(new University("Шевченка", "КНУ", "Київ", "ПУГ"));
         universities.add(new University("Український католицький університет", "УКУ", "Львів", "десь у львові"));
