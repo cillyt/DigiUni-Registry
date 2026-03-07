@@ -159,30 +159,8 @@ public class Operations {
             int groupNumber = checkInput.checkInt("Група: ", "Ви ввели групу неправильно.");
             int yearOfEntry = checkInput.checkInt("Рік вступу: ", "Ви ввели рік вступу неправильно: ");
 
-            check = 0;
-            String studyForm = " ";
-            while (check == 0) {
-                studyForm = checkInput.checkString("Форма навчання(Бюджет/Контракт): ", "Ви не ввели форму навчання.");
-                if (studyForm.equals("Бюджет") || studyForm.equals("Контракт"))
-                    check = 1;
-                else {
-                    System.out.println("Ви ввели форму навчання неправильно.");
-                    check = 0;
-                }
-            }
-
-            check = 0;
-            String studentStatus = " ";
-            while (check == 0) {
-                studentStatus = checkInput.checkString("Статус(Навчається/Відрахований/Академвідпустка): ", "Ви не ввели статус.");
-                if (studentStatus.equals("Навчається") || studentStatus.equals("Відрахований") || studentStatus.equals("Академвідпустка"))
-                    check = 1;
-                else {
-                    System.out.println("Ви ввели статус неправильно.");
-                    check = 0;
-                }
-            }
-
+            String studyForm = getMenu().studyFormQuestion();
+            String studentStatus = getMenu().studentStatusQuestion();
 
             universities.get(uni).faculties.get(faculty).departments.get(depart).students.add(new Student(studentID, personSurname, personName, middleName, yearOfBirth, monthOfBirth, dayOfBirth, personEmail, personPhone, courseNumber, groupNumber, yearOfEntry, studyForm, studentStatus));  //створення об'єкта класу з введеним даними
 
@@ -501,30 +479,12 @@ public class Operations {
                         break;
                     case 11:
                         check = 0;
-                        String newStudyForm = " ";
-                        while (check == 0) {
-                            newStudyForm = checkInput.checkString("Форма навчання: ", "Ви не ввели форму навчання.");
-                            if (newStudyForm.equals("Бюджет") || newStudyForm.equals("Контракт"))
-                                check = 1;
-                            else {
-                                System.out.println("Ви ввели форму навчання неправильно.");
-                                check = 0;
-                            }
-                        }
+                        String newStudyForm = getMenu().studyFormQuestion();
                         universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setStudyForm(newStudyForm);
                         break;
                     case 12:
                         check = 0;
-                        String newStudentStatus = " ";
-                        while (check == 0) {
-                            newStudentStatus = checkInput.checkString("Статус: ", "Ви не ввели статус.");
-                            if (newStudentStatus.equals("Навчається") || newStudentStatus.equals("Відрахований") || newStudentStatus.equals("Академвідпустка"))
-                                check = 1;
-                            else {
-                                System.out.println("Ви ввели статус неправильно.");
-                                check = 0;
-                            }
-                        }
+                        String newStudentStatus = getMenu().studentStatusQuestion();
                         universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setStudentStatus(newStudentStatus);
                         break;
 

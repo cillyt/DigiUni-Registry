@@ -637,42 +637,25 @@ public class Menu {
     }
 
     public boolean decanQuestion() throws IOException {
-        check=0;
-        while (check == 0) {
-            System.out.println("Чи назначити цього викладача деканом факультету?(Так/Ні)");
-            String answer = reader.readLine();
-            if (answer.equals("Так")){
-                check = 1;
-                return true;
-            }
-            if (answer.equals("Ні")){
-                check = 1;
-                return false;
-            }
-            else System.out.println("Ви ввели неправильну відповідь.");
-        }
+        System.out.println("Чи назначити цього викладача деканом факультету?(Так/Ні)");
+        System.out.println("1. Так");
+        System.out.println("2. Ні");
+        int answer = checkOperations(1,2,"Введіть номер відповіді: ","Номер відповіді був введений неправильно.", "Відповіді під таким номером не існує.");
 
-        return true;
+        if (answer == 1) return true;
+        else return false;
 
     }
 
     public boolean headOfDepartmentQuestion() throws IOException {
-        check=0;
-        while (check == 0) {
-            System.out.println("Назначити цього викладача завідувачем кафедри?(Так/Ні)");
-            String answer = reader.readLine();
-            if (answer.equals("Так")){
-                check = 1;
-                return true;
-            }
-            if (answer.equals("Ні")){
-                check = 1;
-                return false;
-            }
-            else System.out.println("Ви ввели неправильну відповідь.");
-        }
+        System.out.println("Назначити цього викладача завідувачем кафедри?");
+        System.out.println("1. Так");
+        System.out.println("2. Ні");
+        int answer = checkOperations(1,2,"Введіть номер відповіді: ","Номер відповіді був введений неправильно.", "Відповіді під таким номером не існує.");
 
-        return true;
+        if (answer == 1) return true;
+        else return false;
+
     }
 
     public Teacher decanEditingQuestion(List<Teacher> allTeachersByFaculty) throws IOException {
@@ -701,6 +684,29 @@ public class Menu {
         teach--;
 
         return teachers.get(teach);
+    }
+
+    public String studyFormQuestion() throws IOException {
+        System.out.println("Оберіть форму навчання студента: ");
+        System.out.println("1. Бюджет");
+        System.out.println("2. Контракт");
+
+        int answer = checkOperations(1,2,"Введіть номер форми навчання: ","Форма навчання була введена неправильно.","Форми навчання під таким номером не існує.");
+        if (answer == 1) return "Бюджет";
+        else return "Контракт";
+
+    }
+
+    public String studentStatusQuestion() throws IOException {
+        System.out.println("Оберіть статус студента: ");
+        System.out.println("1. Навчається");
+        System.out.println("2. Академвідпустка");
+        System.out.println("3. Відрахований");
+
+        int answer = checkOperations(1,3,"Введіть номер статусу: ","Статус був введений неправильно.","Статусу під таким номером не існує.");
+        if (answer == 1) return "Навчається";
+        else if (answer == 2) return "Академвідпустка";
+        else return "Відрахований";
     }
 
     public int authorizationQuestion(boolean haventUsersWithRoles) throws IOException {
