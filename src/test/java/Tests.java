@@ -29,4 +29,5 @@ public class Tests {
         int ageStu = s.getPersonAge();
         assertEquals(2025, ageStu);
     }
+
 }

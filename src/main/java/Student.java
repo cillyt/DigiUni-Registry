@@ -14,6 +14,10 @@ public class Student extends Person {
         this.studentStatus = studentStatus;
     }
 
+    Student(){
+        super();
+    }
+
     public int getCourseNumber() {
         return courseNumber;
     }

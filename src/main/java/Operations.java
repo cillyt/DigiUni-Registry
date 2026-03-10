@@ -22,12 +22,14 @@ public class Operations {
 
 
     public void addingUniversity() throws IOException {
-        String fullUniversityName = checkInput.checkString("Назва університету: ", "Ви не ввели назву університету.");
-        String shortUniversityName = checkInput.checkString("Скорочена назва університету: ", "Ви не ввели скорочену назву університету.");
-        String city = checkInput.checkString("Місто: ", "Ви не ввели місто.");
-        String address = checkInput.checkString("Адреса: ", "Ви не ввели адресу університету.");
+        University uni = new University();
 
-        Main.universities.add(new University(fullUniversityName, shortUniversityName, city, address));  //створення об'єкта класу з введеним даними
+        uni.setFullUniversityName(checkInput.checkString("Назва університету: ", "Ви не ввели назву університету."));
+        uni.setShortUniversityName(checkInput.checkString("Скорочена назва університету: ", "Ви не ввели скорочену назву університету."));
+        uni.setCity(checkInput.checkString("Місто: ", "Ви не ввели місто."));
+        uni.setAddress(checkInput.checkString("Адреса: ", "Ви не ввели адресу університету."));
+
+        Main.universities.add(uni);
         for(University u : Main.universities) {
             System.out.print(u + "\n");
         }
@@ -40,14 +42,17 @@ public class Operations {
    public void addingFaculty() throws IOException {
         int uni = getMenu().universityQuestionNoFaculty();
 
-         //ввід даних користувачем
-        String facultyCode = checkInput.checkString("Код факультету: ", "Ви не ввели код факультету.");
-        String facultyName = checkInput.checkString("Назва факультету: ", "Ви не ввели назву факультету.");
-        String shortFacultyName = checkInput.checkString("Скорочена назва факультету: ", "Ви не ввели скорочену назву факультету.");
-       long facultyPhoneNumber = checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно.");
-        String facultyEmail = checkInput.checkString("Пошта факультету: ", "Ви не ввели пошту факультету.");
+        Faculty faculty = new Faculty();
 
-       universities.get(uni).faculties.add(new Faculty(facultyCode, facultyName, shortFacultyName, facultyPhoneNumber, facultyEmail));//створення об'єкта класу з введеним даними
+        faculty.setFacultyCode(checkInput.checkString("Код факультету: ", "Ви не ввели код факультету."));
+        faculty.setFacultyName(checkInput.checkString("Назва факультету: ", "Ви не ввели назву факультету."));
+        faculty.setShortFacultyName(checkInput.checkString("Скорочена назва факультету: ", "Ви не ввели скорочену назву факультету."));
+        faculty.setFacultyPhoneNumber(checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно."));
+        faculty.setFacultyEmail(checkInput.checkString("Пошта факультету: ", "Ви не ввели пошту факультету."));
+
+
+
+       universities.get(uni).faculties.add(faculty);
 
        for(Faculty f : (universities.get(uni)).faculties) {
            System.out.print(f + "\n");
@@ -60,13 +65,13 @@ public class Operations {
     public void addingDepartment() throws IOException {
         int uni = getMenu().universityQuestionWithFaculty();
         int faculty = getMenu().facultyQuestionNoDepartment(uni);
+        Department depart = new Department();
 
-          //ввід даних користувачем
-        String departmentCode = checkInput.checkString("Код кафедри: ", "Ви не ввели код кафедри.");
-        String departmentName = checkInput.checkString("Назва кафедри: ", "Ви не ввели назву кафедри.");
-        int cabinetNumber = checkInput.checkInt("Номер кабінету: ", "Ви ввели номер кабінету неправильно.");
+        depart.setDepartmentCode(checkInput.checkString("Код кафедри: ", "Ви не ввели код кафедри."));
+        depart.setDepartmentName(checkInput.checkString("Назва кафедри: ", "Ви не ввели назву кафедри."));
+        depart.setCabinetNumber(checkInput.checkInt("Номер кабінету: ", "Ви ввели номер кабінету неправильно."));
 
-        universities.get(uni).faculties.get(faculty).departments.add(new Department(departmentCode, departmentName, cabinetNumber));  //створення об'єкта класу з введеним даними
+        universities.get(uni).faculties.get(faculty).departments.add(depart);
 
         for(Department d : universities.get(uni).faculties.get(faculty).departments) {
             System.out.print(d + "\n");
@@ -80,45 +85,43 @@ public class Operations {
         int uni = getMenu().universityQuestionWithFaculty();
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni, 1);
         if(faculty != -1) {
-
                 int depart = getMenu().departmentQuestionNoStudentsAndTeachers(uni, faculty);
 
-                int personID = checkInput.checkInt("Унікальний ідентифікатор: ", "Ви ввели унікальний ідентифікатор неправильно.");
-                String personSurname = checkInput.checkString("Прізвище: ", "Ви не ввели прізвище викладача.");
-                String personName = checkInput.checkString("Ім'я: ", "Ви не ввели ім'я викладача.");
-                String middleName = checkInput.checkString("По-батькові: ", "Ви не ввели по-батькові викладача.");
+                Teacher teacher = new Teacher();
 
-                int yearOfBirth = checkInput.checkInt("Рік народження: ", "Ви не ввели рік народження");
-                int monthOfBirth = checkInput.checkInt("Місяць народження: ", "Ви не ввели місяць народження");
-                int dayOfBirth = checkInput.checkInt("День народження: ", "Ви не ввели день народження");
+                teacher.setPersonID(checkInput.checkInt("Унікальний ідентифікатор: ", "Ви ввели унікальний ідентифікатор неправильно."));
+                teacher.setPersonSurname(checkInput.checkString("Прізвище: ", "Ви не ввели прізвище викладача."));
+                teacher.setPersonName(checkInput.checkString("Ім'я: ", "Ви не ввели ім'я викладача."));
+                teacher.setMiddleName(checkInput.checkString("По-батькові: ", "Ви не ввели по-батькові викладача."));
 
-                // String birthDate = checkString("Дата народження: ", "Ви не ввели дату народження викладача.");
-                String personEmail = checkInput.checkString("Електронна пошта: ", "Ви не ввели електронну пошту викладача.");
-                long personPhone = checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно.");
+                teacher.setYearOfBirth(checkInput.checkInt("Рік народження: ", "Ви не ввели рік народження"));
+                teacher.setMonthOfBirth(checkInput.checkInt("Місяць народження: ", "Ви не ввели місяць народження"));
+                teacher.setDayOfBirth(checkInput.checkInt("День народження: ", "Ви не ввели день народження"));
+                teacher.setPersonEmail(checkInput.checkString("Електронна пошта: ", "Ви не ввели електронну пошту викладача."));
+                teacher.setPersonPhone(checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно."));
 
-                String teacherPosition = checkInput.checkString("Посада: ", "Ви не ввели посаду викладача.");
-                String academicDegree = checkInput.checkString("Науковий ступінь: ", "Ви не ввели науковий ступінь викладача.");
-                String academicTitle = checkInput.checkString("Вчене звання: ", "Ви не ввели вчене звання викладача.");
-                int yearOfEntry = checkInput.checkInt("Рік прийняття на роботу: ", "Ви ввели рік прийняття на роботу неправильно.");
-                int monthOfEntry = checkInput.checkInt("Місяць прийняття на роботу (у числовому форматі): ", "Ви ввели місяць прийняття на роботу неправильно.");
-                int dayOfEntry = checkInput.checkInt("День прийняття на роботу (у числовому форматі): ", "Ви ввели день прийняття на роботу неправильно.");
-                String rate = checkInput.checkString("Ставка: ", "Ви не ввели ставку викладача.");
+                teacher.setTeacherPosition(checkInput.checkString("Посада: ", "Ви не ввели посаду викладача."));
+                teacher.setAcademicDegree(checkInput.checkString("Науковий ступінь: ", "Ви не ввели науковий ступінь викладача."));
+                teacher.setAcademicTitle(checkInput.checkString("Вчене звання: ", "Ви не ввели вчене звання викладача."));
+                teacher.setYearOfEntry(checkInput.checkInt("Рік прийняття на роботу: ", "Ви ввели рік прийняття на роботу неправильно."));
+                teacher.setMonthOfEntry(checkInput.checkInt("Місяць прийняття на роботу (у числовому форматі): ", "Ви ввели місяць прийняття на роботу неправильно."));
+                teacher.setDayOfEntry(checkInput.checkInt("День прийняття на роботу (у числовому форматі): ", "Ви ввели день прийняття на роботу неправильно."));
+                teacher.setRate(checkInput.checkString("Ставка: ", "Ви не ввели ставку викладача."));
 
-                Boolean newDecan = false;
+                teacher.setDecanStatus(false);
                 if (universities.get(uni).faculties.get(faculty).facultyDecan == null)
-                    newDecan = getMenu().decanQuestion();
+                     teacher.setDecanStatus(getMenu().decanQuestion());
 
-                Boolean newHeadOfDepart = false;
+                teacher.setHeadOfDepartmentStatus(false);
                 if (universities.get(uni).faculties.get(faculty).departments.get(depart).headOfDepart == null)
-                    newHeadOfDepart = getMenu().headOfDepartmentQuestion();
+                    teacher.setHeadOfDepartmentStatus(getMenu().headOfDepartmentQuestion());
 
-                Teacher newTeacher = new Teacher(personID, personSurname, personName, middleName, yearOfBirth, monthOfBirth, dayOfBirth, personEmail, personPhone, teacherPosition, academicDegree, academicTitle, yearOfEntry, monthOfEntry, dayOfEntry, rate, newDecan, newHeadOfDepart);
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.add(newTeacher);  //створення об'єкта класу з введеним даними
+                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.add(teacher);
 
-                if (newDecan)
-                    universities.get(uni).faculties.get(faculty).facultyDecan = newTeacher;
-                if (newHeadOfDepart)
-                    universities.get(uni).faculties.get(faculty).departments.get(depart).headOfDepart = newTeacher;
+                if (teacher.decan)
+                    universities.get(uni).faculties.get(faculty).facultyDecan = teacher;
+                if (teacher.headOfDepartment)
+                    universities.get(uni).faculties.get(faculty).departments.get(depart).headOfDepart = teacher;
 
                 for (Teacher t : universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
                     System.out.print(t + "\n");
@@ -141,28 +144,29 @@ public class Operations {
         if(faculty != -1) {
             int depart = getMenu().departmentQuestionNoStudentsAndTeachers(uni, faculty);
 
-            int studentID = checkInput.checkInt("Унікальний ідентифікатор: ", "Ви ввели унікальний ідентифікатор неправильно.");
-            String personSurname = checkInput.checkString("Прізвище: ", "Ви не ввели прізвище студента.");
-            String personName = checkInput.checkString("Ім'я: ", "Ви не ввели ім'я студента.");
-            String middleName = checkInput.checkString("По-батькові: ", "Ви не ввели по-батькові студента.");
+            Student stud = new Student();
+            stud.setPersonID(checkInput.checkInt("Унікальний ідентифікатор: ", "Ви ввели унікальний ідентифікатор неправильно."));
+            stud.setPersonSurname(checkInput.checkString("Прізвище: ", "Ви не ввели прізвище студента."));
+            stud.setPersonName(checkInput.checkString("Ім'я: ", "Ви не ввели ім'я студента."));
+            stud.setMiddleName(checkInput.checkString("По-батькові: ", "Ви не ввели по-батькові студента."));
 
-            int yearOfBirth = checkInput.checkInt("Рік народження: ", "Ви не ввели рік народження");
-            int monthOfBirth = checkInput.checkInt("Місяць народження: ", "Ви не ввели місяць народження");
-            int dayOfBirth = checkInput.checkInt("День народження: ", "Ви не ввели день народження");
+            stud.setYearOfBirth(checkInput.checkInt("Рік народження: ", "Ви не ввели рік народження"));
+            stud.setMonthOfBirth( checkInput.checkInt("Місяць народження: ", "Ви не ввели місяць народження"));
+            stud.setDayOfBirth(checkInput.checkInt("День народження: ", "Ви не ввели день народження"));
 
-            String personEmail = checkInput.checkString("Електронна пошта: ", "Ви не ввели електронну пошту студента.");
-            long personPhone = checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно.");
+            stud.setPersonEmail(checkInput.checkString("Електронна пошта: ", "Ви не ввели електронну пошту студента."));
+            stud.setPersonPhone(checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно."));
 
             check = 0;
 
-            int courseNumber = getMenu().checkOperations(1, 6, "Курс: ", "Ви ввели курс неправильно.", "Ви ввели курс неправильно.");
-            int groupNumber = checkInput.checkInt("Група: ", "Ви ввели групу неправильно.");
-            int yearOfEntry = checkInput.checkInt("Рік вступу: ", "Ви ввели рік вступу неправильно: ");
+            stud.setCourseNumber(getMenu().checkOperations(1, 6, "Курс: ", "Ви ввели курс неправильно.", "Ви ввели курс неправильно."));
+            stud.setGroupNumber(checkInput.checkInt("Група: ", "Ви ввели групу неправильно."));
+            stud.setYearOfEntry(checkInput.checkInt("Рік вступу: ", "Ви ввели рік вступу неправильно: "));
 
-            String studyForm = getMenu().studyFormQuestion();
-            String studentStatus = getMenu().studentStatusQuestion();
+            stud.setStudyForm(getMenu().studyFormQuestion());
+            stud.setStudentStatus(getMenu().studentStatusQuestion());
 
-            universities.get(uni).faculties.get(faculty).departments.get(depart).students.add(new Student(studentID, personSurname, personName, middleName, yearOfBirth, monthOfBirth, dayOfBirth, personEmail, personPhone, courseNumber, groupNumber, yearOfEntry, studyForm, studentStatus));  //створення об'єкта класу з введеним даними
+            universities.get(uni).faculties.get(faculty).departments.get(depart).students.add(stud);
 
             for (Student s : universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
                 System.out.print(s + "\n");
@@ -207,7 +211,7 @@ public class Operations {
         if (faculty != -1) {
             int depart = getMenu().departmentQuestionNoStudentsAndTeachers(uni, faculty);
 
-            for (Teacher t : allObjects.allTeachersByFaculty(universities.get(uni).faculties.get(faculty))) {
+            for (Teacher t : universities.get(uni).faculties.get(faculty).departments.get(depart).teachers){
                 if (t.decan)
                     universities.get(uni).faculties.get(faculty).facultyDecan = null;
             }
@@ -279,8 +283,7 @@ public class Operations {
                     changed = true;
                     break;
                 case 1:
-                    String newUniFullName = checkInput.checkString("Введіть нову повну назву університету: ", "Ви не ввели нову повну назву університету.");
-                    universities.get(uni).setFullUniversityName(newUniFullName);
+                    universities.get(uni).setFullUniversityName(checkInput.checkString("Введіть нову повну назву університету: ", "Ви не ввели нову повну назву університету."));
                     break;
                 case 2:
                     String newUniShortName = checkInput.checkString("Введіть нову скорочену назву університету: ", "Ви не ввели нову скорочену назву університету.");

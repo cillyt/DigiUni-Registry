@@ -26,6 +26,10 @@ public class Teacher extends Person{
         this.headOfDepartment = headOfDepartment;
     }
 
+    Teacher(){
+        super();
+    }
+
     public String getTeacherPosition() {return teacherPosition;}
     public void setTeacherPosition(String teacherPosition) {this.teacherPosition = teacherPosition;}
     public String getAcademicDegree() {
@@ -64,6 +68,10 @@ public class Teacher extends Person{
     public void setRate(String rate) {
         this.rate = rate;
     }
+    public boolean getDecanStatus(){return decan;}
+    public void setDecanStatus(boolean decan){this.decan = decan;}
+    public boolean getHeadOfDepartmentStatus(){return headOfDepartment;}
+    public void setHeadOfDepartmentStatus(boolean headOfDepartment){this.headOfDepartment = headOfDepartment;}
 
     public LocalDate getDateOfEntry(){
         LocalDate dateOfEntry = LocalDate.of(yearOfEntry, monthOfEntry, dayOfEntry);

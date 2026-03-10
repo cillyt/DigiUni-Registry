@@ -15,6 +15,10 @@ public class University {
         this.address = address;
     }
 
+    University(){
+
+    }
+
     public String getFullUniversityName() {return fullUniversityName;}
     public void setFullUniversityName(String fullUniversityName) {this.fullUniversityName = fullUniversityName;}
     public String getShortUniversityName() {
