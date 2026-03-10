@@ -1,9 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /*.4 Доступ і ролі
 Потрібна авторизація (логін/пароль) і розмежування прав доступу.
@@ -19,10 +17,10 @@ public class Authorization {
 
 
     public static int status;           //захистити
-    List<User> allUsers = new ArrayList<>();
-    List<Manager> allManagers = new ArrayList<>();
-    List<Administrator> allAdministrators = new ArrayList<>();
-    static List<Object> allUsersWithRoles = new ArrayList<>();
+    public final Set<User> allUsers = new HashSet<>();
+    public final Set<Manager> allManagers = new HashSet<>();
+    public final Set<Administrator> allAdministrators = new HashSet<>();
+    public final static Set<Object> allUsersWithRoles = new HashSet<>();
     private Object consumer;
 
 
@@ -85,46 +83,38 @@ public class Authorization {
 
 
 
-    private void register() throws IOException {  //додати перевірку чи вже існує користувач з такою поштою
-        String email;
-
-        while (true){
-            boolean found=false;
-            email = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
-            for(Object o : allUsersWithRoles){
-                if((o instanceof User && ((User)o).getEmail().equals(email)) ||
-                        (o instanceof Manager && ((Manager)o).getEmail().equals(email)) ||
-                        (o instanceof Administrator && ((Administrator)o).getEmail().equals(email))){  //????????????/
-
-                    found = true;
-                    break;
-                }
-            }
-            if(found) System.out.println("Обліковий запис з такою електронною поштою вже існує!");
-            else break;
-        }
-
+    private void register() throws IOException {
+        String email = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
         String password = checkInput.checkString("=== Вкажіть пароль ===","Ви не ввели пароль.");
         int role = menu.roleAuthorizationQuestion();
 
         switch (role) {
             case 1:
+                boolean isAddedU = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
+                if(!isAddedU) System.out.println("Обліковий запис з такою електронною поштою вже існує!");
                 allUsers.add(new User(email, password));
-                allUsersWithRoles.add(new User(email, password));
+
+                //allUsersWithRoles.add(new User(email, password));
                 for(User u : allUsers) {
                     System.out.println(u + "\n");  //потім після тестування видалити
                 }
                 break;
             case 2:
+                boolean isAddedM = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
+                if(!isAddedM) System.out.println("Обліковий запис з такою електронною поштою вже існує!");
                 allManagers.add(new Manager(email, password));
-                allUsersWithRoles.add(new Manager(email, password));
+
+                //allUsersWithRoles.add(new Manager(email, password));
                 for(Manager m : allManagers) {
                     System.out.println(m + "\n");
                 }
                 break;
             case 3:
+                boolean isAddedA = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
+                if(!isAddedA) System.out.println("Обліковий запис з такою електронною поштою вже існує!");
                 allAdministrators.add(new Administrator(email, password));
-                allUsersWithRoles.add(new Administrator(email, password));
+
+                //allUsersWithRoles.add(new Administrator(email, password));
                 for(Administrator a : allAdministrators) {
                     System.out.println(a + "\n");
                 }
@@ -183,4 +173,34 @@ public class Authorization {
 
 
 
+
+
+//public class StudentRegistry {
+//    private final List<Student> students = new ArrayList<>();
+//    private final Set<String> emails = new HashSet<>();
+//    private final Map<String, Student> studFromId = new HashMap<>();
+//
+//    public boolean addStudent(Student student) {
+//        studFromId.put(student.getId(), student);
+//        return true;
+//    }
+//
+//    public Student findById(String id) {
+//        return studFromId.get(id);
+//    }
+//
+//    public boolean containsEmail(String email) {
+//        return emails.contains(email);
+//    }
+//
+//    public void removeById(String id) {
+//        Student student = studFromId.remove(id); //-Map
+//        if(student!=null) {
+//            students.remove(student);  //-List
+//            emails.remove(student.getEmail());  //-Set
+//        }
+//
+//    }
+//
+//}
 
