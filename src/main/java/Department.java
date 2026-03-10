@@ -14,6 +14,9 @@ public class Department{
         this.departmentName = departmentName;
         this.cabinetNumber = cabinetNumber;
     }
+
+    Department() {}
+
     public String getDepartmentCode() {
         return departmentCode;
     }

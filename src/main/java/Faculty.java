@@ -19,6 +19,8 @@ public class Faculty{
         this.facultyEmail = facultyEmail;
     }
 
+    Faculty(){}
+
     public String getFacultyCode() {
         return facultyCode;
     }

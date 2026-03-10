@@ -1,9 +1,13 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     static List<University> universities = new ArrayList<>();
+    static Set<String> emails = new HashSet<>();
+    static Set<Integer> IDs = new HashSet<>();
     static AllObjects allObjects = new AllObjects();
     static CheckInput checkInput = new CheckInput();
 
@@ -29,7 +33,6 @@ public class Main {
         universities.get(0).faculties.add(new Faculty("123", "Факультет інформатики", "ФІ", 999999999, "fi@kvjervb.com"));
         universities.get(1).faculties.add(new Faculty("1234", "Факультет інформатики-кну", "ФІкну", 888888888, "fi@oerhoeh.com"));
         universities.get(2).faculties.add(new Faculty("12345", "Факультет інформатики-уку", "ФІуку", 777777777, "fi@wurgheu.com"));
-
         universities.get(0).faculties.get(0).departments.add(new Department("ghhg", "іпз самі круті", 666));
         universities.get(0).faculties.get(0).departments.add(new Department("blabla", "кафедра Макарця", 600));
         universities.get(1).faculties.get(0).departments.add(new Department("roer", "папапау", 67));
@@ -43,6 +46,21 @@ public class Main {
         universities.get(0).faculties.get(0).departments.get(0).students.add(new Student(1111, "AAAaa", "aAaAaaa", "aaaaaa", 2003, 6, 1 ,"Aaaa@gmail.com",9111111,1,6,2021,"Бюджет", "Відрахований"));
         universities.get(0).faculties.get(0).departments.get(0).students.add(new Student(2222, "BBBbb", "bBbBbbb", "bbbbbb", 2000, 11, 3 ,"Bbbb@gmail.com",8222222,2,2,2022,"Контракт", "Академвідпустка"));
         universities.get(0).faculties.get(0).departments.get(0).students.add(new Student(3333, "CCCcc", "cCcCccc", "cccccc", 1230, 4, 4 ,"Cccc@gmail.com",7333333,3,1,2023,"Бюджет", "Навчається"));
+
+        IDs.add(111);
+        IDs.add(1111);
+        IDs.add(222);
+        IDs.add(2222);
+        IDs.add(333);
+        IDs.add(3333);
+
+        emails.add("aaa@gmail.com");
+        emails.add("bbb@gmail.com");
+        emails.add("ccc@gmail.com");
+        emails.add("Aaaa@gmail.com");
+        emails.add("Bbbb@gmail.com");
+        emails.add("Cccc@gmail.com");
+
 
     }
 
