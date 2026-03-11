@@ -7,10 +7,10 @@ public class Administrator {
         this.email = email;
         this.password = password;
     }
-    @Override
-    public String toString(){  //видалити після всіх тестувань
-        return "Електронна пошта: " + email + " пароль:" +  password;
-    }
+//    @Override
+//    public String toString(){  //видалити після всіх тестувань
+//        return "Електронна пошта: " + email + " пароль:" +  password;
+//    }
 
     @Override
     public boolean equals(Object o) {
