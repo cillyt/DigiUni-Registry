@@ -3,14 +3,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-/*.4 Доступ і ролі
-Потрібна авторизація (логін/пароль) і розмежування прав доступу.
-
-Користувач: лише перегляд (пошук і звіти).
-
-Менеджер: повний доступ до CRUD, без керування користувачами.
-Адміністратор: повний доступ + створення/редагування/блокування користувачів і ролей.*/
-
 public class Authorization {
     Menu menu = new Menu();
     CheckInput checkInput = Main.checkInput;
@@ -34,7 +26,7 @@ public class Authorization {
                 case 2:
                     consumer = findingConsumer();  //перевіряє чи існує запитаний користувач для входу (optional)
                     login();
-                    System.out.println("current status: " + status);  //видалити після перевірок
+                    //System.out.println("current status: " + status);  //видалити після перевірок
                     break;
             }
 
@@ -52,6 +44,7 @@ public class Authorization {
         if(password!=null && consumer instanceof User){
             String c = ((User) consumer).getPassword();
             if(password.equals(c)){
+                System.out.println("Ви успішно увійшли у свій обліковий запис!");
                 status = 1;
                 return;
             }
@@ -61,6 +54,7 @@ public class Authorization {
         if(password!=null && consumer instanceof Manager){
             String c = ((Manager) consumer).getPassword();
             if(password.equals(c)){
+                System.out.println("Ви успішно увійшли у свій обліковий запис!");
                 status = 2;
                 return;
             }
@@ -70,6 +64,7 @@ public class Authorization {
         if(password!=null && consumer instanceof Administrator){
             String c = ((Administrator) consumer).getPassword();
             if(password.equals(c)){
+                System.out.println("Ви успішно увійшли у свій обліковий запис!");
                 status = 3;
                 return;
             }
@@ -84,42 +79,45 @@ public class Authorization {
 
 
     private void register() throws IOException {
-        String email = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
-        String password = checkInput.checkString("=== Вкажіть пароль ===","Ви не ввели пароль.");
-        int role = menu.roleAuthorizationQuestion();
+        while (true) {  //checking whether there is user with same emil or not using Set features
+            String email = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
+            String password = checkInput.checkString("=== Вкажіть пароль ===","Ви не ввели пароль.");
+            int role = menu.roleAuthorizationQuestion();
 
-        switch (role) {
-            case 1:
-                boolean isAddedU = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
-                if(!isAddedU) System.out.println("Обліковий запис з такою електронною поштою вже існує!");
-                allUsers.add(new User(email, password));
+            switch (role) {
+                case 1:
+                    boolean isAddedU = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
+                    if(isAddedU) {
+                        allUsers.add(new User(email, password));
+                        return;
+                    }
+                    else System.out.println("Обліковий запис з такою електронною поштою вже існує!");
+                    break;
 
-                //allUsersWithRoles.add(new User(email, password));
-                for(User u : allUsers) {
-                    System.out.println(u + "\n");  //потім після тестування видалити
-                }
-                break;
-            case 2:
-                boolean isAddedM = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
-                if(!isAddedM) System.out.println("Обліковий запис з такою електронною поштою вже існує!");
-                allManagers.add(new Manager(email, password));
+                case 2:
+                    boolean isAddedM = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
+                    if(isAddedM){
+                        allManagers.add(new Manager(email, password));
+                        return;
+                    }
+                    else System.out.println("Обліковий запис з такою електронною поштою вже існує!");
+                    break;
+                case 3:
+                    boolean isAddedA = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
+                    if(isAddedA) {
+                        allAdministrators.add(new Administrator(email, password));
+                        return;
+                    }
 
-                //allUsersWithRoles.add(new Manager(email, password));
-                for(Manager m : allManagers) {
-                    System.out.println(m + "\n");
-                }
-                break;
-            case 3:
-                boolean isAddedA = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
-                if(!isAddedA) System.out.println("Обліковий запис з такою електронною поштою вже існує!");
-                allAdministrators.add(new Administrator(email, password));
+                    else System.out.println("Обліковий запис з такою електронною поштою вже існує!");
 
-                //allUsersWithRoles.add(new Administrator(email, password));
-                for(Administrator a : allAdministrators) {
-                    System.out.println(a + "\n");
-                }
-                break;
+                    break;
+            }
         }
+
+
+
+
     }
 
 
@@ -129,7 +127,7 @@ public class Authorization {
 
         Object consumer = getConsumerOrDefault(email);
         if (consumer != null) {
-            System.out.println("Знайдено: " + consumer);
+            //System.out.println("Знайдено: " + consumer);
                 return consumer;
         }
         else return findingConsumer();
@@ -140,7 +138,7 @@ public class Authorization {
     public static Object getConsumerOrDefault(String email) throws IOException {
         return findEmail(email)
                 .orElseGet(
-                        () -> {System.out.println("не знайдено");
+                        () -> {System.out.println("Користувача з такою поштою не існує");
                             return null;
                         });
     }
@@ -170,37 +168,3 @@ public class Authorization {
         return Optional.empty();
     }
 }
-
-
-
-
-
-//public class StudentRegistry {
-//    private final List<Student> students = new ArrayList<>();
-//    private final Set<String> emails = new HashSet<>();
-//    private final Map<String, Student> studFromId = new HashMap<>();
-//
-//    public boolean addStudent(Student student) {
-//        studFromId.put(student.getId(), student);
-//        return true;
-//    }
-//
-//    public Student findById(String id) {
-//        return studFromId.get(id);
-//    }
-//
-//    public boolean containsEmail(String email) {
-//        return emails.contains(email);
-//    }
-//
-//    public void removeById(String id) {
-//        Student student = studFromId.remove(id); //-Map
-//        if(student!=null) {
-//            students.remove(student);  //-List
-//            emails.remove(student.getEmail());  //-Set
-//        }
-//
-//    }
-//
-//}
-
