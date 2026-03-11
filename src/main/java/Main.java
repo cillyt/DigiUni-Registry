@@ -36,7 +36,7 @@ public class Main {
         universities.get(0).faculties.get(0).departments.add(new Department("ghhg", "іпз самі круті", 666));
         universities.get(0).faculties.get(0).departments.add(new Department("blabla", "кафедра Макарця", 600));
         universities.get(1).faculties.get(0).departments.add(new Department("roer", "папапау", 67));
-        universities.get(1).faculties.get(0).departments.add(new Department("zvsv", "blablabla", 69));
+        universities.get(1).faculties.get(0).departments.add(new Department("zvsv", "blablabla", 33));
         universities.get(2).faculties.get(0).departments.add(new Department("oyuk", "blebleble", 13));
 
         universities.get(0).faculties.get(0).departments.get(0).teachers.add(new Teacher(111, "AAA", "aAaAa", "aaaa", 2001, 3, 12 ,"aaa@gmail.com",111111,"A@A@A","@@","@@",1999, 10, 21, "110000", false, false));

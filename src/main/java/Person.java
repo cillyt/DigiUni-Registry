@@ -36,9 +36,11 @@ public class Person{
         return personID;
     }
     public void setPersonID(int personID) throws IOException {
-            while (Main.IDs.contains(personID)){
-                System.out.println("Цей ідентифікаційний код вже зайнято іншою особою!!");
-                personID = Main.checkInput.checkInt("Унікальний ідентифікатор: ", "Ви ввели унікальний ідентифікатор неправильно.");
+            if(this.personID != personID) {
+                while (Main.IDs.contains(personID)) {
+                    System.out.println("Цей ідентифікаційний код вже зайнято іншою особою!!");
+                    personID = Main.checkInput.checkInt("Унікальний ідентифікатор: ", "Ви ввели унікальний ідентифікатор неправильно.");
+                }
             }
             this.personID = personID;
             Main.IDs.add(personID);
@@ -73,9 +75,11 @@ public class Person{
         return personEmail;
     }
     public void setPersonEmail(String personEmail) throws IOException {
-        while (Main.emails.contains(personEmail)){
-            System.out.println("Ця пошта вже зайнята іншою особою!!");
-            personEmail = Main.checkInput.checkString("Електронна пошта: ", "Ви не ввели електронну пошту викладача.");
+        if(this.personEmail != personEmail) {
+            while (Main.emails.contains(personEmail)) {
+                System.out.println("Ця пошта вже зайнята іншою особою!!");
+                personEmail = Main.checkInput.checkString("Електронна пошта: ", "Ви не ввели електронну пошту викладача.");
+            }
         }
         Main.emails.add(personEmail);
         this.personEmail = personEmail;
