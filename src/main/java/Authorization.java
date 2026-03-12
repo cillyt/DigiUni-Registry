@@ -13,6 +13,7 @@ public class Authorization {
     public final Set<Manager> allManagers = new HashSet<>();
     public final Set<Administrator> allAdministrators = new HashSet<>();
     public final static Set<Object> allUsersWithRoles = new HashSet<>();
+    public final static Set<Object> allEmails = new HashSet<>();
     private Object consumer;
 
 
@@ -87,25 +88,28 @@ public class Authorization {
             switch (role) {
                 case 1:
                     boolean isAddedU = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
-                    if(isAddedU) {
+                    if(isAddedU && !allEmails.contains(email) ) {
                         allUsers.add(new User(email, password));
+                        allEmails.add(email);
                         return;
                     }
                     else System.out.println("Обліковий запис з такою електронною поштою вже існує!");
                     break;
 
                 case 2:
-                    boolean isAddedM = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
-                    if(isAddedM){
+                    boolean isAddedM = allUsersWithRoles.add(new Manager(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
+                    if(isAddedM && !allEmails.contains(email)){
                         allManagers.add(new Manager(email, password));
+                        allEmails.add(email);
                         return;
                     }
                     else System.out.println("Обліковий запис з такою електронною поштою вже існує!");
                     break;
                 case 3:
-                    boolean isAddedA = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
-                    if(isAddedA) {
+                    boolean isAddedA = allUsersWithRoles.add(new Administrator(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
+                    if(isAddedA && !allEmails.contains(email)) {
                         allAdministrators.add(new Administrator(email, password));
+                        allEmails.add(email);
                         return;
                     }
 
