@@ -123,40 +123,6 @@ public class Authorization {
 
 
 
-//        if(password!=null && consumer instanceof User){
-//            String c = ((User) consumer).password();
-//            if(password.equals(c)){
-//                System.out.println("Ви успішно увійшли у свій обліковий запис!");
-//                status = 1;
-//                return;
-//            }
-//            else System.out.println("Введено невірний пароль!");
-//            login();
-//        }
-//        if(password!=null && consumer instanceof Manager){
-//            String c = ((Manager) consumer).password();
-//            if(password.equals(c)){
-//                System.out.println("Ви успішно увійшли у свій обліковий запис!");
-//                status = 2;
-//                return;
-//            }
-//            else System.out.println("Введено невірний пароль!");
-//            login();
-//        }
-//        if(password!=null && consumer instanceof Administrator){
-//            String c = ((Administrator) consumer).password();
-//            if(password.equals(c)){
-//                System.out.println("Ви успішно увійшли у свій обліковий запис!");
-//                status = 3;
-//                return;
-//            }
-//            else System.out.println("Введено невірний пароль!");
-//            login();
-//        }
-
-
-
-
 
 
 
@@ -220,34 +186,47 @@ public class Authorization {
                         });
     }
 
-    public static Optional<Object> findEmail(String email) throws IOException {
-        for (BaseUser consumer : allUsersWithRoles) {
 
-            if(consumer instanceof User) {
-                String Email= ((User)consumer).email();
-                if (consumer != null && email.equals(Email)) {
-                    return Optional.of(consumer);
+    public static Optional<Object> findEmail(String email) {
+        for (BaseUser consumer : allUsersWithRoles) {
+            //if(consumer == null)continue;
+            switch (consumer) {
+                case User u -> {
+                    if (email.equals(u.email()))
+                        return Optional.of(consumer);
                 }
-            }
-            else if(consumer instanceof Manager) {
-                String Email= ((Manager)consumer).email();
-                if (consumer != null && email.equals(Email)) {
-                    return Optional.of(consumer);
+                case Manager m -> {
+                    if (email.equals(m.email()))
+                        return Optional.of(consumer);
                 }
-            }
-            else if(consumer instanceof Administrator) {
-                String Email= ((Administrator)consumer).email();
-                if (consumer != null && email.equals(Email)) {
-                    return Optional.of(consumer);
+                case Administrator a -> {
+                    if (email.equals(a.email()))
+                        return Optional.of(consumer);
                 }
             }
         }
-
-        //ADD SWITCH INSTEAD OF IF ELSE IF ELSE IF ELSE...
-
-
-
-
         return Optional.empty();
     }
+
+//            if(consumer instanceof User) {
+//                String Email= ((User)consumer).email();
+//                if (consumer != null && email.equals(Email)) {
+//                    return Optional.of(consumer);
+//                }
+//            }
+//            else if(consumer instanceof Manager) {
+//                String Email= ((Manager)consumer).email();
+//                if (consumer != null && email.equals(Email)) {
+//                    return Optional.of(consumer);
+//                }
+//            }
+//            else if(consumer instanceof Administrator) {
+//                String Email= ((Administrator)consumer).email();
+//                if (consumer != null && email.equals(Email)) {
+//                    return Optional.of(consumer);
+//                }
+//            }
+
+
+
 }
