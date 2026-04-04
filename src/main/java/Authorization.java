@@ -6,43 +6,49 @@ public class Authorization {
     CheckInput checkInput = Main.checkInput;
 
     public sealed interface BaseUser permits Administrator, Manager, User{
-        String email();
+        Email email();
         String password();
     }
 
-    public record Administrator(String email, String password)implements BaseUser {
+
+    record Email(String value) {
+        Email {
+            Objects.requireNonNull(value, "email");
+            value = value.trim().toLowerCase();
+            if (!value.contains("@")) throw new IllegalArgumentException("Пошта вказана не правильно (відсутність @): " + value);
+        }
+    }
+
+    public record Administrator(Email email, String password)implements BaseUser {
         @Override
-        public boolean equals(Object o) {           //comparing only emails
+        public boolean equals(Object o) {           //comparing only emails among all users (without including roles)
             if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Administrator admin = (Administrator) o;
-            return Objects.equals(email, admin.email);
+            if (!(o instanceof BaseUser that)) return false;
+            return Objects.equals(this.email(), that.email());
         }
         @Override
         public int hashCode() {
             return Objects.hash(email);
         }
     }
-    public record Manager(String email, String password)implements BaseUser {
+    public record Manager(Email email, String password)implements BaseUser {
         @Override
         public boolean equals(Object o) {           //comparing only emails
             if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Manager manager = (Manager) o;
-            return Objects.equals(email, manager.email);
+            if (!(o instanceof BaseUser that)) return false;
+            return Objects.equals(this.email(), that.email());
         }
         @Override
         public int hashCode() {
             return Objects.hash(email);
         }
     }
-    public record User(String email, String password)implements BaseUser {
+    public record User(Email email, String password)implements BaseUser {
         @Override
         public boolean equals(Object o) {           //comparing only emails
             if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            User user = (User) o;
-            return Objects.equals(email, user.email);
+            if (!(o instanceof BaseUser that)) return false;
+            return Objects.equals(this.email(), that.email());
         }
         @Override
         public int hashCode() {
@@ -68,10 +74,10 @@ public class Authorization {
                 authorization();
                 break;
             case 2:
-                consumer = (BaseUser) findingConsumer();  //перевіряє чи існує запитаний користувач для входу (optional)
-                while (status !=1 || status !=2 || status !=3)   login(consumer);
+                consumer = findingConsumer();  //перевіряє чи існує запитаний користувач для входу (optional)
+                login(consumer);
 
-                System.out.println("current status: " + status);  //видалити після перевірок
+  //              System.out.println("current status: " + status);  //видалити після перевірок
                 break;
         }
     }
@@ -83,7 +89,8 @@ public class Authorization {
 
 
     private void login(BaseUser consumer) throws IOException {
-        while (status != 1 || status != 2 || status != 3) {
+        boolean loggedIn = false;
+        while (!loggedIn) {
             String password = checkInput.checkString("=== Вкажіть пароль ===", "Ви не ввели пароль.");
             if (password == null) return;
 
@@ -93,29 +100,24 @@ public class Authorization {
                     if (password.equals(u.password())) {
                         System.out.println("Ви успішно увійшли у свій обліковий запис!");
                         status = 1;
-                        //return;
+                        loggedIn = true;
                     } else System.out.println("Введено невірний пароль!");
-                    return;
                 }
 
                 case Manager m -> {
                     if (password.equals(m.password())) {
                         System.out.println("Ви успішно увійшли у свій обліковий запис!");
                         status = 2;
-                        //return;
+                        loggedIn = true;
                     } else System.out.println("Введено невірний пароль!");
-                    return;
                 }
 
                 case Administrator a -> {
-                    // String c = a.password();
                     if (password.equals(a.password())) {
                         System.out.println("Ви успішно увійшли у свій обліковий запис!");
                         status = 3;
-                        // return;
-                    } else
-                        System.out.println("Введено невірний пароль!");
-                    return;
+                        loggedIn = true;
+                    } else System.out.println("Введено невірний пароль!");
                 }
             }
         }
@@ -128,105 +130,172 @@ public class Authorization {
 
     private void register() throws IOException {
         boolean added = false; // така перевірка чи додався користувач??
-        while (added == false) {  //checking whether there is user with same emil or not using Set features та нє
-            String email = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
+        while (!added) {  //checking whether there is user with same emil or not using Set features та нє
+            String email1 = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
             String password = checkInput.checkString("=== Вкажіть пароль ===","Ви не ввели пароль.");
             int role = menu.roleAuthorizationQuestion();
-
-            boolean isEmailUnique = allUsersWithRoles.stream()
-                    .noneMatch(u -> u.email().equals(email));
-
-            if(!isEmailUnique){
-                System.out.println("Обліковий запис з такою електронною поштою вже існує!");
-                continue;
-            }
 
             switch (role) {
                 case 1:
                     //boolean isAddedU = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
-                    allUsers.add(new User(email, password));
-                    allUsersWithRoles.add(new User(email, password));
-                    added = true;
-                    break;
+                    try {
+                        Email email2 = new Email(email1);
+                        boolean isEmailUnique = allUsersWithRoles.stream()
+                                .noneMatch(u -> u.email().equals(email2));
+
+                        if(!isEmailUnique){
+                            System.out.println("Обліковий запис з такою електронною поштою вже існує!");
+                            continue;
+                        }
+                        allUsers.add(new User(email2, password));
+                        allUsersWithRoles.add(new User(email2, password));
+                        added = true;
+                        System.out.println("Ви успішно створили новий обліковий запис!");
+                        break;
+                    }
+                    catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                        break;
+                    }
 
                 case 2:
-                    allManagers.add(new Manager(email, password));
-                    allUsersWithRoles.add(new Manager(email, password));
-                    added = true;
-                    break;
+                    try {
+                        Email email2 = new Email(email1);
+                        boolean isEmailUnique = allUsersWithRoles.stream()
+                                .noneMatch(u -> u.email().equals(email2));
+
+                        if(!isEmailUnique){
+                            System.out.println("Обліковий запис з такою електронною поштою вже існує!");
+                            continue;
+                        }
+                        allManagers.add(new Manager(email2, password));
+                        allUsersWithRoles.add(new Manager(email2, password));
+                        added = true;
+                        System.out.println("Ви успішно створили новий обліковий запис!");
+                        break;
+                    }
+                    catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                        break;
+                    }
+
                 case 3:
-                    allAdministrators.add(new Administrator(email, password));
-                    allUsersWithRoles.add(new Administrator(email, password));
-                    added = true;
-                    break;
+                    try {
+                        Email email2 = new Email(email1);
+                        boolean isEmailUnique = allUsersWithRoles.stream()
+                                .noneMatch(u -> u.email().equals(email2));
+
+                        if(!isEmailUnique){
+                            System.out.println("Обліковий запис з такою електронною поштою вже існує!");
+                            continue;
+                        }
+                        //Email emaill = new Email(email);
+                        allAdministrators.add(new Administrator(email2, password));
+                        allUsersWithRoles.add(new Administrator(email2, password));
+                        added = true;
+                        System.out.println("Ви успішно створили новий обліковий запис!");
+                        break;
+                    }
+                    catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                        break;
+                    }
             }
         }
     }
 
 
 
-    public Object findingConsumer() throws IOException {
-        String email = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
+    public BaseUser findingConsumer() throws IOException {
+        while (true) {
+            String email = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
 
-        BaseUser consumer = (BaseUser)getConsumerOrDefault(email);
-        if (consumer != null) {
-            //System.out.println("Знайдено: " + consumer);
-                return consumer;
+            try {
+                Email emaill = new Email(email);
+
+                Optional<BaseUser> result = findEmail(emaill);
+
+                if (result.isPresent())
+                    return result.get();
+                else
+                    System.out.println("Користувача з такою поштою не існує.");
+
+            }
+            catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
         }
-        else return findingConsumer();
     }
 
 
 
-    public static Object getConsumerOrDefault(String email) throws IOException {
-        return findEmail(email)
-                .orElseGet(
-                        () -> {System.out.println("Користувача з такою поштою не існує");
-                            return null;
-                        });
-    }
 
 
-    public static Optional<Object> findEmail(String email) {
+
+//        String email = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
+//        try {
+//            Email emaill = new Email(email); //string -> email type
+//
+//
+////            return findEmail(emaill)
+////                    .orElseGet(
+////                            () -> {System.out.println("Користувача з такою поштою не існує");
+////                                return findingConsumer();
+////                            });
+//
+//
+//            BaseUser consumer = (BaseUser)findEmail(emaill)
+//                    .orElseGet(
+//                            () -> {System.out.println("Користувача з такою поштою не існує");
+//                                return findingConsumer();
+//                            });
+//
+//
+//
+////            if (consumer != null) {
+////                //System.out.println("Знайдено: " + consumer);
+////                return consumer;
+////            }
+//
+//
+//           // else return findingConsumer();
+
+
+
+
+
+
+//
+//        catch (IllegalArgumentException e) {
+//            System.out.println(e.getMessage());
+//        }
+//        return findingConsumer();
+//        //Email emaill = new Email(email);
+//        //BaseUser consumer = (BaseUser)getConsumerOrDefault(emaill);
+////        if (consumer != null) {
+////            //System.out.println("Знайдено: " + consumer);
+////                return consumer;
+////        }
+////        else return findingConsumer();       ПОФІКСИТИ ЦЮ ХУЄТЄНЬ та все ж ок вроді calm down
+
+
+
+
+//    public static Object getConsumerOrDefault(Email email) throws IOException {
+//        return findEmail(email)
+//                .orElseGet(
+//                        () -> {System.out.println("Користувача з такою поштою не існує");
+//                            return findingConsumer();;
+//                        });
+//    }
+
+
+     public static Optional<BaseUser> findEmail(Email email) {
         for (BaseUser consumer : allUsersWithRoles) {
-            //if(consumer == null)continue;
-            switch (consumer) {
-                case User u -> {
-                    if (email.equals(u.email()))
-                        return Optional.of(consumer);
-                }
-                case Manager m -> {
-                    if (email.equals(m.email()))
-                        return Optional.of(consumer);
-                }
-                case Administrator a -> {
-                    if (email.equals(a.email()))
-                        return Optional.of(consumer);
-                }
-            }
+            if (email.equals(consumer.email()))
+                return Optional.of(consumer);
         }
         return Optional.empty();
     }
-
-//            if(consumer instanceof User) {
-//                String Email= ((User)consumer).email();
-//                if (consumer != null && email.equals(Email)) {
-//                    return Optional.of(consumer);
-//                }
-//            }
-//            else if(consumer instanceof Manager) {
-//                String Email= ((Manager)consumer).email();
-//                if (consumer != null && email.equals(Email)) {
-//                    return Optional.of(consumer);
-//                }
-//            }
-//            else if(consumer instanceof Administrator) {
-//                String Email= ((Administrator)consumer).email();
-//                if (consumer != null && email.equals(Email)) {
-//                    return Optional.of(consumer);
-//                }
-//            }
-
-
 
 }
