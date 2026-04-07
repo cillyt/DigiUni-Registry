@@ -16,7 +16,11 @@ public class Person{
     String personEmail;
     long personPhone;
 
-    Person(int personID, String personSurname, String personName, String middleName, int yearOfBirth, int monthOfBirth, int dayOfBirth, String personEmail, long personPhone) {
+    String uni;
+    String faculty;
+    String department;
+
+    Person(int personID, String personSurname, String personName, String middleName, int yearOfBirth, int monthOfBirth, int dayOfBirth, String personEmail, long personPhone, String uni, String faculty, String department) {
         this.personID = personID;
         this.personSurname = personSurname;
         this.personName = personName;
@@ -92,6 +96,7 @@ public class Person{
     }
 
 
+
     public LocalDate getDateOfBirth() {
         return LocalDate.of(this.yearOfBirth, this.monthOfBirth, this.dayOfBirth);
     }
@@ -101,6 +106,31 @@ public class Person{
         Period personAge = Period.between(getDateOfBirth(), LocalDate.now());
         return personAge.getYears();
     }
+
+    public void setUni(String uni){
+        this.uni = uni;
+    }
+
+    public String getUni(){
+        return uni;
+    }
+
+    public void setFaculty(String faculty){
+        this.faculty = faculty;
+    }
+
+    public String getFaculty(){
+        return faculty;
+    }
+
+    public void setDepartment(String department){
+        this.department = department;
+    }
+
+    public String getDepartment(){
+        return department;
+    }
+
 
     @Override
     public String toString() {

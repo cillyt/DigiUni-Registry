@@ -13,8 +13,8 @@ public class Teacher extends Person{
     boolean headOfDepartment;
 
 
-    Teacher(int personID, String personSurname, String personName, String middleName, int yearOfBirth, int monthOfBirth, int dayOfBirth, String personEmail, long personPhone, String teacherPosition, String academicDegree, String academicTitle, int yearOfEntry, int monthOfEntry, int dayOfEntry, String rate, boolean decan, boolean headOfDepartment) {
-        super(personID, personSurname, personName, middleName, yearOfBirth, monthOfBirth, dayOfBirth, personEmail, personPhone);
+    Teacher(int personID, String personSurname, String personName, String middleName, int yearOfBirth, int monthOfBirth, int dayOfBirth, String personEmail, long personPhone, String uni, String faculty, String department, String teacherPosition, String academicDegree, String academicTitle, int yearOfEntry, int monthOfEntry, int dayOfEntry, String rate, boolean decan, boolean headOfDepartment) {
+        super(personID, personSurname, personName, middleName, yearOfBirth, monthOfBirth, dayOfBirth, personEmail, personPhone, uni, faculty, department);
         this.teacherPosition = teacherPosition;
         this.academicDegree = academicDegree;
         this.academicTitle = academicTitle;
@@ -87,7 +87,7 @@ public class Teacher extends Person{
     @Override
     public String toString() {
         getWorkExperience();
-        return "Унікальний ідентифікатор: " +  personID + "\nПрізвище: " + personSurname + "\nІм'я: " + personName + "\nПо-батькові: " + middleName + "\nДата народження: " + getDateOfBirth() +"\nВік: " + getPersonAge() + "\nЕлектронна пошта: " + personEmail + "\nНомер телефону: " + personPhone + "\nПосада: " + teacherPosition + "\nНауковий ступінь: " + academicDegree + "\nВчене звання: " + academicTitle + "\nДата прийняття на роботу: " + getDateOfEntry() + "\nСтавка: " + rate + "\nСтаж: " + getWorkExperience();
+        return "Унікальний ідентифікатор: " +  personID + "\nПрізвище: " + personSurname + "\nІм'я: " + personName + "\nПо-батькові: " + middleName + "\nДата народження: " + getDateOfBirth() +"\nВік: " + getPersonAge() + "\nЕлектронна пошта: " + personEmail + "\nНомер телефону: " + personPhone +"\nВикладає: " + uni + ", " + faculty + ", " + department + "\nПосада: " + teacherPosition + "\nНауковий ступінь: " + academicDegree + "\nВчене звання: " + academicTitle + "\nДата прийняття на роботу: " + getDateOfEntry() + "\nСтавка: " + rate + "\nСтаж: " + getWorkExperience();
     }
 
 }

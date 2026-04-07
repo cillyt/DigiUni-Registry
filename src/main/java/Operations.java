@@ -100,6 +100,10 @@ public class Operations {
                 teacher.setPersonEmail(checkInput.checkString("Електронна пошта: ", "Ви не ввели електронну пошту викладача."));
                 teacher.setPersonPhone(checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно."));
 
+                teacher.setUni(universities.get(uni).fullUniversityName);
+                teacher.setFaculty(universities.get(uni).faculties.get(faculty).facultyName);
+                teacher.setDepartment(universities.get(uni).faculties.get(faculty).departments.get(depart).departmentName);
+
                 teacher.setTeacherPosition(checkInput.checkString("Посада: ", "Ви не ввели посаду викладача."));
                 teacher.setAcademicDegree(checkInput.checkString("Науковий ступінь: ", "Ви не ввели науковий ступінь викладача."));
                 teacher.setAcademicTitle(checkInput.checkString("Вчене звання: ", "Ви не ввели вчене звання викладача."));
@@ -156,6 +160,10 @@ public class Operations {
 
             stud.setPersonEmail(checkInput.checkString("Електронна пошта: ", "Ви не ввели електронну пошту студента."));
             stud.setPersonPhone(checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно."));
+
+            stud.setUni(universities.get(uni).fullUniversityName);
+            stud.setFaculty(universities.get(uni).faculties.get(faculty).facultyName);
+            stud.setDepartment(universities.get(uni).faculties.get(faculty).departments.get(depart).departmentName);
 
             check = 0;
 
@@ -467,25 +475,37 @@ public class Operations {
                         long newPersonPhone = checkInput.checkLong("Введіть новий номер телефону: ", "Ви ввели новий номер телефону неправильно.");
                         universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonPhone(newPersonPhone);
                         break;
-
                     case 8:
+                        int newuni = getMenu().universityQuestionWithFaculty();
+                        int newfaculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni,1);
+                        int newdepartment = getMenu().departmentQuestionNoStudentsAndTeachers(newuni, newfaculty);
+
+                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setUni(universities.get(newuni).fullUniversityName);
+                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setFaculty(universities.get(newuni).faculties.get(newfaculty).facultyName);
+                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setDepartment(universities.get(newuni).faculties.get(newfaculty).departments.get(newdepartment).departmentName);
+
+                        universities.get(newuni).faculties.get(newfaculty).departments.get(newdepartment).students.add(universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud));
+                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.remove(stud);
+                        break;
+
+                    case 9:
                         int newCourseNumber = checkInput.checkInt("Введіть новий курс: ", "Ви ввели новий курс неправильно.");
                         universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setCourseNumber(newCourseNumber);
                         break;
-                    case 9:
+                    case 10:
                         int newGroupNumber = checkInput.checkInt("Введіть новий номер групи: ", "Ви ввели новий номер групи неправильно.");
                         universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setGroupNumber(newGroupNumber);
                         break;
-                    case 10:
+                    case 11:
                         int newYearOfEntry = checkInput.checkInt("Введіть новий рік вступу: ", "Ви ввели новий рік вступу неправильно.");
                         universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setYearOfEntry(newYearOfEntry);
                         break;
-                    case 11:
+                    case 12:
                         check = 0;
                         String newStudyForm = getMenu().studyFormQuestion();
                         universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setStudyForm(newStudyForm);
                         break;
-                    case 12:
+                    case 13:
                         check = 0;
                         String newStudentStatus = getMenu().studentStatusQuestion();
                         universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setStudentStatus(newStudentStatus);
@@ -557,22 +577,34 @@ public class Operations {
                         universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonPhone(newPersonPhone);
                         break;
                     case 8:
+                        int newuni = getMenu().universityQuestionWithFaculty();
+                        int newfaculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni,1);
+                        int newdepartment = getMenu().departmentQuestionNoStudentsAndTeachers(newuni, newfaculty);
+
+                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setUni(universities.get(newuni).fullUniversityName);
+                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setFaculty(universities.get(newuni).faculties.get(newfaculty).facultyName);
+                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setDepartment(universities.get(newuni).faculties.get(newfaculty).departments.get(newdepartment).departmentName);
+
+                        universities.get(newuni).faculties.get(newfaculty).departments.get(newdepartment).teachers.add(universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach));
+                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.remove(teach);
+                        break;
+                    case 9:
                         String newTeacherPosition = checkInput.checkString("Введіть нову посаду: ", "Ви не ввели нову посаду.");
                         universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setTeacherPosition(newTeacherPosition);
                         break;
-                    case 9:
+                    case 10:
                         String newAcademicDegree = checkInput.checkString("Введіть новий науковий ступінь: ", "Ви не ввели новий науковий ступінь.");
                         universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setAcademicDegree(newAcademicDegree);
                         break;
-                    case 10:
+                    case 11:
                         String newAcademicTitle = checkInput.checkString("Введіть нове вчене звання: ", "Ви не ввели нове вчене звання.");
                         universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setAcademicTitle(newAcademicTitle);
                         break;
-                    case 11:
+                    case 12:
                         int newYearOfEntry = checkInput.checkInt("Введіть новий рік прийняття на роботу: ", "Ви ввели новий рік прийняття на роботу неправильно.");
                         universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setYearOfEntry(newYearOfEntry);
                         break;
-                    case 12:
+                    case 13:
                         String newRate = checkInput.checkString("Введіть нову ставку: ", "Ви не ввели нову ставку.");
                         universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setRate(newRate);
                         break;

@@ -547,14 +547,15 @@ public class Menu {
         System.out.println("5. Дата народження");
         System.out.println("6. Електронна пошта");
         System.out.println("7. Номер телефону");
-        System.out.println("8. Курс");
-        System.out.println("9. Група");
-        System.out.println("10. Рік вступу");
-        System.out.println("11. Форма навчання");
-        System.out.println("12. Статус");
+        System.out.println("8. Місце навчання");
+        System.out.println("9. Курс");
+        System.out.println("10. Група");
+        System.out.println("11. Рік вступу");
+        System.out.println("12. Форма навчання");
+        System.out.println("13. Статус");
 
 
-        int parameter = checkOperations(0, 12,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
+        int parameter = checkOperations(0, 13,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
 
 
         return parameter;
@@ -572,13 +573,14 @@ public class Menu {
         System.out.println("5. Дата народження");
         System.out.println("6. Електронна пошта");
         System.out.println("7. Номер телефону");
-        System.out.println("8. Посада");
-        System.out.println("9. Науковий ступінь");
-        System.out.println("10. Вчене звання");
-        System.out.println("11. Рік прийняття на роботу");
-        System.out.println("12. Ставка");
+        System.out.println("8. Місце викладання");
+        System.out.println("9. Посада");
+        System.out.println("10. Науковий ступінь");
+        System.out.println("11. Вчене звання");
+        System.out.println("12. Рік прийняття на роботу");
+        System.out.println("13. Ставка");
 
-        int parameter = checkOperations(0, 4,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
+        int parameter = checkOperations(0, 13,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
 
         return parameter;
 
