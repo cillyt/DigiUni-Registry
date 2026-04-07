@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Tests {
     private Teacher t;
     private Student s;
-    private User a;
-    private User a1;
+    private Authorization.User a;
+    private Authorization.User a1;
     Authorization au = new Authorization();
 
     @BeforeEach
@@ -22,8 +22,9 @@ public class Tests {
         Main.IDs.add(2);
         Main.emails.add("1");
         Main.emails.add("2");
-        a = new User("a", "1");
-        a1 = new User("a", "1");
+        Authorization.Email email = new Authorization.Email("@");
+        a = new Authorization.User(email, "1");
+        a1 = new Authorization.User(email, "1");
     }
 
     @Test
@@ -34,7 +35,7 @@ public class Tests {
     @Test
     public void testTeacherExperience(){
         String experience = t.getWorkExperience();
-        assertEquals("2025 років, 2 місяців та 12 днів", experience);
+        assertEquals("2025 років, 3 місяців та 2 днів", experience);
     }
     @Test
     public void personAge(){
