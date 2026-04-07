@@ -17,7 +17,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         startedPack();
-        while(true){  //якщо користувач захоче вернутись в режим авторизації, додати тут брейк коли буде виходити з програми
+        while(true){
+            Thread autoSaveThread = new Thread(new AutoSaveService(universities, 60000, "src/data.txt"));
+            autoSaveThread.setDaemon(true);
+            autoSaveThread.start();
+            //якщо користувач захоче вернутись в режим авторизації, додати тут брейк коли буде виходити з програми
             auth.authorization();
             menu.mainMenu();
         }
