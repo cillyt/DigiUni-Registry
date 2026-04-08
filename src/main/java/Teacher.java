@@ -1,6 +1,10 @@
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDate;
 import java.time.Period;
-
+@Setter
+@Getter
 public class Teacher extends Person{
     String teacherPosition;
     String academicDegree;
@@ -13,7 +17,9 @@ public class Teacher extends Person{
     boolean headOfDepartment;
 
 
-    Teacher(int personID, String personSurname, String personName, String middleName, int yearOfBirth, int monthOfBirth, int dayOfBirth, String personEmail, long personPhone, String uni, String faculty, String department, String teacherPosition, String academicDegree, String academicTitle, int yearOfEntry, int monthOfEntry, int dayOfEntry, String rate, boolean decan, boolean headOfDepartment) {
+    Teacher(int personID, String personSurname, String personName, String middleName, int yearOfBirth, int monthOfBirth, int dayOfBirth,
+            String personEmail, long personPhone, String uni, String faculty, String department, String teacherPosition, String academicDegree,
+            String academicTitle, int yearOfEntry, int monthOfEntry, int dayOfEntry, String rate, boolean decan, boolean headOfDepartment) {
         super(personID, personSurname, personName, middleName, yearOfBirth, monthOfBirth, dayOfBirth, personEmail, personPhone, uni, faculty, department);
         this.teacherPosition = teacherPosition;
         this.academicDegree = academicDegree;
@@ -30,44 +36,6 @@ public class Teacher extends Person{
         super();
     }
 
-    public String getTeacherPosition() {return teacherPosition;}
-    public void setTeacherPosition(String teacherPosition) {this.teacherPosition = teacherPosition;}
-    public String getAcademicDegree() {
-        return academicDegree;
-    }
-    public void setAcademicDegree(String academicDegree) {
-        this.academicDegree = academicDegree;
-    }
-    public String getAcademicTitle() {
-        return academicTitle;
-    }
-    public void setAcademicTitle(String academicTitle) {
-        this.academicTitle = academicTitle;
-    }
-    public int getYearOfEntry() {
-        return yearOfEntry;
-    }
-    public void setYearOfEntry(int yearOfEntry) {
-        this.yearOfEntry = yearOfEntry;
-    }
-    public int getMonthOfEntry() {
-        return yearOfEntry;
-    }
-    public void setMonthOfEntry(int yearOfEntry) {
-        this.yearOfEntry = yearOfEntry;
-    }
-    public int getDayOfEntry() {
-        return yearOfEntry;
-    }
-    public void setDayOfEntry(int yearOfEntry) {
-        this.yearOfEntry = yearOfEntry;
-    }
-    public String getRate() {
-        return rate;
-    }
-    public void setRate(String rate) {
-        this.rate = rate;
-    }
     public boolean getDecanStatus(){return decan;}
     public void setDecanStatus(boolean decan){this.decan = decan;}
     public boolean getHeadOfDepartmentStatus(){return headOfDepartment;}

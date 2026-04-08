@@ -1,6 +1,11 @@
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Setter
+@Getter
 public class University {
     String fullUniversityName;
     String shortUniversityName;
@@ -18,26 +23,6 @@ public class University {
     University(){
 
     }
-
-    public String getFullUniversityName() {return fullUniversityName;}
-    public void setFullUniversityName(String fullUniversityName) {this.fullUniversityName = fullUniversityName;}
-    public String getShortUniversityName() {
-        return shortUniversityName;
-    }
-    public void setShortUniversityName(String shortUniversityName) {this.shortUniversityName = shortUniversityName;}
-    public String getCity() {
-        return city;
-    }
-    public void setCity(String city) {
-        this.city = city;
-    }
-    public String getAddress() {
-        return address;
-    }
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
 
     @Override
     public String toString() {

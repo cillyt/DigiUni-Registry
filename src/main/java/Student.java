@@ -1,3 +1,8 @@
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Student extends Person {
     int courseNumber; //+ перевірка чи в межах 1-6
     int groupNumber;
@@ -17,41 +22,6 @@ public class Student extends Person {
     Student(){
         super();
     }
-
-    public int getCourseNumber() {
-        return courseNumber;
-    }
-    public void setCourseNumber(int courseNumber) {
-        this.courseNumber = courseNumber;
-    }
-    public int getGroupNumber() {
-        return groupNumber;
-    }
-    public void setGroupNumber(int groupNumber) {
-        this.groupNumber = groupNumber;
-    }
-    public int getYearOfEntry() {
-        return yearOfEntry;
-    }
-    public void setYearOfEntry(int yearOfEntry) {
-        this.yearOfEntry = yearOfEntry;
-    }
-    public String isStudyForm() {
-        return studyForm;
-    }
-    public void setStudyForm(String studyForm) {
-        this.studyForm = studyForm;
-    }
-    public String getStudentStatus() {
-        return studentStatus;
-    }
-    public void setStudentStatus(String studentStatus) {
-        this.studentStatus = studentStatus;
-    }
-
-
-
-
 
     @Override
     public String toString() {

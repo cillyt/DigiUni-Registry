@@ -1,6 +1,12 @@
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
+
+@Getter
+@Setter
 
 public class Person{
     int personID;
@@ -36,9 +42,6 @@ public class Person{
 
     Person(){}
 
-    public int getPersonID() {
-        return personID;
-    }
     public void setPersonID(int personID) throws IOException {
             if(this.personID != personID) {
                 while (Main.IDs.contains(personID)) {
@@ -49,35 +52,7 @@ public class Person{
             this.personID = personID;
             Main.IDs.add(personID);
     }
-    public String getPersonSurname() {
-        return personSurname;
-    }
-    public void setPersonSurname(String personSurname) {
-        this.personSurname = personSurname;
-    }
-    public String getPersonName() {
-        return personName;
-    }
-    public void setPersonName(String personName) {
-        this.personName = personName;
-    }
-    public String getMiddleName() {
-        return middleName;
-    }
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
 
-    public int getYearOfBirth() {return yearOfBirth;}
-    public void setYearOfBirth(int yearOfBirth) {this.yearOfBirth = yearOfBirth;}
-    public int getMonthOfBirth() {return monthOfBirth;}
-    public void setMonthOfBirth(int monthOfBirth) {this.monthOfBirth = monthOfBirth;}
-    public int getDayOfBirth() {return dayOfBirth;}
-    public void setDayOfBirth(int dayOfBirth) {this.dayOfBirth = dayOfBirth;}
-
-    public String getPersonEmail() {
-        return personEmail;
-    }
     public void setPersonEmail(String personEmail) throws IOException {
         if(this.personEmail != personEmail) {
             while (Main.emails.contains(personEmail)) {
@@ -87,12 +62,6 @@ public class Person{
         }
         Main.emails.add(personEmail);
         this.personEmail = personEmail;
-    }
-    public long getPersonPhone() {
-        return personPhone;
-    }
-    public void setPersonPhone(long personPhone) {
-        this.personPhone = personPhone;
     }
 
 
@@ -107,29 +76,6 @@ public class Person{
         return personAge.getYears();
     }
 
-    public void setUni(String uni){
-        this.uni = uni;
-    }
-
-    public String getUni(){
-        return uni;
-    }
-
-    public void setFaculty(String faculty){
-        this.faculty = faculty;
-    }
-
-    public String getFaculty(){
-        return faculty;
-    }
-
-    public void setDepartment(String department){
-        this.department = department;
-    }
-
-    public String getDepartment(){
-        return department;
-    }
 
 
     @Override
