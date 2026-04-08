@@ -38,6 +38,10 @@ public class Person{
 
         this.personEmail = personEmail;
         this.personPhone = personPhone;
+
+        this.uni = uni;
+        this.faculty = faculty;
+        this.department = department;
     }
 
     Person(){}

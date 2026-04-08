@@ -331,7 +331,7 @@ public class Menu {
 
     }
     
-    public int universityQuestionWithFaculty() throws IOException {
+    public int universityQuestionWithFacultyDepartmentsOrStudents(int operation) throws IOException {
         System.out.println("Оберіть університет: ");
         int i = 0;
         for (University university : Main.universities ) {
@@ -340,11 +340,39 @@ public class Menu {
         }
         int uni = checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
         uni--;
-        while(Main.universities.get(uni).faculties.isEmpty()) {
-            System.out.println("В цьому університеті немає факультетів, кафедр, студентів та викладачів.");
-            uni = checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
-            uni--;
+        switch(operation){
+            case 1: //we need faculty
+                while(Main.universities.get(uni).faculties.isEmpty()) {
+                    System.out.println("В цьому університеті немає факультетів, кафедр, студентів та викладачів.");
+                    uni = checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
+                    uni--;
+                }
+                break;
+            case 2: //we need department
+                while(allObjects.allDepartmentsByUni(Main.universities.get(uni)).isEmpty()){
+                    System.out.println("В цьому університеті немає кафедр.");
+                    uni = checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
+                    uni--;
+                }
+                break;
+            case 3: //we need students
+                while(allObjects.allStudentsByUni(Main.universities.get(uni)).isEmpty()){
+                    System.out.println("В цьому університеті немає студентів.");
+                    uni = checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
+                    uni--;
+
+                }
+                break;
+            case 4: //we need teachers
+                while(allObjects.allTeachersByUni(Main.universities.get(uni)).isEmpty()){
+                    System.out.println("В цьому університеті немає викладачів.");
+                    uni = checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
+                    uni--;
+
+                }
+                break;
         }
+
 
         return uni;
 
@@ -366,42 +394,40 @@ public class Menu {
     }
 
     public int facultyQuestionWithDepartmentStudentsOrTeachers(int uni, int operation) throws IOException {
-
-        switch (operation){
-            case 1: //we need department
-                if (allObjects.allDepartmentsByUni(Main.universities.get(uni)).isEmpty()){
-                    System.out.println("Серед факультетів цього університету немає кафедр, студентів та вчителів.");
-                    return -1;
-                }
-            case 2: //we need student
-                if(allObjects.allStudentsByUni(Main.universities.get(uni)).isEmpty()){
-                    System.out.println("Серед факультетів цього університету немає студентів.");
-                    return -1;
-                }
-            case 3: //we need teacher
-                if(allObjects.allTeachersByUni(Main.universities.get(uni)).isEmpty()){
-                    System.out.println("Серед факультетів цього університету немає викладачів.");
-                    return -1;
-                }
-        }
-
         System.out.println("Оберіть факультет: ");
 
         int i = 0;
         for (Faculty faculty1 : Main.universities.get(uni).faculties) {
             i++;
             System.out.println(i + ". " + faculty1.getFacultyName());
-        }
+        };
 
         int faculty = checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
         faculty--;
-        while (Main.universities.get(uni).faculties.get(faculty).departments.isEmpty()) {
-            System.out.println("На цьому факультеті немає кафедр, студентів та викладачів.");
-            faculty = checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
-            faculty--;
+
+
+        switch (operation){
+            case 2: //we need department
+                while (Main.universities.get(uni).faculties.get(faculty).departments.isEmpty()) {
+                    System.out.println("На цьому факультеті немає кафедр, студентів та викладачів.");
+                    faculty = checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
+                    faculty--;
+                }
+                break;
+            case 3: //we need student
+                while(allObjects.allStudentsByFaculty(Main.universities.get(uni).faculties.get(faculty)).isEmpty()){
+                    System.out.println("На цьому факультеті немає студентів.");
+                    faculty = checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
+                    faculty--;
+                }
+                break;
+            case 4: //we need teacher
+                while(allObjects.allTeachersByFaculty(Main.universities.get(uni).faculties.get(faculty)).isEmpty()){
+                    System.out.println("На цьому факультеті немає викладачів.");
+                    faculty = checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
+                    faculty--;
+                }
         }
-
-
         return faculty;
 
     }
