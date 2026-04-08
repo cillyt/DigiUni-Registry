@@ -14,8 +14,7 @@ public class Operations {
     public Menu getMenu() {
         return Main.menu;
     }
-    
-    List<University> universities = Main.universities;  //масиви об'єктів, які можна додати
+
 
 
     int check;
@@ -52,9 +51,9 @@ public class Operations {
 
 
 
-       universities.get(uni).faculties.add(faculty);
+       Main.universities.get(uni).faculties.add(faculty);
 
-       for(Faculty f : (universities.get(uni)).faculties) {
+       for(Faculty f : (Main.universities.get(uni)).faculties) {
            System.out.print(f + "\n");
        }
 
@@ -71,9 +70,9 @@ public class Operations {
         depart.setDepartmentName(checkInput.checkString("Назва кафедри: ", "Ви не ввели назву кафедри."));
         depart.setCabinetNumber(checkInput.checkInt("Номер кабінету: ", "Ви ввели номер кабінету неправильно."));
 
-        universities.get(uni).faculties.get(faculty).departments.add(depart);
+        Main.universities.get(uni).faculties.get(faculty).departments.add(depart);
 
-        for(Department d : universities.get(uni).faculties.get(faculty).departments) {
+        for(Department d : Main.universities.get(uni).faculties.get(faculty).departments) {
             System.out.print(d + "\n");
         }
 
@@ -100,9 +99,9 @@ public class Operations {
                 teacher.setPersonEmail(checkInput.checkString("Електронна пошта: ", "Ви не ввели електронну пошту викладача."));
                 teacher.setPersonPhone(checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно."));
 
-                teacher.setUni(universities.get(uni).fullUniversityName);
-                teacher.setFaculty(universities.get(uni).faculties.get(faculty).facultyName);
-                teacher.setDepartment(universities.get(uni).faculties.get(faculty).departments.get(depart).departmentName);
+                teacher.setUni(Main.universities.get(uni).fullUniversityName);
+                teacher.setFaculty(Main.universities.get(uni).faculties.get(faculty).facultyName);
+                teacher.setDepartment(Main.universities.get(uni).faculties.get(faculty).departments.get(depart).departmentName);
 
                 teacher.setTeacherPosition(checkInput.checkString("Посада: ", "Ви не ввели посаду викладача."));
                 teacher.setAcademicDegree(checkInput.checkString("Науковий ступінь: ", "Ви не ввели науковий ступінь викладача."));
@@ -113,21 +112,21 @@ public class Operations {
                 teacher.setRate(checkInput.checkString("Ставка: ", "Ви не ввели ставку викладача."));
 
                 teacher.setDecanStatus(false);
-                if (universities.get(uni).faculties.get(faculty).facultyDecan == null)
+                if (Main.universities.get(uni).faculties.get(faculty).facultyDecan == null)
                      teacher.setDecanStatus(getMenu().decanQuestion());
 
                 teacher.setHeadOfDepartmentStatus(false);
-                if (universities.get(uni).faculties.get(faculty).departments.get(depart).headOfDepart == null)
+                if (Main.universities.get(uni).faculties.get(faculty).departments.get(depart).headOfDepart == null)
                     teacher.setHeadOfDepartmentStatus(getMenu().headOfDepartmentQuestion());
 
-                universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.add(teacher);
+                Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.add(teacher);
 
                 if (teacher.decan)
-                    universities.get(uni).faculties.get(faculty).facultyDecan = teacher;
+                    Main.universities.get(uni).faculties.get(faculty).facultyDecan = teacher;
                 if (teacher.headOfDepartment)
-                    universities.get(uni).faculties.get(faculty).departments.get(depart).headOfDepart = teacher;
+                    Main.universities.get(uni).faculties.get(faculty).departments.get(depart).headOfDepart = teacher;
 
-                for (Teacher t : universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
+                for (Teacher t : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
                     System.out.print(t + "\n");
                 }
 
@@ -161,9 +160,9 @@ public class Operations {
             stud.setPersonEmail(checkInput.checkString("Електронна пошта: ", "Ви не ввели електронну пошту студента."));
             stud.setPersonPhone(checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно."));
 
-            stud.setUni(universities.get(uni).fullUniversityName);
-            stud.setFaculty(universities.get(uni).faculties.get(faculty).facultyName);
-            stud.setDepartment(universities.get(uni).faculties.get(faculty).departments.get(depart).departmentName);
+            stud.setUni(Main.universities.get(uni).fullUniversityName);
+            stud.setFaculty(Main.universities.get(uni).faculties.get(faculty).facultyName);
+            stud.setDepartment(Main.universities.get(uni).faculties.get(faculty).departments.get(depart).departmentName);
 
             check = 0;
 
@@ -174,9 +173,9 @@ public class Operations {
             stud.setStudyForm(getMenu().studyFormQuestion());
             stud.setStudentStatus(getMenu().studentStatusQuestion());
 
-            universities.get(uni).faculties.get(faculty).departments.get(depart).students.add(stud);
+            Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.add(stud);
 
-            for (Student s : universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
+            for (Student s : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
                 System.out.print(s + "\n");
             }
 
@@ -191,9 +190,9 @@ public class Operations {
 
     public void deletingUniversity() throws IOException {
         int uni = getMenu().universityQuestionNoFaculty();
-        universities.remove(uni);
+        Main.universities.remove(uni);
 
-        for(University u : universities) {
+        for(University u : Main.universities) {
             System.out.print(u + "\n");
         }
         System.out.println("Університет був успішно видалений!");
@@ -203,9 +202,9 @@ public class Operations {
     public void deletingFaculty() throws IOException {
         int uni = getMenu().universityQuestionWithFaculty();
         int faculty = getMenu().facultyQuestionNoDepartment(uni);
-        universities.get(uni).faculties.remove(faculty);
+        Main.universities.get(uni).faculties.remove(faculty);
 
-        for(Faculty f : universities.get(uni).faculties) {
+        for(Faculty f : Main.universities.get(uni).faculties) {
             System.out.print(f + "\n");
         }
         System.out.println("Факультет був успішно видалений!");
@@ -219,14 +218,14 @@ public class Operations {
         if (faculty != -1) {
             int depart = getMenu().departmentQuestionNoStudentsAndTeachers(uni, faculty);
 
-            for (Teacher t : universities.get(uni).faculties.get(faculty).departments.get(depart).teachers){
+            for (Teacher t : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers){
                 if (t.decan)
-                    universities.get(uni).faculties.get(faculty).facultyDecan = null;
+                    Main.universities.get(uni).faculties.get(faculty).facultyDecan = null;
             }
 
-            universities.get(uni).faculties.get(faculty).departments.remove(depart);
+            Main.universities.get(uni).faculties.get(faculty).departments.remove(depart);
 
-            for (Department d : universities.get(uni).faculties.get(faculty).departments) {
+            for (Department d : Main.universities.get(uni).faculties.get(faculty).departments) {
                 System.out.print(d + "\n");
             }
             System.out.println("Кафедра була успішно видалена!");
@@ -243,9 +242,9 @@ public class Operations {
         if(faculty != -1) {
             int depart = getMenu().departmentQuestionWithStudents(uni, faculty);
             int stud = getMenu().studentQuestion(uni, faculty, depart);
-            universities.get(uni).faculties.get(faculty).departments.get(depart).students.remove(stud);
+            Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.remove(stud);
 
-            for (Student s : universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
+            for (Student s : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
                 System.out.print(s + "\n");
             }
             System.out.println("Студент був успішно вилучений!");
@@ -261,15 +260,15 @@ public class Operations {
             int depart = getMenu().departmentQuestionWithTeachers(uni, faculty);
             int teach = getMenu().teacherQuestion(uni, faculty, depart);
 
-            if (universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).decan)
-                universities.get(uni).faculties.get(faculty).facultyDecan = null;
+            if (Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).decan)
+                Main.universities.get(uni).faculties.get(faculty).facultyDecan = null;
 
-            if (universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).headOfDepartment)
-                universities.get(uni).faculties.get(faculty).departments.get(depart).headOfDepart = null;
+            if (Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).headOfDepartment)
+                Main.universities.get(uni).faculties.get(faculty).departments.get(depart).headOfDepart = null;
 
-            universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.remove(teach);
+            Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.remove(teach);
 
-            for (Teacher t : universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
+            for (Teacher t : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
                 System.out.print(t + "\n");
             }
             System.out.println("Викладач був успішно вилучений!");
@@ -291,24 +290,24 @@ public class Operations {
                     changed = true;
                     break;
                 case 1:
-                    universities.get(uni).setFullUniversityName(checkInput.checkString("Введіть нову повну назву університету: ", "Ви не ввели нову повну назву університету."));
+                    Main.universities.get(uni).setFullUniversityName(checkInput.checkString("Введіть нову повну назву університету: ", "Ви не ввели нову повну назву університету."));
                     break;
                 case 2:
                     String newUniShortName = checkInput.checkString("Введіть нову скорочену назву університету: ", "Ви не ввели нову скорочену назву університету.");
-                    universities.get(uni).setShortUniversityName(newUniShortName);
+                    Main.universities.get(uni).setShortUniversityName(newUniShortName);
                     break;
                 case 3:
                     String newUniCity = checkInput.checkString("Введіть нове місто: ", "Ви не ввели нове місто.");
-                    universities.get(uni).setCity(newUniCity);
+                    Main.universities.get(uni).setCity(newUniCity);
                     break;
                 case 4:
                     String newUniAddress = checkInput.checkString("Введіть нову адресу університету: ", "Ви не ввели нову адресу університету.");
-                    universities.get(uni).setAddress(newUniAddress);
+                    Main.universities.get(uni).setAddress(newUniAddress);
                     break;
             }
         }
 
-        for(University u : universities) {
+        for(University u : Main.universities) {
             System.out.print(u + "\n");
         }
         System.out.println("Університет був успішно змінений!");
@@ -331,21 +330,21 @@ public class Operations {
                     break;
                 case 1:
                     String newFacultyCode = checkInput.checkString("Введіть новий код факультету: ", "Ви не ввели новий код факультету.");
-                    universities.get(uni).faculties.get(faculty).setFacultyCode(newFacultyCode);
+                    Main.universities.get(uni).faculties.get(faculty).setFacultyCode(newFacultyCode);
                     break;
                 case 2:
                     String newFacultyName = checkInput.checkString("Введіть нову повну назву факультету: ", "Ви не ввели нову повну назву факультету.");
-                    universities.get(uni).faculties.get(faculty).setFacultyName(newFacultyName);
+                    Main.universities.get(uni).faculties.get(faculty).setFacultyName(newFacultyName);
                     break;
                 case 3:
                     String newFacultyShortName = checkInput.checkString("Введіть нову скорочену назву факультету: ", "Ви не ввели нову скорочену назву факультету.");
-                    universities.get(uni).faculties.get(faculty).setShortFacultyName(newFacultyShortName);
+                    Main.universities.get(uni).faculties.get(faculty).setShortFacultyName(newFacultyShortName);
                     break;
                 case 4:
-                    if (!allObjects.allTeachersByFaculty(universities.get(uni).faculties.get(faculty)).isEmpty()) {//можливо потрібно додати умову що масив з одного викладача і той декан
-                        Teacher newFacultyDecan = getMenu().decanEditingQuestion(allObjects.allTeachersByFaculty(universities.get(uni).faculties.get(faculty)));
-                        universities.get(uni).faculties.get(faculty).setFacultyDecan(newFacultyDecan);
-                        for (Department d : universities.get(uni).faculties.get(faculty).departments)
+                    if (!allObjects.allTeachersByFaculty(Main.universities.get(uni).faculties.get(faculty)).isEmpty()) {//можливо потрібно додати умову що масив з одного викладача і той декан
+                        Teacher newFacultyDecan = getMenu().decanEditingQuestion(allObjects.allTeachersByFaculty(Main.universities.get(uni).faculties.get(faculty)));
+                        Main.universities.get(uni).faculties.get(faculty).setFacultyDecan(newFacultyDecan);
+                        for (Department d : Main.universities.get(uni).faculties.get(faculty).departments)
                             for (Teacher t : d.teachers) {
                                 if (t.personID == newFacultyDecan.personID)
                                     t.decan = true;
@@ -357,17 +356,17 @@ public class Operations {
                     break;
                 case 5:
                     long newFacultyNumber = checkInput.checkLong("Введіть новий номер телефону факультету: ","Ви ввели новий номер телефону неправильно.");
-                    universities.get(uni).faculties.get(faculty).setFacultyPhoneNumber(newFacultyNumber);
+                    Main.universities.get(uni).faculties.get(faculty).setFacultyPhoneNumber(newFacultyNumber);
                     break;
                 case 6:
                     String newFacultyEmail = checkInput.checkString("Введіть нову пошту факультету: ", "Ви не ввели нову пошту факультету.");
-                    universities.get(uni).faculties.get(faculty).setFacultyEmail(newFacultyEmail);
+                    Main.universities.get(uni).faculties.get(faculty).setFacultyEmail(newFacultyEmail);
                     break;
 
             }
         }
 
-        for(Faculty f : universities.get(uni).faculties) {
+        for(Faculty f : Main.universities.get(uni).faculties) {
             System.out.print(f + "\n");
         }
         System.out.println("Факультет був успішно змінений!");
@@ -388,17 +387,17 @@ public class Operations {
                         break;
                     case 1:
                         String newDepartmentCode = checkInput.checkString("Введіть новий код кафедри: ", "Ви не ввели новий код кафедри.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).setDepartmentCode(newDepartmentCode);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).setDepartmentCode(newDepartmentCode);
                         break;
                     case 2:
                         String newDepartmentName = checkInput.checkString("Введіть нову повну назву кафедри: ", "Ви не ввели нову повну назву кафедри.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).setDepartmentName(newDepartmentName);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).setDepartmentName(newDepartmentName);
                         break;
                     case 3:
-                        if (universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.size() > 0) {//можливо потрібно додати умову що масив з одного викладача і той декан
-                            Teacher newHeadOfDepartment = getMenu().headOfDepartmentEditingQuestion(universities.get(uni).faculties.get(faculty).departments.get(depart).teachers);
-                            universities.get(uni).faculties.get(faculty).departments.get(depart).setHeadOfDepart(newHeadOfDepartment);
-                            for (Department d : universities.get(uni).faculties.get(faculty).departments)
+                        if (Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.size() > 0) {//можливо потрібно додати умову що масив з одного викладача і той декан
+                            Teacher newHeadOfDepartment = getMenu().headOfDepartmentEditingQuestion(Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers);
+                            Main.universities.get(uni).faculties.get(faculty).departments.get(depart).setHeadOfDepart(newHeadOfDepartment);
+                            for (Department d : Main.universities.get(uni).faculties.get(faculty).departments)
                                 for (Teacher t : d.teachers) {
                                     if (t.personID == newHeadOfDepartment.personID)
                                         t.decan = true;
@@ -411,12 +410,12 @@ public class Operations {
                     case 4:
                         System.out.print("Введіть новий кабінет кафедри: ");
                         int newCabinetNumber = checkInput.checkInt("Введіть новий кабінет кафедри: ", "Ви ввели новий кабінет кафедри неправильно.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).setCabinetNumber(newCabinetNumber);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).setCabinetNumber(newCabinetNumber);
                         break;
                 }
             }
 
-            for (Department d : universities.get(uni).faculties.get(faculty).departments) {
+            for (Department d : Main.universities.get(uni).faculties.get(faculty).departments) {
                 System.out.print(d + "\n");
             }
             System.out.println("Кафедра була успішно змінена!");
@@ -443,72 +442,72 @@ public class Operations {
                         break;
                     case 1:
                         int newPersonID = checkInput.checkInt("Введіть новий унікальний ідентифікатор: ", "Ви ввели новий унікальний ідентифікатор неправильно.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonID(newPersonID);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonID(newPersonID);
                         break;
                     case 2:
                         String newPersonSurname = checkInput.checkString("Введіть нове прізвище: ", "Ви не ввели нове прізвище.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonSurname(newPersonSurname);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonSurname(newPersonSurname);
                         break;
                     case 3:
                         String newPersonName = checkInput.checkString("Введіть нове ім'я: ", "Ви не ввели нове ім'я.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonName(newPersonName);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonName(newPersonName);
                         break;
                     case 4:
                         String newMiddleName = checkInput.checkString("Введіть нове по-батькові: ", "Ви не ввели нове по-батькові.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setMiddleName(newMiddleName);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setMiddleName(newMiddleName);
                         break;
                     case 5:
                         int newBirthYear = checkInput.checkInt("Введіть новий рік народження: ", "Ви не ввели новий рік народження.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setYearOfBirth(newBirthYear);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setYearOfBirth(newBirthYear);
 
                         int newBirthMonth = checkInput.checkInt("Введіть новий місяць народження: ", "Ви не ввели новий місяць народження.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setMonthOfBirth(newBirthMonth);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setMonthOfBirth(newBirthMonth);
 
                         int newBirthDay = checkInput.checkInt("Введіть новий день народження: ", "Ви не ввели новий день народження.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setDayOfBirth(newBirthDay);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setDayOfBirth(newBirthDay);
                         break;
                     case 6:
                         String newPersonEmail = checkInput.checkString("Введіть нову електронну пошту: ", "Ви не ввели нову електронну пошту.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonEmail(newPersonEmail);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonEmail(newPersonEmail);
                         break;
                     case 7:
                         long newPersonPhone = checkInput.checkLong("Введіть новий номер телефону: ", "Ви ввели новий номер телефону неправильно.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonPhone(newPersonPhone);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonPhone(newPersonPhone);
                         break;
                     case 8:
                         int newuni = getMenu().universityQuestionWithFaculty();
                         int newfaculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni,1);
                         int newdepartment = getMenu().departmentQuestionNoStudentsAndTeachers(newuni, newfaculty);
 
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setUni(universities.get(newuni).fullUniversityName);
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setFaculty(universities.get(newuni).faculties.get(newfaculty).facultyName);
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setDepartment(universities.get(newuni).faculties.get(newfaculty).departments.get(newdepartment).departmentName);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setUni(Main.universities.get(newuni).fullUniversityName);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setFaculty(Main.universities.get(newuni).faculties.get(newfaculty).facultyName);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setDepartment(Main.universities.get(newuni).faculties.get(newfaculty).departments.get(newdepartment).departmentName);
 
-                        universities.get(newuni).faculties.get(newfaculty).departments.get(newdepartment).students.add(universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud));
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.remove(stud);
+                        Main.universities.get(newuni).faculties.get(newfaculty).departments.get(newdepartment).students.add(Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud));
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.remove(stud);
                         break;
 
                     case 9:
                         int newCourseNumber = checkInput.checkInt("Введіть новий курс: ", "Ви ввели новий курс неправильно.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setCourseNumber(newCourseNumber);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setCourseNumber(newCourseNumber);
                         break;
                     case 10:
                         int newGroupNumber = checkInput.checkInt("Введіть новий номер групи: ", "Ви ввели новий номер групи неправильно.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setGroupNumber(newGroupNumber);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setGroupNumber(newGroupNumber);
                         break;
                     case 11:
                         int newYearOfEntry = checkInput.checkInt("Введіть новий рік вступу: ", "Ви ввели новий рік вступу неправильно.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setYearOfEntry(newYearOfEntry);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setYearOfEntry(newYearOfEntry);
                         break;
                     case 12:
                         check = 0;
                         String newStudyForm = getMenu().studyFormQuestion();
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setStudyForm(newStudyForm);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setStudyForm(newStudyForm);
                         break;
                     case 13:
                         check = 0;
                         String newStudentStatus = getMenu().studentStatusQuestion();
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setStudentStatus(newStudentStatus);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setStudentStatus(newStudentStatus);
                         break;
 
                 }
@@ -516,7 +515,7 @@ public class Operations {
 
             }
 
-            for (Student s : universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
+            for (Student s : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
                 System.out.print(s + "\n");
             }
             System.out.println("Студент був успішно змінений!");
@@ -544,75 +543,75 @@ public class Operations {
                         break;
                     case 1:
                         int newPersonID = checkInput.checkInt("Введіть новий унікальний ідентифікатор: ", "Ви ввели новий унікальний ідентифікатор неправильно.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonID(newPersonID);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonID(newPersonID);
                         break;
                     case 2:
                         String newPersonSurname = checkInput.checkString("Введіть нове прізвище: ", "Ви не ввели нове прізвище.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonSurname(newPersonSurname);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonSurname(newPersonSurname);
                         break;
                     case 3:
                         String newPersonName = checkInput.checkString("Введіть нове ім'я: ", "Ви не ввели нове ім'я.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonName(newPersonName);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonName(newPersonName);
                         break;
                     case 4:
                         String newMiddleName = checkInput.checkString("Введіть нове по-батькові: ", "Ви не ввели нове по-батькові.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setMiddleName(newMiddleName);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setMiddleName(newMiddleName);
                         break;
                     case 5:
                         int newBirthYear = checkInput.checkInt("Введіть новий рік народження: ", "Ви не ввели новий рік народження.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setYearOfBirth(newBirthYear);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setYearOfBirth(newBirthYear);
 
                         int newBirthMonth = checkInput.checkInt("Введіть новий місяць народження: ", "Ви не ввели новий місяць народження.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setMonthOfBirth(newBirthMonth);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setMonthOfBirth(newBirthMonth);
 
                         int newBirthDay = checkInput.checkInt("Введіть новий день народження: ", "Ви не ввели новий день народження.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setDayOfBirth(newBirthDay);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setDayOfBirth(newBirthDay);
                         break;
                     case 6:
                         String newPersonEmail = checkInput.checkString("Введіть нову електронну пошту: ", "Ви не ввели нову електронну пошту.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonEmail(newPersonEmail);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonEmail(newPersonEmail);
                         break;
                     case 7:
                         long newPersonPhone = checkInput.checkLong("Введіть новий номер телефону: ", "Ви ввели новий номер телефону неправильно.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonPhone(newPersonPhone);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonPhone(newPersonPhone);
                         break;
                     case 8:
                         int newuni = getMenu().universityQuestionWithFaculty();
                         int newfaculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni,1);
                         int newdepartment = getMenu().departmentQuestionNoStudentsAndTeachers(newuni, newfaculty);
 
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setUni(universities.get(newuni).fullUniversityName);
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setFaculty(universities.get(newuni).faculties.get(newfaculty).facultyName);
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setDepartment(universities.get(newuni).faculties.get(newfaculty).departments.get(newdepartment).departmentName);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setUni(Main.universities.get(newuni).fullUniversityName);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setFaculty(Main.universities.get(newuni).faculties.get(newfaculty).facultyName);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setDepartment(Main.universities.get(newuni).faculties.get(newfaculty).departments.get(newdepartment).departmentName);
 
-                        universities.get(newuni).faculties.get(newfaculty).departments.get(newdepartment).teachers.add(universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach));
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.remove(teach);
+                        Main.universities.get(newuni).faculties.get(newfaculty).departments.get(newdepartment).teachers.add(Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach));
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.remove(teach);
                         break;
                     case 9:
                         String newTeacherPosition = checkInput.checkString("Введіть нову посаду: ", "Ви не ввели нову посаду.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setTeacherPosition(newTeacherPosition);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setTeacherPosition(newTeacherPosition);
                         break;
                     case 10:
                         String newAcademicDegree = checkInput.checkString("Введіть новий науковий ступінь: ", "Ви не ввели новий науковий ступінь.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setAcademicDegree(newAcademicDegree);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setAcademicDegree(newAcademicDegree);
                         break;
                     case 11:
                         String newAcademicTitle = checkInput.checkString("Введіть нове вчене звання: ", "Ви не ввели нове вчене звання.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setAcademicTitle(newAcademicTitle);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setAcademicTitle(newAcademicTitle);
                         break;
                     case 12:
                         int newYearOfEntry = checkInput.checkInt("Введіть новий рік прийняття на роботу: ", "Ви ввели новий рік прийняття на роботу неправильно.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setYearOfEntry(newYearOfEntry);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setYearOfEntry(newYearOfEntry);
                         break;
                     case 13:
                         String newRate = checkInput.checkString("Введіть нову ставку: ", "Ви не ввели нову ставку.");
-                        universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setRate(newRate);
+                        Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setRate(newRate);
                         break;
 
                 }
             }
 
-            for (Teacher t : universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
+            for (Teacher t : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
                 System.out.print(t + "\n");
             }
             System.out.println("Викладач був успішно змінений!");
