@@ -41,7 +41,8 @@ public class Menu {
             if (!allObjects.allDepartments().isEmpty()) {
             System.out.println("5. Студент");
             System.out.println("6. Викладач");
-            counter += 2;
+            System.out.println("7. Користувачі");
+            counter += 3;
             }
         }
 
@@ -70,6 +71,9 @@ public class Menu {
                 break;
             case 6:
                 teacherMenu();
+                break;
+            case 7:
+                userMenu();
                 break;
         }
     }
@@ -314,6 +318,36 @@ public class Menu {
 
         }
     }
+
+
+    public void userMenu() throws IOException {
+        int counter = 1;
+        System.out.println("=== Оберіть дію ===");
+        System.out.println("0. Повернутись до головного меню");
+        //System.out.println("1. Знайти викладача");
+
+        boolean b = Authorization.allUsersWithRoles.size() > 1;
+
+        if (Authorization.status == 3 && b) {
+            System.out.println("1. Призначити рівень доступу користувача");
+            System.out.println("2. Видалити користувача");
+            counter+=2;
+        }
+
+        int operation = checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
+
+        switch(operation) {
+            case 0:
+                mainMenu();
+                break;
+            case 1:
+                operations.editingUser();
+                break;
+            case 2:
+                operations.deleteUser();
+        }
+    }
+
 
 
     public int universityQuestionNoFaculty() throws IOException {

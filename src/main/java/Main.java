@@ -17,6 +17,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         universities = DataLoader.loadUniversities("src/data.json");
+        Authorization.baseSet();
         while(true){
             Thread autoSaveThread = new Thread(
                     new AutoSaveService(universities, 60000, "src/data.json")

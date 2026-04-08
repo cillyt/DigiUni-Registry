@@ -276,6 +276,50 @@ public class Operations {
     }
 
 
+
+    public void deleteUser() throws IOException {
+
+        boolean changed = false;
+
+        while (!changed) {
+            int i = 0;
+            List<Authorization.BaseUser> tempUserList = new ArrayList<>(Authorization.allUsersWithRoles);
+
+            for(Authorization.BaseUser b : tempUserList){
+                i++;
+                System.out.println(i + ". " + b);
+            }
+
+            int chooseUser = checkInput.checkInt("Введіть якого користувача ви хочете призначити: ", "Користувача з таким номером не існує");
+
+            Authorization.BaseUser us = tempUserList.get(chooseUser - 1);
+
+            Authorization.allUsersWithRoles.remove(us);         //delete user with previous role
+            if(us instanceof Authorization.User){
+                Authorization.allUsers.remove(us);
+            }
+            else if(us instanceof Authorization.Manager){
+                Authorization.allManagers.remove(us);
+            }
+            else if(us instanceof Authorization.Administrator){
+                Authorization.allAdministrators.remove(us);
+            }
+
+
+            changed = true;
+            System.out.println("Користувач успішно видалений!");
+
+            //   Authorization.BaseUser us = Authorization.allUsersWithRoles(chooseUser);
+
+
+
+
+        }
+
+    }
+
+
+
     public void editingUniversity() throws IOException {
         int uni = getMenu().universityQuestionNoFaculty();
         boolean changed = false;
@@ -288,6 +332,7 @@ public class Operations {
                     changed = true;
                     break;
                 case 1:
+                   // System.out.println("Поточна назва університету: " + Main.universities.get(uni).getFullUniversityName());
                     Main.universities.get(uni).setFullUniversityName(checkInput.checkString("Введіть нову повну назву університету: ", "Ви не ввели нову повну назву університету."));
                     break;
                 case 2:
@@ -625,6 +670,97 @@ public class Operations {
 
         getMenu().teacherMenu();
     }
+
+
+    public void editingUser() throws IOException {
+
+        boolean changed = false;
+
+        while (!changed) {
+            int i = 0;
+            List<Authorization.BaseUser> tempUserList = new ArrayList<>(Authorization.allUsersWithRoles);
+
+            for(Authorization.BaseUser b : tempUserList){
+                i++;
+                System.out.println(i + ". " + b);
+            }
+
+            int chooseUser = checkInput.checkInt("Введіть якого користувача ви хочете призначити: ", "Користувача з таким номером не існує");
+
+            Authorization.BaseUser us = tempUserList.get(chooseUser - 1);
+
+            int newUserStatus = checkInput.checkInt("Введіть нову роль (1 - Користувач, 2 - Менеджер, 3 - Адміністратор): ", "Ви ввели нову роль неправильно.");
+            switch (newUserStatus) {
+                case 1:
+                    Authorization.Email e = us.email();
+                    String pass = us.password();
+
+                    Authorization.allUsersWithRoles.remove(us);         //delete user with previous role
+                    if(us instanceof Authorization.User){
+                        Authorization.allUsers.remove(us);
+                    }
+                    else if(us instanceof Authorization.Manager){
+                        Authorization.allManagers.remove(us);
+                    }
+                    else if(us instanceof Authorization.Administrator){
+                        Authorization.allAdministrators.remove(us);
+                    }
+
+                    Authorization.User user = new Authorization.User(e, pass);      //add user with different role
+                    Authorization.allUsersWithRoles.add(user);
+                    Authorization.allUsers.add(user);
+                    changed = true;
+                    System.out.println("Користувач успішно призначений користувачем!");
+                    break;
+
+                case 2:
+                    Authorization.Email e1 = us.email();
+                    String pass1 = us.password();
+
+                    Authorization.allUsersWithRoles.remove(us);         //delete user with previous role
+                    if(us instanceof Authorization.User){
+                        Authorization.allUsers.remove(us);
+                    }
+                    else if(us instanceof Authorization.Manager){
+                        Authorization.allManagers.remove(us);
+                    }
+                    else if(us instanceof Authorization.Administrator){
+                        Authorization.allAdministrators.remove(us);
+                    }
+
+                    Authorization.Manager user1 = new Authorization.Manager(e1, pass1);      //add user with different role
+                    Authorization.allUsersWithRoles.add(user1);
+                    Authorization.allManagers.add(user1);
+                    changed = true;
+                    System.out.println("Користувач успішно призначений менеджером!");
+                    break;
+
+                case 3:
+                    Authorization.Email e2 = us.email();
+                    String pass2 = us.password();
+
+                    Authorization.allUsersWithRoles.remove(us);         //delete user with previous role
+                    if(us instanceof Authorization.User){
+                        Authorization.allUsers.remove(us);
+                    }
+                    else if(us instanceof Authorization.Manager){
+                        Authorization.allManagers.remove(us);
+                    }
+                    else if(us instanceof Authorization.Administrator){
+                        Authorization.allAdministrators.remove(us);
+                    }
+
+                    Authorization.Manager user2 = new Authorization.Manager(e2, pass2);      //add user with different role
+                    Authorization.allUsersWithRoles.add(user2);
+                    Authorization.allManagers.add(user2);
+                    changed = true;
+                    System.out.println("Користувач успішно призначений адміністратором!");
+                    break;
+
+            }
+            }
+
+        }
 
 
 }

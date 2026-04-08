@@ -11,11 +11,15 @@ public class Authorization {
     }
 
 
-    record Email(String value) {
-        Email {
+    public record Email(String value) {
+        public Email {
             Objects.requireNonNull(value, "email");
             value = value.trim().toLowerCase();
             if (!value.contains("@")) throw new IllegalArgumentException("Пошта вказана не правильно (відсутність @): " + value);
+        }
+        @Override
+        public String toString() {
+            return value;
         }
     }
 
@@ -30,6 +34,10 @@ public class Authorization {
         public int hashCode() {
             return Objects.hash(email);
         }
+        @Override
+        public String toString() {
+            return "Роль: Адміністратор; електронна пошта: " + email() +  "; пароль: " + password();
+        }
     }
     public record Manager(Email email, String password)implements BaseUser {
         @Override
@@ -41,6 +49,10 @@ public class Authorization {
         @Override
         public int hashCode() {
             return Objects.hash(email);
+        }
+        @Override
+        public String toString() {
+            return "Роль: Менеджер; електронна пошта: " + email() +  "; пароль: " + password();
         }
     }
     public record User(Email email, String password)implements BaseUser {
@@ -54,16 +66,27 @@ public class Authorization {
         public int hashCode() {
             return Objects.hash(email);
         }
+        @Override
+        public String toString() {
+            return "Роль: Користувач; електронна пошта: " + email() +  "; пароль: " + password();
+        }
     }
 
 
     public static int status;           //захистити
-    public final Set<User> allUsers = new HashSet<>();
-    public final Set<Manager> allManagers = new HashSet<>();
-    public final Set<Administrator> allAdministrators = new HashSet<>();
+    public final static Set<User> allUsers = new HashSet<>();
+    public final static Set<Manager> allManagers = new HashSet<>();
+    public static final Set<Administrator> allAdministrators = new HashSet<>();
     public final static Set<BaseUser> allUsersWithRoles = new HashSet<>();
-  //  public final static Set<Object> allEmails = new HashSet<>();
+    //  public final static Set<Object> allEmails = new HashSet<>();
     private BaseUser consumer;
+
+    public static void baseSet(){
+        Email e = new Email("@");
+        Administrator a = new Administrator(e, "1");
+        allAdministrators.add(a);
+        allUsersWithRoles.add(a);
+    }
 
 
     public void authorization() throws IOException {
@@ -133,15 +156,11 @@ public class Authorization {
         while (!added) {  //checking whether there is user with same emil or not using Set features та нє
             String email1 = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
             String password = checkInput.checkString("=== Вкажіть пароль ===","Ви не ввели пароль.");
-            int role = menu.roleAuthorizationQuestion();
 
-            switch (role) {
-                case 1:
-                    //boolean isAddedU = allUsersWithRoles.add(new User(email, password));  //вюди додаєм юзера шоб були однакові типи -> для ефективної перевірки на індивідуальність в сеті allUsersWithRoles (він вроді для тільки цього і юзається)
-                    try {
-                        Email email2 = new Email(email1);
-                        boolean isEmailUnique = allUsersWithRoles.stream()
-                                .noneMatch(u -> u.email().equals(email2));
+            try {
+                Email email2 = new Email(email1);
+                boolean isEmailUnique = allUsersWithRoles.stream()
+                        .noneMatch(u -> u.email().equals(email2));
 
                         if(!isEmailUnique){
                             System.out.println("Обліковий запис з такою електронною поштою вже існує!");
@@ -157,50 +176,6 @@ public class Authorization {
                         System.out.println(e.getMessage());
                         break;
                     }
-
-                case 2:
-                    try {
-                        Email email2 = new Email(email1);
-                        boolean isEmailUnique = allUsersWithRoles.stream()
-                                .noneMatch(u -> u.email().equals(email2));
-
-                        if(!isEmailUnique){
-                            System.out.println("Обліковий запис з такою електронною поштою вже існує!");
-                            continue;
-                        }
-                        allManagers.add(new Manager(email2, password));
-                        allUsersWithRoles.add(new Manager(email2, password));
-                        added = true;
-                        System.out.println("Ви успішно створили новий обліковий запис!");
-                        break;
-                    }
-                    catch (IllegalArgumentException e) {
-                        System.out.println(e.getMessage());
-                        break;
-                    }
-
-                case 3:
-                    try {
-                        Email email2 = new Email(email1);
-                        boolean isEmailUnique = allUsersWithRoles.stream()
-                                .noneMatch(u -> u.email().equals(email2));
-
-                        if(!isEmailUnique){
-                            System.out.println("Обліковий запис з такою електронною поштою вже існує!");
-                            continue;
-                        }
-                        //Email emaill = new Email(email);
-                        allAdministrators.add(new Administrator(email2, password));
-                        allUsersWithRoles.add(new Administrator(email2, password));
-                        added = true;
-                        System.out.println("Ви успішно створили новий обліковий запис!");
-                        break;
-                    }
-                    catch (IllegalArgumentException e) {
-                        System.out.println(e.getMessage());
-                        break;
-                    }
-            }
         }
     }
 
@@ -228,66 +203,6 @@ public class Authorization {
     }
 
 
-
-
-
-
-//        String email = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
-//        try {
-//            Email emaill = new Email(email); //string -> email type
-//
-//
-////            return findEmail(emaill)
-////                    .orElseGet(
-////                            () -> {System.out.println("Користувача з такою поштою не існує");
-////                                return findingConsumer();
-////                            });
-//
-//
-//            BaseUser consumer = (BaseUser)findEmail(emaill)
-//                    .orElseGet(
-//                            () -> {System.out.println("Користувача з такою поштою не існує");
-//                                return findingConsumer();
-//                            });
-//
-//
-//
-////            if (consumer != null) {
-////                //System.out.println("Знайдено: " + consumer);
-////                return consumer;
-////            }
-//
-//
-//           // else return findingConsumer();
-
-
-
-
-
-
-//
-//        catch (IllegalArgumentException e) {
-//            System.out.println(e.getMessage());
-//        }
-//        return findingConsumer();
-//        //Email emaill = new Email(email);
-//        //BaseUser consumer = (BaseUser)getConsumerOrDefault(emaill);
-////        if (consumer != null) {
-////            //System.out.println("Знайдено: " + consumer);
-////                return consumer;
-////        }
-////        else return findingConsumer();       ПОФІКСИТИ ЦЮ ХУЄТЄНЬ та все ж ок вроді calm down
-
-
-
-
-//    public static Object getConsumerOrDefault(Email email) throws IOException {
-//        return findEmail(email)
-//                .orElseGet(
-//                        () -> {System.out.println("Користувача з такою поштою не існує");
-//                            return findingConsumer();;
-//                        });
-//    }
 
 
      public static Optional<BaseUser> findEmail(Email email) {
