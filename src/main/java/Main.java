@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Main {
     static List<University> universities;
-    static Set<String> emails = new HashSet<>();
+    static Set<Authorization.Email> emails = new HashSet<>();
     static Set<Integer> IDs = new HashSet<>();
     static AllObjects allObjects = new AllObjects();
     static CheckInput checkInput = new CheckInput();

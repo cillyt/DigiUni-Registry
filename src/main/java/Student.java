@@ -10,7 +10,9 @@ public class Student extends Person {
     String studyForm; //ТІЛЬКИ бюджет чи контракт
     String studentStatus; // навчається/ академвідпустка/ відрахований
 
-    Student(int personID, String personSurname, String personName, String middleName, int yearOfBirth, int monthOfBirth, int dayOfBirth, String personEmail, long personPhone,String uni, String faculty, String department, int courseNumber, int groupNumber, int yearOfEntry, String studyForm, String studentStatus) {
+    Student(int personID, String personSurname, String personName, String middleName, int yearOfBirth, int monthOfBirth, int dayOfBirth,
+            Authorization.Email personEmail, long personPhone, String uni, String faculty, String department, int courseNumber, int groupNumber,
+            int yearOfEntry, String studyForm, String studentStatus) {
         super(personID, personSurname, personName, middleName, yearOfBirth, monthOfBirth, dayOfBirth, personEmail, personPhone, uni, faculty, department);
         this.courseNumber = courseNumber;
         this.groupNumber = groupNumber;

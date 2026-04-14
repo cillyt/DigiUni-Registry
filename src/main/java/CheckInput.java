@@ -32,6 +32,41 @@ public class CheckInput {
 
     }
 
+
+
+    public Authorization.Email checkEmail(String s, String s1) throws IOException {
+
+        while(true){
+            check = 0;
+            String parameter = "";
+            while(check == 0) {
+                System.out.println(s);
+                parameter = reader.readLine();
+                if (parameter.equals(""))
+                    System.out.println(s1);
+                else{
+                    for (int i = 0; i < parameter.length(); i++) {
+                        if (parameter.charAt(i) != ' ') {
+                            check = 1;
+                        }
+                    }
+                    if (check!=1) {
+                        System.out.println(s1);
+                    }
+                }
+            }
+
+            try{
+                Authorization.Email email = new Authorization.Email(parameter);
+                return email;
+            }
+            catch (IllegalArgumentException ex){
+                System.out.println("Пошта вказана не правильно (відсутність @): " + parameter);
+            }
+        }
+    }
+
+
     public int  checkInt(String s, String s1) throws IOException {
         check = 0;
         int parameter = 0;

@@ -12,9 +12,9 @@ public class Faculty{
     String shortFacultyName;
     Teacher facultyDecan;
     long facultyPhoneNumber;
-    String facultyEmail;
+    Authorization.Email facultyEmail;
 
-    Faculty (String facultyCode, String facultyName, String shortFacultyName, long facultyPhoneNumber, String facultyEmail){
+    Faculty (String facultyCode, String facultyName, String shortFacultyName, long facultyPhoneNumber, Authorization.Email facultyEmail){
         this.facultyCode = facultyCode;
         this.facultyName = facultyName;
         this.shortFacultyName = shortFacultyName;

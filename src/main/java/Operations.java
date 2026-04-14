@@ -29,8 +29,11 @@ public class Operations {
         uni.setAddress(checkInput.checkString("Адреса: ", "Ви не ввели адресу університету."));
 
         Main.universities.add(uni);
+        int i = 1;
         for(University u : Main.universities) {
-            System.out.print(u + "\n");
+            System.out.print(i + ". " + u + "\n");
+            System.out.print("-------------------------------------------------------\n");
+            i++;
         }
 
         System.out.println("Університет було додано!");
@@ -47,14 +50,16 @@ public class Operations {
         faculty.setFacultyName(checkInput.checkString("Назва факультету: ", "Ви не ввели назву факультету."));
         faculty.setShortFacultyName(checkInput.checkString("Скорочена назва факультету: ", "Ви не ввели скорочену назву факультету."));
         faculty.setFacultyPhoneNumber(checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно."));
-        faculty.setFacultyEmail(checkInput.checkString("Пошта факультету: ", "Ви не ввели пошту факультету."));
+        faculty.setFacultyEmail(checkInput.checkEmail("Пошта факультету: ", "Ви не ввели пошту факультету."));
 
 
 
        Main.universities.get(uni).faculties.add(faculty);
-
+        int i = 1;
        for(Faculty f : (Main.universities.get(uni)).faculties) {
-           System.out.print(f + "\n");
+           System.out.print(i + ". " + f + "\n");
+           System.out.print("-------------------------------------------------------\n");
+           i++;
        }
 
         System.out.println("Факультет було додано!");
@@ -71,9 +76,11 @@ public class Operations {
         depart.setCabinetNumber(checkInput.checkInt("Номер кабінету: ", "Ви ввели номер кабінету неправильно."));
 
         Main.universities.get(uni).faculties.get(faculty).departments.add(depart);
-
+        int i = 1;
         for(Department d : Main.universities.get(uni).faculties.get(faculty).departments) {
-            System.out.print(d + "\n");
+            System.out.print(i + ". " + d + "\n");
+            System.out.print("-------------------------------------------------------\n");
+            i++;
         }
 
         System.out.println("Кафедру було додано!");
@@ -96,7 +103,7 @@ public class Operations {
                 teacher.setYearOfBirth(checkInput.checkInt("Рік народження: ", "Ви не ввели рік народження"));
                 teacher.setMonthOfBirth(checkInput.checkInt("Місяць народження: ", "Ви не ввели місяць народження"));
                 teacher.setDayOfBirth(checkInput.checkInt("День народження: ", "Ви не ввели день народження"));
-                teacher.setPersonEmail(checkInput.checkString("Електронна пошта: ", "Ви не ввели електронну пошту викладача."));
+                teacher.setPersonEmail(checkInput.checkEmail("Електронна пошта: ", "Ви не ввели електронну пошту викладача."));
                 teacher.setPersonPhone(checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно."));
 
                 teacher.setUni(Main.universities.get(uni).fullUniversityName);
@@ -125,9 +132,11 @@ public class Operations {
                     Main.universities.get(uni).faculties.get(faculty).facultyDecan = teacher;
                 if (teacher.headOfDepartment)
                     Main.universities.get(uni).faculties.get(faculty).departments.get(depart).headOfDepart = teacher;
-
+                int i = 1;
                 for (Teacher t : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
-                    System.out.print(t + "\n");
+                    System.out.print(i + ". " + t + "\n");
+                    System.out.print("-------------------------------------------------------\n");
+                    i++;
                 }
 
                 System.out.println("Вчитель був успішно доданий!");
@@ -157,7 +166,7 @@ public class Operations {
             stud.setMonthOfBirth( checkInput.checkInt("Місяць народження: ", "Ви не ввели місяць народження"));
             stud.setDayOfBirth(checkInput.checkInt("День народження: ", "Ви не ввели день народження"));
 
-            stud.setPersonEmail(checkInput.checkString("Електронна пошта: ", "Ви не ввели електронну пошту студента."));
+            stud.setPersonEmail(checkInput.checkEmail("Електронна пошта: ", "Ви не ввели електронну пошту студента."));
             stud.setPersonPhone(checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно."));
 
             stud.setUni(Main.universities.get(uni).fullUniversityName);
@@ -174,9 +183,11 @@ public class Operations {
             stud.setStudentStatus(getMenu().studentStatusQuestion());
 
             Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.add(stud);
-
+            int i = 1;
             for (Student s : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
-                System.out.print(s + "\n");
+                System.out.print(i + ". " + s + "\n");
+                System.out.print("-------------------------------------------------------\n");
+                i++;
             }
 
             System.out.println("Студент був успішно доданий!");
@@ -191,9 +202,11 @@ public class Operations {
     public void deletingUniversity() throws IOException {
         int uni = getMenu().universityQuestionNoFaculty();
         Main.universities.remove(uni);
-
+        int i = 1;
         for(University u : Main.universities) {
-            System.out.print(u + "\n");
+            System.out.print(i + ". " + u + "\n");
+            System.out.print("-------------------------------------------------------\n");
+            i++;
         }
         System.out.println("Університет був успішно видалений!");
         getMenu().universityMenu();
@@ -203,9 +216,11 @@ public class Operations {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(1);
         int faculty = getMenu().facultyQuestionNoDepartment(uni);
         Main.universities.get(uni).faculties.remove(faculty);
-
+        int i = 1;
         for(Faculty f : Main.universities.get(uni).faculties) {
-            System.out.print(f + "\n");
+            System.out.print(i + ". " + f + "\n");
+            System.out.print("-------------------------------------------------------\n");
+            i++;
         }
         System.out.println("Факультет був успішно видалений!");
         getMenu().facultyMenu();
@@ -224,9 +239,11 @@ public class Operations {
             }
 
             Main.universities.get(uni).faculties.get(faculty).departments.remove(depart);
-
+            int i = 1;
             for (Department d : Main.universities.get(uni).faculties.get(faculty).departments) {
-                System.out.print(d + "\n");
+                System.out.print(i + ". " + d + "\n");
+                System.out.print("-------------------------------------------------------\n");
+                i++;
             }
             System.out.println("Кафедра була успішно видалена!");
 
@@ -242,9 +259,11 @@ public class Operations {
         int stud = getMenu().studentQuestion(uni, faculty, depart);
 
         Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.remove(stud);
-
+            int i = 1;
             for (Student s : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
-                System.out.print(s + "\n");
+                System.out.print(i + ". " + s + "\n");
+                System.out.print("-------------------------------------------------------\n");
+                i++;
             }
             System.out.println("Студент був успішно вилучений!");
 
@@ -265,9 +284,11 @@ public class Operations {
                 Main.universities.get(uni).faculties.get(faculty).departments.get(depart).headOfDepart = null;
 
             Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.remove(teach);
-
+            int i = 1;
             for (Teacher t : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
-                System.out.print(t + "\n");
+                System.out.print(i + ". " + t + "\n");
+                System.out.print("-------------------------------------------------------\n");
+                i++;
             }
             System.out.println("Викладач був успішно вилучений!");
 
@@ -354,7 +375,7 @@ public class Operations {
         }
         int i = 1;
         for(University u : Main.universities) {
-            System.out.print(i + ". " +  u + "\n");
+            System.out.print(i + ". " + u + "\n");
             System.out.print("-------------------------------------------------------\n");
             i++;
         }
@@ -413,7 +434,7 @@ public class Operations {
                     break;
                 case 6:
                     System.out.println("Поточна пошта факультету: " + Main.universities.get(uni).faculties.get(faculty).getFacultyEmail());
-                    String newFacultyEmail = checkInput.checkString("Введіть нову пошту факультету: ", "Ви не ввели нову пошту факультету.");
+                    Authorization.Email newFacultyEmail = checkInput.checkEmail("Введіть нову пошту факультету: ", "Ви не ввели нову пошту факультету.");
                     Main.universities.get(uni).faculties.get(faculty).setFacultyEmail(newFacultyEmail);
                     break;
 
@@ -534,7 +555,7 @@ public class Operations {
                     break;
                 case 6:
                     System.out.println("Поточна електронна пошта: " + Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).getPersonEmail());
-                    String newPersonEmail = checkInput.checkString("Введіть нову електронну пошту: ", "Ви не ввели нову електронну пошту.");
+                    Authorization.Email newPersonEmail = checkInput.checkEmail("Введіть нову електронну пошту: ", "Ви не ввели нову електронну пошту.");
                     Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonEmail(newPersonEmail);
                     break;
                 case 7:
@@ -656,7 +677,7 @@ public class Operations {
                     break;
                 case 6:
                     System.out.println("Поточна електронна пошта: " + Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).getPersonEmail());
-                    String newPersonEmail = checkInput.checkString("Введіть нову електронну пошту: ", "Ви не ввели нову електронну пошту.");
+                    Authorization.Email newPersonEmail = checkInput.checkEmail("Введіть нову електронну пошту: ", "Ви не ввели нову електронну пошту.");
                     Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonEmail(newPersonEmail);
                     break;
                 case 7:

@@ -20,8 +20,11 @@ public class Reports {
             case 1:
                 allStudents = allObjects.allStudents();
                 allStudents.sort(Comparator.comparing(Student::getCourseNumber));
+                int i = 1;
                 for(Student s : allStudents){
-                    System.out.print(s + "\n");
+                    System.out.print(i + ". " + s + "\n");
+                    System.out.print("-------------------------------------------------------\n");
+                    i++;
                 }
                 break;
             case 2:
@@ -29,8 +32,11 @@ public class Reports {
                 int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni, 3);
                 int depart =getMenu().departmentQuestionWithStudents(uni, faculty);
                 Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.sort(Comparator.comparing(Student::getCourseNumber));
+                int j = 1;
                 for(Student s : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students){
-                    System.out.print(s + "\n");
+                    System.out.print(j + ". " + s + "\n");
+                    System.out.print("-------------------------------------------------------\n");
+                    j++;
                 }
 
                 break;

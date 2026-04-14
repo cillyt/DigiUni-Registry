@@ -19,14 +19,14 @@ public class Person{
     int dayOfBirth;
 
     //String birthDate;
-    String personEmail;
+    Authorization.Email personEmail;
     long personPhone;
 
     String uni;
     String faculty;
     String department;
 
-    Person(int personID, String personSurname, String personName, String middleName, int yearOfBirth, int monthOfBirth, int dayOfBirth, String personEmail, long personPhone, String uni, String faculty, String department) {
+    Person(int personID, String personSurname, String personName, String middleName, int yearOfBirth, int monthOfBirth, int dayOfBirth, Authorization.Email personEmail, long personPhone, String uni, String faculty, String department) {
         this.personID = personID;
         this.personSurname = personSurname;
         this.personName = personName;
@@ -49,7 +49,7 @@ public class Person{
     public void setPersonID(int personID) throws IOException {
             if(this.personID != personID) {
                 while (Main.IDs.contains(personID)) {
-                    System.out.println("Цей ідентифікаційний код вже зайнято іншою особою!!");
+                    System.out.println("Цей ідентифікаційний код вже зайнятий іншою особою!");
                     personID = Main.checkInput.checkInt("Унікальний ідентифікатор: ", "Ви ввели унікальний ідентифікатор неправильно.");
                 }
             }
@@ -57,11 +57,11 @@ public class Person{
             Main.IDs.add(personID);
     }
 
-    public void setPersonEmail(String personEmail) throws IOException {
-        if(this.personEmail != personEmail) {
+    public void setPersonEmail(Authorization.Email personEmail) throws IOException {
+        if(this.personEmail != null && !this.personEmail.equals(personEmail)) {
             while (Main.emails.contains(personEmail)) {
                 System.out.println("Ця пошта вже зайнята іншою особою!!");
-                personEmail = Main.checkInput.checkString("Електронна пошта: ", "Ви не ввели електронну пошту викладача.");
+                personEmail = Main.checkInput.checkEmail("Електронна пошта: ", "Ви не ввели електронну пошту викладача.");
             }
         }
         Main.emails.add(personEmail);
