@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Search {
     AllObjects allObjects = Main.allObjects;
@@ -24,8 +25,11 @@ public class Search {
                         System.out.println("Студентів з таким ПІБ не знайдено");
                     else {
                         System.out.println("Знайдено студентів: " + results.size());
+                        int i = 1;
                         for (Student s : results) {
-                            System.out.println("- " + s);
+                            System.out.println(i + ". " + s);
+                            System.out.print("-------------------------------------------------------\n");
+                            i++;
                         }
                     }
                     getMenu().studentMenu();
@@ -38,8 +42,11 @@ public class Search {
                         System.out.println("Студентів такого курсу не знайдено");
                     else {
                         System.out.println("Знайдено студентів: " + results1.size());
+                        int i = 1;
                         for (Student s : results1) {
-                            System.out.println("- " + s);
+                            System.out.println(i + ". " + s);
+                            System.out.print("-------------------------------------------------------\n");
+                            i++;
                         }
                     }
                     getMenu().studentMenu();
@@ -52,8 +59,11 @@ public class Search {
                         System.out.println("Студентів такої групи не знайдено");
                     } else {
                         System.out.println("Знайдено студентів: " + results2.size());
+                        int i = 1;
                         for (Student s : results2) {
-                            System.out.println("- " + s);
+                            System.out.println(i + ". " + s);
+                            System.out.print("-------------------------------------------------------\n");
+                            i++;
                         }
                     }
                     getMenu().studentMenu();
@@ -67,7 +77,6 @@ public class Search {
             case 0:
                 getMenu().mainMenu();
             case 1:
-                System.out.println("Введіть ПІБ для пошуку: ");
                 String findBySNMt = checkInput.checkString("Введіть ПІБ для пошуку: ", "Ви не ввели ПІБ для пошуку.");
                 List<Teacher> results = findBySNMt(findBySNMt);
 
@@ -75,8 +84,11 @@ public class Search {
                     System.out.println("Викладачів з таким ПІБ не знайдено");
                 else {
                     System.out.println("Знайдено викладачів: " + results.size());
+                    int i = 1;
                     for (Teacher t : results) {
-                        System.out.println("- " + t);
+                        System.out.println(i + ". " + t);
+                        System.out.print("-------------------------------------------------------\n");
+                        i++;
                     }
                 }
                 getMenu().teacherMenu();
@@ -86,17 +98,23 @@ public class Search {
     }
 
     public List<Teacher> findBySNMt(String snm) {
+        String regex = "(?i).*" + Pattern.quote(snm) + ".*";
+        Pattern pattern = Pattern.compile(regex);
+
         return allObjects.allTeachers().stream().filter(teacher -> {
-                    String SNM = teacher.getPersonSurname() + " " + teacher.getPersonSurname() + " " + teacher.getMiddleName();
-                    return snm.equalsIgnoreCase(SNM);
+                    String fullSNM = teacher.getPersonSurname() + " " + teacher.getPersonName() + " " + teacher.getMiddleName();
+                    return pattern.matcher(fullSNM).find();
         } )
         .toList();
     }
 
     public List<Student> findBySNM(String snm) {
+        String regex = "(?i).*" + Pattern.quote(snm) + ".*";
+        Pattern pattern = Pattern.compile(regex);
+
         return allObjects.allStudents().stream().filter(student -> {
                     String SNM = student.getPersonSurname() + " " + student.getPersonName() + " " + student.getMiddleName();
-                    return snm.equalsIgnoreCase(SNM);
+                    return pattern.matcher(SNM).find();
         })
         .toList();
     }
