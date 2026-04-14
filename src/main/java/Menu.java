@@ -328,14 +328,14 @@ public class Menu {
         int counter = 1;
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
-        //System.out.println("1. Знайти викладача");
+        System.out.println("1. Добавити користувача");
 
         boolean b = Authorization.allUsersWithRoles.size() > 1;
 
         if (Authorization.status == 3 && b) {
-            System.out.println("1. Призначити рівень доступу користувача");
-            System.out.println("2. Видалити користувача");
-            counter+=2;
+            System.out.println("2. Призначити рівень доступу користувача");
+            System.out.println("3. Видалити користувача");
+            counter+=3;
         }
 
         int operation = checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
@@ -345,10 +345,15 @@ public class Menu {
                 mainMenu();
                 break;
             case 1:
-                operations.editingUser();
+                Authorization a =  new Authorization();
+                a.register();
                 break;
             case 2:
+                operations.editingUser();
+                break;
+            case 3:
                 operations.deleteUser();
+                break;
         }
     }
 

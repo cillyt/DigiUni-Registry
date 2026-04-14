@@ -163,7 +163,7 @@ public class Authorization {
 
 
 
-    private void register() throws IOException {
+    public void register() throws IOException {
         boolean added = false; // така перевірка чи додався користувач??
         while (!added) {  //checking whether there is user with same emil or not using Set features та нє
             String email1 = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
