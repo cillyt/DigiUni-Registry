@@ -26,6 +26,6 @@ public class University {
 
     @Override
     public String toString() {
-        return "Повна назва університету: " +  fullUniversityName  +"\nСкорочена назва університету: " + shortUniversityName + "\nМісто перебування: " + city + "\nАдреса: " + address;
+        return "Повна назва університету: " +  fullUniversityName  +"; скорочена назва університету: " + shortUniversityName + "; місто перебування: " + city + "; адреса: " + address;
     }
 }
