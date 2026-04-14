@@ -24,6 +24,6 @@ public class Department{
 
     @Override
     public String toString() {
-        return "Код кафедри: " +  departmentCode +"\nНазва кафедри: " + departmentName + "\nНомер кабінету: " + cabinetNumber;
+        return "Код кафедри: " +  departmentCode +"; назва кафедри: " + departmentName + "; номер кабінету: " + cabinetNumber;
     }
 }

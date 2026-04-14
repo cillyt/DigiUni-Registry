@@ -352,9 +352,11 @@ public class Operations {
                     break;
             }
         }
-
+        int i = 1;
         for(University u : Main.universities) {
-            System.out.print(u + "\n");
+            System.out.print(i + ". " +  u + "\n");
+            System.out.print("-------------------------------------------------------\n");
+            i++;
         }
         System.out.println("Університет був успішно змінений!");
         getMenu().universityMenu();
@@ -417,9 +419,11 @@ public class Operations {
 
             }
         }
-
+        int i = 1;
         for(Faculty f : Main.universities.get(uni).faculties) {
-            System.out.print(f + "\n");
+            System.out.print(i + ". " + f + "\n");
+            System.out.print("-------------------------------------------------------\n");
+            i++;
         }
         System.out.println("Факультет був успішно змінений!");
         getMenu().facultyMenu();
@@ -469,9 +473,11 @@ public class Operations {
                     break;
             }
         }
-
+        int i = 1;
         for (Department d : Main.universities.get(uni).faculties.get(faculty).departments) {
-            System.out.print(d + "\n");
+            System.out.print(i + ". " + d + "\n");
+            System.out.print("-------------------------------------------------------\n");
+            i++;
         }
         System.out.println("Кафедра була успішно змінена!");
 
@@ -589,9 +595,12 @@ public class Operations {
 
 
         }
-
+        int i = 1;
         for (Student s : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
-            System.out.print(s + "\n");
+            System.out.print(i + ". " + s + "\n");
+            System.out.print("-------------------------------------------------------\n");
+            i++;
+
         }
         System.out.println("Студент був успішно змінений!");
         getMenu().studentMenu();
@@ -704,9 +713,11 @@ public class Operations {
 
             }
         }
-
+        int i = 1;
         for (Teacher t : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
-            System.out.print(t + "\n");
+            System.out.print(i + ". " + t + "\n");
+            System.out.print("-------------------------------------------------------\n");
+            i++;
         }
         System.out.println("Викладач був успішно змінений!");
 
@@ -792,9 +803,9 @@ public class Operations {
                         Authorization.allAdministrators.remove(us);
                     }
 
-                    Authorization.Manager user2 = new Authorization.Manager(e2, pass2);      //add user with different role
+                    Authorization.Administrator user2 = new Authorization.Administrator(e2, pass2);      //add user with different role
                     Authorization.allUsersWithRoles.add(user2);
-                    Authorization.allManagers.add(user2);
+                    Authorization.allAdministrators.add(user2);
                     changed = true;
                     System.out.println("Користувач успішно призначений адміністратором!");
                     break;

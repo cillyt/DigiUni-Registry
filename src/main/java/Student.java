@@ -25,7 +25,7 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return "Унікальний ідентифікатор: " +  personID + "\nПрізвище: " + personSurname + "\nІм'я: " + personName + "\nПо-батькові: " + middleName + "\nДата народження: " + getDateOfBirth() +"\nВік: " + getPersonAge() + "\nЕлектронна пошта: " + personEmail + "\nНомер телефону: " + personPhone +"\nНавчається: " + uni + ", " + faculty + ", " + department+ "\nКурс: " + courseNumber + "\nГрупа: " + groupNumber + "\nРік вступу: " + yearOfEntry + "\nФорма навчання: " + studyForm + "\nСтатус: " + studentStatus;
+        return "Унікальний ідентифікатор: " +  personID + "; прізвище: " + personSurname + "; ім'я: " + personName + "; по-батькові: " + middleName + "; дата народження: " + getDateOfBirth() +"; вік: " + getPersonAge() + "; електронна пошта: " + personEmail + "\nномер телефону: " + personPhone +"; навчається: " + uni + ", " + faculty + ", " + department+ "; курс: " + courseNumber + "; група: " + groupNumber + "; рік вступу: " + yearOfEntry + "; форма навчання: " + studyForm + "; статус: " + studentStatus;
     }
 
 }

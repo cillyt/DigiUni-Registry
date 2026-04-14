@@ -55,7 +55,7 @@ public class Teacher extends Person{
     @Override
     public String toString() {
         getWorkExperience();
-        return "Унікальний ідентифікатор: " +  personID + "\nПрізвище: " + personSurname + "\nІм'я: " + personName + "\nПо-батькові: " + middleName + "\nДата народження: " + getDateOfBirth() +"\nВік: " + getPersonAge() + "\nЕлектронна пошта: " + personEmail + "\nНомер телефону: " + personPhone +"\nВикладає: " + uni + ", " + faculty + ", " + department + "\nПосада: " + teacherPosition + "\nНауковий ступінь: " + academicDegree + "\nВчене звання: " + academicTitle + "\nДата прийняття на роботу: " + getDateOfEntry() + "\nСтавка: " + rate + "\nСтаж: " + getWorkExperience();
+        return "Унікальний ідентифікатор: " +  personID + "; прізвище: " + personSurname + "; ім'я: " + personName + "; по-батькові: " + middleName + "; дата народження: " + getDateOfBirth() +"; вік: " + getPersonAge() + "; електронна пошта: " + personEmail + "\nНомер телефону: " + personPhone +"; викладає: " + uni + ", " + faculty + ", " + department + "; посада: " + teacherPosition + "; науковий ступінь: " + academicDegree + "; вчене звання: " + academicTitle + "; дата прийняття на роботу: " + getDateOfEntry() + "; ставка: " + rate + "; стаж: " + getWorkExperience();
     }
 
 }
