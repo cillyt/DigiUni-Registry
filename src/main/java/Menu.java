@@ -36,13 +36,17 @@ public class Menu {
                     counter++;
                 }
 
+                if (!allObjects.allDepartments().isEmpty()) {
+                    System.out.println("5. Студент");
+                    System.out.println("6. Викладач");
+                    counter +=2;
+                }
+
             }
         if(Authorization.status == 3) {
             if (!allObjects.allDepartments().isEmpty()) {
-            System.out.println("5. Студент");
-            System.out.println("6. Викладач");
             System.out.println("7. Користувачі");
-            counter += 3;
+            counter ++;
             }
         }
 
@@ -233,7 +237,7 @@ public class Menu {
 
         System.out.println("1. Знайти студента");
 
-        if (Authorization.status == 3) {
+        if (Authorization.status != 1) {
             System.out.println("2. Додати студента");
             counter++;
 
@@ -279,7 +283,7 @@ public class Menu {
         System.out.println("0. Повернутись до головного меню");
         System.out.println("1. Знайти викладача");
 
-        if (Authorization.status == 3) {
+        if (Authorization.status != 1) {
             System.out.println("2. Додати викладача");
             counter++;
 
