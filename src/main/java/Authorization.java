@@ -118,31 +118,43 @@ public class Authorization {
             if (password == null) return;
 
 
-            switch (consumer) {
-                case User u -> {
-                    if (password.equals(u.password())) {
-                        System.out.println("Ви успішно увійшли у свій обліковий запис!");
-                        status = 1;
-                        loggedIn = true;
-                    } else System.out.println("Введено невірний пароль!");
-                }
 
-                case Manager m -> {
-                    if (password.equals(m.password())) {
-                        System.out.println("Ви успішно увійшли у свій обліковий запис!");
-                        status = 2;
-                        loggedIn = true;
-                    } else System.out.println("Введено невірний пароль!");
+            if (password.equals(consumer.password())) {
+                System.out.println("Ви успішно увійшли у свій обліковий запис!");
+                switch (consumer) {
+                    case User _ -> status = 1;
+                    case Manager _ -> status = 2;
+                    case Administrator _ -> status = 3;
                 }
+                loggedIn = true;
+            } else System.out.println("Введено невірний пароль!");
 
-                case Administrator a -> {
-                    if (password.equals(a.password())) {
-                        System.out.println("Ви успішно увійшли у свій обліковий запис!");
-                        status = 3;
-                        loggedIn = true;
-                    } else System.out.println("Введено невірний пароль!");
-                }
-            }
+
+//            switch (consumer) {
+//                case User u -> {
+//                    if (password.equals(u.password())) {
+//                        System.out.println("Ви успішно увійшли у свій обліковий запис!");
+//                        status = 1;
+//                        loggedIn = true;
+//                    } else System.out.println("Введено невірний пароль!");
+//                }
+//
+//                case Manager m -> {
+//                    if (password.equals(m.password())) {
+//                        System.out.println("Ви успішно увійшли у свій обліковий запис!");
+//                        status = 2;
+//                        loggedIn = true;
+//                    } else System.out.println("Введено невірний пароль!");
+//                }
+//
+//                case Administrator a -> {
+//                    if (password.equals(a.password())) {
+//                        System.out.println("Ви успішно увійшли у свій обліковий запис!");
+//                        status = 3;
+//                        loggedIn = true;
+//                    } else System.out.println("Введено невірний пароль!");
+//                }
+//            }
         }
     }
 
