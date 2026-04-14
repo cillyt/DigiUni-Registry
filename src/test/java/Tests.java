@@ -16,12 +16,14 @@ public class Tests {
 
     @BeforeEach
     void setUp() {
-        t = new Teacher(1, "1", "1", "1", 1, 1, 1, "1", 1, "1", "1", "1", 1, 1, 1, "1", false, false);
-        s = new Student(2, "1", "1", "1", 1, 1, 1, "2", 1, 1, 1, 1, "Бюджет", "Навчається");
+        Authorization.Email e1 = new Authorization.Email("@1");
+        Authorization.Email e2 = new Authorization.Email("@2");
+        t = new Teacher(1, "1", "1", "1", 1, 1, 1, e1, 1, "1", "1", "1", "1", "1", "1", 1, 1, 1, "1", false, false);
+        s = new Student(2, "1", "1", "1", 1, 1, 1, e2, 1, "1", "1", "1", 1, 1, 1, "Бюджет", "Навчається");
         Main.IDs.add(1);
         Main.IDs.add(2);
-        Main.emails.add("1");
-        Main.emails.add("2");
+        Main.emails.add(e1);
+        Main.emails.add(e2);
         Authorization.Email email = new Authorization.Email("@");
         a = new Authorization.User(email, "1");
         a1 = new Authorization.User(email, "1");
