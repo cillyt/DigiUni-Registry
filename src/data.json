@@ -22,7 +22,9 @@
                 "yearOfBirth": 2003,
                 "monthOfBirth": 6,
                 "dayOfBirth": 1,
-                "personEmail": "Aaaa@gmail.com",
+                "personEmail": {
+                  "value": "aaaa@gmail.com"
+                },
                 "personPhone": 9111111
               },
               {
@@ -38,7 +40,9 @@
                 "yearOfBirth": 2000,
                 "monthOfBirth": 11,
                 "dayOfBirth": 3,
-                "personEmail": "Bbbb@gmail.com",
+                "personEmail": {
+                  "value": "bbbb@gmail.com"
+                },
                 "personPhone": 8222222
               },
               {
@@ -54,7 +58,9 @@
                 "yearOfBirth": 1230,
                 "monthOfBirth": 4,
                 "dayOfBirth": 4,
-                "personEmail": "Cccc@gmail.com",
+                "personEmail": {
+                  "value": "cccc@gmail.com"
+                },
                 "personPhone": 7333333
               }
             ],
@@ -76,7 +82,9 @@
                 "yearOfBirth": 2001,
                 "monthOfBirth": 3,
                 "dayOfBirth": 12,
-                "personEmail": "aaa@gmail.com",
+                "personEmail": {
+                  "value": "aaa@gmail.com"
+                },
                 "personPhone": 111111
               },
               {
@@ -96,7 +104,9 @@
                 "yearOfBirth": 1930,
                 "monthOfBirth": 12,
                 "dayOfBirth": 2,
-                "personEmail": "bbb@gmail.com",
+                "personEmail": {
+                  "value": "bbb@gmail.com"
+                },
                 "personPhone": 222222
               },
               {
@@ -116,7 +126,9 @@
                 "yearOfBirth": 1990,
                 "monthOfBirth": 10,
                 "dayOfBirth": 31,
-                "personEmail": "ccc@gmail.com",
+                "personEmail": {
+                  "value": "ccc@gmail.com"
+                },
                 "personPhone": 333333
               }
             ],
@@ -136,7 +148,9 @@
         "facultyName": "Факультет інформатики",
         "shortFacultyName": "ФІ",
         "facultyPhoneNumber": 999999999,
-        "facultyEmail": "fi@kvjervb.com"
+        "facultyEmail": {
+          "value": "fi@kvjervb.com"
+        }
       }
     ]
   },
@@ -167,7 +181,9 @@
         "facultyName": "Факультет інформатики-кну",
         "shortFacultyName": "ФІкну",
         "facultyPhoneNumber": 888888888,
-        "facultyEmail": "fi@oerhoeh.com"
+        "facultyEmail": {
+          "value": "fi@oerhoeh.com"
+        }
       }
     ]
   },
@@ -191,7 +207,9 @@
         "facultyName": "Факультет інформатики-уку",
         "shortFacultyName": "ФІуку",
         "facultyPhoneNumber": 777777777,
-        "facultyEmail": "fi@wurgheu.com"
+        "facultyEmail": {
+          "value": "fi@wurgheu.com"
+        }
       }
     ]
   }
