@@ -225,4 +225,9 @@ public class Authorization {
         return Optional.empty();
     }
 
+    public static void setAllUsersWithRoles(){
+        allUsersWithRoles.addAll(allUsers);
+        allUsersWithRoles.addAll(allManagers);
+        allUsersWithRoles.addAll(allAdministrators);
+    }
 }

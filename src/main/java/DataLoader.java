@@ -18,6 +18,7 @@ public class DataLoader {
             Authorization.allUsers = data.users;
             Authorization.allManagers = data.managers;
             Authorization.allAdministrators = data.admins;
+            Authorization.setAllUsersWithRoles();
         }
     }
 }
