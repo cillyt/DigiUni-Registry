@@ -470,6 +470,7 @@ public class Menu {
                     faculty = checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
                     faculty--;
                 }
+                break;
         }
         return faculty;
 
@@ -696,14 +697,37 @@ public class Menu {
     public int reportQuestion() throws IOException {
         System.out.println("Оберіть звіт який ви б хотіли переглянути");
         System.out.println("0. Завершити перегляд звітів");
-        System.out.println("1. Студенти впорядковані за курсами");
+        System.out.println("1. Всі студенти впорядковані за курсами");
         System.out.println("2. Всі студенти кафедри впорядковані за курсом");
+        System.out.println("3. Всі студенти/викладачі факультету впорядковані за алфавітом");
+        System.out.println("4. Всі студенти/викладачі кафедри впорядковані за алфавітом");
+        System.out.println("5. Всі студенти кафедри вказаного курсу.");
+
+        check = 0;
+        int report = checkOperations(0, 5,"Введіть номер звіту: ","Номер звіту був введений неправильно.", "Звіту під таким номером не існує.");
+
+        return report;
+
+    }
+
+    public int studentsOrTeachersReportQuestion() throws IOException {
+        System.out.println("Оберіть кого ви б хотіли переглянути");
+        System.out.println("1. Студенти");
+        System.out.println("2. Викладачі");
 
 
         check = 0;
-        int report = checkOperations(0, 2,"Введіть номер звіту: ","Номер звіту був введений неправильно.", "Звіту під таким номером не існує.");
+        int report = checkOperations(1, 2,"Введіть номер звіту: ","Номер звіту був введений неправильно.", "Звіту під таким номером не існує.");
 
         return report;
+
+
+    }
+
+    public int courseQuestion() throws IOException {
+        check = 0;
+        int cource = checkOperations(1, 2,"Введіть номер курсу: ","Номер курсу був введений неправильно.", "Номер курсу був введений неправильно.(1-6)");
+        return cource;
 
     }
 
