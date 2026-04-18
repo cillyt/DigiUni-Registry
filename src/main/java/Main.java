@@ -14,13 +14,12 @@ public class Main {
     static Menu menu = new Menu();
     static Authorization auth = new Authorization();
 
-
     public static void main(String[] args) throws IOException {
-        universities = DataLoader.loadUniversities("src/data.json");
-        Authorization.baseSet();
+        DataLoader.loadData("src/data/data.json");
+
         while(true){
             Thread autoSaveThread = new Thread(
-                    new AutoSaveService(universities, 60000, "src/data.json")
+                    new AutoSaveService(60000, "src/data/data.json")
             );
             autoSaveThread.setDaemon(true); // дозволяє закрити програму без зупинки потоку
             autoSaveThread.start();

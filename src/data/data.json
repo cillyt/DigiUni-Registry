@@ -1,0 +1,248 @@
+{
+  "universities": [
+    {
+      "fullUniversityName": "Києвомогилянська академія",
+      "shortUniversityName": "КМА",
+      "city": "Київ",
+      "address": "Контрактова площа",
+      "faculties": [
+        {
+          "departments": [
+            {
+              "students": [
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 6,
+                  "yearOfEntry": 2021,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Відрахований",
+                  "personID": 1111,
+                  "personSurname": "AAAaa",
+                  "personName": "aAaAaaa",
+                  "middleName": "aaaaaa",
+                  "yearOfBirth": 2003,
+                  "monthOfBirth": 6,
+                  "dayOfBirth": 1,
+                  "personEmail": {
+                    "value": "aaaa@gmail.com"
+                  },
+                  "personPhone": 9111111
+                },
+                {
+                  "courseNumber": 2,
+                  "groupNumber": 2,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 2222,
+                  "personSurname": "BBBbb",
+                  "personName": "bBbBbbb",
+                  "middleName": "bbbbbb",
+                  "yearOfBirth": 2000,
+                  "monthOfBirth": 11,
+                  "dayOfBirth": 3,
+                  "personEmail": {
+                    "value": "bbbb@gmail.com"
+                  },
+                  "personPhone": 8222222
+                },
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 1,
+                  "yearOfEntry": 2023,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 3333,
+                  "personSurname": "CCCcc",
+                  "personName": "cCcCccc",
+                  "middleName": "cccccc",
+                  "yearOfBirth": 1230,
+                  "monthOfBirth": 4,
+                  "dayOfBirth": 4,
+                  "personEmail": {
+                    "value": "cccc@gmail.com"
+                  },
+                  "personPhone": 7333333
+                }
+              ],
+              "teachers": [
+                {
+                  "teacherPosition": "A@A@A",
+                  "academicDegree": "@@",
+                  "academicTitle": "@@",
+                  "yearOfEntry": 1999,
+                  "monthOfEntry": 10,
+                  "dayOfEntry": 21,
+                  "rate": "110000",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 111,
+                  "personSurname": "AAA",
+                  "personName": "aAaAa",
+                  "middleName": "aaaa",
+                  "yearOfBirth": 2001,
+                  "monthOfBirth": 3,
+                  "dayOfBirth": 12,
+                  "personEmail": {
+                    "value": "aaa@gmail.com"
+                  },
+                  "personPhone": 111111
+                },
+                {
+                  "teacherPosition": "B3B3B",
+                  "academicDegree": "##",
+                  "academicTitle": "##",
+                  "yearOfEntry": 1989,
+                  "monthOfEntry": 1,
+                  "dayOfEntry": 29,
+                  "rate": "220000",
+                  "decan": true,
+                  "headOfDepartment": true,
+                  "personID": 222,
+                  "personSurname": "BBB",
+                  "personName": "bBbBb",
+                  "middleName": "bbbb",
+                  "yearOfBirth": 1930,
+                  "monthOfBirth": 12,
+                  "dayOfBirth": 2,
+                  "personEmail": {
+                    "value": "bbb@gmail.com"
+                  },
+                  "personPhone": 222222
+                },
+                {
+                  "teacherPosition": "C$C$C",
+                  "academicDegree": "$$",
+                  "academicTitle": "$$",
+                  "yearOfEntry": 1980,
+                  "monthOfEntry": 3,
+                  "dayOfEntry": 26,
+                  "rate": "330000",
+                  "decan": true,
+                  "headOfDepartment": false,
+                  "personID": 333,
+                  "personSurname": "CCC",
+                  "personName": "cCcCc",
+                  "middleName": "cccc",
+                  "yearOfBirth": 1990,
+                  "monthOfBirth": 10,
+                  "dayOfBirth": 31,
+                  "personEmail": {
+                    "value": "ccc@gmail.com"
+                  },
+                  "personPhone": 333333
+                }
+              ],
+              "departmentCode": "ghhg",
+              "departmentName": "іпз самі круті",
+              "cabinetNumber": 666
+            },
+            {
+              "students": [],
+              "teachers": [],
+              "departmentCode": "blabla",
+              "departmentName": "кафедра Макарця",
+              "cabinetNumber": 600
+            }
+          ],
+          "facultyCode": "123",
+          "facultyName": "Факультет інформатики",
+          "shortFacultyName": "ФІ",
+          "facultyPhoneNumber": 999999999,
+          "facultyEmail": {
+            "value": "fi@kvjervb.com"
+          }
+        }
+      ]
+    },
+    {
+      "fullUniversityName": "Шевченка",
+      "shortUniversityName": "КНУ",
+      "city": "Київ",
+      "address": "ПУГ",
+      "faculties": [
+        {
+          "departments": [
+            {
+              "students": [],
+              "teachers": [],
+              "departmentCode": "roer",
+              "departmentName": "папапау",
+              "cabinetNumber": 67
+            },
+            {
+              "students": [],
+              "teachers": [],
+              "departmentCode": "zvsv",
+              "departmentName": "blablabla",
+              "cabinetNumber": 33
+            }
+          ],
+          "facultyCode": "1234",
+          "facultyName": "Факультет інформатики-кну",
+          "shortFacultyName": "ФІкну",
+          "facultyPhoneNumber": 888888888,
+          "facultyEmail": {
+            "value": "fi@oerhoeh.com"
+          }
+        }
+      ]
+    },
+    {
+      "fullUniversityName": "Український католицький університет",
+      "shortUniversityName": "УКУ",
+      "city": "Львів",
+      "address": "десь у львові",
+      "faculties": [
+        {
+          "departments": [
+            {
+              "students": [],
+              "teachers": [],
+              "departmentCode": "oyuk",
+              "departmentName": "blebleble",
+              "cabinetNumber": 13
+            }
+          ],
+          "facultyCode": "12345",
+          "facultyName": "Факультет інформатики-уку",
+          "shortFacultyName": "ФІуку",
+          "facultyPhoneNumber": 777777777,
+          "facultyEmail": {
+            "value": "fi@wurgheu.com"
+          }
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "email": {
+        "value": "aaa@gmail.com"
+      },
+      "password": "aaa"
+    },
+    {
+      "email": {
+        "value": "a@"
+      },
+      "password": "a"
+    }
+  ],
+  "managers": [
+    {
+      "email": {
+        "value": "lll@gmail.com"
+      },
+      "password": "lll"
+    }
+  ],
+  "admins": [
+    {
+      "email": {
+        "value": "ka@gmail.com"
+      },
+      "password": "ka"
+    }
+  ]
+}

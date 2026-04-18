@@ -1,19 +1,25 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javax.xml.crypto.Data;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 
 public class AutoSaveService implements Runnable {
 
-    private final List<University> universities;
+
+    private final DataWrapper data;
     private final long intervalMs;
     private final String filePath;
     private final Gson gson;
 
-    public AutoSaveService(List<University> universities, long intervalMs, String filePath) {
-        this.universities = universities;
+    public AutoSaveService( long intervalMs, String filePath) {
+        this.data = new DataWrapper();
+        this.data.universities = Main.universities;
+        this.data.users = Authorization.allUsers;
+        this.data.managers = Authorization.allManagers;
+        this.data.admins = Authorization.allAdministrators;
+
         this.intervalMs = intervalMs;
         this.filePath = filePath;
         this.gson = new GsonBuilder().setPrettyPrinting().create(); // гарний JSON
@@ -37,7 +43,7 @@ public class AutoSaveService implements Runnable {
 
     private void saveToFile() throws IOException {
         try (FileWriter writer = new FileWriter(filePath)) {
-            gson.toJson(universities, writer);
+            gson.toJson(data, writer);
         }
     }
 }

@@ -74,9 +74,9 @@ public class Authorization {
 
 
     public static int status;           //захистити
-    public final static Set<User> allUsers = new HashSet<>();
-    public final static Set<Manager> allManagers = new HashSet<>();
-    public static final Set<Administrator> allAdministrators = new HashSet<>();
+    public static Set<User> allUsers = new HashSet<>();
+    public static Set<Manager> allManagers = new HashSet<>();
+    public static Set<Administrator> allAdministrators = new HashSet<>();
     public final static Set<BaseUser> allUsersWithRoles = new HashSet<>();
     //  public final static Set<Object> allEmails = new HashSet<>();
     private BaseUser consumer;
