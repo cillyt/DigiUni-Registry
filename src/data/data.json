@@ -1,10 +1,1963 @@
 {
   "universities": [
     {
-      "fullUniversityName": "Києвомогилянська академія",
-      "shortUniversityName": "КМА",
+      "fullUniversityName": "Національний університет Києво-Могилянська академія",
+      "shortUniversityName": "НаУКМА",
       "city": "Київ",
-      "address": "Контрактова площа",
+      "address": "вул. Григорія Сковороди, 2",
+      "faculties": [
+        {
+          "departments": [
+            {
+              "students": [
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 5,
+                  "yearOfEntry": 2021,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1002,
+                  "personSurname": "Мельник",
+                  "personName": "Софія",
+                  "middleName": "Петрівна",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 4,
+                  "dayOfBirth": 11,
+                  "personEmail": {
+                    "value": "student2@naukma.ua"
+                  },
+                  "personPhone": 500000002,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 2,
+                  "groupNumber": 6,
+                  "yearOfEntry": 2024,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Відрахований",
+                  "personID": 1003,
+                  "personSurname": "Ткаченко",
+                  "personName": "Владислав",
+                  "middleName": "Олегович",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 6,
+                  "dayOfBirth": 8,
+                  "personEmail": {
+                    "value": "student3@naukma.ua"
+                  },
+                  "personPhone": 500000003,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 5,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Відрахований",
+                  "personID": 1004,
+                  "personSurname": "Лисенко",
+                  "personName": "Андрій",
+                  "middleName": "Олегович",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 7,
+                  "dayOfBirth": 5,
+                  "personEmail": {
+                    "value": "student4@naukma.ua"
+                  },
+                  "personPhone": 500000004,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 8,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 1005,
+                  "personSurname": "Ткаченко",
+                  "personName": "Катерина",
+                  "middleName": "Андрійович",
+                  "yearOfBirth": 2000,
+                  "monthOfBirth": 4,
+                  "dayOfBirth": 11,
+                  "personEmail": {
+                    "value": "student5@naukma.ua"
+                  },
+                  "personPhone": 500000005,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 4,
+                  "groupNumber": 4,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Відрахований",
+                  "personID": 1006,
+                  "personSurname": "Коваленко",
+                  "personName": "Іван",
+                  "middleName": "Петрівна",
+                  "yearOfBirth": 2001,
+                  "monthOfBirth": 12,
+                  "dayOfBirth": 28,
+                  "personEmail": {
+                    "value": "student6@naukma.ua"
+                  },
+                  "personPhone": 500000006,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 4,
+                  "yearOfEntry": 2020,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Відрахований",
+                  "personID": 1007,
+                  "personSurname": "Мельник",
+                  "personName": "Софія",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 2003,
+                  "monthOfBirth": 10,
+                  "dayOfBirth": 25,
+                  "personEmail": {
+                    "value": "student7@naukma.ua"
+                  },
+                  "personPhone": 500000007,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 5,
+                  "yearOfEntry": 2024,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1008,
+                  "personSurname": "Коваленко",
+                  "personName": "Анна",
+                  "middleName": "Андрійович",
+                  "yearOfBirth": 2003,
+                  "monthOfBirth": 7,
+                  "dayOfBirth": 13,
+                  "personEmail": {
+                    "value": "student8@naukma.ua"
+                  },
+                  "personPhone": 500000008,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 4,
+                  "groupNumber": 2,
+                  "yearOfEntry": 2020,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 1009,
+                  "personSurname": "Мельник",
+                  "personName": "Іван",
+                  "middleName": "Сергійович",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 1,
+                  "dayOfBirth": 17,
+                  "personEmail": {
+                    "value": "student9@naukma.ua"
+                  },
+                  "personPhone": 500000009,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 6,
+                  "groupNumber": 6,
+                  "yearOfEntry": 2025,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Навчається",
+                  "personID": 1010,
+                  "personSurname": "Бондаренко",
+                  "personName": "Владислав",
+                  "middleName": "Сергійович",
+                  "yearOfBirth": 2000,
+                  "monthOfBirth": 10,
+                  "dayOfBirth": 28,
+                  "personEmail": {
+                    "value": "student10@naukma.ua"
+                  },
+                  "personPhone": 500000010,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 6,
+                  "groupNumber": 2,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Навчається",
+                  "personID": 1011,
+                  "personSurname": "Поліщук",
+                  "personName": "Андрій",
+                  "middleName": "Петрівна",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 3,
+                  "dayOfBirth": 9,
+                  "personEmail": {
+                    "value": "student11@naukma.ua"
+                  },
+                  "personPhone": 500000011,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 5,
+                  "groupNumber": 8,
+                  "yearOfEntry": 2021,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Відрахований",
+                  "personID": 1012,
+                  "personSurname": "Кравченко",
+                  "personName": "Марія",
+                  "middleName": "Андрійович",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 12,
+                  "dayOfBirth": 27,
+                  "personEmail": {
+                    "value": "student12@naukma.ua"
+                  },
+                  "personPhone": 500000012,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 4,
+                  "groupNumber": 2,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Відрахований",
+                  "personID": 1013,
+                  "personSurname": "Кравченко",
+                  "personName": "Софія",
+                  "middleName": "Сергійович",
+                  "yearOfBirth": 2005,
+                  "monthOfBirth": 12,
+                  "dayOfBirth": 22,
+                  "personEmail": {
+                    "value": "student13@naukma.ua"
+                  },
+                  "personPhone": 500000013,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 4,
+                  "yearOfEntry": 2025,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Відрахований",
+                  "personID": 1014,
+                  "personSurname": "Кравченко",
+                  "personName": "Максим",
+                  "middleName": "Ігорівна",
+                  "yearOfBirth": 2001,
+                  "monthOfBirth": 12,
+                  "dayOfBirth": 7,
+                  "personEmail": {
+                    "value": "student14@naukma.ua"
+                  },
+                  "personPhone": 500000014,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 1,
+                  "yearOfEntry": 2025,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Відрахований",
+                  "personID": 1015,
+                  "personSurname": "Мельник",
+                  "personName": "Андрій",
+                  "middleName": "Сергійович",
+                  "yearOfBirth": 2000,
+                  "monthOfBirth": 11,
+                  "dayOfBirth": 4,
+                  "personEmail": {
+                    "value": "student15@naukma.ua"
+                  },
+                  "personPhone": 500000015,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 6,
+                  "groupNumber": 2,
+                  "yearOfEntry": 2024,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1016,
+                  "personSurname": "Романюк",
+                  "personName": "Дмитро",
+                  "middleName": "Ігорівна",
+                  "yearOfBirth": 2000,
+                  "monthOfBirth": 6,
+                  "dayOfBirth": 18,
+                  "personEmail": {
+                    "value": "student16@naukma.ua"
+                  },
+                  "personPhone": 500000016,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 7,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Навчається",
+                  "personID": 1017,
+                  "personSurname": "Шевченко",
+                  "personName": "Софія",
+                  "middleName": "Ігорівна",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 3,
+                  "dayOfBirth": 2,
+                  "personEmail": {
+                    "value": "student17@naukma.ua"
+                  },
+                  "personPhone": 500000017,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 6,
+                  "groupNumber": 4,
+                  "yearOfEntry": 2023,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Відрахований",
+                  "personID": 1018,
+                  "personSurname": "Савченко",
+                  "personName": "Софія",
+                  "middleName": "Ігорівна",
+                  "yearOfBirth": 2002,
+                  "monthOfBirth": 12,
+                  "dayOfBirth": 5,
+                  "personEmail": {
+                    "value": "student18@naukma.ua"
+                  },
+                  "personPhone": 500000018,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 5,
+                  "groupNumber": 3,
+                  "yearOfEntry": 2024,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1019,
+                  "personSurname": "Ткаченко",
+                  "personName": "Марія",
+                  "middleName": "Ігорівна",
+                  "yearOfBirth": 2001,
+                  "monthOfBirth": 11,
+                  "dayOfBirth": 28,
+                  "personEmail": {
+                    "value": "student19@naukma.ua"
+                  },
+                  "personPhone": 500000019,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 4,
+                  "yearOfEntry": 2023,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Навчається",
+                  "personID": 1020,
+                  "personSurname": "Шевченко",
+                  "personName": "Максим",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 2000,
+                  "monthOfBirth": 5,
+                  "dayOfBirth": 25,
+                  "personEmail": {
+                    "value": "student20@naukma.ua"
+                  },
+                  "personPhone": 500000020,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 7,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1021,
+                  "personSurname": "Поліщук",
+                  "personName": "Олена",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 2004,
+                  "monthOfBirth": 2,
+                  "dayOfBirth": 23,
+                  "personEmail": {
+                    "value": "student21@naukma.ua"
+                  },
+                  "personPhone": 500000021,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 4,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 1022,
+                  "personSurname": "Лисенко",
+                  "personName": "Марія",
+                  "middleName": "Сергійович",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 12,
+                  "dayOfBirth": 7,
+                  "personEmail": {
+                    "value": "student22@naukma.ua"
+                  },
+                  "personPhone": 500000022,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 4,
+                  "groupNumber": 4,
+                  "yearOfEntry": 2023,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1023,
+                  "personSurname": "Лисенко",
+                  "personName": "Марія",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 2003,
+                  "monthOfBirth": 1,
+                  "dayOfBirth": 26,
+                  "personEmail": {
+                    "value": "student23@naukma.ua"
+                  },
+                  "personPhone": 500000023,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 5,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Навчається",
+                  "personID": 1024,
+                  "personSurname": "Коваленко",
+                  "personName": "Владислав",
+                  "middleName": "Андрійович",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 8,
+                  "dayOfBirth": 20,
+                  "personEmail": {
+                    "value": "student24@naukma.ua"
+                  },
+                  "personPhone": 500000024,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 6,
+                  "groupNumber": 1,
+                  "yearOfEntry": 2021,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1025,
+                  "personSurname": "Романюк",
+                  "personName": "Олена",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 2004,
+                  "monthOfBirth": 5,
+                  "dayOfBirth": 25,
+                  "personEmail": {
+                    "value": "student25@naukma.ua"
+                  },
+                  "personPhone": 500000025,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 5,
+                  "groupNumber": 5,
+                  "yearOfEntry": 2024,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 1026,
+                  "personSurname": "Ткаченко",
+                  "personName": "Марія",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 5,
+                  "dayOfBirth": 11,
+                  "personEmail": {
+                    "value": "student26@naukma.ua"
+                  },
+                  "personPhone": 500000026,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 6,
+                  "groupNumber": 6,
+                  "yearOfEntry": 2024,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1027,
+                  "personSurname": "Ткаченко",
+                  "personName": "Владислав",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 2000,
+                  "monthOfBirth": 10,
+                  "dayOfBirth": 10,
+                  "personEmail": {
+                    "value": "student27@naukma.ua"
+                  },
+                  "personPhone": 500000027,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 5,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Відрахований",
+                  "personID": 1028,
+                  "personSurname": "Бондаренко",
+                  "personName": "Марія",
+                  "middleName": "Ігорівна",
+                  "yearOfBirth": 2003,
+                  "monthOfBirth": 8,
+                  "dayOfBirth": 6,
+                  "personEmail": {
+                    "value": "student28@naukma.ua"
+                  },
+                  "personPhone": 500000028,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 2,
+                  "groupNumber": 7,
+                  "yearOfEntry": 2021,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 1029,
+                  "personSurname": "Шевченко",
+                  "personName": "Катерина",
+                  "middleName": "Сергійович",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 10,
+                  "dayOfBirth": 26,
+                  "personEmail": {
+                    "value": "student29@naukma.ua"
+                  },
+                  "personPhone": 500000029,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 5,
+                  "groupNumber": 6,
+                  "yearOfEntry": 2020,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1030,
+                  "personSurname": "Бондаренко",
+                  "personName": "Владислав",
+                  "middleName": "Сергійович",
+                  "yearOfBirth": 2004,
+                  "monthOfBirth": 4,
+                  "dayOfBirth": 5,
+                  "personEmail": {
+                    "value": "student30@naukma.ua"
+                  },
+                  "personPhone": 500000030,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 5,
+                  "groupNumber": 5,
+                  "yearOfEntry": 2025,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Відрахований",
+                  "personID": 1031,
+                  "personSurname": "Коваленко",
+                  "personName": "Анна",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 12,
+                  "dayOfBirth": 17,
+                  "personEmail": {
+                    "value": "student31@naukma.ua"
+                  },
+                  "personPhone": 500000031,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 6,
+                  "groupNumber": 1,
+                  "yearOfEntry": 2023,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Відрахований",
+                  "personID": 1032,
+                  "personSurname": "Лисенко",
+                  "personName": "Владислав",
+                  "middleName": "Олегович",
+                  "yearOfBirth": 2005,
+                  "monthOfBirth": 4,
+                  "dayOfBirth": 3,
+                  "personEmail": {
+                    "value": "student32@naukma.ua"
+                  },
+                  "personPhone": 500000032,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 6,
+                  "groupNumber": 1,
+                  "yearOfEntry": 2020,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1033,
+                  "personSurname": "Кравченко",
+                  "personName": "Іван",
+                  "middleName": "Андрійович",
+                  "yearOfBirth": 2004,
+                  "monthOfBirth": 7,
+                  "dayOfBirth": 11,
+                  "personEmail": {
+                    "value": "student33@naukma.ua"
+                  },
+                  "personPhone": 500000033,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 2,
+                  "groupNumber": 5,
+                  "yearOfEntry": 2025,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1034,
+                  "personSurname": "Романюк",
+                  "personName": "Анна",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 2002,
+                  "monthOfBirth": 11,
+                  "dayOfBirth": 18,
+                  "personEmail": {
+                    "value": "student34@naukma.ua"
+                  },
+                  "personPhone": 500000034,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 6,
+                  "groupNumber": 7,
+                  "yearOfEntry": 2020,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Навчається",
+                  "personID": 1035,
+                  "personSurname": "Ткаченко",
+                  "personName": "Анна",
+                  "middleName": "Ігорівна",
+                  "yearOfBirth": 2001,
+                  "monthOfBirth": 4,
+                  "dayOfBirth": 15,
+                  "personEmail": {
+                    "value": "student35@naukma.ua"
+                  },
+                  "personPhone": 500000035,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 5,
+                  "groupNumber": 6,
+                  "yearOfEntry": 2021,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1036,
+                  "personSurname": "Ткаченко",
+                  "personName": "Марія",
+                  "middleName": "Петрівна",
+                  "yearOfBirth": 2005,
+                  "monthOfBirth": 1,
+                  "dayOfBirth": 13,
+                  "personEmail": {
+                    "value": "student36@naukma.ua"
+                  },
+                  "personPhone": 500000036,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 8,
+                  "yearOfEntry": 2021,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1037,
+                  "personSurname": "Мельник",
+                  "personName": "Максим",
+                  "middleName": "Ігорівна",
+                  "yearOfBirth": 2005,
+                  "monthOfBirth": 8,
+                  "dayOfBirth": 8,
+                  "personEmail": {
+                    "value": "student37@naukma.ua"
+                  },
+                  "personPhone": 500000037,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 6,
+                  "groupNumber": 8,
+                  "yearOfEntry": 2020,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 1038,
+                  "personSurname": "Коваленко",
+                  "personName": "Андрій",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 3,
+                  "dayOfBirth": 25,
+                  "personEmail": {
+                    "value": "student38@naukma.ua"
+                  },
+                  "personPhone": 500000038,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 6,
+                  "yearOfEntry": 2024,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Відрахований",
+                  "personID": 1039,
+                  "personSurname": "Поліщук",
+                  "personName": "Дмитро",
+                  "middleName": "Андрійович",
+                  "yearOfBirth": 2004,
+                  "monthOfBirth": 7,
+                  "dayOfBirth": 23,
+                  "personEmail": {
+                    "value": "student39@naukma.ua"
+                  },
+                  "personPhone": 500000039,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 5,
+                  "groupNumber": 7,
+                  "yearOfEntry": 2023,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1040,
+                  "personSurname": "Коваленко",
+                  "personName": "Максим",
+                  "middleName": "Олегович",
+                  "yearOfBirth": 2002,
+                  "monthOfBirth": 10,
+                  "dayOfBirth": 5,
+                  "personEmail": {
+                    "value": "student40@naukma.ua"
+                  },
+                  "personPhone": 500000040,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "courseNumber": 2,
+                  "groupNumber": 1,
+                  "yearOfEntry": 2025,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 1001,
+                  "personSurname": "Бондаренко",
+                  "personName": "Катерина",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 2004,
+                  "monthOfBirth": 11,
+                  "dayOfBirth": 9,
+                  "personEmail": {
+                    "value": "student1@naukma.ua"
+                  },
+                  "personPhone": 500000001,
+                  "uni": "Національний університет Києво-Могилянська академія",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                }
+              ],
+              "teachers": [
+                {
+                  "teacherPosition": "Старший викладач",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2020,
+                  "monthOfEntry": 10,
+                  "dayOfEntry": 10,
+                  "rate": "0.75",
+                  "decan": true,
+                  "headOfDepartment": false,
+                  "personID": 2001,
+                  "personSurname": "Савченко",
+                  "personName": "Софія",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 1978,
+                  "monthOfBirth": 1,
+                  "dayOfBirth": 6,
+                  "personEmail": {
+                    "value": "teacher1@naukma.ua"
+                  },
+                  "personPhone": 670000001,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Старший викладач",
+                  "academicDegree": "Доктор наук",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 2022,
+                  "monthOfEntry": 12,
+                  "dayOfEntry": 26,
+                  "rate": "0.5",
+                  "decan": false,
+                  "headOfDepartment": true,
+                  "personID": 2002,
+                  "personSurname": "Мельник",
+                  "personName": "Владислав",
+                  "middleName": "Сергійович",
+                  "yearOfBirth": 1980,
+                  "monthOfBirth": 4,
+                  "dayOfBirth": 21,
+                  "personEmail": {
+                    "value": "teacher2@naukma.ua"
+                  },
+                  "personPhone": 670000002,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Професор",
+                  "academicDegree": "PhD",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 2019,
+                  "monthOfEntry": 3,
+                  "dayOfEntry": 20,
+                  "rate": "1.0",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 2003,
+                  "personSurname": "Кравченко",
+                  "personName": "Анна",
+                  "middleName": "Андрійович",
+                  "yearOfBirth": 1986,
+                  "monthOfBirth": 3,
+                  "dayOfBirth": 11,
+                  "personEmail": {
+                    "value": "teacher3@naukma.ua"
+                  },
+                  "personPhone": 670000003,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Асистент",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 2006,
+                  "monthOfEntry": 10,
+                  "dayOfEntry": 21,
+                  "rate": "1.0",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 2004,
+                  "personSurname": "Поліщук",
+                  "personName": "Дмитро",
+                  "middleName": "Петрівна",
+                  "yearOfBirth": 1976,
+                  "monthOfBirth": 2,
+                  "dayOfBirth": 5,
+                  "personEmail": {
+                    "value": "teacher4@naukma.ua"
+                  },
+                  "personPhone": 670000004,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Асистент",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 2020,
+                  "monthOfEntry": 6,
+                  "dayOfEntry": 1,
+                  "rate": "0.5",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 2005,
+                  "personSurname": "Коваленко",
+                  "personName": "Андрій",
+                  "middleName": "Ігорівна",
+                  "yearOfBirth": 1992,
+                  "monthOfBirth": 8,
+                  "dayOfBirth": 15,
+                  "personEmail": {
+                    "value": "teacher5@naukma.ua"
+                  },
+                  "personPhone": 670000005,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Асистент",
+                  "academicDegree": "Доктор наук",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 2019,
+                  "monthOfEntry": 4,
+                  "dayOfEntry": 15,
+                  "rate": "0.5",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 2006,
+                  "personSurname": "Лисенко",
+                  "personName": "Софія",
+                  "middleName": "Сергійович",
+                  "yearOfBirth": 1993,
+                  "monthOfBirth": 11,
+                  "dayOfBirth": 7,
+                  "personEmail": {
+                    "value": "teacher6@naukma.ua"
+                  },
+                  "personPhone": 670000006,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Професор",
+                  "academicDegree": "PhD",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2015,
+                  "monthOfEntry": 7,
+                  "dayOfEntry": 18,
+                  "rate": "0.5",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 2007,
+                  "personSurname": "Романюк",
+                  "personName": "Владислав",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 1979,
+                  "monthOfBirth": 9,
+                  "dayOfBirth": 19,
+                  "personEmail": {
+                    "value": "teacher7@naukma.ua"
+                  },
+                  "personPhone": 670000007,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Професор",
+                  "academicDegree": "Доктор наук",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2012,
+                  "monthOfEntry": 5,
+                  "dayOfEntry": 26,
+                  "rate": "1.25",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 2008,
+                  "personSurname": "Поліщук",
+                  "personName": "Владислав",
+                  "middleName": "Олегович",
+                  "yearOfBirth": 1982,
+                  "monthOfBirth": 5,
+                  "dayOfBirth": 25,
+                  "personEmail": {
+                    "value": "teacher8@naukma.ua"
+                  },
+                  "personPhone": 670000008,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Старший викладач",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2009,
+                  "monthOfEntry": 9,
+                  "dayOfEntry": 6,
+                  "rate": "1.25",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 2009,
+                  "personSurname": "Лисенко",
+                  "personName": "Іван",
+                  "middleName": "Сергійович",
+                  "yearOfBirth": 1979,
+                  "monthOfBirth": 6,
+                  "dayOfBirth": 15,
+                  "personEmail": {
+                    "value": "teacher9@naukma.ua"
+                  },
+                  "personPhone": 670000009,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Асистент",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 2005,
+                  "monthOfEntry": 4,
+                  "dayOfEntry": 4,
+                  "rate": "0.5",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 2010,
+                  "personSurname": "Ткаченко",
+                  "personName": "Марія",
+                  "middleName": "Олегович",
+                  "yearOfBirth": 1980,
+                  "monthOfBirth": 8,
+                  "dayOfBirth": 14,
+                  "personEmail": {
+                    "value": "teacher10@naukma.ua"
+                  },
+                  "personPhone": 670000010,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Асистент",
+                  "academicDegree": "PhD",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 2018,
+                  "monthOfEntry": 2,
+                  "dayOfEntry": 8,
+                  "rate": "0.5",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 2011,
+                  "personSurname": "Романюк",
+                  "personName": "Дмитро",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 1977,
+                  "monthOfBirth": 5,
+                  "dayOfBirth": 25,
+                  "personEmail": {
+                    "value": "teacher11@naukma.ua"
+                  },
+                  "personPhone": 670000011,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Асистент",
+                  "academicDegree": "PhD",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 2010,
+                  "monthOfEntry": 1,
+                  "dayOfEntry": 24,
+                  "rate": "0.75",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 2012,
+                  "personSurname": "Бондаренко",
+                  "personName": "Анна",
+                  "middleName": "Ігорівна",
+                  "yearOfBirth": 1982,
+                  "monthOfBirth": 9,
+                  "dayOfBirth": 2,
+                  "personEmail": {
+                    "value": "teacher12@naukma.ua"
+                  },
+                  "personPhone": 670000012,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Асистент",
+                  "academicDegree": "PhD",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 2018,
+                  "monthOfEntry": 4,
+                  "dayOfEntry": 8,
+                  "rate": "0.5",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 2013,
+                  "personSurname": "Романюк",
+                  "personName": "Олена",
+                  "middleName": "Петрівна",
+                  "yearOfBirth": 1974,
+                  "monthOfBirth": 6,
+                  "dayOfBirth": 12,
+                  "personEmail": {
+                    "value": "teacher13@naukma.ua"
+                  },
+                  "personPhone": 670000013,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Доцент",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2012,
+                  "monthOfEntry": 10,
+                  "dayOfEntry": 13,
+                  "rate": "1.0",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 2014,
+                  "personSurname": "Бондаренко",
+                  "personName": "Андрій",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 1976,
+                  "monthOfBirth": 2,
+                  "dayOfBirth": 1,
+                  "personEmail": {
+                    "value": "teacher14@naukma.ua"
+                  },
+                  "personPhone": 670000014,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                },
+                {
+                  "teacherPosition": "Професор",
+                  "academicDegree": "Доктор наук",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2019,
+                  "monthOfEntry": 6,
+                  "dayOfEntry": 16,
+                  "rate": "0.5",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 2015,
+                  "personSurname": "Шевченко",
+                  "personName": "Максим",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 1973,
+                  "monthOfBirth": 7,
+                  "dayOfBirth": 21,
+                  "personEmail": {
+                    "value": "teacher15@naukma.ua"
+                  },
+                  "personPhone": 670000015,
+                  "uni": "НаУКМА",
+                  "faculty": "Факультет інформатики",
+                  "department": "Кафедра програмної інженерії"
+                }
+              ],
+              "departmentCode": "CS101",
+              "departmentName": "Кафедра програмної інженерії",
+              "cabinetNumber": 601
+            }
+          ],
+          "facultyCode": "FI-01",
+          "facultyName": "Факультет інформатики",
+          "shortFacultyName": "ФІ",
+          "facultyPhoneNumber": 999999999,
+          "facultyEmail": {
+            "value": "fi@naukma.ua"
+          }
+        }
+      ]
+    },
+    {
+      "fullUniversityName": "Національний технічний університет України «Київський політехнічний інститут імені Ігоря Сікорського»",
+      "shortUniversityName": "КПІ ім. Ігоря Сікорського",
+      "city": "Київ",
+      "address": "просп. Берестейський, 37",
+      "faculties": [
+        {
+          "departments": [
+            {
+              "students": [
+                {
+                  "courseNumber": 2,
+                  "groupNumber": 1,
+                  "yearOfEntry": 2023,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 3001,
+                  "personSurname": "Гриценко",
+                  "personName": "Олег",
+                  "middleName": "Васильович",
+                  "yearOfBirth": 2005,
+                  "monthOfBirth": 3,
+                  "dayOfBirth": 14,
+                  "personEmail": {
+                    "value": "student1@kpi.ua"
+                  },
+                  "personPhone": 510000001,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра автоматики та управління в технічних системах"
+                },
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 2,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Навчається",
+                  "personID": 3002,
+                  "personSurname": "Захаренко",
+                  "personName": "Юлія",
+                  "middleName": "Олексіївна",
+                  "yearOfBirth": 2004,
+                  "monthOfBirth": 7,
+                  "dayOfBirth": 22,
+                  "personEmail": {
+                    "value": "student2@kpi.ua"
+                  },
+                  "personPhone": 510000002,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра автоматики та управління в технічних системах"
+                },
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 3,
+                  "yearOfEntry": 2025,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 3003,
+                  "personSurname": "Дяченко",
+                  "personName": "Микола",
+                  "middleName": "Ігорович",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 11,
+                  "dayOfBirth": 5,
+                  "personEmail": {
+                    "value": "student3@kpi.ua"
+                  },
+                  "personPhone": 510000003,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра автоматики та управління в технічних системах"
+                },
+                {
+                  "courseNumber": 4,
+                  "groupNumber": 1,
+                  "yearOfEntry": 2021,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Відрахований",
+                  "personID": 3004,
+                  "personSurname": "Марченко",
+                  "personName": "Вікторія",
+                  "middleName": "Сергіївна",
+                  "yearOfBirth": 2003,
+                  "monthOfBirth": 9,
+                  "dayOfBirth": 30,
+                  "personEmail": {
+                    "value": "student4@kpi.ua"
+                  },
+                  "personPhone": 510000004,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра автоматики та управління в технічних системах"
+                },
+                {
+                  "courseNumber": 2,
+                  "groupNumber": 4,
+                  "yearOfEntry": 2024,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 3005,
+                  "personSurname": "Карпенко",
+                  "personName": "Артем",
+                  "middleName": "Юрійович",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 1,
+                  "dayOfBirth": 19,
+                  "personEmail": {
+                    "value": "student5@kpi.ua"
+                  },
+                  "personPhone": 510000005,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра автоматики та управління в технічних системах"
+                },
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 2,
+                  "yearOfEntry": 2023,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 3006,
+                  "personSurname": "Павленко",
+                  "personName": "Ірина",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 2005,
+                  "monthOfBirth": 6,
+                  "dayOfBirth": 8,
+                  "personEmail": {
+                    "value": "student6@kpi.ua"
+                  },
+                  "personPhone": 510000006,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра автоматики та управління в технічних системах"
+                },
+                {
+                  "courseNumber": 5,
+                  "groupNumber": 1,
+                  "yearOfEntry": 2021,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 3007,
+                  "personSurname": "Кириленко",
+                  "personName": "Дмитро",
+                  "middleName": "Васильович",
+                  "yearOfBirth": 2003,
+                  "monthOfBirth": 4,
+                  "dayOfBirth": 17,
+                  "personEmail": {
+                    "value": "student7@kpi.ua"
+                  },
+                  "personPhone": 510000007,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра автоматики та управління в технічних системах"
+                },
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 2,
+                  "yearOfEntry": 2025,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Навчається",
+                  "personID": 3008,
+                  "personSurname": "Сидоренко",
+                  "personName": "Анастасія",
+                  "middleName": "Олегівна",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 8,
+                  "dayOfBirth": 3,
+                  "personEmail": {
+                    "value": "student8@kpi.ua"
+                  },
+                  "personPhone": 510000008,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра автоматики та управління в технічних системах"
+                }
+              ],
+              "teachers": [
+                {
+                  "teacherPosition": "Професор",
+                  "academicDegree": "Доктор наук",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 2005,
+                  "monthOfEntry": 9,
+                  "dayOfEntry": 1,
+                  "rate": "1.0",
+                  "decan": true,
+                  "headOfDepartment": false,
+                  "personID": 4001,
+                  "personSurname": "Василенко",
+                  "personName": "Петро",
+                  "middleName": "Андрійович",
+                  "yearOfBirth": 1965,
+                  "monthOfBirth": 5,
+                  "dayOfBirth": 12,
+                  "personEmail": {
+                    "value": "teacher1@kpi.ua"
+                  },
+                  "personPhone": 680000001,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра автоматики та управління в технічних системах"
+                },
+                {
+                  "teacherPosition": "Доцент",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2010,
+                  "monthOfEntry": 3,
+                  "dayOfEntry": 15,
+                  "rate": "1.0",
+                  "decan": false,
+                  "headOfDepartment": true,
+                  "personID": 4002,
+                  "personSurname": "Захарченко",
+                  "personName": "Олена",
+                  "middleName": "Іванівна",
+                  "yearOfBirth": 1975,
+                  "monthOfBirth": 11,
+                  "dayOfBirth": 28,
+                  "personEmail": {
+                    "value": "teacher2@kpi.ua"
+                  },
+                  "personPhone": 680000002,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра автоматики та управління в технічних системах"
+                },
+                {
+                  "teacherPosition": "Старший викладач",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2015,
+                  "monthOfEntry": 8,
+                  "dayOfEntry": 20,
+                  "rate": "0.75",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 4003,
+                  "personSurname": "Ніколаєнко",
+                  "personName": "Юрій",
+                  "middleName": "Степанович",
+                  "yearOfBirth": 1982,
+                  "monthOfBirth": 2,
+                  "dayOfBirth": 7,
+                  "personEmail": {
+                    "value": "teacher3@kpi.ua"
+                  },
+                  "personPhone": 680000003,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра автоматики та управління в технічних системах"
+                },
+                {
+                  "teacherPosition": "Асистент",
+                  "academicDegree": "PhD",
+                  "academicTitle": "Старший викладач",
+                  "yearOfEntry": 2020,
+                  "monthOfEntry": 9,
+                  "dayOfEntry": 1,
+                  "rate": "0.5",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 4004,
+                  "personSurname": "Приходько",
+                  "personName": "Катерина",
+                  "middleName": "Миколаївна",
+                  "yearOfBirth": 1990,
+                  "monthOfBirth": 6,
+                  "dayOfBirth": 25,
+                  "personEmail": {
+                    "value": "teacher4@kpi.ua"
+                  },
+                  "personPhone": 680000004,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра автоматики та управління в технічних системах"
+                },
+                {
+                  "teacherPosition": "Доцент",
+                  "academicDegree": "Доктор наук",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2008,
+                  "monthOfEntry": 1,
+                  "dayOfEntry": 10,
+                  "rate": "1.0",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 4005,
+                  "personSurname": "Зінченко",
+                  "personName": "Максим",
+                  "middleName": "Вікторович",
+                  "yearOfBirth": 1978,
+                  "monthOfBirth": 9,
+                  "dayOfBirth": 14,
+                  "personEmail": {
+                    "value": "teacher5@kpi.ua"
+                  },
+                  "personPhone": 680000005,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра автоматики та управління в технічних системах"
+                }
+              ],
+              "departmentCode": "APEPS-01",
+              "departmentName": "Кафедра автоматики та управління в технічних системах",
+              "cabinetNumber": 307
+            },
+            {
+              "students": [
+                {
+                  "courseNumber": 2,
+                  "groupNumber": 5,
+                  "yearOfEntry": 2024,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 3009,
+                  "personSurname": "Федоренко",
+                  "personName": "Світлана",
+                  "middleName": "Андріївна",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 4,
+                  "dayOfBirth": 2,
+                  "personEmail": {
+                    "value": "student9@kpi.ua"
+                  },
+                  "personPhone": 510000009,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра інформаційних систем та технологій"
+                },
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 6,
+                  "yearOfEntry": 2023,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 3010,
+                  "personSurname": "Горобець",
+                  "personName": "Тарас",
+                  "middleName": "Олексійович",
+                  "yearOfBirth": 2005,
+                  "monthOfBirth": 12,
+                  "dayOfBirth": 9,
+                  "personEmail": {
+                    "value": "student10@kpi.ua"
+                  },
+                  "personPhone": 510000010,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра інформаційних систем та технологій"
+                },
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 7,
+                  "yearOfEntry": 2025,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 3011,
+                  "personSurname": "Левченко",
+                  "personName": "Поліна",
+                  "middleName": "Дмитрівна",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 3,
+                  "dayOfBirth": 21,
+                  "personEmail": {
+                    "value": "student11@kpi.ua"
+                  },
+                  "personPhone": 510000011,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра інформаційних систем та технологій"
+                },
+                {
+                  "courseNumber": 4,
+                  "groupNumber": 8,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Відрахований",
+                  "personID": 3012,
+                  "personSurname": "Нечипоренко",
+                  "personName": "Владислав",
+                  "middleName": "Сергійович",
+                  "yearOfBirth": 2004,
+                  "monthOfBirth": 8,
+                  "dayOfBirth": 16,
+                  "personEmail": {
+                    "value": "student12@kpi.ua"
+                  },
+                  "personPhone": 510000012,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра інформаційних систем та технологій"
+                },
+                {
+                  "courseNumber": 2,
+                  "groupNumber": 5,
+                  "yearOfEntry": 2024,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Навчається",
+                  "personID": 3013,
+                  "personSurname": "Остапенко",
+                  "personName": "Євгенія",
+                  "middleName": "Іванівна",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 10,
+                  "dayOfBirth": 31,
+                  "personEmail": {
+                    "value": "student13@kpi.ua"
+                  },
+                  "personPhone": 510000013,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра інформаційних систем та технологій"
+                }
+              ],
+              "teachers": [
+                {
+                  "teacherPosition": "Професор",
+                  "academicDegree": "Доктор наук",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 2000,
+                  "monthOfEntry": 9,
+                  "dayOfEntry": 1,
+                  "rate": "1.0",
+                  "decan": false,
+                  "headOfDepartment": true,
+                  "personID": 4006,
+                  "personSurname": "Труш",
+                  "personName": "Валентин",
+                  "middleName": "Пилипович",
+                  "yearOfBirth": 1960,
+                  "monthOfBirth": 7,
+                  "dayOfBirth": 4,
+                  "personEmail": {
+                    "value": "teacher6@kpi.ua"
+                  },
+                  "personPhone": 680000006,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра інформаційних систем та технологій"
+                },
+                {
+                  "teacherPosition": "Доцент",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2012,
+                  "monthOfEntry": 2,
+                  "dayOfEntry": 6,
+                  "rate": "1.0",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 4007,
+                  "personSurname": "Кузьменко",
+                  "personName": "Надія",
+                  "middleName": "Василівна",
+                  "yearOfBirth": 1980,
+                  "monthOfBirth": 1,
+                  "dayOfBirth": 18,
+                  "personEmail": {
+                    "value": "teacher7@kpi.ua"
+                  },
+                  "personPhone": 680000007,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра інформаційних систем та технологій"
+                },
+                {
+                  "teacherPosition": "Асистент",
+                  "academicDegree": "PhD",
+                  "academicTitle": "Старший викладач",
+                  "yearOfEntry": 2022,
+                  "monthOfEntry": 9,
+                  "dayOfEntry": 1,
+                  "rate": "0.5",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 4008,
+                  "personSurname": "Яременко",
+                  "personName": "Богдан",
+                  "middleName": "Олегович",
+                  "yearOfBirth": 1994,
+                  "monthOfBirth": 5,
+                  "dayOfBirth": 29,
+                  "personEmail": {
+                    "value": "teacher8@kpi.ua"
+                  },
+                  "personPhone": 680000008,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет інформатики та обчислювальної техніки",
+                  "department": "Кафедра інформаційних систем та технологій"
+                }
+              ],
+              "departmentCode": "ICS-02",
+              "departmentName": "Кафедра інформаційних систем та технологій",
+              "cabinetNumber": 412
+            }
+          ],
+          "facultyCode": "FICT-01",
+          "facultyName": "Факультет інформатики та обчислювальної техніки",
+          "shortFacultyName": "ФІОТ",
+          "facultyPhoneNumber": 441234567,
+          "facultyEmail": {
+            "value": "fiot@kpi.ua"
+          }
+        },
+        {
+          "departments": [
+            {
+              "students": [
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 1,
+                  "yearOfEntry": 2025,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 3014,
+                  "personSurname": "Ярошенко",
+                  "personName": "Аліна",
+                  "middleName": "Богданівна",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 2,
+                  "dayOfBirth": 13,
+                  "personEmail": {
+                    "value": "student14@kpi.ua"
+                  },
+                  "personPhone": 510000014,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет менеджменту та маркетингу",
+                  "department": "Кафедра менеджменту"
+                },
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 2,
+                  "yearOfEntry": 2023,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Навчається",
+                  "personID": 3015,
+                  "personSurname": "Черненко",
+                  "personName": "Роман",
+                  "middleName": "Ігорович",
+                  "yearOfBirth": 2005,
+                  "monthOfBirth": 9,
+                  "dayOfBirth": 7,
+                  "personEmail": {
+                    "value": "student15@kpi.ua"
+                  },
+                  "personPhone": 510000015,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет менеджменту та маркетингу",
+                  "department": "Кафедра менеджменту"
+                },
+                {
+                  "courseNumber": 2,
+                  "groupNumber": 3,
+                  "yearOfEntry": 2024,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 3016,
+                  "personSurname": "Швець",
+                  "personName": "Дарина",
+                  "middleName": "Петрівна",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 6,
+                  "dayOfBirth": 24,
+                  "personEmail": {
+                    "value": "student16@kpi.ua"
+                  },
+                  "personPhone": 510000016,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет менеджменту та маркетингу",
+                  "department": "Кафедра менеджменту"
+                },
+                {
+                  "courseNumber": 4,
+                  "groupNumber": 4,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Відрахований",
+                  "personID": 3017,
+                  "personSurname": "Москаленко",
+                  "personName": "Олексій",
+                  "middleName": "Вікторович",
+                  "yearOfBirth": 2004,
+                  "monthOfBirth": 11,
+                  "dayOfBirth": 1,
+                  "personEmail": {
+                    "value": "student17@kpi.ua"
+                  },
+                  "personPhone": 510000017,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет менеджменту та маркетингу",
+                  "department": "Кафедра менеджменту"
+                },
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 5,
+                  "yearOfEntry": 2025,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 3018,
+                  "personSurname": "Антоненко",
+                  "personName": "Валерія",
+                  "middleName": "Степанівна",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 4,
+                  "dayOfBirth": 10,
+                  "personEmail": {
+                    "value": "student18@kpi.ua"
+                  },
+                  "personPhone": 510000018,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет менеджменту та маркетингу",
+                  "department": "Кафедра менеджменту"
+                }
+              ],
+              "teachers": [
+                {
+                  "teacherPosition": "Доцент",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2007,
+                  "monthOfEntry": 9,
+                  "dayOfEntry": 3,
+                  "rate": "1.0",
+                  "decan": true,
+                  "headOfDepartment": false,
+                  "personID": 4009,
+                  "personSurname": "Голуб",
+                  "personName": "Наталія",
+                  "middleName": "Романівна",
+                  "yearOfBirth": 1972,
+                  "monthOfBirth": 3,
+                  "dayOfBirth": 16,
+                  "personEmail": {
+                    "value": "teacher9@kpi.ua"
+                  },
+                  "personPhone": 680000009,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет менеджменту та маркетингу",
+                  "department": "Кафедра менеджменту"
+                },
+                {
+                  "teacherPosition": "Професор",
+                  "academicDegree": "Доктор наук",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 2003,
+                  "monthOfEntry": 10,
+                  "dayOfEntry": 1,
+                  "rate": "1.0",
+                  "decan": false,
+                  "headOfDepartment": true,
+                  "personID": 4010,
+                  "personSurname": "Семенченко",
+                  "personName": "Григорій",
+                  "middleName": "Федорович",
+                  "yearOfBirth": 1968,
+                  "monthOfBirth": 8,
+                  "dayOfBirth": 22,
+                  "personEmail": {
+                    "value": "teacher10@kpi.ua"
+                  },
+                  "personPhone": 680000010,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет менеджменту та маркетингу",
+                  "department": "Кафедра менеджменту"
+                },
+                {
+                  "teacherPosition": "Старший викладач",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Старший викладач",
+                  "yearOfEntry": 2016,
+                  "monthOfEntry": 2,
+                  "dayOfEntry": 14,
+                  "rate": "0.75",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 4011,
+                  "personSurname": "Білоус",
+                  "personName": "Тетяна",
+                  "middleName": "Олександрівна",
+                  "yearOfBirth": 1985,
+                  "monthOfBirth": 12,
+                  "dayOfBirth": 3,
+                  "personEmail": {
+                    "value": "teacher11@kpi.ua"
+                  },
+                  "personPhone": 680000011,
+                  "uni": "КПІ ім. Ігоря Сікорського",
+                  "faculty": "Факультет менеджменту та маркетингу",
+                  "department": "Кафедра менеджменту"
+                }
+              ],
+              "departmentCode": "MNG-01",
+              "departmentName": "Кафедра менеджменту",
+              "cabinetNumber": 215
+            }
+          ],
+          "facultyCode": "FMM-01",
+          "facultyName": "Факультет менеджменту та маркетингу",
+          "shortFacultyName": "ФММ",
+          "facultyPhoneNumber": 442345678,
+          "facultyEmail": {
+            "value": "fmm@kpi.ua"
+          }
+        }
+      ]
+    },
+    {
+      "fullUniversityName": "Київський національний університет імені Тараса Шевченка",
+      "shortUniversityName": "КНУ ім. Тараса Шевченка",
+      "city": "Київ",
+      "address": "вул. Володимирська, 60",
       "faculties": [
         {
           "departments": [
@@ -12,222 +1965,490 @@
               "students": [
                 {
                   "courseNumber": 1,
-                  "groupNumber": 6,
-                  "yearOfEntry": 2021,
+                  "groupNumber": 1,
+                  "yearOfEntry": 2025,
                   "studyForm": "Бюджет",
-                  "studentStatus": "Відрахований",
-                  "personID": 1111,
-                  "personSurname": "AAAaa",
-                  "personName": "aAaAaaa",
-                  "middleName": "aaaaaa",
-                  "yearOfBirth": 2003,
-                  "monthOfBirth": 6,
-                  "dayOfBirth": 1,
+                  "studentStatus": "Навчається",
+                  "personID": 5001,
+                  "personSurname": "Іванченко",
+                  "personName": "Олена",
+                  "middleName": "Юріївна",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 1,
+                  "dayOfBirth": 20,
                   "personEmail": {
-                    "value": "aaaa@gmail.com"
+                    "value": "student1@knu.ua"
                   },
-                  "personPhone": 9111111,
-                  "uni": "Києвомогилянська академія",
-                  "faculty": "Факультет інформатики",
-                  "department": "іпз самі круті"
+                  "personPhone": 520000001,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Факультет комп\u0027ютерних наук та кібернетики",
+                  "department": "Кафедра кібернетики та системного аналізу"
                 },
                 {
                   "courseNumber": 2,
                   "groupNumber": 2,
-                  "yearOfEntry": 2022,
+                  "yearOfEntry": 2024,
                   "studyForm": "Контракт",
-                  "studentStatus": "Академвідпустка",
-                  "personID": 2222,
-                  "personSurname": "BBBbb",
-                  "personName": "bBbBbbb",
-                  "middleName": "bbbbbb",
-                  "yearOfBirth": 2000,
-                  "monthOfBirth": 11,
-                  "dayOfBirth": 3,
+                  "studentStatus": "Навчається",
+                  "personID": 5002,
+                  "personSurname": "Зубко",
+                  "personName": "Михайло",
+                  "middleName": "Петрович",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 7,
+                  "dayOfBirth": 11,
                   "personEmail": {
-                    "value": "bbbb@gmail.com"
+                    "value": "student2@knu.ua"
                   },
-                  "personPhone": 8222222,
-                  "uni": "Києвомогилянська академія",
-                  "faculty": "Факультет інформатики",
-                  "department": "іпз самі круті"
+                  "personPhone": 520000002,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Факультет комп\u0027ютерних наук та кібернетики",
+                  "department": "Кафедра кібернетики та системного аналізу"
+                },
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 3,
+                  "yearOfEntry": 2023,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 5003,
+                  "personSurname": "Нагірняк",
+                  "personName": "Вікторія",
+                  "middleName": "Андріївна",
+                  "yearOfBirth": 2005,
+                  "monthOfBirth": 3,
+                  "dayOfBirth": 5,
+                  "personEmail": {
+                    "value": "student3@knu.ua"
+                  },
+                  "personPhone": 520000003,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Факультет комп\u0027ютерних наук та кібернетики",
+                  "department": "Кафедра кібернетики та системного аналізу"
+                },
+                {
+                  "courseNumber": 4,
+                  "groupNumber": 4,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 5004,
+                  "personSurname": "Ковтун",
+                  "personName": "Ярослав",
+                  "middleName": "Миколайович",
+                  "yearOfBirth": 2004,
+                  "monthOfBirth": 10,
+                  "dayOfBirth": 17,
+                  "personEmail": {
+                    "value": "student4@knu.ua"
+                  },
+                  "personPhone": 520000004,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Факультет комп\u0027ютерних наук та кібернетики",
+                  "department": "Кафедра кібернетики та системного аналізу"
+                },
+                {
+                  "courseNumber": 5,
+                  "groupNumber": 5,
+                  "yearOfEntry": 2021,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Відрахований",
+                  "personID": 5005,
+                  "personSurname": "Матвієнко",
+                  "personName": "Анна",
+                  "middleName": "Сергіївна",
+                  "yearOfBirth": 2003,
+                  "monthOfBirth": 5,
+                  "dayOfBirth": 28,
+                  "personEmail": {
+                    "value": "student5@knu.ua"
+                  },
+                  "personPhone": 520000005,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Факультет комп\u0027ютерних наук та кібернетики",
+                  "department": "Кафедра кібернетики та системного аналізу"
                 },
                 {
                   "courseNumber": 2,
-                  "groupNumber": 1,
-                  "yearOfEntry": 2023,
+                  "groupNumber": 6,
+                  "yearOfEntry": 2024,
                   "studyForm": "Бюджет",
                   "studentStatus": "Навчається",
-                  "personID": 3333,
-                  "personSurname": "CCCcc",
-                  "personName": "cCcCccc",
-                  "middleName": "cccccc",
-                  "yearOfBirth": 1230,
-                  "monthOfBirth": 4,
-                  "dayOfBirth": 4,
+                  "personID": 5006,
+                  "personSurname": "Клименко",
+                  "personName": "Богдан",
+                  "middleName": "Вікторович",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 9,
+                  "dayOfBirth": 3,
                   "personEmail": {
-                    "value": "cccc@gmail.com"
+                    "value": "student6@knu.ua"
                   },
-                  "personPhone": 7333333,
-                  "uni": "Києвомогилянська академія",
-                  "faculty": "Факультет інформатики",
-                  "department": "іпз самі круті"
+                  "personPhone": 520000006,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Факультет комп\u0027ютерних наук та кібернетики",
+                  "department": "Кафедра кібернетики та системного аналізу"
+                },
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 7,
+                  "yearOfEntry": 2025,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Навчається",
+                  "personID": 5007,
+                  "personSurname": "Стець",
+                  "personName": "Діана",
+                  "middleName": "Ігорівна",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 12,
+                  "dayOfBirth": 14,
+                  "personEmail": {
+                    "value": "student7@knu.ua"
+                  },
+                  "personPhone": 520000007,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Факультет комп\u0027ютерних наук та кібернетики",
+                  "department": "Кафедра кібернетики та системного аналізу"
                 }
               ],
               "teachers": [
                 {
-                  "teacherPosition": "A@A@A",
-                  "academicDegree": "@@",
-                  "academicTitle": "@@",
-                  "yearOfEntry": 1999,
-                  "monthOfEntry": 10,
-                  "dayOfEntry": 21,
-                  "rate": "110000",
+                  "teacherPosition": "Професор",
+                  "academicDegree": "Доктор наук",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 1998,
+                  "monthOfEntry": 9,
+                  "dayOfEntry": 1,
+                  "rate": "1.0",
+                  "decan": true,
+                  "headOfDepartment": false,
+                  "personID": 6001,
+                  "personSurname": "Огієнко",
+                  "personName": "Леонід",
+                  "middleName": "Борисович",
+                  "yearOfBirth": 1960,
+                  "monthOfBirth": 4,
+                  "dayOfBirth": 9,
+                  "personEmail": {
+                    "value": "teacher1@knu.ua"
+                  },
+                  "personPhone": 690000001,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Факультет комп\u0027ютерних наук та кібернетики",
+                  "department": "Кафедра кібернетики та системного аналізу"
+                },
+                {
+                  "teacherPosition": "Доцент",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2006,
+                  "monthOfEntry": 3,
+                  "dayOfEntry": 20,
+                  "rate": "1.0",
+                  "decan": false,
+                  "headOfDepartment": true,
+                  "personID": 6002,
+                  "personSurname": "Ємець",
+                  "personName": "Тамара",
+                  "middleName": "Леонідівна",
+                  "yearOfBirth": 1974,
+                  "monthOfBirth": 8,
+                  "dayOfBirth": 15,
+                  "personEmail": {
+                    "value": "teacher2@knu.ua"
+                  },
+                  "personPhone": 690000002,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Факультет комп\u0027ютерних наук та кібернетики",
+                  "department": "Кафедра кібернетики та системного аналізу"
+                },
+                {
+                  "teacherPosition": "Старший викладач",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2013,
+                  "monthOfEntry": 9,
+                  "dayOfEntry": 2,
+                  "rate": "0.75",
                   "decan": false,
                   "headOfDepartment": false,
-                  "personID": 111,
-                  "personSurname": "AAA",
-                  "personName": "aAaAa",
-                  "middleName": "aaaa",
-                  "yearOfBirth": 2001,
-                  "monthOfBirth": 3,
-                  "dayOfBirth": 12,
+                  "personID": 6003,
+                  "personSurname": "Панченко",
+                  "personName": "Олексій",
+                  "middleName": "Григорович",
+                  "yearOfBirth": 1983,
+                  "monthOfBirth": 11,
+                  "dayOfBirth": 27,
                   "personEmail": {
-                    "value": "aaa@gmail.com"
+                    "value": "teacher3@knu.ua"
                   },
-                  "personPhone": 111111,
-                  "uni": "Києвомогилянська академія",
-                  "faculty": "Факультет інформатики",
-                  "department": "іпз самі круті"
+                  "personPhone": 690000003,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Факультет комп\u0027ютерних наук та кібернетики",
+                  "department": "Кафедра кібернетики та системного аналізу"
                 },
                 {
-                  "teacherPosition": "B3B3B",
-                  "academicDegree": "##",
-                  "academicTitle": "##",
-                  "yearOfEntry": 1989,
-                  "monthOfEntry": 1,
-                  "dayOfEntry": 29,
-                  "rate": "220000",
-                  "decan": true,
-                  "headOfDepartment": true,
-                  "personID": 222,
-                  "personSurname": "BBB",
-                  "personName": "bBbBb",
-                  "middleName": "bbbb",
-                  "yearOfBirth": 1930,
-                  "monthOfBirth": 12,
-                  "dayOfBirth": 2,
-                  "personEmail": {
-                    "value": "bbb@gmail.com"
-                  },
-                  "personPhone": 222222,
-                  "uni": "Києвомогилянська академія",
-                  "faculty": "Факультет інформатики",
-                  "department": "іпз самі круті"
-                },
-                {
-                  "teacherPosition": "C$C$C",
-                  "academicDegree": "$$",
-                  "academicTitle": "$$",
-                  "yearOfEntry": 1980,
-                  "monthOfEntry": 3,
-                  "dayOfEntry": 26,
-                  "rate": "330000",
-                  "decan": true,
+                  "teacherPosition": "Асистент",
+                  "academicDegree": "PhD",
+                  "academicTitle": "Старший викладач",
+                  "yearOfEntry": 2021,
+                  "monthOfEntry": 9,
+                  "dayOfEntry": 1,
+                  "rate": "0.5",
+                  "decan": false,
                   "headOfDepartment": false,
-                  "personID": 333,
-                  "personSurname": "CCC",
-                  "personName": "cCcCc",
-                  "middleName": "cccc",
-                  "yearOfBirth": 1990,
-                  "monthOfBirth": 10,
-                  "dayOfBirth": 31,
+                  "personID": 6004,
+                  "personSurname": "Волощук",
+                  "personName": "Ніна",
+                  "middleName": "Павлівна",
+                  "yearOfBirth": 1992,
+                  "monthOfBirth": 2,
+                  "dayOfBirth": 6,
                   "personEmail": {
-                    "value": "ccc@gmail.com"
+                    "value": "teacher4@knu.ua"
                   },
-                  "personPhone": 333333,
-                  "uni": "Києвомогилянська академія",
-                  "faculty": "Факультет інформатики",
-                  "department": "іпз самі круті"
+                  "personPhone": 690000004,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Факультет комп\u0027ютерних наук та кібернетики",
+                  "department": "Кафедра кібернетики та системного аналізу"
                 }
               ],
-              "departmentCode": "ghhg",
-              "departmentName": "іпз самі круті",
-              "cabinetNumber": 666
-            },
-            {
-              "students": [],
-              "teachers": [],
-              "departmentCode": "blabla",
-              "departmentName": "кафедра Макарця",
-              "cabinetNumber": 600
+              "departmentCode": "CYBER-01",
+              "departmentName": "Кафедра кібернетики та системного аналізу",
+              "cabinetNumber": 505
             }
           ],
-          "facultyCode": "123",
-          "facultyName": "Факультет інформатики",
-          "shortFacultyName": "ФІ",
-          "facultyPhoneNumber": 999999999,
+          "facultyCode": "FKNU-01",
+          "facultyName": "Факультет комп\u0027ютерних наук та кібернетики",
+          "shortFacultyName": "ФКНК",
+          "facultyPhoneNumber": 445556677,
           "facultyEmail": {
-            "value": "fi@kvjervb.com"
+            "value": "fknk@knu.ua"
           }
-        }
-      ]
-    },
-    {
-      "fullUniversityName": "Шевченка",
-      "shortUniversityName": "КНУ",
-      "city": "Київ",
-      "address": "ПУГ",
-      "faculties": [
+        },
         {
           "departments": [
             {
-              "students": [],
-              "teachers": [],
-              "departmentCode": "roer",
-              "departmentName": "папапау",
-              "cabinetNumber": 67
-            },
-            {
-              "students": [],
-              "teachers": [],
-              "departmentCode": "zvsv",
-              "departmentName": "blablabla",
-              "cabinetNumber": 33
+              "students": [
+                {
+                  "courseNumber": 1,
+                  "groupNumber": 1,
+                  "yearOfEntry": 2025,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Навчається",
+                  "personID": 5008,
+                  "personSurname": "Перебийніс",
+                  "personName": "Ольга",
+                  "middleName": "Михайлівна",
+                  "yearOfBirth": 2007,
+                  "monthOfBirth": 6,
+                  "dayOfBirth": 22,
+                  "personEmail": {
+                    "value": "student8@knu.ua"
+                  },
+                  "personPhone": 520000008,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Юридичний факультет",
+                  "department": "Кафедра цивільного права"
+                },
+                {
+                  "courseNumber": 3,
+                  "groupNumber": 2,
+                  "yearOfEntry": 2023,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Навчається",
+                  "personID": 5009,
+                  "personSurname": "Вернигора",
+                  "personName": "Станіслав",
+                  "middleName": "Євгенович",
+                  "yearOfBirth": 2005,
+                  "monthOfBirth": 8,
+                  "dayOfBirth": 19,
+                  "personEmail": {
+                    "value": "student9@knu.ua"
+                  },
+                  "personPhone": 520000009,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Юридичний факультет",
+                  "department": "Кафедра цивільного права"
+                },
+                {
+                  "courseNumber": 2,
+                  "groupNumber": 3,
+                  "yearOfEntry": 2024,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Академвідпустка",
+                  "personID": 5010,
+                  "personSurname": "Гапченко",
+                  "personName": "Крістіна",
+                  "middleName": "Олегівна",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 1,
+                  "dayOfBirth": 30,
+                  "personEmail": {
+                    "value": "student10@knu.ua"
+                  },
+                  "personPhone": 520000010,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Юридичний факультет",
+                  "department": "Кафедра цивільного права"
+                },
+                {
+                  "courseNumber": 4,
+                  "groupNumber": 4,
+                  "yearOfEntry": 2022,
+                  "studyForm": "Бюджет",
+                  "studentStatus": "Відрахований",
+                  "personID": 5011,
+                  "personSurname": "Запорожець",
+                  "personName": "Денис",
+                  "middleName": "Артемович",
+                  "yearOfBirth": 2004,
+                  "monthOfBirth": 4,
+                  "dayOfBirth": 6,
+                  "personEmail": {
+                    "value": "student11@knu.ua"
+                  },
+                  "personPhone": 520000011,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Юридичний факультет",
+                  "department": "Кафедра цивільного права"
+                },
+                {
+                  "courseNumber": 2,
+                  "groupNumber": 5,
+                  "yearOfEntry": 2024,
+                  "studyForm": "Контракт",
+                  "studentStatus": "Навчається",
+                  "personID": 5012,
+                  "personSurname": "Данченко",
+                  "personName": "Людмила",
+                  "middleName": "Романівна",
+                  "yearOfBirth": 2006,
+                  "monthOfBirth": 11,
+                  "dayOfBirth": 25,
+                  "personEmail": {
+                    "value": "student12@knu.ua"
+                  },
+                  "personPhone": 520000012,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Юридичний факультет",
+                  "department": "Кафедра цивільного права"
+                }
+              ],
+              "teachers": [
+                {
+                  "teacherPosition": "Професор",
+                  "academicDegree": "Доктор наук",
+                  "academicTitle": "Професор",
+                  "yearOfEntry": 2001,
+                  "monthOfEntry": 9,
+                  "dayOfEntry": 1,
+                  "rate": "1.0",
+                  "decan": true,
+                  "headOfDepartment": true,
+                  "personID": 6005,
+                  "personSurname": "Хомич",
+                  "personName": "Василь",
+                  "middleName": "Дмитрович",
+                  "yearOfBirth": 1963,
+                  "monthOfBirth": 7,
+                  "dayOfBirth": 31,
+                  "personEmail": {
+                    "value": "teacher5@knu.ua"
+                  },
+                  "personPhone": 690000005,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Юридичний факультет",
+                  "department": "Кафедра цивільного права"
+                },
+                {
+                  "teacherPosition": "Доцент",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Доцент",
+                  "yearOfEntry": 2009,
+                  "monthOfEntry": 4,
+                  "dayOfEntry": 5,
+                  "rate": "1.0",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 6006,
+                  "personSurname": "Лазаренко",
+                  "personName": "Ірина",
+                  "middleName": "Олексіївна",
+                  "yearOfBirth": 1977,
+                  "monthOfBirth": 10,
+                  "dayOfBirth": 13,
+                  "personEmail": {
+                    "value": "teacher6@knu.ua"
+                  },
+                  "personPhone": 690000006,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Юридичний факультет",
+                  "department": "Кафедра цивільного права"
+                },
+                {
+                  "teacherPosition": "Старший викладач",
+                  "academicDegree": "Кандидат наук",
+                  "academicTitle": "Старший викладач",
+                  "yearOfEntry": 2017,
+                  "monthOfEntry": 1,
+                  "dayOfEntry": 16,
+                  "rate": "0.75",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 6007,
+                  "personSurname": "Гречко",
+                  "personName": "Андрій",
+                  "middleName": "Юрійович",
+                  "yearOfBirth": 1987,
+                  "monthOfBirth": 6,
+                  "dayOfBirth": 8,
+                  "personEmail": {
+                    "value": "teacher7@knu.ua"
+                  },
+                  "personPhone": 690000007,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Юридичний факультет",
+                  "department": "Кафедра цивільного права"
+                },
+                {
+                  "teacherPosition": "Асистент",
+                  "academicDegree": "PhD",
+                  "academicTitle": "Викладач",
+                  "yearOfEntry": 2023,
+                  "monthOfEntry": 9,
+                  "dayOfEntry": 1,
+                  "rate": "0.5",
+                  "decan": false,
+                  "headOfDepartment": false,
+                  "personID": 6008,
+                  "personSurname": "Тесленко",
+                  "personName": "Марина",
+                  "middleName": "Борисівна",
+                  "yearOfBirth": 1995,
+                  "monthOfBirth": 3,
+                  "dayOfBirth": 18,
+                  "personEmail": {
+                    "value": "teacher8@knu.ua"
+                  },
+                  "personPhone": 690000008,
+                  "uni": "КНУ ім. Тараса Шевченка",
+                  "faculty": "Юридичний факультет",
+                  "department": "Кафедра цивільного права"
+                }
+              ],
+              "departmentCode": "CIVIL-01",
+              "departmentName": "Кафедра цивільного права",
+              "cabinetNumber": 312
             }
           ],
-          "facultyCode": "1234",
-          "facultyName": "Факультет інформатики-кну",
-          "shortFacultyName": "ФІкну",
-          "facultyPhoneNumber": 888888888,
+          "facultyCode": "FLAW-01",
+          "facultyName": "Юридичний факультет",
+          "shortFacultyName": "ЮФ",
+          "facultyPhoneNumber": 446667788,
           "facultyEmail": {
-            "value": "fi@oerhoeh.com"
-          }
-        }
-      ]
-    },
-    {
-      "fullUniversityName": "Український католицький університет",
-      "shortUniversityName": "УКУ",
-      "city": "Львів",
-      "address": "десь у львові",
-      "faculties": [
-        {
-          "departments": [
-            {
-              "students": [],
-              "teachers": [],
-              "departmentCode": "oyuk",
-              "departmentName": "blebleble",
-              "cabinetNumber": 13
-            }
-          ],
-          "facultyCode": "12345",
-          "facultyName": "Факультет інформатики-уку",
-          "shortFacultyName": "ФІуку",
-          "facultyPhoneNumber": 777777777,
-          "facultyEmail": {
-            "value": "fi@wurgheu.com"
+            "value": "law@knu.ua"
           }
         }
       ]
@@ -236,37 +2457,109 @@
   "users": [
     {
       "email": {
-        "value": "aaa@gmail.com"
+        "value": "user1@gmail.com"
       },
-      "password": "aaa"
+      "password": "user1"
     },
     {
       "email": {
-        "value": "a@"
+        "value": "user2@gmail.com"
       },
-      "password": "a"
+      "password": "user2"
     },
     {
       "email": {
-        "value": "@@k"
+        "value": "user3@gmail.com"
       },
-      "password": "k"
+      "password": "user3"
+    },
+    {
+      "email": {
+        "value": "user4@gmail.com"
+      },
+      "password": "user4"
+    },
+    {
+      "email": {
+        "value": "user5@gmail.com"
+      },
+      "password": "user5"
+    },
+    {
+      "email": {
+        "value": "user6@gmail.com"
+      },
+      "password": "user6"
+    },
+    {
+      "email": {
+        "value": "user7@gmail.com"
+      },
+      "password": "user7"
+    },
+    {
+      "email": {
+        "value": "user8@gmail.com"
+      },
+      "password": "user8"
+    },
+    {
+      "email": {
+        "value": "user9@gmail.com"
+      },
+      "password": "user9"
+    },
+    {
+      "email": {
+        "value": "user10@gmail.com"
+      },
+      "password": "user10"
     }
   ],
   "managers": [
     {
       "email": {
-        "value": "lll@gmail.com"
+        "value": "manager1@gmail.com"
       },
-      "password": "lll"
+      "password": "manager1"
+    },
+    {
+      "email": {
+        "value": "manager2@gmail.com"
+      },
+      "password": "manager2"
+    },
+    {
+      "email": {
+        "value": "manager3@gmail.com"
+      },
+      "password": "manager3"
+    },
+    {
+      "email": {
+        "value": "manager4@gmail.com"
+      },
+      "password": "manager4"
+    },
+    {
+      "email": {
+        "value": "manager5@gmail.com"
+      },
+      "password": "manager5"
     }
   ],
   "admins": [
     {
       "email": {
-        "value": "ka@gmail.com"
+        "value": "admin1@gmail.com"
       },
-      "password": "ka"
+      "password": "admin1"
+    },
+    {
+      "email": {
+        "value": "admin2@gmail.com"
+      },
+      "password": "admin2"
     }
   ]
 }
