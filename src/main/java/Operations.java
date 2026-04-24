@@ -651,7 +651,7 @@ public class Operations {
 
                 case 9:
                     System.out.println("Поточний курс: " + Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).getCourseNumber());
-                    int newCourseNumber = checkInput.checkInt("Введіть новий курс: ", "Ви ввели новий курс неправильно.");
+                    int newCourseNumber = checkInput.checkOperations(1, 6,"Введіть новий курс: ", "Ви ввели новий курс неправильно.", "Не існує курсу під таким номером.");
                     Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setCourseNumber(newCourseNumber);
                     break;
                 case 10:
