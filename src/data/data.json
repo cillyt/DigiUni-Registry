@@ -26,7 +26,10 @@
                   "personEmail": {
                     "value": "aaaa@gmail.com"
                   },
-                  "personPhone": 9111111
+                  "personPhone": 9111111,
+                  "uni": "Києвомогилянська академія",
+                  "faculty": "Факультет інформатики",
+                  "department": "іпз самі круті"
                 },
                 {
                   "courseNumber": 2,
@@ -44,10 +47,13 @@
                   "personEmail": {
                     "value": "bbbb@gmail.com"
                   },
-                  "personPhone": 8222222
+                  "personPhone": 8222222,
+                  "uni": "Києвомогилянська академія",
+                  "faculty": "Факультет інформатики",
+                  "department": "іпз самі круті"
                 },
                 {
-                  "courseNumber": 10,
+                  "courseNumber": 2,
                   "groupNumber": 1,
                   "yearOfEntry": 2023,
                   "studyForm": "Бюджет",
@@ -62,7 +68,10 @@
                   "personEmail": {
                     "value": "cccc@gmail.com"
                   },
-                  "personPhone": 7333333
+                  "personPhone": 7333333,
+                  "uni": "Києвомогилянська академія",
+                  "faculty": "Факультет інформатики",
+                  "department": "іпз самі круті"
                 }
               ],
               "teachers": [
@@ -86,7 +95,10 @@
                   "personEmail": {
                     "value": "aaa@gmail.com"
                   },
-                  "personPhone": 111111
+                  "personPhone": 111111,
+                  "uni": "Києвомогилянська академія",
+                  "faculty": "Факультет інформатики",
+                  "department": "іпз самі круті"
                 },
                 {
                   "teacherPosition": "B3B3B",
@@ -108,7 +120,10 @@
                   "personEmail": {
                     "value": "bbb@gmail.com"
                   },
-                  "personPhone": 222222
+                  "personPhone": 222222,
+                  "uni": "Києвомогилянська академія",
+                  "faculty": "Факультет інформатики",
+                  "department": "іпз самі круті"
                 },
                 {
                   "teacherPosition": "C$C$C",
@@ -130,7 +145,10 @@
                   "personEmail": {
                     "value": "ccc@gmail.com"
                   },
-                  "personPhone": 333333
+                  "personPhone": 333333,
+                  "uni": "Києвомогилянська академія",
+                  "faculty": "Факультет інформатики",
+                  "department": "іпз самі круті"
                 }
               ],
               "departmentCode": "ghhg",
@@ -227,6 +245,12 @@
         "value": "a@"
       },
       "password": "a"
+    },
+    {
+      "email": {
+        "value": "@@k"
+      },
+      "password": "k"
     }
   ],
   "managers": [
