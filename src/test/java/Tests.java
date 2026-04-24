@@ -1,11 +1,15 @@
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Tests {
@@ -159,6 +163,41 @@ public class Tests {
     void teacherDeanStatusShouldChangeCorrectly() {
         t.setDecanStatus(true);
         assertTrue(t.getDecanStatus());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"valid1@ukma.ua", "student.test@naukma.edu", "admin123@gmail.com"})
+    void validEmailsShouldBeAccepted(String email) {
+        assertDoesNotThrow(() -> new Authorization.Email(email));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3, 4, 5, 6})
+    void validStudentCoursesShouldBeAccepted(int course) {
+        s.setCourseNumber(course);
+        assertEquals(course, s.getCourseNumber());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "2020, true",
+            "2021, true",
+            "2022, true"
+    })
+    void admissionYearShouldBeValid(int year, boolean expected) {
+        s.setYearOfEntry(year);
+        assertEquals(expected, s.getYearOfEntry() == year);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1, true",
+            "5, true",
+            "10, true"
+    })
+    void groupNumbersShouldBeStoredCorrectly(int group, boolean expected) {
+        s.setGroupNumber(group);
+        assertEquals(expected, s.getGroupNumber() == group);
     }
 
 
