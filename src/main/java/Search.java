@@ -1,5 +1,3 @@
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -13,7 +11,7 @@ public class Search {
 
 
 
-    public void findingStudent() throws IOException {
+    public void findingStudent() throws Exception {
             int studentFindingQuestion = getMenu().studentFindingQuestion();
             switch (studentFindingQuestion) {
                 case 0:
@@ -71,7 +69,7 @@ public class Search {
             }
     }
 
-    public void findingTeacher() throws IOException {
+    public void findingTeacher() throws Exception {
         int teacherFindingQuestion = getMenu().teacherFindingQuestion();
         switch(teacherFindingQuestion){
             case 0:

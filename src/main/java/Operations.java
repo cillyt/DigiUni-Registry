@@ -1,7 +1,5 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
-import java.time.LocalDate;
+import exсeptions.DuplicateObjectException;
+
 import java.util.*;
 
 //import static javax.management.Query.and;
@@ -20,7 +18,7 @@ public class Operations {
     int check;
 
 
-    public void addingUniversity() throws IOException {
+    public void addingUniversity() throws Exception {
         University uni = new University();
 
         uni.setFullUniversityName(checkInput.checkString("Назва університету: ", "Ви не ввели назву університету."));
@@ -41,7 +39,7 @@ public class Operations {
 
     }
 
-   public void addingFaculty() throws IOException {
+   public void addingFaculty() throws Exception {
         int uni = getMenu().universityQuestionNoFaculty();
 
         Faculty faculty = new Faculty();
@@ -66,7 +64,7 @@ public class Operations {
         getMenu().facultyMenu();
     }
 
-    public void addingDepartment() throws IOException {
+    public void addingDepartment() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(1);
         int faculty = getMenu().facultyQuestionNoDepartment(uni);
         Department depart = new Department();
@@ -87,7 +85,7 @@ public class Operations {
         getMenu().departmentMenu();
     }
 
-    public void addingTeacher() throws IOException {
+    public void addingTeacher() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(2);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni, 2);
 
@@ -95,7 +93,15 @@ public class Operations {
 
                 Teacher teacher = new Teacher();
 
-                teacher.setPersonID(checkInput.checkInt("Унікальний ідентифікатор: ", "Ви ввели унікальний ідентифікатор неправильно."));
+                check = 0;
+                while (check == 0) {
+                    try {
+                        teacher.setPersonID(checkInput.checkInt("Унікальний ідентифікатор: ", "Ви ввели унікальний ідентифікатор неправильно."));
+                        check = 1;
+                    } catch (DuplicateObjectException doe) {
+                        System.out.println(doe.getMessage());
+                    }
+                }
                 teacher.setPersonSurname(checkInput.checkString("Прізвище: ", "Ви не ввели прізвище викладача."));
                 teacher.setPersonName(checkInput.checkString("Ім'я: ", "Ви не ввели ім'я викладача."));
                 teacher.setMiddleName(checkInput.checkString("По-батькові: ", "Ви не ввели по-батькові викладача."));
@@ -103,7 +109,16 @@ public class Operations {
                 teacher.setYearOfBirth(checkInput.checkInt("Рік народження: ", "Ви не ввели рік народження"));
                 teacher.setMonthOfBirth(checkInput.checkInt("Місяць народження: ", "Ви не ввели місяць народження"));
                 teacher.setDayOfBirth(checkInput.checkInt("День народження: ", "Ви не ввели день народження"));
-                teacher.setPersonEmail(checkInput.checkEmail("Електронна пошта: ", "Ви не ввели електронну пошту викладача."));
+                check = 0;
+                while (check == 0) {
+                    try {
+                        teacher.setPersonEmail(checkInput.checkEmail("Електронна пошта: ", "Ви не ввели електронну пошту викладача."));
+                        check = 1;
+                    } catch (DuplicateObjectException doe) {
+                        System.out.println(doe.getMessage());
+                    }
+                }
+
                 teacher.setPersonPhone(checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно."));
 
                 teacher.setUni(Main.universities.get(uni).fullUniversityName);
@@ -149,7 +164,7 @@ public class Operations {
 
     }
 
-    public void addingStudent() throws IOException {
+    public void addingStudent() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(2);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni,2);
 
@@ -157,7 +172,15 @@ public class Operations {
             int depart = getMenu().departmentQuestionNoStudentsAndTeachers(uni, faculty);
 
             Student stud = new Student();
-            stud.setPersonID(checkInput.checkInt("Унікальний ідентифікатор: ", "Ви ввели унікальний ідентифікатор неправильно."));
+            check = 0;
+            while (check == 0) {
+                try {
+                    stud.setPersonID(checkInput.checkInt("Унікальний ідентифікатор: ", "Ви ввели унікальний ідентифікатор неправильно."));
+                    check = 1;
+                } catch (DuplicateObjectException doe) {
+                    System.out.println(doe.getMessage());
+                }
+            }
             stud.setPersonSurname(checkInput.checkString("Прізвище: ", "Ви не ввели прізвище студента."));
             stud.setPersonName(checkInput.checkString("Ім'я: ", "Ви не ввели ім'я студента."));
             stud.setMiddleName(checkInput.checkString("По-батькові: ", "Ви не ввели по-батькові студента."));
@@ -166,7 +189,15 @@ public class Operations {
             stud.setMonthOfBirth( checkInput.checkInt("Місяць народження: ", "Ви не ввели місяць народження"));
             stud.setDayOfBirth(checkInput.checkInt("День народження: ", "Ви не ввели день народження"));
 
-            stud.setPersonEmail(checkInput.checkEmail("Електронна пошта: ", "Ви не ввели електронну пошту студента."));
+            check = 0;
+            while (check == 0) {
+                try {
+                    stud.setPersonEmail(checkInput.checkEmail("Електронна пошта: ", "Ви не ввели електронну пошту студента."));
+                    check = 1;
+                } catch (DuplicateObjectException doe) {
+                    System.out.println(doe.getMessage());
+                }
+            }
             stud.setPersonPhone(checkInput.checkLong("Номер телефону: ", "Ви ввели номер телефону неправильно."));
 
             stud.setUni(Main.universities.get(uni).fullUniversityName);
@@ -175,7 +206,7 @@ public class Operations {
 
             check = 0;
 
-            stud.setCourseNumber(getMenu().checkOperations(1, 6, "Курс: ", "Ви ввели курс неправильно.", "Ви ввели курс неправильно."));
+            stud.setCourseNumber(getMenu().checkInput.checkOperations(1, 6, "Курс: ", "Ви ввели курс неправильно.", "Ви ввели курс неправильно."));
             stud.setGroupNumber(checkInput.checkInt("Група: ", "Ви ввели групу неправильно."));
             stud.setYearOfEntry(checkInput.checkInt("Рік вступу: ", "Ви ввели рік вступу неправильно: "));
 
@@ -199,7 +230,7 @@ public class Operations {
     }
 
 
-    public void deletingUniversity() throws IOException {
+    public void deletingUniversity() throws Exception {
         int uni = getMenu().universityQuestionNoFaculty();
         Main.universities.remove(uni);
         int i = 1;
@@ -212,7 +243,7 @@ public class Operations {
         getMenu().universityMenu();
     }
 
-    public void deletingFaculty() throws IOException {
+    public void deletingFaculty() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(1);
         int faculty = getMenu().facultyQuestionNoDepartment(uni);
         Main.universities.get(uni).faculties.remove(faculty);
@@ -227,7 +258,7 @@ public class Operations {
 
     }
 
-    public void deletingDepartment() throws IOException {
+    public void deletingDepartment() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(2);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni, 2);
 
@@ -252,7 +283,7 @@ public class Operations {
 
     }
 
-    public void deletingStudent() throws IOException {
+    public void deletingStudent() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(3);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni,3);
         int depart = getMenu().departmentQuestionWithStudents(uni, faculty);
@@ -271,7 +302,7 @@ public class Operations {
 
     }
 
-    public void deletingTeacher() throws IOException {
+    public void deletingTeacher() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(4);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni,4);
         int depart = getMenu().departmentQuestionWithTeachers(uni, faculty);
@@ -298,7 +329,7 @@ public class Operations {
 
 
 
-    public void deleteUser() throws IOException {
+    public void deleteUser() throws Exception {
 
         boolean changed = false;
 
@@ -341,7 +372,7 @@ public class Operations {
 
 
 
-    public void editingUniversity() throws IOException {
+    public void editingUniversity() throws Exception {
         int uni = getMenu().universityQuestionNoFaculty();
         boolean changed = false;
 
@@ -385,7 +416,7 @@ public class Operations {
 
 
 
-    public void editingFaculty() throws IOException {
+    public void editingFaculty() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(1);
         int faculty = getMenu().facultyQuestionNoDepartment(uni);
 
@@ -450,7 +481,7 @@ public class Operations {
         getMenu().facultyMenu();
     }
 
-    public void editingDepartment() throws IOException {
+    public void editingDepartment() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(2);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni, 2);
 
@@ -505,7 +536,7 @@ public class Operations {
         getMenu().departmentMenu();
     }
 
-    public  void editingStudent() throws IOException {
+    public  void editingStudent() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(3);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni, 3);
 
@@ -525,7 +556,15 @@ public class Operations {
                 case 1:
                     System.out.println("Поточний унікальний ідентифікатор: " + Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).getPersonID());
                     int newPersonID = checkInput.checkInt("Введіть новий унікальний ідентифікатор: ", "Ви ввели новий унікальний ідентифікатор неправильно.");
-                    Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonID(newPersonID);
+                    check = 0;
+                    while (check == 0) {
+                        try {
+                            Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonID(newPersonID);
+                            check = 1;
+                        } catch (DuplicateObjectException doe) {
+                            System.out.println(doe.getMessage());
+                        }
+                    }
                     break;
                 case 2:
                     System.out.println("Поточне прізвище: " + Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).getPersonSurname());
@@ -556,7 +595,15 @@ public class Operations {
                 case 6:
                     System.out.println("Поточна електронна пошта: " + Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).getPersonEmail());
                     Authorization.Email newPersonEmail = checkInput.checkEmail("Введіть нову електронну пошту: ", "Ви не ввели нову електронну пошту.");
-                    Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonEmail(newPersonEmail);
+                    check = 0;
+                    while (check == 0) {
+                        try {
+                            Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).setPersonEmail(newPersonEmail);
+                            check = 1;
+                        } catch (DuplicateObjectException doe) {
+                            System.out.println(doe.getMessage());
+                        }
+                    }
                     break;
                 case 7:
                     System.out.println("Поточний номер телефону: " + Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.get(stud).getPersonPhone());
@@ -628,7 +675,7 @@ public class Operations {
     }
 
 
-    public void editingTeacher() throws IOException {
+    public void editingTeacher() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(4);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni,4);
         int depart = getMenu().departmentQuestionWithTeachers(uni, faculty);
@@ -647,7 +694,15 @@ public class Operations {
                 case 1:
                     System.out.println("Поточний унікальний ідентифікатор: " + Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).getPersonID());
                     int newPersonID = checkInput.checkInt("Введіть новий унікальний ідентифікатор: ", "Ви ввели новий унікальний ідентифікатор неправильно.");
-                    Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonID(newPersonID);
+                    check = 0;
+                    while (check == 0) {
+                        try {
+                            Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonID(newPersonID);
+                            check = 1;
+                        } catch (DuplicateObjectException doe) {
+                            System.out.println(doe.getMessage());
+                        }
+                    }
                     break;
                 case 2:
                     System.out.println("Поточне прізвище: " + Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).getPersonSurname());
@@ -678,7 +733,15 @@ public class Operations {
                 case 6:
                     System.out.println("Поточна електронна пошта: " + Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).getPersonEmail());
                     Authorization.Email newPersonEmail = checkInput.checkEmail("Введіть нову електронну пошту: ", "Ви не ввели нову електронну пошту.");
-                    Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonEmail(newPersonEmail);
+                    check = 0;
+                    while (check == 0) {
+                        try {
+                            Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).setPersonEmail(newPersonEmail);
+                            check = 1;
+                        } catch (DuplicateObjectException doe) {
+                            System.out.println(doe.getMessage());
+                        }
+                    }
                     break;
                 case 7:
                     System.out.println("Поточний номер телефону: " + Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.get(teach).getPersonPhone());
@@ -746,7 +809,7 @@ public class Operations {
     }
 
 
-    public void editingUser() throws IOException {
+    public void editingUser() throws Exception {
 
         boolean changed = false;
 

@@ -1,8 +1,6 @@
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Reports {
     AllObjects allObjects = Main.allObjects;
@@ -13,7 +11,7 @@ public class Reports {
     List<Teacher> allTeachers;
 
     //додати перевірку, коли будуть звіти з викладачами
-    public void reports() throws IOException {
+    public void reports() throws Exception {
         int rep =getMenu().reportQuestion();
         int uni;
         int faculty;

@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class Menu {
     Search search = new Search();
 
 
-    public void mainMenu() throws IOException {
+    public void mainMenu() throws Exception {
             int counter = 1;
             System.out.println("=== Оберіть об'єкт з яким хочете працювати ===");
             System.out.println("0. Вийти на сторінку входу");
@@ -51,7 +50,7 @@ public class Menu {
         }
 
 
-            int operation = checkOperations(0, counter,"Введіть номер об'єкта з яким хочете працювати: ", "Номер об'єкта був введений неправильно.","Не існує об'єкта під таким номером.");
+            int operation = checkInput.checkOperations(0, counter,"Введіть номер об'єкта з яким хочете працювати: ", "Номер об'єкта був введений неправильно.","Не існує об'єкта під таким номером.");
 
 
 
@@ -82,13 +81,13 @@ public class Menu {
         }
     }
 
-    public void reportsAndSearchMenu() throws IOException {
+    public void reportsAndSearchMenu() throws Exception {
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню.");
         System.out.println("1. Звіти");
         System.out.println("2. Пошук");
 
-        int operation = checkOperations(0, 2,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
+        int operation = checkInput.checkOperations(0, 2,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
 
         switch (operation) {
             case 0:
@@ -136,7 +135,7 @@ public class Menu {
 
     }
 
-    public void universityMenu() throws IOException {
+    public void universityMenu() throws Exception {
         int counter = 1;
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
@@ -147,7 +146,7 @@ public class Menu {
             counter+=2;
         }
 
-        int operation = checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
+        int operation = checkInput.checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
 
 
             switch (operation) {
@@ -167,7 +166,7 @@ public class Menu {
 
     }
 
-    public void facultyMenu() throws IOException {
+    public void facultyMenu() throws Exception {
         int counter = 1;
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
@@ -178,7 +177,7 @@ public class Menu {
             counter+=2;
         }
 
-        int operation = checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
+        int operation = checkInput.checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
 
 
         switch(operation) {
@@ -198,7 +197,7 @@ public class Menu {
 
     }
 
-    public void departmentMenu() throws IOException {
+    public void departmentMenu() throws Exception {
         int counter = 1;
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
@@ -210,7 +209,7 @@ public class Menu {
         }
 
         check = 0;
-        int operation = checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
+        int operation = checkInput.checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
 
 
         switch(operation) {
@@ -230,7 +229,7 @@ public class Menu {
 
     }
 
-    public void studentMenu() throws IOException {
+    public void studentMenu() throws Exception {
         int counter = 1;
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
@@ -249,7 +248,7 @@ public class Menu {
         }
 
 
-        int operation = checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
+        int operation = checkInput.checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
 
         switch(operation) {
             case 0:
@@ -277,7 +276,7 @@ public class Menu {
         }
     }
 
-    public void teacherMenu() throws IOException {
+    public void teacherMenu() throws Exception {
         int counter = 1;
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
@@ -295,7 +294,7 @@ public class Menu {
         }
 
 
-        int operation = checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
+        int operation = checkInput.checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
 
 
         switch(operation) {
@@ -324,7 +323,7 @@ public class Menu {
     }
 
 
-    public void userMenu() throws IOException {
+    public void userMenu() throws Exception {
         int counter = 1;
         System.out.println("=== Оберіть дію ===");
         System.out.println("0. Повернутись до головного меню");
@@ -338,7 +337,7 @@ public class Menu {
             counter+=3;
         }
 
-        int operation = checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
+        int operation = checkInput.checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
 
         switch(operation) {
             case 0:
@@ -359,7 +358,7 @@ public class Menu {
 
 
 
-    public int universityQuestionNoFaculty() throws IOException {
+    public int universityQuestionNoFaculty() throws Exception {
 
         System.out.println("Оберіть університет: ");
         int i = 0;
@@ -367,41 +366,41 @@ public class Menu {
             i++;
             System.out.println(i + ". " +university.getFullUniversityName());
         }
-        int uni = checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
+        int uni = checkInput.checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
         
         uni--;
         return uni;
 
     }
     
-    public int universityQuestionWithFacultyDepartmentsOrStudents(int operation) throws IOException {
+    public int universityQuestionWithFacultyDepartmentsOrStudents(int operation) throws Exception {
         System.out.println("Оберіть університет: ");
         int i = 0;
         for (University university : Main.universities ) {
             i++;
             System.out.println(i + ". " +university.getFullUniversityName());
         }
-        int uni = checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
+        int uni = checkInput.checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
         uni--;
         switch(operation){
             case 1: //we need faculty
                 while(Main.universities.get(uni).faculties.isEmpty()) {
                     System.out.println("В цьому університеті немає факультетів, кафедр, студентів та викладачів.");
-                    uni = checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
+                    uni = checkInput.checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
                     uni--;
                 }
                 break;
             case 2: //we need department
                 while(allObjects.allDepartmentsByUni(Main.universities.get(uni)).isEmpty()){
                     System.out.println("В цьому університеті немає кафедр.");
-                    uni = checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
+                    uni = checkInput.checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
                     uni--;
                 }
                 break;
             case 3: //we need students
                 while(allObjects.allStudentsByUni(Main.universities.get(uni)).isEmpty()){
                     System.out.println("В цьому університеті немає студентів.");
-                    uni = checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
+                    uni = checkInput.checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
                     uni--;
 
                 }
@@ -409,7 +408,7 @@ public class Menu {
             case 4: //we need teachers
                 while(allObjects.allTeachersByUni(Main.universities.get(uni)).isEmpty()){
                     System.out.println("В цьому університеті немає викладачів.");
-                    uni = checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
+                    uni = checkInput.checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
                     uni--;
 
                 }
@@ -421,7 +420,7 @@ public class Menu {
 
     }
 
-    public int facultyQuestionNoDepartment(int uni) throws IOException {
+    public int facultyQuestionNoDepartment(int uni) throws Exception {
         System.out.println("Оберіть факультет: ");
         int i = 0;
         for (Faculty faculty1 : Main.universities.get(uni).faculties) {
@@ -429,14 +428,14 @@ public class Menu {
             System.out.println(i + ". " + faculty1.getFacultyName());
         }
 
-        int faculty= checkOperations(1, Main.universities.get(uni).faculties.size(),"Введіть номер факультету: ","Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
+        int faculty= checkInput.checkOperations(1, Main.universities.get(uni).faculties.size(),"Введіть номер факультету: ","Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
 
 
         faculty--;
         return faculty;
     }
 
-    public int facultyQuestionWithDepartmentStudentsOrTeachers(int uni, int operation) throws IOException {
+    public int facultyQuestionWithDepartmentStudentsOrTeachers(int uni, int operation) throws Exception {
         System.out.println("Оберіть факультет: ");
 
         int i = 0;
@@ -445,7 +444,7 @@ public class Menu {
             System.out.println(i + ". " + faculty1.getFacultyName());
         };
 
-        int faculty = checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
+        int faculty = checkInput.checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
         faculty--;
 
 
@@ -453,21 +452,21 @@ public class Menu {
             case 2: //we need department
                 while (Main.universities.get(uni).faculties.get(faculty).departments.isEmpty()) {
                     System.out.println("На цьому факультеті немає кафедр, студентів та викладачів.");
-                    faculty = checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
+                    faculty = checkInput.checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
                     faculty--;
                 }
                 break;
             case 3: //we need student
                 while(allObjects.allStudentsByFaculty(Main.universities.get(uni).faculties.get(faculty)).isEmpty()){
                     System.out.println("На цьому факультеті немає студентів.");
-                    faculty = checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
+                    faculty = checkInput.checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
                     faculty--;
                 }
                 break;
             case 4: //we need teacher
                 while(allObjects.allTeachersByFaculty(Main.universities.get(uni).faculties.get(faculty)).isEmpty()){
                     System.out.println("На цьому факультеті немає викладачів.");
-                    faculty = checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
+                    faculty = checkInput.checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
                     faculty--;
                 }
                 break;
@@ -476,7 +475,7 @@ public class Menu {
 
     }
 
-    public int departmentQuestionNoStudentsAndTeachers(int uni, int faculty) throws IOException {
+    public int departmentQuestionNoStudentsAndTeachers(int uni, int faculty) throws Exception {
         System.out.println("Оберіть кафедру: ");
         int i = 0;
         for (Department department : Main.universities.get(uni).faculties.get(faculty).departments) {
@@ -484,13 +483,13 @@ public class Menu {
             System.out.println(i + ". " + department.getDepartmentName());
         }
 
-        int departm = checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(),"Введіть номер кафедри: ","Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
+        int departm = checkInput.checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(),"Введіть номер кафедри: ","Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
 
         departm--;
         return departm;
     }
 
-    public int departmentQuestionWithStudents(int uni, int faculty) throws IOException {
+    public int departmentQuestionWithStudents(int uni, int faculty) throws Exception {
             System.out.println("Оберіть кафедру: ");
             int i = 0;
             for (Department department : Main.universities.get(uni).faculties.get(faculty).departments) {
@@ -498,11 +497,11 @@ public class Menu {
                 System.out.println(i + ". " + department.getDepartmentName());
             }
 
-            int departm = checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(), "Введіть номер кафедри: ", "Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
+            int departm = checkInput.checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(), "Введіть номер кафедри: ", "Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
             departm--;
             while (Main.universities.get(uni).faculties.get(faculty).departments.get(departm).students.isEmpty()) {
                 System.out.println("На цій кафедрі немає студентів.");
-                departm = checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(), "Введіть номер кафедри: ", "Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
+                departm = checkInput.checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(), "Введіть номер кафедри: ", "Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
                 departm--;
             }
 
@@ -511,7 +510,7 @@ public class Menu {
 
     }
 
-    public int departmentQuestionWithTeachers(int uni, int faculty) throws IOException {
+    public int departmentQuestionWithTeachers(int uni, int faculty) throws Exception {
 
 
         System.out.println("Оберіть кафедру: ");
@@ -521,17 +520,17 @@ public class Menu {
             System.out.println(i + ". " + department.getDepartmentName());
         }
 
-        int departm = checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(),"Введіть номер кафедри: ","Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
+        int departm = checkInput.checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(),"Введіть номер кафедри: ","Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
         departm--;
         while(Main.universities.get(uni).faculties.get(faculty).departments.get(departm).teachers.isEmpty()) {
             System.out.println("На цій кафедрі немає викладачів.");
-            departm = checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(),"Введіть номер кафедри: ","Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
+            departm = checkInput.checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(),"Введіть номер кафедри: ","Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
             departm--;
         }
         return departm;
     }
 
-    public int studentQuestion(int uni, int faculty, int depart) throws IOException {
+    public int studentQuestion(int uni, int faculty, int depart) throws Exception {
         System.out.println("Оберіть студента: ");
         int i = 0;
         for (Student student : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students) {
@@ -540,7 +539,7 @@ public class Menu {
         }
 
 
-        int stud = checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.size(),"Введіть номер студента: ","Номер студента був введений неправильно.", "Студента під таким номером не існує.");
+        int stud = checkInput.checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.get(depart).students.size(),"Введіть номер студента: ","Номер студента був введений неправильно.", "Студента під таким номером не існує.");
 
 
 
@@ -548,7 +547,7 @@ public class Menu {
         return stud;
     }
 
-    public int teacherQuestion(int uni, int faculty, int depart) throws IOException {
+    public int teacherQuestion(int uni, int faculty, int depart) throws Exception {
         System.out.println("Оберіть викладача: ");
         int i = 0;
         for (Teacher teacher : Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers) {
@@ -556,14 +555,14 @@ public class Menu {
             System.out.println(i + ". " + teacher.getPersonSurname() + " " + teacher.getPersonName() + " " + teacher.getMiddleName());
         }
 
-        int teach = checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.size(),"Введіть номер викладача: ","Номер викладача був введений неправильно.", "Викладача під таким номером не існує.");
+        int teach = checkInput.checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.get(depart).teachers.size(),"Введіть номер викладача: ","Номер викладача був введений неправильно.", "Викладача під таким номером не існує.");
 
         teach--;
         return teach;
     }
 
 
-    public int universityParameterQuestion() throws IOException {
+    public int universityParameterQuestion() throws Exception {
         System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Назва університету");
@@ -571,12 +570,12 @@ public class Menu {
         System.out.println("3. Місто");
         System.out.println("4. Адреса");
 
-        int parameter = checkOperations(0, 4,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
+        int parameter = checkInput.checkOperations(0, 4,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
 
         return parameter;
     }
 
-    public int facultyParameterQuestion() throws IOException {
+    public int facultyParameterQuestion() throws Exception {
         System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Код факультету");
@@ -587,13 +586,13 @@ public class Menu {
         System.out.println("6. Пошта факультету");
 
 
-        int parameter = checkOperations(0, 6,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
+        int parameter = checkInput.checkOperations(0, 6,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
 
 
         return parameter;
     }
 
-    public int departmentParameterQuestion() throws IOException {
+    public int departmentParameterQuestion() throws Exception {
         System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Код кафедри");
@@ -602,12 +601,12 @@ public class Menu {
         System.out.println("4. Кабінет");
 
 
-        int parameter = checkOperations(0, 4,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
+        int parameter = checkInput.checkOperations(0, 4,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
 
         return parameter;
     }
 
-    public int studentParameterQuestion() throws IOException {
+    public int studentParameterQuestion() throws Exception {
         System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Унікальний ідентифікатор");
@@ -625,7 +624,7 @@ public class Menu {
         System.out.println("13. Статус");
 
 
-        int parameter = checkOperations(0, 13,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
+        int parameter = checkInput.checkOperations(0, 13,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
 
 
         return parameter;
@@ -633,7 +632,7 @@ public class Menu {
 
     }
 
-    public int teacherParameterQuestion() throws IOException {
+    public int teacherParameterQuestion() throws Exception {
         System.out.println("Оберіть параметр, який ви хочете змінити: ");
         System.out.println("0. Завершити зміни");
         System.out.println("1. Унікальний ідентифікатор");
@@ -650,51 +649,51 @@ public class Menu {
         System.out.println("12. Рік прийняття на роботу");
         System.out.println("13. Ставка");
 
-        int parameter = checkOperations(0, 13,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
+        int parameter = checkInput.checkOperations(0, 13,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
 
         return parameter;
 
 
     }
 
-    public int searchQuestion() throws IOException {
+    public int searchQuestion() throws Exception {
         System.out.println("Кого ви хочете знайти?");
         System.out.println("0. Завершити пошук");
         System.out.println("1. Студент");
         System.out.println("2. Викладач");
 
-        int person = checkOperations(0, 2,"Введіть номер особи: ","Номер особи був введений неправильно.", "Особи під таким номером не існує.");
+        int person = checkInput.checkOperations(0, 2,"Введіть номер особи: ","Номер особи був введений неправильно.", "Особи під таким номером не існує.");
 
         return person;
 
     }
 
 
-    public int studentFindingQuestion() throws IOException {
+    public int studentFindingQuestion() throws Exception {
         System.out.println("Оберіть параметр за яким ви хочете знайти студента: ");
         System.out.println("0. Завершити пошук");
         System.out.println("1. ПІБ");
         System.out.println("2. Курс");
         System.out.println("3. Група");
 
-        int parameterf = checkOperations(0, 3,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
+        int parameterf = checkInput.checkOperations(0, 3,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
 
         return parameterf;
 
 
     }
 
-    public int teacherFindingQuestion() throws IOException {
+    public int teacherFindingQuestion() throws Exception {
         System.out.println("Оберіть параметр за яким ви хочете знайти викладача: ");
         System.out.println("0. Завершити пошук");
         System.out.println("1. ПІБ");
 
-        int parametert = checkOperations(0, 1,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
+        int parametert = checkInput.checkOperations(0, 1,"Введіть номер параметра: ","Номер параметра був введений неправильно.", "Параметра під таким номером не існує.");
 
         return parametert;
     }
 
-    public int reportQuestion() throws IOException {
+    public int reportQuestion() throws Exception {
         System.out.println("Оберіть звіт який ви б хотіли переглянути");
         System.out.println("0. Завершити перегляд звітів");
         System.out.println("1. Всі студенти впорядковані за курсами");
@@ -704,56 +703,56 @@ public class Menu {
         System.out.println("5. Всі студенти кафедри вказаного курсу.");
 
         check = 0;
-        int report = checkOperations(0, 5,"Введіть номер звіту: ","Номер звіту був введений неправильно.", "Звіту під таким номером не існує.");
+        int report = checkInput.checkOperations(0, 5,"Введіть номер звіту: ","Номер звіту був введений неправильно.", "Звіту під таким номером не існує.");
 
         return report;
 
     }
 
-    public int studentsOrTeachersReportQuestion() throws IOException {
+    public int studentsOrTeachersReportQuestion() throws Exception {
         System.out.println("Оберіть кого ви б хотіли переглянути");
         System.out.println("1. Студенти");
         System.out.println("2. Викладачі");
 
 
         check = 0;
-        int report = checkOperations(1, 2,"Введіть номер звіту: ","Номер звіту був введений неправильно.", "Звіту під таким номером не існує.");
+        int report = checkInput.checkOperations(1, 2,"Введіть номер звіту: ","Номер звіту був введений неправильно.", "Звіту під таким номером не існує.");
 
         return report;
 
 
     }
 
-    public int courseQuestion() throws IOException {
+    public int courseQuestion() throws Exception {
         check = 0;
-        int cource = checkOperations(1, 2,"Введіть номер курсу: ","Номер курсу був введений неправильно.", "Номер курсу був введений неправильно.(1-6)");
+        int cource = checkInput.checkOperations(1, 2,"Введіть номер курсу: ","Номер курсу був введений неправильно.", "Номер курсу був введений неправильно.(1-6)");
         return cource;
 
     }
 
-    public boolean decanQuestion() throws IOException {
+    public boolean decanQuestion() throws Exception {
         System.out.println("Чи назначити цього викладача деканом факультету?(Так/Ні)");
         System.out.println("1. Так");
         System.out.println("2. Ні");
-        int answer = checkOperations(1,2,"Введіть номер відповіді: ","Номер відповіді був введений неправильно.", "Відповіді під таким номером не існує.");
+        int answer = checkInput.checkOperations(1,2,"Введіть номер відповіді: ","Номер відповіді був введений неправильно.", "Відповіді під таким номером не існує.");
 
         if (answer == 1) return true;
         else return false;
 
     }
 
-    public boolean headOfDepartmentQuestion() throws IOException {
+    public boolean headOfDepartmentQuestion() throws Exception {
         System.out.println("Назначити цього викладача завідувачем кафедри?");
         System.out.println("1. Так");
         System.out.println("2. Ні");
-        int answer = checkOperations(1,2,"Введіть номер відповіді: ","Номер відповіді був введений неправильно.", "Відповіді під таким номером не існує.");
+        int answer = checkInput.checkOperations(1,2,"Введіть номер відповіді: ","Номер відповіді був введений неправильно.", "Відповіді під таким номером не існує.");
 
         if (answer == 1) return true;
         else return false;
 
     }
 
-    public Teacher decanEditingQuestion(List<Teacher> allTeachersByFaculty) throws IOException {
+    public Teacher decanEditingQuestion(List<Teacher> allTeachersByFaculty) throws Exception {
         System.out.println("Оберіть викладача: ");
         int i = 0;
         for (Teacher teacher : allTeachersByFaculty) {
@@ -761,13 +760,13 @@ public class Menu {
             System.out.println(i + ". " + teacher.getPersonSurname() + " " + teacher.getPersonName() + " " + teacher.getMiddleName());
         }
 
-        int teach = checkOperations(1, allTeachersByFaculty.size(),"Введіть номер викладача: ","Номер викладача був введений неправильно.", "Викладача під таким номером не існує.");
+        int teach = checkInput.checkOperations(1, allTeachersByFaculty.size(),"Введіть номер викладача: ","Номер викладача був введений неправильно.", "Викладача під таким номером не існує.");
         teach--;
 
         return allTeachersByFaculty.get(teach);
     }
 
-    public Teacher headOfDepartmentEditingQuestion(List<Teacher> teachers) throws IOException {
+    public Teacher headOfDepartmentEditingQuestion(List<Teacher> teachers) throws Exception {
         System.out.println("Оберіть викладача: ");
         int i = 0;
         for (Teacher teacher : teachers) {
@@ -775,36 +774,36 @@ public class Menu {
             System.out.println(i + ". " + teacher.getPersonSurname() + " " + teacher.getPersonName() + " " + teacher.getMiddleName());
         }
 
-        int teach = checkOperations(1, teachers.size(),"Введіть номер викладача: ","Номер викладача був введений неправильно.", "Викладача під таким номером не існує.");
+        int teach = checkInput.checkOperations(1, teachers.size(),"Введіть номер викладача: ","Номер викладача був введений неправильно.", "Викладача під таким номером не існує.");
         teach--;
 
         return teachers.get(teach);
     }
 
-    public String studyFormQuestion() throws IOException {
+    public String studyFormQuestion() throws Exception {
         System.out.println("Оберіть форму навчання студента: ");
         System.out.println("1. Бюджет");
         System.out.println("2. Контракт");
 
-        int answer = checkOperations(1,2,"Введіть номер форми навчання: ","Форма навчання була введена неправильно.","Форми навчання під таким номером не існує.");
+        int answer = checkInput.checkOperations(1,2,"Введіть номер форми навчання: ","Форма навчання була введена неправильно.","Форми навчання під таким номером не існує.");
         if (answer == 1) return "Бюджет";
         else return "Контракт";
 
     }
 
-    public String studentStatusQuestion() throws IOException {
+    public String studentStatusQuestion() throws Exception {
         System.out.println("Оберіть статус студента: ");
         System.out.println("1. Навчається");
         System.out.println("2. Академвідпустка");
         System.out.println("3. Відрахований");
 
-        int answer = checkOperations(1,3,"Введіть номер статусу: ","Статус був введений неправильно.","Статусу під таким номером не існує.");
+        int answer = checkInput.checkOperations(1,3,"Введіть номер статусу: ","Статус був введений неправильно.","Статусу під таким номером не існує.");
         if (answer == 1) return "Навчається";
         else if (answer == 2) return "Академвідпустка";
         else return "Відрахований";
     }
 
-    public int authorizationQuestion(boolean haventUsersWithRoles) throws IOException {
+    public int authorizationQuestion(boolean haventUsersWithRoles) throws Exception {
         int a = 1;
         System.out.println("=== Увійдіть у свій обліковий запис ===");
         System.out.println("1. Зареєструватись");
@@ -813,36 +812,20 @@ public class Menu {
             a = 2;
         }
 
-        int operation = checkOperations(1, a,"Введіть номер дії: ", "Номер був введений неправильно.", "Немає дії під таким номером.");
+        int operation = checkInput.checkOperations(1, a,"Введіть номер дії: ", "Номер був введений неправильно.", "Немає дії під таким номером.");
         return operation;
 
     }
 
-    public int roleAuthorizationQuestion() throws IOException {
+    public int roleAuthorizationQuestion() throws Exception {
         System.out.println("=== Вкажіть роль ===");
         System.out.println("1. Користувач");
         System.out.println("2. Менеджер");
         System.out.println("3. Адміністратор");
 
-        int role = checkOperations(1, 3,"Введіть номер ролі: ", "Номер був введений неправильно.", "Немає ролі під таким номером.");
+        int role = checkInput.checkOperations(1, 3,"Введіть номер ролі: ", "Номер був введений неправильно.", "Немає ролі під таким номером.");
         return role;
 
-    }
-
-
-    public int checkOperations(int a, int b, String s, String s1, String s2) throws IOException {
-        check = 0;
-        int operation = -1;
-        while (check == 0) {
-            operation = checkInput.checkInt(s,s1);
-
-            if (operation <= b && operation >= a)
-                check = 1;
-            else
-                System.out.println(s2);
-        }
-
-        return operation;
     }
 
 }

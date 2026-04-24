@@ -1,5 +1,5 @@
-import java.io.IOException;
-import java.util.ArrayList;
+import exсeptions.DataLoadException;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -14,18 +14,21 @@ public class Main {
     static Menu menu = new Menu();
     static Authorization auth = new Authorization();
 
-    public static void main(String[] args) throws IOException {
-        DataLoader.loadData("src/data/data.json");
-
-        while(true){
-            Thread autoSaveThread = new Thread(
-                    new AutoSaveService(60000, "src/data/data.json")
-            );
-            autoSaveThread.setDaemon(true); // дозволяє закрити програму без зупинки потоку
-            autoSaveThread.start();
-            //якщо користувач захоче вернутись в режим авторизації, додати тут брейк коли буде виходити з програми
-            auth.authorization();
-            menu.mainMenu();
+    public static void main(String[] args) throws Exception {
+        try {
+            DataLoader.loadData("src/data/data.json");
+            while(true){
+                Thread autoSaveThread = new Thread(
+                        new AutoSaveService(60000, "src/data/data.json")
+                );
+                autoSaveThread.setDaemon(true); // дозволяє закрити програму без зупинки потоку
+                autoSaveThread.start();
+                //якщо користувач захоче вернутись в режим авторизації, додати тут брейк коли буде виходити з програми
+                auth.authorization();
+                menu.mainMenu();
+            }
+        }catch (DataLoadException dle) {
+            System.out.println(dle.getMessage());
         }
     }
 }

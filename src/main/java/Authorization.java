@@ -89,7 +89,7 @@ public class Authorization {
     }
 
 
-    public void authorization() throws IOException {
+    public void authorization() throws Exception {
         int choice = menu.authorizationQuestion(allUsersWithRoles.isEmpty());
         switch (choice) {
             case 1:
@@ -111,7 +111,7 @@ public class Authorization {
 
 
 
-    private void login(BaseUser consumer) throws IOException {
+    private void login(BaseUser consumer) throws Exception {
         boolean loggedIn = false;
         while (!loggedIn) {
             String password = checkInput.checkString("=== Вкажіть пароль ===", "Ви не ввели пароль.");
@@ -163,7 +163,7 @@ public class Authorization {
 
 
 
-    public void register() throws IOException {
+    public void register() throws Exception {
         boolean added = false; // така перевірка чи додався користувач??
         while (!added) {  //checking whether there is user with same emil or not using Set features та нє
             String email1 = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
@@ -193,7 +193,7 @@ public class Authorization {
 
 
 
-    public BaseUser findingConsumer() throws IOException {
+    public BaseUser findingConsumer() throws Exception {
         while (true) {
             String email = checkInput.checkString("=== Вкажіть пошту ===", "Ви не ввели пошту.");
 

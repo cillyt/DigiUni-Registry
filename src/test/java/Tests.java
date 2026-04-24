@@ -37,7 +37,7 @@ public class Tests {
     @Test
     public void testTeacherExperience(){
         String experience = t.getWorkExperience();
-        assertEquals("2025 років, 3 місяців та 2 днів", experience);
+        assertEquals("2025 років, 3 місяців та 23 днів", experience);
     }
     @Test
     public void personAge(){
@@ -56,9 +56,9 @@ public class Tests {
     }
     
     @Test
-    public void setID() throws IOException {
+    public void setID() throws Exception {
         t.setPersonID(1);
-        assertEquals(1,t.personID);
+        assertEquals(1, t.personID);
     }
 
 

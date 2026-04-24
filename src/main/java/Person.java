@@ -1,3 +1,4 @@
+import exсeptions.DuplicateObjectException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,22 +47,23 @@ public class Person{
 
     Person(){}
 
-    public void setPersonID(int personID) throws IOException {
+    public void setPersonID(int personID) throws Exception {
             if(this.personID != personID) {
                 while (Main.IDs.contains(personID)) {
-                    System.out.println("Цей ідентифікаційний код вже зайнятий іншою особою!");
-                    personID = Main.checkInput.checkInt("Унікальний ідентифікатор: ", "Ви ввели унікальний ідентифікатор неправильно.");
+                    throw new DuplicateObjectException("Цей ідентифікаційний код вже зайнятий іншою особою!");
                 }
             }
             this.personID = personID;
             Main.IDs.add(personID);
     }
 
-    public void setPersonEmail(Authorization.Email personEmail) throws IOException {
+    public void setPersonEmail(Authorization.Email personEmail) throws Exception {
         if(this.personEmail != null && !this.personEmail.equals(personEmail)) {
             while (Main.emails.contains(personEmail)) {
-                System.out.println("Ця пошта вже зайнята іншою особою!!");
-                personEmail = Main.checkInput.checkEmail("Електронна пошта: ", "Ви не ввели електронну пошту викладача.");
+                throw new DuplicateObjectException("Ця пошта вже зайнята іншою особою!!");
+
+                //System.out.println("Ця пошта вже зайнята іншою особою!!");
+                //personEmail = Main.checkInput.checkEmail("Електронна пошта: ", "Ви не ввели електронну пошту викладача.");
             }
         }
         Main.emails.add(personEmail);
