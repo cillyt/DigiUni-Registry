@@ -244,7 +244,7 @@
       "email": {
         "value": "a@"
       },
-      "password": "a"
+      "password": "1"
     }
   ],
   "managers": [
@@ -253,6 +253,12 @@
         "value": "lll@gmail.com"
       },
       "password": "lll"
+    },
+    {
+      "email": {
+        "value": "b@"
+      },
+      "password": "1"
     }
   ],
   "admins": [
@@ -261,6 +267,12 @@
         "value": "ka@gmail.com"
       },
       "password": "ka"
+    },
+    {
+      "email": {
+        "value": "@"
+      },
+      "password": "1"
     }
   ]
 }

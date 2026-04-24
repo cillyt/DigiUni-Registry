@@ -17,7 +17,7 @@ public class Operations {
 
     int check;
 
-
+    @MenuOption(label = "Створити університет", section = "university", minRole = 2, order = 1)
     public void addingUniversity() throws Exception {
         University uni = new University();
 
@@ -39,6 +39,7 @@ public class Operations {
 
     }
 
+    @MenuOption(label = "Створити факультет", section = "faculty", minRole = 2, order = 1)
    public void addingFaculty() throws Exception {
         int uni = getMenu().universityQuestionNoFaculty();
 
@@ -64,6 +65,7 @@ public class Operations {
         getMenu().facultyMenu();
     }
 
+    @MenuOption(label = "Створити кафедру", section = "department", minRole = 2, order = 1)
     public void addingDepartment() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(1);
         int faculty = getMenu().facultyQuestionNoDepartment(uni);
@@ -85,6 +87,7 @@ public class Operations {
         getMenu().departmentMenu();
     }
 
+    @MenuOption(label = "Додати викладача", section = "teacher", minRole = 2, order = 2)
     public void addingTeacher() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(2);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni, 2);
@@ -164,6 +167,7 @@ public class Operations {
 
     }
 
+    @MenuOption(label = "Додати студента", section = "student", minRole = 2, order = 2)
     public void addingStudent() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(2);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni,2);
@@ -229,7 +233,13 @@ public class Operations {
 
     }
 
+    @MenuOption(label = "Додати користувача", section = "user", minRole = 3, order = 1)
+    public void addingUser() throws Exception {
+        Main.auth.register();
+    }
 
+
+    @MenuOption(label = "Видалити університет", section = "university", minRole = 2, order = 3)
     public void deletingUniversity() throws Exception {
         int uni = getMenu().universityQuestionNoFaculty();
         Main.universities.remove(uni);
@@ -243,6 +253,7 @@ public class Operations {
         getMenu().universityMenu();
     }
 
+    @MenuOption(label = "Видалити факультет", section = "faculty", minRole = 2, order = 3)
     public void deletingFaculty() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(1);
         int faculty = getMenu().facultyQuestionNoDepartment(uni);
@@ -258,6 +269,7 @@ public class Operations {
 
     }
 
+    @MenuOption(label = "Видалити кафедру", section = "department", minRole = 2, order = 3)
     public void deletingDepartment() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(2);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni, 2);
@@ -283,6 +295,7 @@ public class Operations {
 
     }
 
+    @MenuOption(label = "Вилучити студента", section = "student", minRole = 2, order = 4)
     public void deletingStudent() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(3);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni,3);
@@ -302,6 +315,7 @@ public class Operations {
 
     }
 
+    @MenuOption(label = "Вилучити викладача", section = "teacher", minRole = 2, order = 4)
     public void deletingTeacher() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(4);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni,4);
@@ -328,7 +342,7 @@ public class Operations {
     }
 
 
-
+    @MenuOption(label = "Видалити користувача", section = "user", minRole = 3, order = 3)
     public void deleteUser() throws Exception {
 
         boolean changed = false;
@@ -371,7 +385,7 @@ public class Operations {
     }
 
 
-
+    @MenuOption(label = "Редагувати університет", section = "university", minRole = 2, order = 2)
     public void editingUniversity() throws Exception {
         int uni = getMenu().universityQuestionNoFaculty();
         boolean changed = false;
@@ -416,6 +430,7 @@ public class Operations {
 
 
 
+    @MenuOption(label = "Редагувати факультет", section = "faculty", minRole = 2, order = 2)
     public void editingFaculty() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(1);
         int faculty = getMenu().facultyQuestionNoDepartment(uni);
@@ -481,6 +496,7 @@ public class Operations {
         getMenu().facultyMenu();
     }
 
+    @MenuOption(label = "Редагувати кафедру", section = "department", minRole = 2, order = 2)
     public void editingDepartment() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(2);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni, 2);
@@ -536,6 +552,7 @@ public class Operations {
         getMenu().departmentMenu();
     }
 
+    @MenuOption(label = "Редагувати студента", section = "student", minRole = 2, order = 3)
     public  void editingStudent() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(3);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni, 3);
@@ -675,6 +692,7 @@ public class Operations {
     }
 
 
+    @MenuOption(label = "Редагувати викладача", section = "teacher", minRole = 2, order = 3)
     public void editingTeacher() throws Exception {
         int uni = getMenu().universityQuestionWithFacultyDepartmentsOrStudents(4);
         int faculty = getMenu().facultyQuestionWithDepartmentStudentsOrTeachers(uni,4);
@@ -809,6 +827,7 @@ public class Operations {
     }
 
 
+    @MenuOption(label = "Призначити рівень доступу", section = "user", minRole = 3, order = 2)
     public void editingUser() throws Exception {
 
         boolean changed = false;
@@ -898,6 +917,24 @@ public class Operations {
             }
 
         }
+
+    @MenuOption(label = "Знайти студента", section = "student", minRole = 1, order = 1)
+    public void findStudentOp() throws Exception {
+        if (allObjects.allStudents().isEmpty()){
+            System.out.println("Немає студентів для пошуку.");
+            getMenu().studentMenu();
+        }
+        else getMenu().search.findingStudent();
+    }
+
+    @MenuOption(label = "Знайти викладача", section = "teacher", minRole = 1, order = 1)
+    public void findTeacherOp() throws Exception {
+        if (allObjects.allTeachers().isEmpty()){
+            System.out.println("Немає викладачів для пошуку.");
+            getMenu().teacherMenu();
+        }
+        else getMenu().search.findingTeacher();
+    }
 
 
 }

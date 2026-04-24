@@ -12,6 +12,8 @@ public class Menu {
     Operations operations = new Operations();
     Search search = new Search();
 
+    MenuBuilder menuBuilder = new MenuBuilder(operations);
+
 
     public void mainMenu() throws Exception {
             int counter = 1;
@@ -56,7 +58,8 @@ public class Menu {
 
         switch (operation) {
             case 0:
-                return;
+                Main.auth.authorization();
+                mainMenu();
             case 1:
                 reportsAndSearchMenu();
                 break;
@@ -136,224 +139,36 @@ public class Menu {
     }
 
     public void universityMenu() throws Exception {
-        int counter = 1;
-        System.out.println("=== Оберіть дію ===");
-        System.out.println("0. Повернутись до головного меню");
-        System.out.println("1. Створити університет");
-        if (!Main.universities.isEmpty()){
-            System.out.println("2. Редагувати університет");
-            System.out.println("3. Видалити університет");
-            counter+=2;
-        }
-
-        int operation = checkInput.checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
-
-
-            switch (operation) {
-                case 0:
-                    mainMenu();
-                    break;
-                case 1:
-                    operations.addingUniversity();
-                    break;
-                case 2:
-                    operations.editingUniversity();
-                    break;
-                case 3:
-                    operations.deletingUniversity();
-
-            }
+        menuBuilder.show("university", "Університет", "Повернутись до головного меню");
+        mainMenu();
 
     }
 
     public void facultyMenu() throws Exception {
-        int counter = 1;
-        System.out.println("=== Оберіть дію ===");
-        System.out.println("0. Повернутись до головного меню");
-        System.out.println("1. Створити факультет");
-        if (!allObjects.allFaculties().isEmpty()) {
-            System.out.println("2. Редагувати факультет");
-            System.out.println("3. Видалити факультет");
-            counter+=2;
-        }
-
-        int operation = checkInput.checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
-
-
-        switch(operation) {
-            case 0:
-                mainMenu();
-                break;
-            case 1:
-                operations.addingFaculty();
-                break;
-            case 2:
-                operations.editingFaculty();
-                break;
-            case 3:
-                operations.deletingFaculty();
-
-        }
-
+        menuBuilder.show("faculty", "Факультет", "Повернутись до головного меню");
+        mainMenu();
     }
 
     public void departmentMenu() throws Exception {
-        int counter = 1;
-        System.out.println("=== Оберіть дію ===");
-        System.out.println("0. Повернутись до головного меню");
-        System.out.println("1. Створити кафедру");
-        if (!allObjects.allDepartments().isEmpty()) {
-            System.out.println("2. Редагувати кафедру");
-            System.out.println("3. Видалити кафедру");
-            counter+=2;
-        }
-
-        check = 0;
-        int operation = checkInput.checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
-
-
-        switch(operation) {
-            case 0:
-                mainMenu();
-                break;
-            case 1:
-                operations.addingDepartment();
-                break;
-            case 2:
-                operations.editingDepartment();
-                break;
-            case 3:
-                operations.deletingDepartment();
-
-        }
+        menuBuilder.show("department", "Кафедра", "Повернутись до головного меню");
+        mainMenu();
 
     }
 
     public void studentMenu() throws Exception {
-        int counter = 1;
-        System.out.println("=== Оберіть дію ===");
-        System.out.println("0. Повернутись до головного меню");
-
-        System.out.println("1. Знайти студента");
-
-        if (Authorization.status != 1) {
-            System.out.println("2. Додати студента");
-            counter++;
-
-            if (!allObjects.allStudents().isEmpty()) {
-                System.out.println("3. Редагувати дані студента");
-                System.out.println("4. Вилучити студента");
-                counter += 2;
-            }
-        }
-
-
-        int operation = checkInput.checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
-
-        switch(operation) {
-            case 0:
-                mainMenu();
-                break;
-            case 1:
-                if (allObjects.allStudents().isEmpty()){
-                    System.out.println("Немає студентів для пошуку.");
-                    studentMenu();
-                }
-                else search.findingStudent();
-
-                break;
-            case 2:
-                operations.addingStudent();
-                break;
-            case 3:
-                operations.editingStudent();
-                break;
-            case 4:
-                operations.deletingStudent();
-                break;
-
-
-        }
+        menuBuilder.show("student", "Студент", "Повернутись до головного меню");
+        mainMenu();
     }
 
     public void teacherMenu() throws Exception {
-        int counter = 1;
-        System.out.println("=== Оберіть дію ===");
-        System.out.println("0. Повернутись до головного меню");
-        System.out.println("1. Знайти викладача");
-
-        if (Authorization.status != 1) {
-            System.out.println("2. Додати викладача");
-            counter++;
-
-            if (!allObjects.allTeachers().isEmpty()) {
-                System.out.println("3. Редагувати дані викладача");
-                System.out.println("4. Вилучити викладача");
-                counter += 2;
-            }
-        }
-
-
-        int operation = checkInput.checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
-
-
-        switch(operation) {
-            case 0:
-                mainMenu();
-                break;
-            case 1:
-                if (allObjects.allTeachers().isEmpty()){
-                    System.out.println("Немає вчителів для пошуку.");
-                    teacherMenu();
-                }
-                else search.findingTeacher();
-                break;
-            case 2:
-                operations.addingTeacher();
-                break;
-            case 3:
-                operations.editingTeacher();
-                break;
-            case 4:
-                operations.deletingTeacher();
-                break;
-
-
-        }
+        menuBuilder.show("teacher", "Викладач", "Повернутись до головного меню");
+        mainMenu();
     }
 
 
     public void userMenu() throws Exception {
-        int counter = 1;
-        System.out.println("=== Оберіть дію ===");
-        System.out.println("0. Повернутись до головного меню");
-        System.out.println("1. Добавити користувача");
-
-        boolean b = Authorization.allUsersWithRoles.size() > 1;
-
-        if (Authorization.status == 3 && b) {
-            System.out.println("2. Призначити рівень доступу користувача");
-            System.out.println("3. Видалити користувача");
-            counter+=3;
-        }
-
-        int operation = checkInput.checkOperations(0, counter,"Введіть номер дії: ","Номер дії був введений неправильно.", "Дії під таким номером не існує.");
-
-        switch(operation) {
-            case 0:
-                mainMenu();
-                break;
-            case 1:
-                Authorization a =  new Authorization();
-                a.register();
-                break;
-            case 2:
-                operations.editingUser();
-                break;
-            case 3:
-                operations.deleteUser();
-                break;
-        }
+        menuBuilder.show("user", "Користувач", "Повернутись до головного меню");
+        mainMenu();
     }
 
 
