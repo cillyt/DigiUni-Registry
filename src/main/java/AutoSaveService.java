@@ -4,7 +4,8 @@ import com.google.gson.GsonBuilder;
 import javax.xml.crypto.Data;
 import java.io.FileWriter;
 import java.io.IOException;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 public class AutoSaveService implements Runnable {
 
 
@@ -30,10 +31,10 @@ public class AutoSaveService implements Runnable {
         while (true) {
             try {
                 saveToFile();
-                System.out.println("Дані збережено: " + java.time.LocalTime.now());
+                log.debug("Дані збережено: {}", java.time.LocalTime.now());
                 Thread.sleep(intervalMs);
             } catch (InterruptedException e) {
-                System.out.println("Автозбереження зупинено");
+                log.debug("Автозбереження зупинено");
                 return;
             } catch (Exception e) {
                 e.printStackTrace();

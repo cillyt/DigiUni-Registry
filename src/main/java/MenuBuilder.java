@@ -3,7 +3,8 @@ import java.nio.file.AccessDeniedException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 public class MenuBuilder {
     private final Object target;
 
@@ -20,7 +21,7 @@ public class MenuBuilder {
         List<Method> available = getAvailableMethods(section);
 
         if (available.isEmpty()) {
-            System.out.println("Немає доступних дій у цьому розділі.");
+            log.warn("Немає доступних дій у цьому розділі.");
             return;
         }
 

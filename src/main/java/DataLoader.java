@@ -9,7 +9,8 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Set;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 public class DataLoader {
 
     public static void loadData(String filePath) throws Exception {
@@ -33,11 +34,14 @@ public class DataLoader {
             }
 
         }catch (FileNotFoundException e) {
-            throw new DataLoadException("Файл даних не знайдено: " + filePath);
+            log.warn("Файл даних не знайдено: " + filePath);
+            throw new DataLoadException("");
         } catch (JsonSyntaxException e) {
-            throw new DataLoadException("Помилка формату JSON у файлі: " + filePath + ". " + e.getMessage());
+            log.warn("Помилка формату JSON у файлі: " + filePath + ". " + e.getMessage());
+            throw new DataLoadException("");
         } catch (IOException e) {
-            throw new DataLoadException("Помилка читання файлу: " + filePath + ". " + e.getMessage());
+            log.warn("Помилка читання файлу: " + filePath + ". " + e.getMessage());
+            throw new DataLoadException("");
         }
     }
 }

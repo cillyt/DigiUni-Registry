@@ -1,7 +1,8 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 public class Menu {
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     int check;
@@ -98,7 +99,7 @@ public class Menu {
                 break;
             case 1:
                 if(allObjects.allStudents().isEmpty() /*&& allObjects.allTeachers().isEmpty()*/){ //треба додати перевірку в репорти (коли додамо викладачів)
-                    System.out.println("Немає викладачів та студентів, звіт не може бути складений.");
+                    log.warn("Немає викладачів та студентів, звіт не може бути складений.");
                     reportsAndSearchMenu();
                 }
                 else{
@@ -114,7 +115,7 @@ public class Menu {
                         break;
                     case 1:
                         if (allObjects.allStudents().isEmpty()){
-                            System.out.println("Немає студентів для пошуку.");
+                            log.warn("Немає студентів для пошуку.");
                             reportsAndSearchMenu();
                         }
                         else
@@ -122,7 +123,7 @@ public class Menu {
                         break;
                     case 2:
                         if (allObjects.allTeachers().isEmpty()){
-                            System.out.println("Немає вчителів для пошуку.");
+                            log.warn("Немає вчителів для пошуку.");
                             reportsAndSearchMenu();
                         }
                         else
@@ -200,21 +201,21 @@ public class Menu {
         switch(operation){
             case 1: //we need faculty
                 while(Main.universities.get(uni).faculties.isEmpty()) {
-                    System.out.println("В цьому університеті немає факультетів, кафедр, студентів та викладачів.");
+                    log.warn("В цьому університеті немає факультетів, кафедр, студентів та викладачів.");
                     uni = checkInput.checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
                     uni--;
                 }
                 break;
             case 2: //we need department
                 while(allObjects.allDepartmentsByUni(Main.universities.get(uni)).isEmpty()){
-                    System.out.println("В цьому університеті немає кафедр.");
+                    log.warn("В цьому університеті немає кафедр.");
                     uni = checkInput.checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
                     uni--;
                 }
                 break;
             case 3: //we need students
                 while(allObjects.allStudentsByUni(Main.universities.get(uni)).isEmpty()){
-                    System.out.println("В цьому університеті немає студентів.");
+                    log.warn("В цьому університеті немає студентів.");
                     uni = checkInput.checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
                     uni--;
 
@@ -222,7 +223,7 @@ public class Menu {
                 break;
             case 4: //we need teachers
                 while(allObjects.allTeachersByUni(Main.universities.get(uni)).isEmpty()){
-                    System.out.println("В цьому університеті немає викладачів.");
+                    log.warn("В цьому університеті немає викладачів.");
                     uni = checkInput.checkOperations(1, Main.universities.size(), "Введіть номер університету: ", "Номер університету був введений неправильно.", "Університету під таким номером не існує.");
                     uni--;
 
@@ -266,21 +267,21 @@ public class Menu {
         switch (operation){
             case 2: //we need department
                 while (Main.universities.get(uni).faculties.get(faculty).departments.isEmpty()) {
-                    System.out.println("На цьому факультеті немає кафедр, студентів та викладачів.");
+                    log.warn("На цьому факультеті немає кафедр, студентів та викладачів.");
                     faculty = checkInput.checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
                     faculty--;
                 }
                 break;
             case 3: //we need student
                 while(allObjects.allStudentsByFaculty(Main.universities.get(uni).faculties.get(faculty)).isEmpty()){
-                    System.out.println("На цьому факультеті немає студентів.");
+                    log.warn("На цьому факультеті немає студентів.");
                     faculty = checkInput.checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
                     faculty--;
                 }
                 break;
             case 4: //we need teacher
                 while(allObjects.allTeachersByFaculty(Main.universities.get(uni).faculties.get(faculty)).isEmpty()){
-                    System.out.println("На цьому факультеті немає викладачів.");
+                    log.warn("На цьому факультеті немає викладачів.");
                     faculty = checkInput.checkOperations(1, Main.universities.get(uni).faculties.size(), "Введіть номер факультету: ", "Номер факультету був введений неправильно.", "Факультету під таким номером не існує.");
                     faculty--;
                 }
@@ -315,7 +316,7 @@ public class Menu {
             int departm = checkInput.checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(), "Введіть номер кафедри: ", "Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
             departm--;
             while (Main.universities.get(uni).faculties.get(faculty).departments.get(departm).students.isEmpty()) {
-                System.out.println("На цій кафедрі немає студентів.");
+                log.warn("На цій кафедрі немає студентів.");
                 departm = checkInput.checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(), "Введіть номер кафедри: ", "Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
                 departm--;
             }
@@ -338,7 +339,7 @@ public class Menu {
         int departm = checkInput.checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(),"Введіть номер кафедри: ","Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
         departm--;
         while(Main.universities.get(uni).faculties.get(faculty).departments.get(departm).teachers.isEmpty()) {
-            System.out.println("На цій кафедрі немає викладачів.");
+            log.warn("На цій кафедрі немає викладачів.");
             departm = checkInput.checkOperations(1, Main.universities.get(uni).faculties.get(faculty).departments.size(),"Введіть номер кафедри: ","Номер кафедри був введений неправильно.", "Кафедри під таким номером не існує.");
             departm--;
         }

@@ -1,9 +1,11 @@
 import java.io.IOException;
 import java.util.*;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 public class Authorization {
     Menu menu = new Menu();
     CheckInput checkInput = Main.checkInput;
+    //static Logger logger = Logger.getLogger(Authorization.class.getName());
 
     public sealed interface BaseUser permits Administrator, Manager, User{
         Email email();
@@ -15,7 +17,10 @@ public class Authorization {
         public Email {
             Objects.requireNonNull(value, "email");
             value = value.trim().toLowerCase();
-            if (!value.contains("@")) throw new IllegalArgumentException("Пошта вказана не правильно (відсутність @): " + value);
+            if (!value.contains("@")) {
+                //log.warn("Пошта вказана не правильно (відсутність @): " + value);
+                throw new IllegalArgumentException("Пошта вказана не правильно (відсутність @): " + value);
+            }
         }
         @Override
         public String toString() {
@@ -120,41 +125,16 @@ public class Authorization {
 
 
             if (password.equals(consumer.password())) {
-                System.out.println("Ви успішно увійшли у свій обліковий запис!");
+                //System.out.println("Ви успішно увійшли у свій обліковий запис!");
+                //logger.log(Level.INFO, "Ви успішно увійшли у свій обліковий запис!");
+                log.info("Ви успішно увійшли у свій обліковий запис!");
                 switch (consumer) {
                     case User _ -> status = 1;
                     case Manager _ -> status = 2;
                     case Administrator _ -> status = 3;
                 }
                 loggedIn = true;
-            } else System.out.println("Введено невірний пароль!");
-
-
-//            switch (consumer) {
-//                case User u -> {
-//                    if (password.equals(u.password())) {
-//                        System.out.println("Ви успішно увійшли у свій обліковий запис!");
-//                        status = 1;
-//                        loggedIn = true;
-//                    } else System.out.println("Введено невірний пароль!");
-//                }
-//
-//                case Manager m -> {
-//                    if (password.equals(m.password())) {
-//                        System.out.println("Ви успішно увійшли у свій обліковий запис!");
-//                        status = 2;
-//                        loggedIn = true;
-//                    } else System.out.println("Введено невірний пароль!");
-//                }
-//
-//                case Administrator a -> {
-//                    if (password.equals(a.password())) {
-//                        System.out.println("Ви успішно увійшли у свій обліковий запис!");
-//                        status = 3;
-//                        loggedIn = true;
-//                    } else System.out.println("Введено невірний пароль!");
-//                }
-//            }
+            } else  log.warn("Введено невірний пароль!");
         }
     }
 
@@ -175,17 +155,17 @@ public class Authorization {
                         .noneMatch(u -> u.email().equals(email2));
 
                         if(!isEmailUnique){
-                            System.out.println("Обліковий запис з такою електронною поштою вже існує!");
+                            log.warn("Обліковий запис з такою електронною поштою вже існує!");
                             continue;
                         }
                         allUsers.add(new User(email2, password));
                         allUsersWithRoles.add(new User(email2, password));
                         added = true;
-                        System.out.println("Ви успішно створили новий обліковий запис!");
+                        log.info("Ви успішно створили новий обліковий запис!");
                         break;
                     }
                     catch (IllegalArgumentException e) {
-                        System.out.println(e.getMessage());
+                        log.warn(e.getMessage());
                         break;
                     }
         }
@@ -205,11 +185,11 @@ public class Authorization {
                 if (result.isPresent())
                     return result.get();
                 else
-                    System.out.println("Користувача з такою поштою не існує.");
+                    log.warn("Користувача з такою поштою не існує.");
 
             }
             catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                log.warn(e.getMessage());
             }
         }
     }

@@ -4,6 +4,8 @@ import exсeptions.ValidationException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 
 public class CheckInput {
     int check;
@@ -18,8 +20,10 @@ public class CheckInput {
             try {
                 System.out.println(s);
                 parameter = reader.readLine();
-                if (parameter.equals(""))
+                if (parameter.equals("")){
+                    log.warn(s1);
                     throw new ValidationException(s1);
+                }
                 else {
                     for (int i = 0; i < parameter.length(); i++) {
                         if (parameter.charAt(i) != ' ') {
@@ -27,12 +31,13 @@ public class CheckInput {
                         }
                     }
                     if (check != 1) {
+                        log.warn(s1);
                         throw new ValidationException(s1);
                     }
                 }
             }
             catch (ValidationException ve){
-                System.out.println(s1);
+                log.warn(s1);
             }
         }
 
@@ -51,7 +56,7 @@ public class CheckInput {
                 System.out.println(s);
                 parameter = reader.readLine();
                 if (parameter.equals(""))
-                    System.out.println(s1);
+                    log.warn(s1);
                 else{
                     for (int i = 0; i < parameter.length(); i++) {
                         if (parameter.charAt(i) != ' ') {
@@ -59,7 +64,7 @@ public class CheckInput {
                         }
                     }
                     if (check!=1) {
-                        System.out.println(s1);
+                        log.warn(s1);
                     }
                 }
             }
@@ -69,7 +74,7 @@ public class CheckInput {
                 return email;
             }
             catch (IllegalArgumentException ex){
-                System.out.println("Пошта вказана не правильно (відсутність @): " + parameter);
+                log.warn("Пошта вказана не правильно (відсутність @): " + parameter);
             }
         }
     }
@@ -85,7 +90,7 @@ public class CheckInput {
                 check = 1;
             }
             catch(NumberFormatException e){
-                System.out.println(s1);
+                log.warn(s1);
                 check = 0;
             }
         }
@@ -102,7 +107,7 @@ public class CheckInput {
                 check = 1;
             }
             catch(NumberFormatException e){
-                System.out.println(s1);
+                log.warn(s1);
                 check = 0;
             }
         }
@@ -123,7 +128,7 @@ public class CheckInput {
                     throw new OptionNumberException(s2);
             }
             catch (OptionNumberException e) {
-                System.out.println(s2);
+                log.warn(s2);
             }
         }
 

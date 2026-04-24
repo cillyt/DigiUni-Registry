@@ -3,7 +3,8 @@ import exсeptions.DuplicateObjectException;
 import java.util.*;
 
 //import static javax.management.Query.and;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 public class Operations {
 
     AllObjects allObjects = Main.allObjects;
@@ -34,7 +35,7 @@ public class Operations {
             i++;
         }
 
-        System.out.println("Університет було додано!");
+        log.info("Університет було додано!");
         getMenu().universityMenu();
 
     }
@@ -61,7 +62,7 @@ public class Operations {
            i++;
        }
 
-        System.out.println("Факультет було додано!");
+        log.info("Факультет було додано!");
         getMenu().facultyMenu();
     }
 
@@ -83,7 +84,7 @@ public class Operations {
             i++;
         }
 
-        System.out.println("Кафедру було додано!");
+        log.info("Кафедру було додано!");
         getMenu().departmentMenu();
     }
 
@@ -157,7 +158,7 @@ public class Operations {
                     i++;
                 }
 
-                System.out.println("Вчитель був успішно доданий!");
+                log.info("Вчитель був успішно доданий!");
 
 
 
@@ -225,7 +226,7 @@ public class Operations {
                 i++;
             }
 
-            System.out.println("Студент був успішно доданий!");
+            log.info("Студент був успішно доданий!");
 
 
 
@@ -249,7 +250,7 @@ public class Operations {
             System.out.print("-------------------------------------------------------\n");
             i++;
         }
-        System.out.println("Університет був успішно видалений!");
+        log.info("Університет був успішно видалений!");
         getMenu().universityMenu();
     }
 
@@ -264,7 +265,7 @@ public class Operations {
             System.out.print("-------------------------------------------------------\n");
             i++;
         }
-        System.out.println("Факультет був успішно видалений!");
+        log.info("Факультет був успішно видалений!");
         getMenu().facultyMenu();
 
     }
@@ -288,7 +289,7 @@ public class Operations {
                 System.out.print("-------------------------------------------------------\n");
                 i++;
             }
-            System.out.println("Кафедра була успішно видалена!");
+        log.info("Кафедра була успішно видалена!");
 
         getMenu().departmentMenu();
 
@@ -309,7 +310,7 @@ public class Operations {
                 System.out.print("-------------------------------------------------------\n");
                 i++;
             }
-            System.out.println("Студент був успішно вилучений!");
+        log.info("Студент був успішно вилучений!");
 
         getMenu().studentMenu();
 
@@ -335,7 +336,7 @@ public class Operations {
                 System.out.print("-------------------------------------------------------\n");
                 i++;
             }
-            System.out.println("Викладач був успішно вилучений!");
+        log.info("Викладач був успішно вилучений!");
 
         getMenu().teacherMenu();
 
@@ -373,7 +374,7 @@ public class Operations {
 
 
             changed = true;
-            System.out.println("Користувач успішно видалений!");
+            log.info("Користувач успішно видалений!");
 
             //   Authorization.BaseUser us = Authorization.allUsersWithRoles(chooseUser);
 
@@ -424,7 +425,7 @@ public class Operations {
             System.out.print("-------------------------------------------------------\n");
             i++;
         }
-        System.out.println("Університет був успішно змінений!");
+        log.info("Університет був успішно змінений!");
         getMenu().universityMenu();
     }
 
@@ -471,7 +472,7 @@ public class Operations {
                                     t.decan = false;
                             }
                     }
-                    else System.out.println("На обраному факультеті немає вчителів.");
+                    else log.warn("На обраному факультеті немає вчителів.");
                     break;
                 case 5:
                     System.out.println("Поточний номер телефону факультету: " + Main.universities.get(uni).faculties.get(faculty).getFacultyPhoneNumber());
@@ -492,7 +493,7 @@ public class Operations {
             System.out.print("-------------------------------------------------------\n");
             i++;
         }
-        System.out.println("Факультет був успішно змінений!");
+        log.info("Факультет був успішно змінений!");
         getMenu().facultyMenu();
     }
 
@@ -531,7 +532,7 @@ public class Operations {
                                 else
                                     t.decan = false;
                             }
-                    } else System.out.println("На обраній кафедрі немає вчителів.");
+                    } else log.warn("На обраній кафедрі немає вчителів.");
                     break;
 
                 case 4:
@@ -547,7 +548,7 @@ public class Operations {
             System.out.print("-------------------------------------------------------\n");
             i++;
         }
-        System.out.println("Кафедра була успішно змінена!");
+        log.info("Кафедра була успішно змінена!");
 
         getMenu().departmentMenu();
     }
@@ -687,7 +688,7 @@ public class Operations {
             i++;
 
         }
-        System.out.println("Студент був успішно змінений!");
+        log.info("Студент був успішно змінений!");
         getMenu().studentMenu();
     }
 
@@ -821,7 +822,7 @@ public class Operations {
             System.out.print("-------------------------------------------------------\n");
             i++;
         }
-        System.out.println("Викладач був успішно змінений!");
+        log.info("Викладач був успішно змінений!");
 
         getMenu().teacherMenu();
     }
@@ -866,7 +867,7 @@ public class Operations {
                     Authorization.allUsersWithRoles.add(user);
                     Authorization.allUsers.add(user);
                     changed = true;
-                    System.out.println("Користувач успішно призначений користувачем!");
+                    log.info("Користувач успішно призначений користувачем!");
                     break;
 
                 case 2:
@@ -888,7 +889,7 @@ public class Operations {
                     Authorization.allUsersWithRoles.add(user1);
                     Authorization.allManagers.add(user1);
                     changed = true;
-                    System.out.println("Користувач успішно призначений менеджером!");
+                    log.info("Користувач успішно призначений менеджером!");
                     break;
 
                 case 3:
@@ -910,7 +911,7 @@ public class Operations {
                     Authorization.allUsersWithRoles.add(user2);
                     Authorization.allAdministrators.add(user2);
                     changed = true;
-                    System.out.println("Користувач успішно призначений адміністратором!");
+                    log.info("Користувач успішно призначений адміністратором!");
                     break;
 
             }
@@ -921,7 +922,7 @@ public class Operations {
     @MenuOption(label = "Знайти студента", section = "student", minRole = 1, order = 1)
     public void findStudentOp() throws Exception {
         if (allObjects.allStudents().isEmpty()){
-            System.out.println("Немає студентів для пошуку.");
+            log.warn("Немає студентів для пошуку.");
             getMenu().studentMenu();
         }
         else getMenu().search.findingStudent();
@@ -930,7 +931,7 @@ public class Operations {
     @MenuOption(label = "Знайти викладача", section = "teacher", minRole = 1, order = 1)
     public void findTeacherOp() throws Exception {
         if (allObjects.allTeachers().isEmpty()){
-            System.out.println("Немає викладачів для пошуку.");
+            log.warn("Немає викладачів для пошуку.");
             getMenu().teacherMenu();
         }
         else getMenu().search.findingTeacher();

@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.regex.Pattern;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 public class Search {
     AllObjects allObjects = Main.allObjects;
     CheckInput checkInput = Main.checkInput;
@@ -20,7 +21,7 @@ public class Search {
                     String findBySNM = checkInput.checkString("Введіть ПІБ для пошуку: ", "Ви не ввели ПІБ для пошуку.");
                     List<Student> results = findBySNM(findBySNM);
                     if (results.isEmpty())
-                        System.out.println("Студентів з таким ПІБ не знайдено");
+                        log.warn("Студентів з таким ПІБ не знайдено");
                     else {
                         System.out.println("Знайдено студентів: " + results.size());
                         int i = 1;
@@ -37,7 +38,7 @@ public class Search {
                     List<Student> results1 = findByYear(findByYear);
 
                     if (results1.isEmpty())
-                        System.out.println("Студентів такого курсу не знайдено");
+                        log.warn("Студентів такого курсу не знайдено");
                     else {
                         System.out.println("Знайдено студентів: " + results1.size());
                         int i = 1;
@@ -54,7 +55,7 @@ public class Search {
                     List <Student> results2 = findByGroup(findByGroup);
 
                     if (results2.isEmpty()) {
-                        System.out.println("Студентів такої групи не знайдено");
+                        log.warn("Студентів такої групи не знайдено");
                     } else {
                         System.out.println("Знайдено студентів: " + results2.size());
                         int i = 1;
@@ -79,7 +80,7 @@ public class Search {
                 List<Teacher> results = findBySNMt(findBySNMt);
 
                 if (results.isEmpty())
-                    System.out.println("Викладачів з таким ПІБ не знайдено");
+                    log.warn("Викладачів з таким ПІБ не знайдено");
                 else {
                     System.out.println("Знайдено викладачів: " + results.size());
                     int i = 1;

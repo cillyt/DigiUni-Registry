@@ -5,10 +5,11 @@ import lombok.Setter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
-
+@Slf4j
 public class Person{
     int personID;
     String personSurname;
@@ -50,7 +51,8 @@ public class Person{
     public void setPersonID(int personID) throws Exception {
             if(this.personID != personID) {
                 while (Main.IDs.contains(personID)) {
-                    throw new DuplicateObjectException("Цей ідентифікаційний код вже зайнятий іншою особою!");
+                    log.warn("Цей ідентифікаційний код вже зайнятий іншою особою!");
+                    throw new DuplicateObjectException("");
                 }
             }
             this.personID = personID;
@@ -60,7 +62,8 @@ public class Person{
     public void setPersonEmail(Authorization.Email personEmail) throws Exception {
         if(this.personEmail != null && !this.personEmail.equals(personEmail)) {
             while (Main.emails.contains(personEmail)) {
-                throw new DuplicateObjectException("Ця пошта вже зайнята іншою особою!!");
+                log.warn("Ця пошта вже зайнята іншою особою!!");
+                throw new DuplicateObjectException("");
 
                 //System.out.println("Ця пошта вже зайнята іншою особою!!");
                 //personEmail = Main.checkInput.checkEmail("Електронна пошта: ", "Ви не ввели електронну пошту викладача.");

@@ -3,6 +3,8 @@ import exсeptions.DataLoadException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 
 public class Main {
     static List<University> universities;
@@ -16,6 +18,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         try {
+            Authorization.baseSet();
             DataLoader.loadData("src/data/data.json");
             while(true){
                 Thread autoSaveThread = new Thread(
@@ -28,7 +31,7 @@ public class Main {
                 menu.mainMenu();
             }
         }catch (DataLoadException dle) {
-            System.out.println(dle.getMessage());
+            log.warn(dle.getMessage());
         }
     }
 }
